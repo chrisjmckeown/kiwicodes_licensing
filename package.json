@@ -4,7 +4,8 @@
   "description": "A portal for clients to manage licenses including license assignment. Also a portal for all to view Kiwi Codes Apps and Tools, to like and comment.",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server",
+    "server": "nodemon server"
   },
   "repository": {
     "type": "git",

@@ -1,3 +1,6 @@
+# secure information
+default.json*
+
 # Logs
 logs
 *.log
