@@ -12,7 +12,7 @@ router.use('/api/clients', require('./clients'));
 // router.use('/api/licenseKeys', require('./licenseKeys'));
 router.use('/api/members', require('./members'));
 router.use('/api/profile', require('./profile'));
-// router.use('/api/toolActivations', require('./toolActivations'));
+router.use('/api/toolActivations', require('./toolActivations'));
 router.use('/api/tools', require('./tools'));
 
 module.exports = router;

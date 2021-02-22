@@ -13,7 +13,7 @@ module.exports = function (sequelize, DataTypes) {
       },
       dateReleased: {
         type: DataTypes.DATE,
-        allowNull: false,
+        allowNull: true,
       },
       pcID: {
         type: DataTypes.STRING(50),
