@@ -36,7 +36,6 @@ module.exports = {
   create: async (req, res) => {
     const { dateActivated, pcID, toolId, memberId } = req.body;
 
-    console.log(dateActivated);
     const toolActivationFeilds = {
       dateActivated,
       pcID,
