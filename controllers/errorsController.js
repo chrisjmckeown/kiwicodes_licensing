@@ -1,7 +1,7 @@
 const db = require('../models/sql');
 const { validationResult } = require('express-validator/check');
 
-// Defining methods for the toolActivationsController
+// Defining methods for the errorsController
 module.exports = {
   // @route   GET api/errors
   // @desc    Get all errors
