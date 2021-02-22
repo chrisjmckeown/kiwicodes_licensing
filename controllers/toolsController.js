@@ -43,11 +43,13 @@ module.exports = {
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { name, description } = req.body;
+    const { name, description, purchaseLink, helpLink } = req.body;
 
     const toolFeilds = {
       name,
       description,
+      purchaseLink,
+      helpLink,
     };
 
     try {
@@ -71,11 +73,13 @@ module.exports = {
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { name, description } = req.body;
+    const { name, description, purchaseLink, helpLink } = req.body;
 
     const toolFeilds = {
       name,
       description,
+      purchaseLink,
+      helpLink,
     };
 
     try {

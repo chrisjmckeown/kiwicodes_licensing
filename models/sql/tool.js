@@ -18,6 +18,20 @@ module.exports = function (sequelize, DataTypes) {
         type: DataTypes.TEXT,
         allowNull: false,
       },
+      purchaseLink: {
+        type: DataTypes.STRING(255),
+        allowNull: true,
+        validate: {
+          len: [1, 255],
+        },
+      },
+      helpLink: {
+        type: DataTypes.STRING(255),
+        allowNull: true,
+        validate: {
+          len: [1, 255],
+        },
+      },
     },
     {
       freezeTableName: true,
