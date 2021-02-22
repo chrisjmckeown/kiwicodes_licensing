@@ -63,7 +63,7 @@ module.exports = {
     }
   },
   // @route   PUT api/builds/:id
-  // @desc    Update a tool activation release datetime
+  // @desc    Update a build
   // @access  Private
   update: async (req, res) => {
     if (req.member.role !== 'kiwicodes') {
