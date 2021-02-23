@@ -28,7 +28,7 @@ module.exports = {
     }
   },
   // @route   POST api/apps
-  // @desc    Create a app (admins only)
+  // @desc    Create a app (kiwicodes admin only)
   // @access  Private
   create: async (req, res) => {
     if (req.member.role !== 'kiwicodes') {
@@ -59,7 +59,7 @@ module.exports = {
     }
   },
   // @route   PUT api/apps/:id
-  // @desc    Update a app (admins only)
+  // @desc    Update a app (kiwicodes admin only)
   // @access  Private
   update: async (req, res) => {
     if (req.member.role !== 'kiwicodes') {
@@ -93,7 +93,7 @@ module.exports = {
     }
   },
   // @route   DELETE api/apps/:id
-  // @desc    Delete a app (admins only)
+  // @desc    Delete a app (kiwicodes admin only)
   // @access  Private
   remove: async (req, res) => {
     try {

@@ -3,7 +3,7 @@ const db = require('../models/sql');
 // Defining methods for the licenseKeysController
 module.exports = {
   // @route   GET api/licenseKeys
-  // @desc    Get all License Keys (admins only)
+  // @desc    Get all License Keys (kiwicodes admin only)
   // @access  Private
   findAll: async (req, res) => {
     if (req.member.role !== 'kiwicodes') {
@@ -18,7 +18,7 @@ module.exports = {
     }
   },
   // @route   GET api/licenseKeys/:id
-  // @desc    Get License Key by id (admins only)
+  // @desc    Get License Key by id (kiwicodes admin only)
   // @access  Private
   findById: async (req, res) => {
     if (req.member.role !== 'kiwicodes') {
@@ -33,7 +33,7 @@ module.exports = {
     }
   },
   // @route   POST api/licenseKeys
-  // @desc    Create a License Key (admins only)
+  // @desc    Create a License Key (kiwicodes admin only)
   // @access  Private
   create: async (req, res) => {
     if (req.member.role !== 'kiwicodes') {
@@ -59,7 +59,7 @@ module.exports = {
     }
   },
   // @route   PUT api/licenseKeys/:id
-  // @desc    Update a License Key (admins only)
+  // @desc    Update a License Key (kiwicodes admin only)
   // @access  Private
   update: async (req, res) => {
     if (req.member.role !== 'kiwicodes') {
@@ -88,7 +88,7 @@ module.exports = {
     }
   },
   // @route   DELETE api/licenseKeys/:id
-  // @desc    Delete a License Key (admins only)
+  // @desc    Delete a License Key (kiwicodes admin only)
   // @access  Private
   remove: async (req, res) => {
     try {

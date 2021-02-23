@@ -3,9 +3,10 @@ const db = require('../models/sql');
 // Defining methods for the licenseKeyAssignmentController
 module.exports = {
   // @route   GET api/
-  // @desc    Get all License Keys Assignment (admins only)
+  // @desc    Get all License Keys Assignment (kiwicodes admin only)
   // @access  Private
   findAll: async (req, res) => {
+    console.log('1');
     if (req.member.role !== 'kiwicodes') {
       return res.status(400).send('Invalid permission');
     }
@@ -17,8 +18,27 @@ module.exports = {
       return res.status(500).send('Server error');
     }
   },
+  // @route   GET api/
+  // @desc    Get all License Keys Assignments by client Id (admin only)
+  // @access  Private
+  findAllbyClient: async (req, res) => {
+    if (req.member.role === 'user') {
+      return res.status(400).send('Invalid permission');
+    }
+    try {
+      const licenseKeyAssignments = await db.licenseKeyAssignment.findAll({
+        where: {
+          clientId: req.member.clientId,
+        },
+      });
+      res.json(licenseKeyAssignments);
+    } catch (err) {
+      console.error(err.message);
+      return res.status(500).send('Server error');
+    }
+  },
   // @route   GET api/licenseKeyAssignments/:id
-  // @desc    Get License Key Assignment by id (admins only)
+  // @desc    Get License Key Assignment by id (kiwicodes admin only)
   // @access  Private
   findById: async (req, res) => {
     if (req.member.role !== 'kiwicodes') {
@@ -38,11 +58,12 @@ module.exports = {
   // @desc    Create a License Key Assignment
   // @access  Private
   create: async (req, res) => {
-    const { licenseKeyId, memberId } = req.body;
+    const { licenseKeyId, memberId, clientId } = req.body;
 
     const licenseKeyAssignmentFeilds = {
       licenseKeyId,
       memberId,
+      clientId,
     };
 
     try {
@@ -61,7 +82,6 @@ module.exports = {
   // @access  Private
   update: async (req, res) => {
     const { releaseDate } = req.body;
-    console.log(releaseDate);
     const licenseKeyAssignmentFeilds = {
       releaseDate,
     };
@@ -83,7 +103,7 @@ module.exports = {
     }
   },
   // @route   DELETE api/licenseKeyAssignments/:id
-  // @desc    Delete a License Key Assignment (admins only)
+  // @desc    Delete a License Key Assignment (kiwicodes admin only)
   // @access  Private
   remove: async (req, res) => {
     try {

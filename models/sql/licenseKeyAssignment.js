@@ -32,6 +32,11 @@ module.exports = function (sequelize, DataTypes) {
         allowNull: true,
       },
     });
+    LicenseKeyAssignment.belongsTo(models.client, {
+      foreignKey: {
+        allowNull: true,
+      },
+    });
   };
   return LicenseKeyAssignment;
 };

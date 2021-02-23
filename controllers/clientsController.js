@@ -4,7 +4,7 @@ const { validationResult } = require('express-validator/check');
 // Defining methods for the clientsController
 module.exports = {
   // @route   GET api/clients
-  // @desc    Get all clients (admins only)
+  // @desc    Get all clients (kiwicodes admin only)
   // @access  Private
   findAll: async (req, res) => {
     try {

@@ -117,7 +117,7 @@ module.exports = {
     }
   },
   // @route   DELETE api/tools/:id
-  // @desc    Delete a tool (admins only)
+  // @desc    Delete a tool (kiwicodes admin only)
   // @access  Private
   remove: async (req, res) => {
     try {

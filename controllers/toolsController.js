@@ -28,7 +28,7 @@ module.exports = {
     }
   },
   // @route   POST api/tools
-  // @desc    Create a tool (admins only)
+  // @desc    Create a tool (kiwicodes admin only)
   // @access  Private
   create: async (req, res) => {
     if (req.member.role !== 'kiwicodes') {
@@ -58,7 +58,7 @@ module.exports = {
     }
   },
   // @route   PUT api/tools/:id
-  // @desc    Update a tool (admins only)
+  // @desc    Update a tool (kiwicodes admin only)
   // @access  Private
   update: async (req, res) => {
     if (req.member.role !== 'kiwicodes') {
@@ -91,7 +91,7 @@ module.exports = {
     }
   },
   // @route   DELETE api/tools/:id
-  // @desc    Delete a tool (admins only)
+  // @desc    Delete a tool (kiwicodes admin only)
   // @access  Private
   remove: async (req, res) => {
     try {

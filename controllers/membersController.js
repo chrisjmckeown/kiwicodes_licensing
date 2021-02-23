@@ -8,7 +8,7 @@ const config = require('config');
 // Defining methods for the membersController
 module.exports = {
   // @route   GET api/members
-  // @desc    Get all members (admins only)
+  // @desc    Get all members (kiwicodes admin only)
   // @access  Private
   findAll: async (req, res) => {
     try {
