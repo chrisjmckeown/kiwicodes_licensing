@@ -20,11 +20,7 @@ module.exports = {
   // @access  Public
   findById: async (req, res) => {
     try {
-      const app = await db.app.findOne({
-        where: {
-          id: req.params.id,
-        },
-      });
+      const app = await db.app.findByPk(req.params.id);
       res.json(app);
     } catch (err) {
       console.error(err.message);
@@ -85,11 +81,7 @@ module.exports = {
     };
 
     try {
-      let app = await db.app.findOne({
-        where: {
-          id: req.params.id,
-        },
-      });
+      let app = await db.app.findByPk(req.params.id);
 
       if (app) {
         app = await app.update(appFeilds);

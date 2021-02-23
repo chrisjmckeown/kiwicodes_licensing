@@ -15,7 +15,11 @@ module.exports = {
       if (req.member.role !== 'kiwicodes') {
         return res.status(400).send('Invalid permission');
       }
-      const members = await db.member.findAll();
+      const members = await db.member.findAll({
+        attributes: {
+          exclude: ['password'],
+        },
+      });
       res.json(members);
     } catch (err) {
       console.error(err.message);

@@ -20,11 +20,7 @@ module.exports = {
   // @access  Public
   findById: async (req, res) => {
     try {
-      const build = await db.build.findOne({
-        where: {
-          id: req.params.id,
-        },
-      });
+      const build = await db.build.findByPk(req.params.id);
       res.json(build);
     } catch (err) {
       console.error(err.message);
@@ -85,11 +81,7 @@ module.exports = {
     };
 
     try {
-      let build = await db.build.findOne({
-        where: {
-          id: req.params.id,
-        },
-      });
+      let build = await db.build.findByPk(req.params.id);
 
       if (build) {
         build = await build.update(buildFeilds);

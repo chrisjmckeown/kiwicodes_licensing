@@ -1,7 +1,7 @@
 const router = require('express').Router();
 
 router.use('/api/appActivations', require('./appActivations'));
-// router.use('/api/appChat', require('./appChat'));
+router.use('/api/appChat', require('./appChat'));
 router.use('/api/apps', require('./apps'));
 router.use('/api/audits', require('./audits'));
 router.use('/api/auth', require('./auth'));

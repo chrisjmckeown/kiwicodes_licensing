@@ -23,11 +23,7 @@ module.exports = {
   // @access  Private
   findById: async (req, res) => {
     try {
-      const client = await db.client.findOne({
-        where: {
-          id: req.params.id,
-        },
-      });
+      const client = await db.client.findByPk(req.params.id);
       res.json(client);
     } catch (err) {
       console.error(err.message);
@@ -80,11 +76,7 @@ module.exports = {
     };
 
     try {
-      let client = await db.client.findOne({
-        where: {
-          id: req.params.id,
-        },
-      });
+      let client = await db.client.findByPk(req.params.id);
 
       if (client) {
         client = await client.update(clientFeilds);

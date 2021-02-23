@@ -19,11 +19,7 @@ module.exports = {
   // @access  Private
   findById: async (req, res) => {
     try {
-      const toolActivation = await db.toolActivation.findOne({
-        where: {
-          id: req.params.id,
-        },
-      });
+      const toolActivation = await db.toolActivation.findByPk(req.params.id);
       res.json(toolActivation);
     } catch (err) {
       console.error(err.message);
@@ -62,11 +58,7 @@ module.exports = {
     };
 
     try {
-      let toolActivation = await db.toolActivation.findOne({
-        where: {
-          id: req.params.id,
-        },
-      });
+      let toolActivation = await db.toolActivation.findByPk(req.params.id);
 
       if (toolActivation) {
         toolActivation = await toolActivation.update(toolActivationFeilds);

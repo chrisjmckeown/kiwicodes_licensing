@@ -19,11 +19,7 @@ module.exports = {
   // @access  Private
   findById: async (req, res) => {
     try {
-      const appActivation = await db.appActivation.findOne({
-        where: {
-          id: req.params.id,
-        },
-      });
+      const appActivation = await db.appActivation.findByPk(req.params.id);
       res.json(appActivation);
     } catch (err) {
       console.error(err.message);

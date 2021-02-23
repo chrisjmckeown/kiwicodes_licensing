@@ -20,11 +20,7 @@ module.exports = {
   // @access  Public
   findById: async (req, res) => {
     try {
-      const tool = await db.tool.findOne({
-        where: {
-          id: req.params.id,
-        },
-      });
+      const tool = await db.tool.findByPk(req.params.id);
       res.json(tool);
     } catch (err) {
       console.error(err.message);
@@ -83,11 +79,7 @@ module.exports = {
     };
 
     try {
-      let tool = await db.tool.findOne({
-        where: {
-          id: req.params.id,
-        },
-      });
+      let tool = await db.tool.findByPk(req.params.id);
 
       if (tool) {
         tool = await tool.update(toolFeilds);

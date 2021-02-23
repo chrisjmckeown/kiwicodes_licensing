@@ -52,11 +52,7 @@ module.exports = {
     if (bio) profileFeilds.bio = bio;
 
     try {
-      let profile = await db.profile.findOne({
-        where: {
-          memberId: req.member.id,
-        },
-      });
+      let profile = await db.profile.findByPk(req.params.id);
 
       if (profile) {
         profile = await profile.update(profileFeilds);

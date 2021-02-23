@@ -26,11 +26,7 @@ module.exports = {
       return res.status(400).send('Invalid permission');
     }
     try {
-      const error = await db.error.findOne({
-        where: {
-          id: req.params.id,
-        },
-      });
+      const error = await db.error.findByPk(req.params.id);
       res.json(error);
     } catch (err) {
       console.error(err.message);
@@ -109,11 +105,7 @@ module.exports = {
     };
 
     try {
-      let error = await db.error.findOne({
-        where: {
-          id: req.params.id,
-        },
-      });
+      let error = await db.error.findByPk(req.params.id);
 
       if (error) {
         error = await error.update(errorFeilds);
