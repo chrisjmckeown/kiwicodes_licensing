@@ -33,7 +33,7 @@ module.exports = function (sequelize, DataTypes) {
     }
   );
   Build.associate = function (models) {
-    Build.belongsTo(models.tool, {
+    Build.belongsTo(models.product, {
       foreignKey: {
         allowNull: true,
       },

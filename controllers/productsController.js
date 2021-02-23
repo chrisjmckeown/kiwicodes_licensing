@@ -1,34 +1,34 @@
 const db = require('../models/sql');
 const { validationResult } = require('express-validator/check');
 
-// Defining methods for the toolsController
+// Defining methods for the productsController
 module.exports = {
-  // @route   GET api/tools
-  // @desc    Get all tools
+  // @route   GET api/products
+  // @desc    Get all products
   // @access  Public
   findAll: async (req, res) => {
     try {
-      const tools = await db.tool.findAll();
-      res.json(tools);
+      const products = await db.product.findAll();
+      res.json(products);
     } catch (err) {
       console.error(err.message);
       return res.status(500).send('Server error');
     }
   },
-  // @route   GET api/tools/:id
-  // @desc    Get tool by id
+  // @route   GET api/products/:id
+  // @desc    Get product by id
   // @access  Public
   findById: async (req, res) => {
     try {
-      const tool = await db.tool.findByPk(req.params.id);
-      res.json(tool);
+      const product = await db.product.findByPk(req.params.id);
+      res.json(product);
     } catch (err) {
       console.error(err.message);
       return res.status(500).send('Server error');
     }
   },
-  // @route   POST api/tools
-  // @desc    Create a tool (kiwicodes admin only)
+  // @route   POST api/products
+  // @desc    Create a product (kiwicodes admin only)
   // @access  Private
   create: async (req, res) => {
     if (req.member.role !== 'kiwicodes') {
@@ -41,7 +41,7 @@ module.exports = {
 
     const { name, description, purchaseLink, helpLink } = req.body;
 
-    const toolFeilds = {
+    const productFeilds = {
       name,
       description,
       purchaseLink,
@@ -49,16 +49,16 @@ module.exports = {
     };
 
     try {
-      const tool = new db.tool(toolFeilds);
-      await tool.save();
-      return res.json(tool);
+      const product = new db.product(productFeilds);
+      await product.save();
+      return res.json(product);
     } catch (err) {
       console.error(err.message);
       return res.status(500).send('Server error');
     }
   },
-  // @route   PUT api/tools/:id
-  // @desc    Update a tool (kiwicodes admin only)
+  // @route   PUT api/products/:id
+  // @desc    Update a product (kiwicodes admin only)
   // @access  Private
   update: async (req, res) => {
     if (req.member.role !== 'kiwicodes') {
@@ -71,7 +71,7 @@ module.exports = {
 
     const { name, description, purchaseLink, helpLink } = req.body;
 
-    const toolFeilds = {
+    const productFeilds = {
       name,
       description,
       purchaseLink,
@@ -79,32 +79,32 @@ module.exports = {
     };
 
     try {
-      let tool = await db.tool.findByPk(req.params.id);
+      let product = await db.product.findByPk(req.params.id);
 
-      if (tool) {
-        tool = await tool.update(toolFeilds);
-        return res.json(tool);
+      if (product) {
+        product = await product.update(productFeilds);
+        return res.json(product);
       }
     } catch (err) {
       console.error(err.message);
       return res.status(500).send('Server error');
     }
   },
-  // @route   DELETE api/tools/:id
-  // @desc    Delete a tool (kiwicodes admin only)
+  // @route   DELETE api/products/:id
+  // @desc    Delete a product (kiwicodes admin only)
   // @access  Private
   remove: async (req, res) => {
     try {
       if (req.member.role !== 'kiwicodes') {
         return res.status(400).send('Invalid permission');
       }
-      await db.tool.destroy({
+      await db.product.destroy({
         where: {
           id: req.params.id,
         },
       });
 
-      return res.json('Tool deleted');
+      return res.json('Product deleted');
     } catch (err) {
       console.error(err.message);
       return res.status(500).send('Server error');

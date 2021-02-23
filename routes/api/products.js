@@ -1,10 +1,10 @@
 const router = require('express').Router();
-const toolsController = require('../../controllers/toolsController');
+const productsController = require('../../controllers/productsController');
 const auth = require('../../middleware/auth');
 const { check } = require('express-validator');
 
-// Matches with "/api/tools"
-router.get('/', toolsController.findAll);
+// Matches with "/api/products"
+router.get('/', productsController.findAll);
 router.post(
   '/',
   [
@@ -14,11 +14,11 @@ router.post(
       check('description', 'Description is required').not().isEmpty(),
     ],
   ],
-  toolsController.create
+  productsController.create
 );
 
-// Matches with "/api/tools/:id"
-router.get('/:id', toolsController.findById);
+// Matches with "/api/products/:id"
+router.get('/:id', productsController.findById);
 router.put(
   '/:id',
   [
@@ -28,8 +28,8 @@ router.put(
       check('description', 'Description is required').not().isEmpty(),
     ],
   ],
-  toolsController.update
+  productsController.update
 );
-router.delete('/:id', auth, toolsController.remove);
+router.delete('/:id', auth, productsController.remove);
 
 module.exports = router;

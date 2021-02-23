@@ -1,6 +1,6 @@
 module.exports = function (sequelize, DataTypes) {
-  const Tool = sequelize.define(
-    'tool',
+  const Product = sequelize.define(
+    'product',
     {
       id: {
         type: DataTypes.INTEGER,
@@ -37,5 +37,5 @@ module.exports = function (sequelize, DataTypes) {
       freezeTableName: true,
     }
   );
-  return Tool;
+  return Product;
 };

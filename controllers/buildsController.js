@@ -1,7 +1,7 @@
 const db = require('../models/sql');
 const { validationResult } = require('express-validator/check');
 
-// Defining methods for the toolActivationsController
+// Defining methods for the buildController
 module.exports = {
   // @route   GET api/builds
   // @desc    Get all builds
@@ -40,13 +40,13 @@ module.exports = {
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { buildNumber, comments, updates, toolId } = req.body;
+    const { buildNumber, comments, updates, productId } = req.body;
 
     const buildFeilds = {
       buildNumber,
       comments,
       updates,
-      toolId,
+      productId,
     };
 
     try {
@@ -71,13 +71,13 @@ module.exports = {
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { buildNumber, comments, updates, toolId } = req.body;
+    const { buildNumber, comments, updates, productId } = req.body;
 
     const buildFeilds = {
       buildNumber,
       comments,
       updates,
-      toolId,
+      productId,
     };
 
     try {

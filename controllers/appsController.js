@@ -39,14 +39,14 @@ module.exports = {
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { name, number, description, helpLink, toolId } = req.body;
+    const { name, number, description, helpLink, productId } = req.body;
 
     const appFeilds = {
       name,
       number,
       description,
       helpLink,
-      toolId,
+      productId,
     };
 
     try {
@@ -70,14 +70,14 @@ module.exports = {
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { name, number, description, helpLink, toolId } = req.body;
+    const { name, number, description, helpLink, productId } = req.body;
 
     const appFeilds = {
       name,
       number,
       description,
       helpLink,
-      toolId,
+      productId,
     };
 
     try {

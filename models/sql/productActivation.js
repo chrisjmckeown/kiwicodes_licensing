@@ -1,6 +1,6 @@
 module.exports = function (sequelize, DataTypes) {
-  const ToolActivation = sequelize.define(
-    'toolActivation',
+  const ProductActivation = sequelize.define(
+    'productActivation',
     {
       id: {
         type: DataTypes.INTEGER,
@@ -27,17 +27,17 @@ module.exports = function (sequelize, DataTypes) {
       freezeTableName: true,
     }
   );
-  ToolActivation.associate = function (models) {
-    ToolActivation.belongsTo(models.tool, {
+  ProductActivation.associate = function (models) {
+    ProductActivation.belongsTo(models.product, {
       foreignKey: {
         allowNull: true,
       },
     });
-    ToolActivation.belongsTo(models.member, {
+    ProductActivation.belongsTo(models.member, {
       foreignKey: {
         allowNull: true,
       },
     });
   };
-  return ToolActivation;
+  return ProductActivation;
 };

@@ -116,8 +116,8 @@ module.exports = {
       return res.status(500).send('Server error');
     }
   },
-  // @route   DELETE api/tools/:id
-  // @desc    Delete a tool (kiwicodes admin only)
+  // @route   DELETE api/errors/:id
+  // @desc    Delete a error (kiwicodes admin only)
   // @access  Private
   remove: async (req, res) => {
     try {

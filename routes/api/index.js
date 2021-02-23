@@ -11,8 +11,8 @@ router.use('/api/errors', require('./errors'));
 router.use('/api/licenseKeyAssignments', require('./licenseKeyAssignments'));
 router.use('/api/licenseKeys', require('./licenseKeys'));
 router.use('/api/members', require('./members'));
-// router.use('/api/profile', require('./profile'));
-router.use('/api/toolActivations', require('./toolActivations'));
-router.use('/api/tools', require('./tools'));
+router.use('/api/profile', require('./profile'));
+router.use('/api/productActivations', require('./productActivations'));
+router.use('/api/products', require('./products'));
 
 module.exports = router;

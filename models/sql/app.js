@@ -38,7 +38,7 @@ module.exports = function (sequelize, DataTypes) {
     }
   );
   App.associate = function (models) {
-    App.belongsTo(models.tool, {
+    App.belongsTo(models.product, {
       foreignKey: {
         allowNull: true,
       },
