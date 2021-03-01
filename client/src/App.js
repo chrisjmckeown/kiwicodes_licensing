@@ -3,12 +3,15 @@ import './assets/css/Authentication.css';
 import './assets/css/Product_list.css';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
-import React, { Fragment } from 'react';
+import Home from './components/pages/Home';
+import React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 const App = () => (
-  <Fragment>
+  <BrowserRouter>
     <Header />
+    <Route exact path='/' component={Home} />
     <Footer />
-  </Fragment>
+  </BrowserRouter>
 );
 export default App;
