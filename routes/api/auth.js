@@ -3,7 +3,7 @@ const authController = require('../../controllers/authController');
 const auth = require('../../middleware/auth');
 const { check } = require('express-validator');
 
-// Matches with "/api/clients"
+// Matches with "/api/auth"
 router.get('/', auth, authController.getAuthMember);
 router.post(
   '/',

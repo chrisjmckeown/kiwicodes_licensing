@@ -33,7 +33,6 @@
 }
 .create_account_form fieldset,
 .login_form fieldset {
-  height: 18em;
   border: 1px solid #d0d1d5;
 }
 .create_account_form label,

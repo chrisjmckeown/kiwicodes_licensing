@@ -9,14 +9,14 @@ module.exports = function (sequelize, DataTypes) {
       },
       firstName: {
         type: DataTypes.STRING(255),
-        allowNull: false,
+        allowNull: true,
         validate: {
           len: [1, 255],
         },
       },
       lastName: {
         type: DataTypes.STRING(255),
-        allowNull: false,
+        allowNull: true,
         validate: {
           len: [1, 255],
         },

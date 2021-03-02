@@ -1,7 +1,80 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 const Login = () => {
+  const [registerFormData, setRegisterFormData] = useState({
+    registerEmail: '',
+    registerPassword: '',
+    registerPassword2: '',
+  });
+  const [loginFormData, setLoginFormData] = useState({
+    loginEmail: '',
+    loginPassword: '',
+  });
+
+  const {
+    registerEmail,
+    registerPassword,
+    registerPassword2,
+  } = registerFormData;
+  const { loginEmail, loginPassword } = loginFormData;
+
+  const onChangeRegister = (e) =>
+    setRegisterFormData({
+      ...registerFormData,
+      [e.target.name]: e.target.value,
+    });
+
+  const onChangeLogin = (e) =>
+    setLoginFormData({ ...loginFormData, [e.target.name]: e.target.value });
+
+  const onSubmitRegister = async (e) => {
+    e.preventDefault();
+    if (registerPassword !== registerPassword2) {
+      console.log('Passwords do not match');
+    } else {
+      const newMember = {
+        email: registerEmail,
+        password: registerPassword,
+        clientId: 1,
+      };
+      try {
+        const config = {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        };
+        const body = JSON.stringify(newMember);
+
+        const res = await axios.post('/api/members', body, config);
+        console.log(res.data);
+      } catch (err) {
+        console.error(err.response.data);
+      }
+    }
+  };
+  const onSubmitLogin = async (e) => {
+    e.preventDefault();
+    const member = {
+      email: loginEmail,
+      password: loginPassword,
+    };
+    try {
+      const config = {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      };
+      const body = JSON.stringify(member);
+      console.log(body);
+
+      const res = await axios.post('/api/auth', body, config);
+      console.log(res.data);
+    } catch (err) {
+      console.error(err.response.data);
+    }
+  };
   return (
     <main className='main'>
       <div className='main_content'>
@@ -26,43 +99,54 @@ const Login = () => {
                 <div className='row'>
                   <div className='col6'>
                     <form
-                      action='authentication'
-                      method='post'
                       className='std create_account_form'
+                      onSubmit={(e) => onSubmitRegister(e)}
                     >
                       <fieldset>
                         <h3>Create your account</h3>
                         <h4>Enter your e-mail address to create an account.</h4>
                         <p className='text'>
-                          <label for='email_create'>E-mail address</label>
+                          <label>E-mail address</label>
                           <span>
                             <input
                               type='text'
-                              id='email_create'
-                              name='email_create'
-                              value=''
+                              name='registerEmail'
+                              value={registerEmail}
+                              onChange={(e) => onChangeRegister(e)}
+                              className='account_input'
+                            ></input>
+                          </span>
+                        </p>
+                        <p className='text'>
+                          <label>Password</label>
+                          <span>
+                            <input
+                              type='password'
+                              name='registerPassword'
+                              value={registerPassword}
+                              onChange={(e) => onChangeRegister(e)}
+                              className='account_input'
+                            ></input>
+                          </span>
+                        </p>
+                        <p className='text'>
+                          <label>Confirm password</label>
+                          <span>
+                            <input
+                              type='password'
+                              name='registerPassword2'
+                              value={registerPassword2}
+                              onChange={(e) => onChangeRegister(e)}
                               className='account_input'
                             ></input>
                           </span>
                         </p>
                         <p className='submit'>
                           <input
-                            type='hidden'
-                            className='hidden'
-                            name='back'
-                            value='my-account'
-                          ></input>
-                          <input
                             type='submit'
                             id='SubmitCreate'
                             name='SubmitCreate'
                             className='button_large'
-                            value='Create your account'
-                          ></input>
-                          <input
-                            type='hidden'
-                            className='hidden'
-                            name='SubmitCreate'
                             value='Create your account'
                           ></input>
                         </p>
@@ -71,43 +155,36 @@ const Login = () => {
                   </div>
                   <div className='col6'>
                     <form
-                      action='authentication'
-                      method='post'
                       className='std login_form'
+                      onSubmit={(e) => onSubmitLogin(e)}
                     >
                       <fieldset>
                         <h3>Already registered ?</h3>
                         <p className='text'>
-                          <label for='email'>E-mail address</label>
+                          <label>E-mail address</label>
                           <span>
                             <input
                               type='text'
-                              id='email'
-                              name='email'
-                              value=''
+                              name='loginEmail'
+                              value={loginEmail}
+                              onChange={(e) => onChangeLogin(e)}
                               className='account_input'
                             ></input>
                           </span>
                         </p>
                         <p className='text'>
-                          <label for='passwd'>Password</label>
+                          <label>Password</label>
                           <span>
                             <input
                               type='password'
-                              id='passwd'
-                              name='passwd'
-                              value=''
+                              name='loginPassword'
+                              value={loginPassword}
+                              onChange={(e) => onChangeLogin(e)}
                               className='account_input'
                             ></input>
                           </span>
                         </p>
                         <p className='submit'>
-                          <input
-                            type='hidden'
-                            className='hidden'
-                            name='back'
-                            value='my-account'
-                          ></input>
                           <input
                             type='submit'
                             id='SubmitLogin'
