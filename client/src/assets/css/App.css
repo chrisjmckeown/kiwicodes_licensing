@@ -218,7 +218,8 @@ body {
 .header_menu li a:hover:not(.active) {
   background-image: linear-gradient(rgb(224, 228, 232), rgb(167, 170, 174));
 }
-.header_menu .active {
+.header_menu .active,
+.header_menu .dropdown .active {
   color: rgb(76, 122, 152);
   background-image: linear-gradient(rgb(224, 228, 232), rgb(167, 170, 174));
 }
