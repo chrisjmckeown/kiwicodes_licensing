@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import auto_desk_logo from '../../assets/img/auto_desk_logo.png';
 
 const Footer = () => {
@@ -12,27 +13,21 @@ const Footer = () => {
                 <div className='footer_block'>
                   <ul>
                     <li className='first_item'>
-                      <a href='index.html' title='Home'>
+                      <Link to='/' title='Home'>
                         Home
-                      </a>
+                      </Link>
                     </li>{' '}
                     <span className='divider'>|</span>
                     <li className='item'>
-                      <a href='products.html' title='Products'>
+                      <Link to='/products' title='Products'>
                         Products
-                      </a>
+                      </Link>
                     </li>{' '}
                     <span className='divider'>|</span>
                     <li className='item'>
-                      <a href='about.html' title='About'>
-                        About
-                      </a>
-                    </li>
-                    <span className='divider'>|</span>
-                    <li className='item'>
-                      <a href='contact-us.html' title='Contact'>
+                      <Link to='/contact' title='Contact'>
                         Contact
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -44,16 +39,16 @@ const Footer = () => {
                       Kiwi Codes Solutions Ltd © 2021
                     </span>{' '}
                     <span className='divider_2'>|</span>
-                    <a href='/' title='Terms &amp; Conditions'>
+                    <Link to='/' title='Terms &amp; Conditions'>
                       Terms &amp; Conditions
-                    </a>{' '}
+                    </Link>{' '}
                     <span className='divider_2'>|</span>
                     <span className='website_design_by'>
                       Website / Web Design by
                     </span>
-                    <a href='index.html' title='Kiwi Codes' target='_blank'>
+                    <Link to='/' title='Kiwi Codes' target='_blank'>
                       <span className='website'>Kiwi Codes</span>
-                    </a>
+                    </Link>
                   </li>
                 </div>
               </div>

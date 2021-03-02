@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import logo_header from '../../assets/img/logo_header.png';
 
 const Header = () => {
@@ -8,9 +9,9 @@ const Header = () => {
         <div className='row align_items_end'>
           <div className='col7'>
             <div className='header_logo'>
-              <a href='index.html' title='Kiwi Codes Solutions Ltd'>
+              <Link to='/' title='Kiwi Codes Solutions Ltd'>
                 <img src={logo_header} alt='Kiwi Codes Solutions Ltd'></img>
-              </a>
+              </Link>
             </div>
           </div>
           <div className='col'>
@@ -20,28 +21,28 @@ const Header = () => {
                   <span>
                     {' '}
                     Welcome,
-                    <a className='login' href='login.html' title='Log in'>
+                    <Link className='login' to='/login' title='Log in'>
                       (log in)
-                    </a>
+                    </Link>
                   </span>
                 </li>
                 <li>
-                  <a
+                  <Link
                     className='my_account'
-                    href='my_account.html'
+                    to='/my_account'
                     title='My Account'
                   >
                     Your Account
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     className='members_area'
-                    href='members_area.html'
+                    to='/members_area'
                     title='Members Area'
                   >
                     Members Area
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -52,29 +53,73 @@ const Header = () => {
             <div className='header_menu'>
               <ul>
                 <li>
-                  <a href='index.html' title='Home'>
+                  <Link to='/' title='Home'>
                     HOME
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href='products.html' title='Products' className='active'>
+                  <Link to='/products' title='Products' className='active'>
                     PRODUCTS
-                  </a>
+                  </Link>
+                </li>
+                <div className='dropdown'>
+                  <li>
+                    <Link to='/kc_admin' title='KC Admin'>
+                      KC ADMIN
+                    </Link>
+                  </li>
+                  <div className='dropdown-content'>
+                    <Link to='/manage_clients'>MANAGE CLIENTS</Link>
+                    <Link to='/manage_members'>MANAGE MEMBERS</Link>
+                    <Link to='/manage_products'>MANAGE PRODUCTS</Link>
+                    <Link to='/manage_apps'>MANAGE APPS</Link>
+                    <Link to='/manage_errors'>MANAGE ERRORS</Link>
+                    <Link to='/view_product_usage'>VIEW PRODUCT USAGE</Link>
+                    <Link to='/view_app_usage'>VIEW APP USAGE</Link>
+                    <Link to='/view_audits'>VIEW AUDITS</Link>
+                  </div>
+                </div>
+                <div className='dropdown'>
+                  <li>
+                    <Link to='/admin' title='ADMIN'>
+                      ADMIN
+                    </Link>
+                  </li>
+                  <div className='dropdown-content'>
+                    <Link to='/admin_Manage_license_keys'>
+                      MANAGE LICENSE KEYS
+                    </Link>
+                    <Link to='/admin_Manage_members'>MANAGE MEMBERS</Link>
+                    <Link to='/admin_view_product_usage'>
+                      VIEW PRODUCT USAGE
+                    </Link>
+                    <Link to='/admin_view_app_usage'>VIEW APP USAGE</Link>
+                    <Link to='/admin_view_audits'>VIEW AUDITS</Link>
+                  </div>
+                </div>
+                <div className='dropdown'>
+                  <li>
+                    <Link to='/members' title='MEMBERS'>
+                      MEMBERS
+                    </Link>
+                  </li>
+                  <div className='dropdown-content'>
+                    <Link to='/member_view_product_usage'>
+                      VIEW PRODUCT USAGE
+                    </Link>
+                    <Link to='/member_view_app_usage'>VIEW APP USAGE</Link>
+                    <Link to='/member_view_audits'>VIEW AUDITS</Link>
+                  </div>
+                </div>
+                <li>
+                  <Link to='/licensing_test' title='LICENSING TEST'>
+                    TESTING
+                  </Link>
                 </li>
                 <li>
-                  <a href='members.html' title='Members'>
-                    MEMBERS
-                  </a>
-                </li>
-                <li>
-                  <a href='errors.html' title='Errors'>
-                    ERRORS
-                  </a>
-                </li>
-                <li>
-                  <a href='contact-us.html' title='Contact us'>
+                  <Link to='/contact' title='Contact us'>
                     CONTACT
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
