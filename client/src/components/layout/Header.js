@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import logo_header from '../../assets/img/logo_header.png';
 
 const Header = () => {
@@ -78,324 +78,77 @@ const Header = () => {
             <div className='header_menu'>
               <ul>
                 <li>
-                  <Link
-                    to='/'
-                    title='Home'
-                    className={window.location.pathname === '/' ? 'active' : ''}
-                    onClick={() => {
-                      window.location.href = '/';
-                    }}
-                  >
+                  <NavLink exact to='/' title='Home'>
                     HOME
-                  </Link>
+                  </NavLink>
                 </li>
                 <li>
-                  <Link
-                    to='/products'
-                    title='Products'
-                    className={
-                      window.location.pathname === '/products' ? 'active' : ''
-                    }
-                    onClick={() => {
-                      window.location.href = '/products';
-                    }}
-                  >
+                  <NavLink to='/products' title='Products'>
                     PRODUCTS
-                  </Link>
+                  </NavLink>
                 </li>
                 <div className='dropdown'>
                   <li>
-                    <Link
-                      to='/kc_admin'
-                      title='KC Admin'
-                      className={
-                        window.location.pathname === '/kc_admin' ? 'active' : ''
-                      }
-                      onClick={() => {
-                        window.location.href = '/kc_admin';
-                      }}
-                    >
+                    <NavLink to='/kc_admin' title='KC Admin'>
                       KC ADMIN
-                    </Link>
+                    </NavLink>
                   </li>
                   <div className='dropdown-content'>
-                    <Link
-                      to='/manage_clients'
-                      className={
-                        window.location.pathname === '/manage_clients'
-                          ? 'active'
-                          : ''
-                      }
-                      onClick={() => {
-                        window.location.href = '/manage_clients';
-                      }}
-                    >
-                      MANAGE CLIENTS
-                    </Link>
-                    <Link
-                      to='/manage_members'
-                      className={
-                        window.location.pathname === '/manage_members'
-                          ? 'active'
-                          : ''
-                      }
-                      onClick={() => {
-                        window.location.href = '/manage_members';
-                      }}
-                    >
-                      MANAGE MEMBERS
-                    </Link>
-                    <Link
-                      to='/manage_products'
-                      className={
-                        window.location.pathname === '/manage_products'
-                          ? 'active'
-                          : ''
-                      }
-                      onClick={() => {
-                        window.location.href = '/manage_products';
-                      }}
-                    >
-                      MANAGE PRODUCTS
-                    </Link>
-                    <Link
-                      to='/manage_apps'
-                      className={
-                        window.location.pathname === '/manage_apps'
-                          ? 'active'
-                          : ''
-                      }
-                      onClick={() => {
-                        window.location.href = '/manage_apps';
-                      }}
-                    >
-                      MANAGE APPS
-                    </Link>
-                    <Link
-                      to='/manage_errors'
-                      className={
-                        window.location.pathname === '/manage_errors'
-                          ? 'active'
-                          : ''
-                      }
-                      onClick={() => {
-                        window.location.href = '/manage_errors';
-                      }}
-                    >
-                      MANAGE ERRORS
-                    </Link>
-                    <Link
-                      to='/view_product_usage'
-                      className={
-                        window.location.pathname === '/view_product_usage'
-                          ? 'active'
-                          : ''
-                      }
-                      onClick={() => {
-                        window.location.href = '/view_product_usage';
-                      }}
-                    >
+                    <NavLink to='/manage_clients'>MANAGE CLIENTS</NavLink>
+                    <NavLink to='/manage_members'>MANAGE MEMBERS</NavLink>
+                    <NavLink to='/manage_products'>MANAGE PRODUCTS</NavLink>
+                    <NavLink to='/manage_apps'>MANAGE APPS</NavLink>
+                    <NavLink to='/manage_errors'>MANAGE ERRORS</NavLink>
+                    <NavLink to='/view_product_usage'>
                       VIEW PRODUCT USAGE
-                    </Link>
-                    <Link
-                      to='/view_app_usage'
-                      className={
-                        window.location.pathname === '/view_app_usage'
-                          ? 'active'
-                          : ''
-                      }
-                      onClick={() => {
-                        window.location.href = '/view_app_usage';
-                      }}
-                    >
-                      VIEW APP USAGE
-                    </Link>
-                    <Link
-                      to='/view_audits'
-                      className={
-                        window.location.pathname === '/view_audits'
-                          ? 'active'
-                          : ''
-                      }
-                      onClick={() => {
-                        window.location.href = '/view_audits';
-                      }}
-                    >
-                      VIEW AUDITS
-                    </Link>
+                    </NavLink>
+                    <NavLink to='/view_app_usage'>VIEW APP USAGE</NavLink>
+                    <NavLink to='/view_audits'>VIEW AUDITS</NavLink>
                   </div>
                 </div>
                 <div className='dropdown'>
                   <li>
-                    <Link
-                      to='/admin'
-                      title='ADMIN'
-                      className={
-                        window.location.pathname === '/admin' ? 'active' : ''
-                      }
-                      onClick={() => {
-                        window.location.href = '/admin';
-                      }}
-                    >
+                    <NavLink to='/admin' title='ADMIN'>
                       ADMIN
-                    </Link>
+                    </NavLink>
                   </li>
                   <div className='dropdown-content'>
-                    <Link
-                      to='/admin_Manage_license_keys'
-                      className={
-                        window.location.pathname ===
-                        '/admin_Manage_license_keys'
-                          ? 'active'
-                          : ''
-                      }
-                      onClick={() => {
-                        window.location.href = '/admin_Manage_license_keys';
-                      }}
-                    >
+                    <NavLink to='/admin_Manage_license_keys'>
                       MANAGE LICENSE KEYS
-                    </Link>
-                    <Link
-                      to='/admin_Manage_members'
-                      className={
-                        window.location.pathname === '/admin_Manage_members'
-                          ? 'active'
-                          : ''
-                      }
-                      onClick={() => {
-                        window.location.href = '/admin_Manage_members';
-                      }}
-                    >
-                      MANAGE MEMBERS
-                    </Link>
-                    <Link
-                      to='/admin_view_product_usage'
-                      className={
-                        window.location.pathname === '/admin_view_product_usage'
-                          ? 'active'
-                          : ''
-                      }
-                      onClick={() => {
-                        window.location.href = '/admin_view_product_usage';
-                      }}
-                    >
+                    </NavLink>
+                    <NavLink to='/admin_Manage_members'>MANAGE MEMBERS</NavLink>
+                    <NavLink to='/admin_view_product_usage'>
                       VIEW PRODUCT USAGE
-                    </Link>
-                    <Link
-                      to='/admin_view_app_usage'
-                      className={
-                        window.location.pathname === '/admin_view_app_usage'
-                          ? 'active'
-                          : ''
-                      }
-                      onClick={() => {
-                        window.location.href = '/admin_view_app_usage';
-                      }}
-                    >
-                      VIEW APP USAGE
-                    </Link>
-                    <Link
-                      to='/admin_view_audits'
-                      className={
-                        window.location.pathname === '/admin_view_audits'
-                          ? 'active'
-                          : ''
-                      }
-                      onClick={() => {
-                        window.location.href = '/admin_view_audits';
-                      }}
-                    >
-                      VIEW AUDITS
-                    </Link>
+                    </NavLink>
+                    <NavLink to='/admin_view_app_usage'>VIEW APP USAGE</NavLink>
+                    <NavLink to='/admin_view_audits'>VIEW AUDITS</NavLink>
                   </div>
                 </div>
                 <div className='dropdown'>
                   <li>
-                    <Link
-                      to='/members'
-                      title='MEMBERS'
-                      className={
-                        window.location.pathname === '/members' ? 'active' : ''
-                      }
-                      onClick={() => {
-                        window.location.href = '/members';
-                      }}
-                    >
+                    <NavLink to='/members' title='MEMBERS'>
                       MEMBERS
-                    </Link>
+                    </NavLink>
                   </li>
                   <div className='dropdown-content'>
-                    <Link
-                      to='/member_view_product_usage'
-                      className={
-                        window.location.pathname ===
-                        '/member_view_product_usage'
-                          ? 'active'
-                          : ''
-                      }
-                      onClick={() => {
-                        window.location.href = '/member_view_product_usage';
-                      }}
-                    >
+                    <NavLink to='/member_view_product_usage'>
                       VIEW PRODUCT USAGE
-                    </Link>
-                    <Link
-                      to='/member_view_app_usage'
-                      className={
-                        window.location.pathname === '/member_view_app_usage'
-                          ? 'active'
-                          : ''
-                      }
-                      onClick={() => {
-                        window.location.href = '/member_view_app_usage';
-                      }}
-                    >
+                    </NavLink>
+                    <NavLink to='/member_view_app_usage'>
                       VIEW APP USAGE
-                    </Link>
-                    <Link
-                      to='/member_view_audits'
-                      className={
-                        window.location.pathname === '/member_view_audits'
-                          ? 'active'
-                          : ''
-                      }
-                      onClick={() => {
-                        window.location.href = '/member_view_audits';
-                      }}
-                    >
-                      VIEW AUDITS
-                    </Link>
+                    </NavLink>
+                    <NavLink to='/member_view_audits'>VIEW AUDITS</NavLink>
                   </div>
                 </div>
                 <li>
-                  <Link
-                    to='/licensing_test'
-                    title='LICENSING TEST'
-                    className={
-                      window.location.pathname === '/licensing_test'
-                        ? 'active'
-                        : ''
-                    }
-                    onClick={() => {
-                      window.location.href = '/licensing_test';
-                    }}
-                  >
+                  <NavLink to='/licensing_test' title='LICENSING TEST'>
                     TESTING
-                  </Link>
+                  </NavLink>
                 </li>
                 <li>
-                  <Link
-                    to='/contact'
-                    title='Contact us'
-                    className={
-                      window.location.pathname === '/contact' ? 'active' : ''
-                    }
-                    onClick={() => {
-                      window.location.href = '/contact';
-                    }}
-                  >
+                  <NavLink to='/contact' title='Contact us'>
                     CONTACT
-                  </Link>
+                  </NavLink>
                 </li>
               </ul>
             </div>
