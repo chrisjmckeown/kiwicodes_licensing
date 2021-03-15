@@ -6,7 +6,10 @@ import { logout } from '../../actions/auth';
 
 import logo_header from '../../assets/img/logo_header.png';
 
-const Header = ({ auth: { isAuthenticated, loading }, logout }) => {
+const Header = ({
+  auth: { isAuthenticated, permissionLevel, loading },
+  logout,
+}) => {
   const authLinks = (
     <ul>
       <li>
@@ -34,6 +37,58 @@ const Header = ({ auth: { isAuthenticated, loading }, logout }) => {
         </span>
       </li>
     </ul>
+  );
+
+  const kiwicodesLinks = (
+    <div className='dropdown'>
+      <li>
+        <NavLink to='/kc_admin' title='KC Admin'>
+          KC ADMIN
+        </NavLink>
+      </li>
+      <div className='dropdown-content'>
+        <NavLink to='/manage_clients'>MANAGE CLIENTS</NavLink>
+        <NavLink to='/manage_members'>MANAGE MEMBERS</NavLink>
+        <NavLink to='/manage_products'>MANAGE PRODUCTS</NavLink>
+        <NavLink to='/manage_apps'>MANAGE APPS</NavLink>
+        <NavLink to='/manage_errors'>MANAGE ERRORS</NavLink>
+        <NavLink to='/view_product_usage'>VIEW PRODUCT USAGE</NavLink>
+        <NavLink to='/view_app_usage'>VIEW APP USAGE</NavLink>
+        <NavLink to='/view_audits'>VIEW AUDITS</NavLink>
+      </div>
+    </div>
+  );
+
+  const adminLinks = (
+    <div className='dropdown'>
+      <li>
+        <NavLink to='/admin' title='ADMIN'>
+          ADMIN
+        </NavLink>
+      </li>
+      <div className='dropdown-content'>
+        <NavLink to='/admin_Manage_license_keys'>MANAGE LICENSE KEYS</NavLink>
+        <NavLink to='/admin_Manage_members'>MANAGE MEMBERS</NavLink>
+        <NavLink to='/admin_view_product_usage'>VIEW PRODUCT USAGE</NavLink>
+        <NavLink to='/admin_view_app_usage'>VIEW APP USAGE</NavLink>
+        <NavLink to='/admin_view_audits'>VIEW AUDITS</NavLink>
+      </div>
+    </div>
+  );
+
+  const memberLinks = (
+    <div className='dropdown'>
+      <li>
+        <NavLink to='/members' title='MEMBERS'>
+          MEMBERS
+        </NavLink>
+      </li>
+      <div className='dropdown-content'>
+        <NavLink to='/member_view_product_usage'>VIEW PRODUCT USAGE</NavLink>
+        <NavLink to='/member_view_app_usage'>VIEW APP USAGE</NavLink>
+        <NavLink to='/member_view_audits'>VIEW AUDITS</NavLink>
+      </div>
+    </div>
   );
 
   return (
@@ -67,59 +122,24 @@ const Header = ({ auth: { isAuthenticated, loading }, logout }) => {
                     PRODUCTS
                   </NavLink>
                 </li>
-                <div className='dropdown'>
-                  <li>
-                    <NavLink to='/kc_admin' title='KC Admin'>
-                      KC ADMIN
-                    </NavLink>
-                  </li>
-                  <div className='dropdown-content'>
-                    <NavLink to='/manage_clients'>MANAGE CLIENTS</NavLink>
-                    <NavLink to='/manage_members'>MANAGE MEMBERS</NavLink>
-                    <NavLink to='/manage_products'>MANAGE PRODUCTS</NavLink>
-                    <NavLink to='/manage_apps'>MANAGE APPS</NavLink>
-                    <NavLink to='/manage_errors'>MANAGE ERRORS</NavLink>
-                    <NavLink to='/view_product_usage'>
-                      VIEW PRODUCT USAGE
-                    </NavLink>
-                    <NavLink to='/view_app_usage'>VIEW APP USAGE</NavLink>
-                    <NavLink to='/view_audits'>VIEW AUDITS</NavLink>
-                  </div>
-                </div>
-                <div className='dropdown'>
-                  <li>
-                    <NavLink to='/admin' title='ADMIN'>
-                      ADMIN
-                    </NavLink>
-                  </li>
-                  <div className='dropdown-content'>
-                    <NavLink to='/admin_Manage_license_keys'>
-                      MANAGE LICENSE KEYS
-                    </NavLink>
-                    <NavLink to='/admin_Manage_members'>MANAGE MEMBERS</NavLink>
-                    <NavLink to='/admin_view_product_usage'>
-                      VIEW PRODUCT USAGE
-                    </NavLink>
-                    <NavLink to='/admin_view_app_usage'>VIEW APP USAGE</NavLink>
-                    <NavLink to='/admin_view_audits'>VIEW AUDITS</NavLink>
-                  </div>
-                </div>
-                <div className='dropdown'>
-                  <li>
-                    <NavLink to='/members' title='MEMBERS'>
-                      MEMBERS
-                    </NavLink>
-                  </li>
-                  <div className='dropdown-content'>
-                    <NavLink to='/member_view_product_usage'>
-                      VIEW PRODUCT USAGE
-                    </NavLink>
-                    <NavLink to='/member_view_app_usage'>
-                      VIEW APP USAGE
-                    </NavLink>
-                    <NavLink to='/member_view_audits'>VIEW AUDITS</NavLink>
-                  </div>
-                </div>
+                {!loading && (
+                  <> {permissionLevel === 'kiwicodes' && kiwicodesLinks} </>
+                )}
+                {!loading && (
+                  <>
+                    {(permissionLevel === 'kiwicodes' ||
+                      permissionLevel === 'admin') &&
+                      adminLinks}
+                  </>
+                )}
+                {!loading && (
+                  <>
+                    {(permissionLevel === 'kiwicodes' ||
+                      permissionLevel === 'admin' ||
+                      permissionLevel === 'user') &&
+                      memberLinks}
+                  </>
+                )}
                 <li>
                   <NavLink to='/licensing_test' title='LICENSING TEST'>
                     TESTING

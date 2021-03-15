@@ -22,6 +22,7 @@ export const auth = (state = initialState, action) => {
       return {
         ...state,
         isAuthenticated: true,
+        permissionLevel: payload.role,
         loading: false,
         member: payload,
       };
@@ -43,6 +44,7 @@ export const auth = (state = initialState, action) => {
         ...state,
         token: null,
         isAuthenticated: false,
+        permissionLevel: 0,
         loading: false,
         member: null,
       };
