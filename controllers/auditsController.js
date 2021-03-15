@@ -1,5 +1,5 @@
 const db = require('../models/mongo');
-const { validationResult } = require('express-validator/check');
+const { validationResult } = require('express-validator');
 
 // Defining methods for the auditsController
 module.exports = {

@@ -1,5 +1,5 @@
 const db = require('../models/sql');
-const { validationResult } = require('express-validator/check');
+const { validationResult } = require('express-validator');
 
 // Defining methods for the errorsController
 module.exports = {
