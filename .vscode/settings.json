@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/3cd7f361-4afc-4130-8ccb-0f5eddeb2d36/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/KiwiCodesLiencing",
+    "appService.deploySubpath": "."
+}
