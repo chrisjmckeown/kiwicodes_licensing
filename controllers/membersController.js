@@ -3,7 +3,7 @@ const gravatar = require('gravatar');
 const bcrypt = require('bcryptjs');
 const db = require('../models/sql');
 const jwt = require('jsonwebtoken');
-const config = require('config');
+require('dotenv').config();
 
 // Defining methods for the membersController
 module.exports = {
@@ -78,7 +78,7 @@ module.exports = {
 
       jwt.sign(
         payload,
-        config.get('jwtSecret'),
+        process.env.JWT_Secret,
         { expiresIn: 3600 },
         (err, token) => {
           if (err) throw err;

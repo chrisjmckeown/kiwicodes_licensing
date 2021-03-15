@@ -1,8 +1,8 @@
 const db = require('../models/sql');
 const jwt = require('jsonwebtoken');
-const config = require('config');
 const { validationResult } = require('express-validator/check');
 const bcrypt = require('bcryptjs');
+require('dotenv').config();
 
 // Defining methods for the authController
 module.exports = {
@@ -62,7 +62,7 @@ module.exports = {
 
       jwt.sign(
         payload,
-        config.get('jwtSecret'),
+        process.env.JWT_Secret,
         { expiresIn: 3600 },
         (err, token) => {
           if (err) throw err;

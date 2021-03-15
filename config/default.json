@@ -1,0 +1,20 @@
+{
+      "username": "",
+      "password": "",
+      "host": "",
+      "database": "",
+      "dialect": "mssql",
+      "pool": {
+        "max": 5,
+        "min": 0,
+        "idle": 10000
+      },
+      "dialectOptions": {
+          "server": "localhost",
+          "options": {
+              "enableArithAbort": true,
+              "trustServerCertificate": true
+          }
+      }
+  }
+  

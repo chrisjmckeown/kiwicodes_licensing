@@ -4,9 +4,14 @@ const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
 const basename = path.basename(module.filename);
-const env = process.env.NODE_ENV || 'development';
-const config = require(__dirname + '../../../config/default.json')[env];
+const config = require(__dirname + '../../../config/default.json');
+require('dotenv').config();
 const db = {};
+
+config.username = process.env.username;
+config.password = process.env.password;
+config.host = process.env.host;
+config.database = process.env.database;
 
 const sequelize = new Sequelize(
   config.database,

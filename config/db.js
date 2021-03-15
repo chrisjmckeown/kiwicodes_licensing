@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
-const config = require('config');
-const mongo_db = config.get('mongoURI');
+// const config = require('config');
 var sql_db = require('../models/sql');
+require('dotenv').config();
 
 const connectMongoDB = async () => {
   try {
-    await mongoose.connect(mongo_db, {
+    await mongoose.connect(process.env.MONGO_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
