@@ -1,8 +1,41 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { logout } from '../../actions/auth';
+
 import logo_header from '../../assets/img/logo_header.png';
 
-const Header = () => {
+const Header = ({ auth: { isAuthenticated, loading }, logout }) => {
+  const authLinks = (
+    <ul>
+      <li>
+        <Link to='/my_account' title='My Account' className='my_account'>
+          Your Account
+        </Link>
+      </li>
+      <li>
+        <a onClick={logout} href='#!' title='Logout' className='login'>
+          Logout
+        </a>
+      </li>
+    </ul>
+  );
+
+  const guestLinks = (
+    <ul>
+      <li>
+        <span>
+          Welcome,
+          <Link to='/login' title='Log in' className='login'>
+            {' '}
+            (log in)
+          </Link>
+        </span>
+      </li>
+    </ul>
+  );
+
   return (
     <header className='header'>
       <div className='container'>
@@ -16,60 +49,7 @@ const Header = () => {
           </div>
           <div className='col'>
             <div className='header_account'>
-              <ul>
-                <li>
-                  <span>
-                    {' '}
-                    Welcome,
-                    <Link
-                      to='/login'
-                      title='Log in'
-                      className={
-                        window.location.pathname === '/login'
-                          ? 'active login'
-                          : 'login'
-                      }
-                      onClick={() => {
-                        window.location.href = '/login';
-                      }}
-                    >
-                      (log in)
-                    </Link>
-                  </span>
-                </li>
-                <li>
-                  <Link
-                    to='/my_account'
-                    title='My Account'
-                    className={
-                      window.location.pathname === '/my_account'
-                        ? 'active my_account'
-                        : 'my_account'
-                    }
-                    onClick={() => {
-                      window.location.href = '/my_account';
-                    }}
-                  >
-                    Your Account
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to='/members_area'
-                    title='Members Area'
-                    className={
-                      window.location.pathname === '/members_area'
-                        ? 'active members_area'
-                        : 'members_area'
-                    }
-                    onClick={() => {
-                      window.location.href = '/members_area';
-                    }}
-                  >
-                    Members Area
-                  </Link>
-                </li>
-              </ul>
+              {!loading && <> {isAuthenticated ? authLinks : guestLinks} </>}
             </div>
           </div>
         </div>
@@ -158,4 +138,14 @@ const Header = () => {
     </header>
   );
 };
-export default Header;
+
+Header.propTypes = {
+  logout: PropTypes.func.isRequired,
+  auth: PropTypes.shape({}).isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+});
+
+export default connect(mapStateToProps, { logout })(Header);

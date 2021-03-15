@@ -1,3 +1,12 @@
+/* Global Styles */
+:root {
+  --primary-color: #17a2b8;
+  --dark-color: #343a40;
+  --light-color: #f4f4f4;
+  --danger-color: #dc3545;
+  --success-color: #28a745;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -120,26 +129,26 @@ body {
 
 /* members area */
 .header_account {
-  margin: 20px;
-  width: 100%;
   border: 0px solid;
   color: #a1a4a7;
-  text-align: left;
   font: 12px Verdana;
+  margin: 20px;
+  text-align: right;
+  width: 100%;
 }
 .header_account ul {
+  align-items: stretch;
+  display: flex;
+  justify-content: flex-end;
   margin: 0;
   padding: 0;
-
-  display: flex;
-  align-items: stretch;
-  justify-content: space-evenly;
   width: 100%;
 }
 .header_account li {
   display: block;
   flex: 0 1 auto;
   list-style-type: none;
+  padding-left: 20px;
 }
 .header_account li a {
   color: #1d2527;
@@ -164,16 +173,6 @@ body {
   text-transform: none;
 }
 .header_account li a:hover.my_account {
-  cursor: pointer;
-  text-decoration: underline;
-}
-.header_account li a.members_area {
-  color: #497693;
-  font: 400 13px/20px 'Open Sans';
-  text-decoration: none;
-  text-transform: none;
-}
-.header_account li a:hover.members_area {
   cursor: pointer;
   text-decoration: underline;
 }
@@ -404,4 +403,62 @@ input.button_large_disabled:hover,
 a.button_large:hover,
 span.button_large:hover {
   background-color: #4e4444;
+}
+
+.alert {
+  background: var(--light-color);
+  color: #333;
+  opacity: 0.9;
+  margin: 0.5rem 0 0 0 ;
+  padding: 0.3rem;
+  width: 100%;
+}
+
+.btn-primary,
+.bg-primary,
+.badge-primary,
+.alert-primary {
+  background: var(--primary-color);
+  color: #fff;
+}
+
+.btn-light,
+.bg-light,
+.badge-light,
+.alert-light {
+  background: var(--light-color);
+  color: #333;
+}
+
+.btn-dark,
+.bg-dark,
+.badge-dark,
+.alert-dark {
+  background: var(--dark-color);
+  color: #fff;
+}
+
+.btn-danger,
+.bg-danger,
+.badge-danger,
+.alert-danger {
+  background: var(--danger-color);
+  color: #fff;
+}
+
+.btn-success,
+.bg-success,
+.badge-success,
+.alert-success {
+  background: var(--success-color);
+  color: #fff;
+}
+
+.btn-white,
+.bg-white,
+.badge-white,
+.alert-white {
+  background: #fff;
+  color: #333;
+  border: #ccc solid 1px;
 }

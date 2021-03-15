@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Login from '../components/Authentication/Login';
+import Register from '../components/Authentication/Register';
 
-const Members_area = () => {
+const Authentication = () => {
   return (
     <main className='main'>
       <div className='main_content'>
@@ -15,12 +17,20 @@ const Members_area = () => {
                       Home
                     </Link>
                     <span className='navigation-pipe'>&gt;</span>
-                    <span className='navigation_page'>Members Area</span>
+                    <span className='navigation_page'>Login</span>
                   </div>
                 </div>
                 <div className='row'>
                   <div className='products'>
-                    <h1>Members Area</h1>
+                    <h1>Login</h1>
+                  </div>
+                </div>
+                <div className='row'>
+                  <div className='col6'>
+                    <Register />
+                  </div>
+                  <div className='col6'>
+                    <Login />
                   </div>
                 </div>
               </div>
@@ -31,4 +41,5 @@ const Members_area = () => {
     </main>
   );
 };
-export default Members_area;
+
+export default Authentication;
