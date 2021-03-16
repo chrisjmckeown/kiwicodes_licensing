@@ -1,0 +1,37 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background: #ebebeb;
+  background: url('../img/wrapper1_bg.png') repeat center top transparent;
+  color: #5d717e;
+  font-size: 11px;
+  font-family: Verdana, Arial, Helvetica, Sans-Serif;
+  height: 100%;
+  left: 0px;
+  position: absolute;    
+  text-align: center;
+  top: 0px;
+  width: 100%;
+}
+
+.page {
+  height: 100%;
+  border: 0px solid;
+  width: 988px;
+  margin: 0 auto;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  cursor: pointer;
+}

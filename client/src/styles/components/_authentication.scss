@@ -1,0 +1,50 @@
+.create_account_form,
+.login_form {
+  width: 100%;
+}
+.create_account_form h4 {
+  height: 3.4em;
+  padding: 0.3em 3em 0 4em;
+}
+.create_account_form p.text,
+.login_form p.text {
+  height: 4.4em;
+  margin-left: 4em;
+  padding-left: 0;
+  padding-right: 0;
+}
+.login_form a {
+  color: #374853;
+}
+.create_account_form {
+  margin-right: 11px;
+}
+.create_account_form p.text label {
+  width: 100px;
+}
+.create_account_form p.submit,
+.login_form p.submit {
+  margin-right: 0;
+  text-align: left;
+  padding-left: 44px !important;
+}
+.login_form p.lost_password {
+  padding-left: 4em;
+}
+.create_account_form fieldset,
+.login_form fieldset {
+  border: 1px solid #d0d1d5;
+}
+.create_account_form label,
+.login_form label {
+  float: none;
+  clear: both;
+  display: block;
+  text-align: left;
+  width: 100%;
+  margin-bottom: 0.3em;
+}
+.create_account_form .account_input,
+.login_form .account_input {
+  width: 80%;
+}

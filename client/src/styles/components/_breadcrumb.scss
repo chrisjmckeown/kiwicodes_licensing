@@ -1,0 +1,20 @@
+  .breadcrumb {
+    width: 100%;
+    font: 14px/30px 'Open Sans';
+    height: 31px;
+    color: #497693;
+    padding-left: 4px;
+    text-transform: uppercase;
+    text-align: right;
+    a {
+        text-decoration: none;
+        color: #c1c1c1;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+  }
+  .breadcrumb__navigation-pipe {
+    padding: 0 0.6em;
+    color: #c1c1c1;
+  }

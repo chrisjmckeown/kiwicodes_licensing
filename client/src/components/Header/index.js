@@ -13,12 +13,16 @@ const Header = ({
   const authLinks = (
     <ul>
       <li>
-        <Link to='/my_account' title='My Account' className='my_account'>
+        <Link
+          to='/my_account'
+          title='My Account'
+          className='header__my-account'
+        >
           Your Account
         </Link>
       </li>
       <li>
-        <a onClick={logout} href='#!' title='Logout' className='login'>
+        <a onClick={logout} href='#!' title='Logout' className='header__login'>
           Logout
         </a>
       </li>
@@ -30,7 +34,7 @@ const Header = ({
       <li>
         <span>
           Welcome,
-          <Link to='/login' title='Log in' className='login'>
+          <Link to='/login' title='Log in' className='header__login'>
             {' '}
             (log in)
           </Link>
@@ -40,13 +44,13 @@ const Header = ({
   );
 
   const kiwicodesLinks = (
-    <div className='dropdown'>
+    <div className='header__menu-dropdown'>
       <li>
         <NavLink to='/kc_admin' title='KC Admin'>
           KC ADMIN
         </NavLink>
       </li>
-      <div className='dropdown-content'>
+      <div className='header__menu-dropdown-content'>
         <NavLink to='/manage_clients'>MANAGE CLIENTS</NavLink>
         <NavLink to='/manage_members'>MANAGE MEMBERS</NavLink>
         <NavLink to='/manage_products'>MANAGE PRODUCTS</NavLink>
@@ -60,13 +64,13 @@ const Header = ({
   );
 
   const adminLinks = (
-    <div className='dropdown'>
+    <div className='header__menu-dropdown'>
       <li>
         <NavLink to='/admin' title='ADMIN'>
           ADMIN
         </NavLink>
       </li>
-      <div className='dropdown-content'>
+      <div className='header__menu-dropdown-content'>
         <NavLink to='/admin_Manage_license_keys'>MANAGE LICENSE KEYS</NavLink>
         <NavLink to='/admin_Manage_members'>MANAGE MEMBERS</NavLink>
         <NavLink to='/admin_view_product_usage'>VIEW PRODUCT USAGE</NavLink>
@@ -77,13 +81,13 @@ const Header = ({
   );
 
   const memberLinks = (
-    <div className='dropdown'>
+    <div className='header__menu-dropdown'>
       <li>
         <NavLink to='/members' title='MEMBERS'>
           MEMBERS
         </NavLink>
       </li>
-      <div className='dropdown-content'>
+      <div className='header__menu-dropdown-content'>
         <NavLink to='/member_view_product_usage'>VIEW PRODUCT USAGE</NavLink>
         <NavLink to='/member_view_app_usage'>VIEW APP USAGE</NavLink>
         <NavLink to='/member_view_audits'>VIEW AUDITS</NavLink>
@@ -96,21 +100,21 @@ const Header = ({
       <div className='container'>
         <div className='row align_items_end'>
           <div className='col7'>
-            <div className='header_logo'>
+            <div className='header__logo'>
               <Link to='/' title='Kiwi Codes Solutions Ltd'>
                 <img src={logo_header} alt='Kiwi Codes Solutions Ltd'></img>
               </Link>
             </div>
           </div>
           <div className='col'>
-            <div className='header_account'>
+            <div className='header__account'>
               {!loading && <> {isAuthenticated ? authLinks : guestLinks} </>}
             </div>
           </div>
         </div>
         <div className='row'>
           <div className='col'>
-            <div className='header_menu'>
+            <div className='header__menu'>
               <ul>
                 <li>
                   <NavLink exact to='/' title='Home'>

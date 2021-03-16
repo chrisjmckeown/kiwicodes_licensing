@@ -7,9 +7,12 @@ import store from './store';
 import setAuthToken from './utils/setAuthToken';
 import { loadUser } from './actions/auth';
 
-import './assets/css/App.css';
-import './assets/css/Authentication.css';
-import './assets/css/Product_list.css';
+// import './assets/css/App.css';
+// import './assets/css/Authentication.css';
+// import './assets/css/Product_list.css';
+
+import 'normalize.css/normalize.css';
+import './styles/styles.scss';
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);

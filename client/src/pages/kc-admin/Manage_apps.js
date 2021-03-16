@@ -1,38 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Alert from '../../components/Alert';
+import Breadcrumb from '../../components/Breadcrumb';
+import PageHeader from '../../components/PageHeader';
 
 const Manage_apps = () => {
   return (
-    <main className='main'>
-      <div className='main_content'>
-        <div className='container'>
-          <div className='row body_margin'>
-            <div className='col'>
-              <div className='container'>
-                <div className='row'>
-                  <div className='breadcrumb'>
-                    <Link to='/' title='return to Home'>
-                      Home
-                    </Link>
-                    <span className='navigation-pipe'>&gt;</span>
-                    <Link to='/kc_admin' title='return to KC Admin'>
-                      KC Admin
-                    </Link>
-                    <span className='navigation-pipe'>&gt;</span>
-                    <span className='navigation_page'>Manage Apps</span>
-                  </div>
-                </div>
-                <div className='row'>
-                  <div className='products'>
-                    <h1>Manage Apps</h1>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
+    <>
+      <Breadcrumb breadCrumbs={['KC_Admin']} endPage={'Manage Apps'} />
+      <PageHeader pageName={'Manage Apps'} />
+      <Alert />
+    </>
   );
 };
 export default Manage_apps;

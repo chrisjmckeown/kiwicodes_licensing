@@ -1,38 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Alert from '../../components/Alert';
+import Breadcrumb from '../../components/Breadcrumb';
+import PageHeader from '../../components/PageHeader';
 
 const View_product_usage = () => {
   return (
-    <main className='main'>
-      <div className='main_content'>
-        <div className='container'>
-          <div className='row body_margin'>
-            <div className='col'>
-              <div className='container'>
-                <div className='row'>
-                  <div className='breadcrumb'>
-                    <Link to='/' title='return to Home'>
-                      Home
-                    </Link>
-                    <span className='navigation-pipe'>&gt;</span>
-                    <Link to='/member' title='return to Member'>
-                      Member
-                    </Link>
-                    <span className='navigation-pipe'>&gt;</span>
-                    <span className='navigation_page'>View Product Usage</span>
-                  </div>
-                </div>
-                <div className='row'>
-                  <div className='products'>
-                    <h1>View Product Usage</h1>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
+    <>
+      <Breadcrumb breadCrumbs={['Members']} endPage={'View Product Usage'} />
+      <PageHeader pageName={'View Product Usage'} />
+      <Alert />
+    </>
   );
 };
 export default View_product_usage;

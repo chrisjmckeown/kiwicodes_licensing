@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import Alert from '../components/Alert';
+import Main from '../components/Main';
 import Home from '../pages/Home';
 import Products from '../pages/Products';
 
@@ -39,132 +39,133 @@ import PrivateRoute from './PrivateRoute';
 export const AppRouter = () => (
   <BrowserRouter>
     <Header />
-    <Route exact path='/' component={Home} />
-    <Alert />
-    <Switch>
-      <Route exact path='/products' component={Products} />
+    <Main>
+      <Route exact path='/' component={Home} />
+      <Switch>
+        <Route exact path='/products' component={Products} />
 
-      <PrivateRoute
-        exact
-        path='/kc_admin'
-        component={KC_admin}
-        routePremissionLevel={'kiwicodes'}
-      />
-      <PrivateRoute
-        path='/manage_clients'
-        component={Manage_clients}
-        routePremissionLevel={'kiwicodes'}
-      />
-      <PrivateRoute
-        exact
-        path='/manage_members'
-        component={Manage_members}
-        routePremissionLevel={'kiwicodes'}
-      />
-      <PrivateRoute
-        exact
-        path='/manage_products'
-        component={Manage_products}
-        routePremissionLevel={'kiwicodes'}
-      />
-      <PrivateRoute
-        exact
-        path='/manage_apps'
-        component={Manage_apps}
-        routePremissionLevel={'kiwicodes'}
-      />
-      <PrivateRoute
-        exact
-        path='/manage_errors'
-        component={Manage_errors}
-        routePremissionLevel={'kiwicodes'}
-      />
-      <PrivateRoute
-        exact
-        path='/view_product_usage'
-        component={View_product_usage}
-        routePremissionLevel={'kiwicodes'}
-      />
-      <PrivateRoute
-        exact
-        path='/view_app_usage'
-        component={View_app_usage}
-        routePremissionLevel={'kiwicodes'}
-      />
-      <PrivateRoute
-        exact
-        path='/view_audits'
-        component={View_audits}
-        routePremissionLevel={'kiwicodes'}
-      />
+        <PrivateRoute
+          exact
+          path='/kc_admin'
+          component={KC_admin}
+          routePremissionLevel={'kiwicodes'}
+        />
+        <PrivateRoute
+          path='/manage_clients'
+          component={Manage_clients}
+          routePremissionLevel={'kiwicodes'}
+        />
+        <PrivateRoute
+          exact
+          path='/manage_members'
+          component={Manage_members}
+          routePremissionLevel={'kiwicodes'}
+        />
+        <PrivateRoute
+          exact
+          path='/manage_products'
+          component={Manage_products}
+          routePremissionLevel={'kiwicodes'}
+        />
+        <PrivateRoute
+          exact
+          path='/manage_apps'
+          component={Manage_apps}
+          routePremissionLevel={'kiwicodes'}
+        />
+        <PrivateRoute
+          exact
+          path='/manage_errors'
+          component={Manage_errors}
+          routePremissionLevel={'kiwicodes'}
+        />
+        <PrivateRoute
+          exact
+          path='/view_product_usage'
+          component={View_product_usage}
+          routePremissionLevel={'kiwicodes'}
+        />
+        <PrivateRoute
+          exact
+          path='/view_app_usage'
+          component={View_app_usage}
+          routePremissionLevel={'kiwicodes'}
+        />
+        <PrivateRoute
+          exact
+          path='/view_audits'
+          component={View_audits}
+          routePremissionLevel={'kiwicodes'}
+        />
 
-      <PrivateRoute
-        exact
-        path='/admin'
-        component={Admin}
-        routePremissionLevel={'admin'}
-      />
-      <PrivateRoute
-        exact
-        path='/admin_Manage_license_keys'
-        component={Admin_Manage_license_keys}
-        routePremissionLevel={'admin'}
-      />
-      <PrivateRoute
-        exact
-        path='/admin_Manage_members'
-        component={Admin_Manage_members}
-        routePremissionLevel={'admin'}
-      />
-      <PrivateRoute
-        exact
-        path='/admin_view_product_usage'
-        component={Admin_View_product_usage}
-        routePremissionLevel={'admin'}
-      />
-      <PrivateRoute
-        exact
-        path='/admin_view_app_usage'
-        component={Admin_View_app_usage}
-        routePremissionLevel={'admin'}
-      />
-      <PrivateRoute
-        exact
-        path='/admin_view_audits'
-        component={Admin_View_audits}
-        routePremissionLevel={'admin'}
-      />
+        <PrivateRoute
+          exact
+          path='/admin'
+          component={Admin}
+          routePremissionLevel={'admin'}
+        />
+        <PrivateRoute
+          exact
+          path='/admin_Manage_license_keys'
+          component={Admin_Manage_license_keys}
+          routePremissionLevel={'admin'}
+        />
+        <PrivateRoute
+          exact
+          path='/admin_Manage_members'
+          component={Admin_Manage_members}
+          routePremissionLevel={'admin'}
+        />
+        <PrivateRoute
+          exact
+          path='/admin_view_product_usage'
+          component={Admin_View_product_usage}
+          routePremissionLevel={'admin'}
+        />
+        <PrivateRoute
+          exact
+          path='/admin_view_app_usage'
+          component={Admin_View_app_usage}
+          routePremissionLevel={'admin'}
+        />
+        <PrivateRoute
+          exact
+          path='/admin_view_audits'
+          component={Admin_View_audits}
+          routePremissionLevel={'admin'}
+        />
 
-      <PrivateRoute
-        exact
-        path='/members'
-        component={Members}
-        routePremissionLevel={'user'}
-      />
-      <PrivateRoute
-        exact
-        path='/member_view_product_usage'
-        component={Member_View_product_usage}
-        routePremissionLevel={'user'}
-      />
-      <PrivateRoute
-        exact
-        path='/member_view_app_usage'
-        component={Member_View_app_usage}
-        routePremissionLevel={'user'}
-      />
-      <PrivateRoute
-        exact
-        path='/member_view_audits'
-        component={Member_View_audits}
-        routePremissionLevel={'user'}
-      />
+        <PrivateRoute
+          exact
+          path='/members'
+          component={Members}
+          routePremissionLevel={'user'}
+        />
+        <PrivateRoute
+          exact
+          path='/member_view_product_usage'
+          component={Member_View_product_usage}
+          routePremissionLevel={'user'}
+        />
+        <PrivateRoute
+          exact
+          path='/member_view_app_usage'
+          component={Member_View_app_usage}
+          routePremissionLevel={'user'}
+        />
+        <PrivateRoute
+          exact
+          path='/member_view_audits'
+          component={Member_View_audits}
+          routePremissionLevel={'user'}
+        />
 
-      <Route exact path='/licensing_test' component={Testing} />
-      <Route exact path='/contact' component={Contact} />
-      <Route exact path='/login' component={Authentication} />
-      <Route exact path='/my_account' component={My_account} />
-    </Switch>
+        <Route exact path='/licensing_test' component={Testing} />
+        <Route exact path='/contact' component={Contact} />
+        <Route exact path='/login' component={Authentication} />
+        <Route exact path='/my_account' component={My_account} />
+      </Switch>
+    </Main>
     <Footer />
   </BrowserRouter>
 );

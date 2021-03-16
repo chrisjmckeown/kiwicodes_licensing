@@ -10,21 +10,21 @@ const Footer = () => {
           <div className='col8'>
             <div className='container'>
               <div className='row'>
-                <div className='footer_block'>
+                <div className='footer__block'>
                   <ul>
-                    <li className='first_item'>
+                    <li className='footer__first-item'>
                       <Link to='/' title='Home'>
                         Home
                       </Link>
                     </li>{' '}
-                    <span className='divider'>|</span>
-                    <li className='item'>
+                    <span className='footer__divider'>|</span>
+                    <li className='footer__item'>
                       <Link to='/products' title='Products'>
                         Products
                       </Link>
                     </li>{' '}
-                    <span className='divider'>|</span>
-                    <li className='item'>
+                    <span className='footer__divider'>|</span>
+                    <li className='footer__item'>
                       <Link to='/contact' title='Contact'>
                         Contact
                       </Link>
@@ -33,21 +33,21 @@ const Footer = () => {
                 </div>
               </div>
               <div className='row'>
-                <div className='footer_block'>
-                  <li className='last_item'>
-                    <span className='company'>
+                <div className='footer__block'>
+                  <li className='footer__last-item'>
+                    <span className='footer__company'>
                       Kiwi Codes Solutions Ltd © 2021
                     </span>{' '}
-                    <span className='divider_2'>|</span>
+                    <span className='footer__divider-2'>|</span>
                     <Link to='/' title='Terms &amp; Conditions'>
                       Terms &amp; Conditions
                     </Link>{' '}
-                    <span className='divider_2'>|</span>
-                    <span className='website_design_by'>
+                    <span className='footer__divider-2'>|</span>
+                    <span className='footer__website-design-by'>
                       Website / Web Design by
-                    </span>
+                    </span>{' '}
                     <Link to='/' title='Kiwi Codes' target='_blank'>
-                      <span className='website'>Kiwi Codes</span>
+                      <span className='footer__website'>Kiwi Codes</span>
                     </Link>
                   </li>
                 </div>
@@ -55,7 +55,7 @@ const Footer = () => {
             </div>
           </div>
           <div className='col'>
-            <div className='footer_autodesk'>
+            <div className='footer__autodesk'>
               <a
                 href='http://www.autodesk.com'
                 target='_blank'

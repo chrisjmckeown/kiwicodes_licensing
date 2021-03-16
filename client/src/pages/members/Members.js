@@ -1,34 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Alert from '../../components/Alert';
+import Breadcrumb from '../../components/Breadcrumb';
+import PageHeader from '../../components/PageHeader';
 
 const Members = () => {
   return (
-    <main className='main'>
-      <div className='main_content'>
-        <div className='container'>
-          <div className='row body_margin'>
-            <div className='col'>
-              <div className='container'>
-                <div className='row'>
-                  <div className='breadcrumb'>
-                    <Link to='/' title='return to Home'>
-                      Home
-                    </Link>
-                    <span className='navigation-pipe'>&gt;</span>
-                    <span className='navigation_page'>Members</span>
-                  </div>
-                </div>
-                <div className='row'>
-                  <div className='products'>
-                    <h1>Members</h1>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
+    <>
+      <Breadcrumb breadCrumbs={[]} endPage={'Members'} />
+      <PageHeader pageName={'Members'} />
+      <Alert />
+    </>
   );
 };
 export default Members;

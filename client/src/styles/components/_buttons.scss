@@ -1,0 +1,54 @@
+  input.button_large,
+  input.button_large_disabled,
+  a.button_large,
+  span.button_large {
+    border: 0px solid;
+    cursor: pointer;
+    background-color: #0e0a0a;
+    width: 180px;
+    height: 23px;
+    color: #ffffff !important;
+    font: bold 12px/23px 'Arial';
+    text-decoration: none;
+    text-transform: none;
+    margin-bottom: 10px;
+  }
+  input.button_large:hover,
+  input.button_large_disabled:hover,
+  a.button_large:hover,
+  span.button_large:hover {
+    background-color: #4e4444;
+  }
+  
+  .btn-dark,
+  .bg-dark,
+  .badge-dark,
+  .alert-dark {
+    background: $dark-color;
+    color: #fff;
+  }
+  
+  .btn-danger,
+  .bg-danger,
+  .badge-danger,
+  .alert-danger {
+    background: $danger-color;
+    color: #fff;
+  }
+  
+  .btn-success,
+  .bg-success,
+  .badge-success,
+  .alert-success {
+    background: $success-color;
+    color: #fff;
+  }
+  
+  .btn-white,
+  .bg-white,
+  .badge-white,
+  .alert-white {
+    background: #fff;
+    color: #333;
+    border: #ccc solid 1px;
+  }
