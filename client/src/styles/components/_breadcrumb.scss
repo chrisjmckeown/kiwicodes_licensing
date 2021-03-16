@@ -1,20 +1,21 @@
   .breadcrumb {
-    width: 100%;
+    color: #497693;
+    display: flex;
     font: 14px/30px 'Open Sans';
     height: 31px;
-    color: #497693;
+    justify-content: flex-end;
     padding-left: 4px;
     text-transform: uppercase;
-    text-align: right;
+    width: 100%;
     a {
+      color: #c1c1c1;
         text-decoration: none;
-        color: #c1c1c1;
     }
     a:hover {
         text-decoration: underline;
     }
   }
   .breadcrumb__navigation-pipe {
-    padding: 0 0.6em;
     color: #c1c1c1;
+    padding: 0 0.6em;
   }

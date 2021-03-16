@@ -8,12 +8,10 @@ const Breadcrumb = ({ breadCrumbs, endPage }) => {
         <Link to='/'>Home</Link>
         {breadCrumbs.length > 0 &&
           breadCrumbs.map((breadcrumb, index) => (
-            <>
-              <span key={index} className='breadcrumb__navigation-pipe'>
-                &gt;
-              </span>
+            <div key={index}>
+              <span className='breadcrumb__navigation-pipe'>&gt;</span>
               <Link to={`/${breadcrumb}`}>{breadcrumb}</Link>
-            </>
+            </div>
           ))}
         <span className='breadcrumb__navigation-pipe'>&gt;</span>
         <span className='breadcrumb__navigation-page'>{endPage}</span>
