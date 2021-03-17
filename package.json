@@ -30,6 +30,7 @@
     "mongoose": "^5.11.15",
     "mssql": "^6.3.1",
     "mysql2": "^2.2.5",
+    "react-responsive-carousel": "^3.2.14",
     "sequelize": "^6.5.0"
   },
   "devDependencies": {
