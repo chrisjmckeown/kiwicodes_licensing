@@ -10,7 +10,7 @@ const Authentication = () => {
     <>
       <Breadcrumb breadCrumbs={[]} endPage={'Login'} />
       <PageHeader pageName={'Login'} />
-      <div className='row'>
+      <div className='row lg'>
         <div className='col6 lg'>
           <Register />
         </div>

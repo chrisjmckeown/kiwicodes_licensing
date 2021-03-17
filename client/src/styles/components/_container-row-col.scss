@@ -81,9 +81,12 @@
 
   @media (max-width: $desktop-breakpoint) {
     .lg{
-      display: flex;
-      flex-direction: column;
       width: 100%;
       margin-bottom: 20px;
+    }
+    
+    .row.lg{
+      flex-direction: column;
+      flex-wrap: wrap;
     }
   }
