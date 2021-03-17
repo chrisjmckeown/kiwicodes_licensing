@@ -35,16 +35,18 @@ const Footer = () => {
               <div className='row'>
                 <div className='footer__block'>
                   <li className='footer__last-item'>
-                    <span className='footer__company'>
-                      Kiwi Codes Solutions Ltd © 2021
-                    </span>{' '}
-                    <span className='footer__divider-2'>|</span>
-                    <Link to='/' title='Terms &amp; Conditions'>
-                      Terms &amp; Conditions
+                    <span className='footer__company'>Kiwi Codes</span>{' '}
+                    <span className='footer__divider-2'> | </span>
+                    <Link
+                      to='/'
+                      title='Terms &amp; Conditions'
+                      className='footer__terms'
+                    >
+                      T
                     </Link>{' '}
-                    <span className='footer__divider-2'>|</span>
+                    <span className='footer__divider-2'> | </span>
                     <span className='footer__website-design-by'>
-                      Website / Web Design by
+                      Website
                     </span>{' '}
                     <Link to='/' title='Kiwi Codes' target='_blank'>
                       <span className='footer__website'>Kiwi Codes</span>

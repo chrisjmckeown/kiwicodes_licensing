@@ -3,13 +3,12 @@
   width: 100%;
 }
 .create_account_form h4 {
-  height: 3.4em;
-  padding: 0.3em 3em 0 4em;
+  padding: 0.3rem $m-size 0 $m-size;
 }
 .create_account_form p.text,
 .login_form p.text {
   height: 4.4em;
-  margin-left: 4em;
+  margin-left: $m-size;
   padding-left: 0;
   padding-right: 0;
 }
@@ -26,10 +25,10 @@
 .login_form p.submit {
   margin-right: 0;
   text-align: left;
-  padding-left: 44px !important;
+  padding-left: $m-size;
 }
 .login_form p.lost_password {
-  padding-left: 4em;
+  padding-left: $m-size;
 }
 .create_account_form fieldset,
 .login_form fieldset {
@@ -42,9 +41,16 @@
   display: block;
   text-align: left;
   width: 100%;
-  margin-bottom: 0.3em;
+  margin-bottom: 0.3rem;
 }
 .create_account_form .account_input,
 .login_form .account_input {
-  width: 80%;
+  width: 100%;
+  padding: 3px;
+}
+
+@media (max-width: $desktop-breakpoint) {
+  .create_account_form {
+    margin-right: 0;
+  }
 }

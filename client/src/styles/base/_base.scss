@@ -25,7 +25,8 @@ body {
 .page {
   height: 100%;
   border: 0px solid;
-  width: 988px;
+  min-width: 375px;
+  max-width: 988px;
   margin: 0 auto;
   text-align: left;
   display: flex;

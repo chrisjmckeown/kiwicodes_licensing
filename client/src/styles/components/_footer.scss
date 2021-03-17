@@ -2,15 +2,13 @@
     background-image: linear-gradient(rgb(80, 155, 191), rgb(76, 122, 152));
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
     flex: 0 0 auto;
-    height: 72px;
     margin-bottom: 15px;
     margin-left: 7px;
     margin-right: 7px;
   }
   .footer__autodesk {
     float: right;
-    margin-right: 18px;
-    margin-top: 15px;
+    margin: 15px 18px 15px 0;
     width: 100%;
     a {
         float: right;
@@ -80,5 +78,38 @@
             text-transform: none;
             text-decoration: none;
         }
+    }
+  }
+
+  @media (min-width: $desktop-breakpoint) {
+    .footer__company:after{
+        content: ' Solutions Ltd © 2021';
+    }
+    .footer__website-design-by:after{
+        content: ' / Web Design by';
+    }
+    .footer__terms:after{
+        content: 'erms & Conditions';
+    }
+  }
+
+  @media (max-width: $desktop-breakpoint) {
+    .footer__block {
+        span.footer__divider {
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+    }
+    .footer__company:after{
+        content: ' © 2021';
+    }
+    .footer__website-design-by:after{
+        content: ' by';
+    }
+    .footer__terms:after{
+        content: ' & C';
+    }
+    .footer__autodesk {
+        margin: 15px 10px 15px 0;
     }
   }

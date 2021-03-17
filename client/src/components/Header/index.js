@@ -44,56 +44,91 @@ const Header = ({
   );
 
   const kiwicodesLinks = (
-    <div className='header__menu-dropdown'>
-      <li>
-        <NavLink to='/kc_admin' title='KC Admin'>
-          KC ADMIN
-        </NavLink>
-      </li>
-      <div className='header__menu-dropdown-content'>
-        <NavLink to='/manage_clients'>MANAGE CLIENTS</NavLink>
-        <NavLink to='/manage_members'>MANAGE MEMBERS</NavLink>
-        <NavLink to='/manage_products'>MANAGE PRODUCTS</NavLink>
-        <NavLink to='/manage_apps'>MANAGE APPS</NavLink>
-        <NavLink to='/manage_errors'>MANAGE ERRORS</NavLink>
-        <NavLink to='/view_product_usage'>VIEW PRODUCT USAGE</NavLink>
-        <NavLink to='/view_app_usage'>VIEW APP USAGE</NavLink>
-        <NavLink to='/view_audits'>VIEW AUDITS</NavLink>
-      </div>
-    </div>
+    <li className='header__primaryItem'>
+      <NavLink to='/kc_admin' title='KC'>
+        KC
+      </NavLink>
+      <ul className='header__secondaryNav'>
+        <li className='header__secondaryItem'>
+          <NavLink to='/manage_clients'>MANAGE CLIENTS</NavLink>
+        </li>
+        <li className='header__secondaryItem'>
+          <NavLink to='/manage_members'>MANAGE MEMBERS</NavLink>
+        </li>
+        <li className='header__secondaryItem'>
+          <NavLink to='/manage_products'>MANAGE PRODUCTS</NavLink>
+        </li>
+        <li className='header__secondaryItem'>
+          <NavLink to='/manage_apps'>MANAGE APPS</NavLink>
+        </li>
+        <li className='header__secondaryItem'>
+          <NavLink to='/manage_errors'>MANAGE ERRORS</NavLink>
+        </li>
+        <li className='header__secondaryItem'>
+          <NavLink to='/view_product_usage'>VIEW PRODUCT USAGE</NavLink>
+        </li>
+        <li className='header__secondaryItem'>
+          <NavLink to='/view_app_usage'>VIEW APP USAGE</NavLink>
+        </li>
+        <li className='header__secondaryItem'>
+          <NavLink to='/view_audits'>VIEW AUDITS</NavLink>
+        </li>
+      </ul>
+    </li>
   );
 
   const adminLinks = (
-    <div className='header__menu-dropdown'>
-      <li>
-        <NavLink to='/admin' title='ADMIN'>
-          ADMIN
-        </NavLink>
-      </li>
-      <div className='header__menu-dropdown-content'>
-        <NavLink to='/admin_Manage_license_keys'>MANAGE LICENSE KEYS</NavLink>
-        <NavLink to='/admin_Manage_members'>MANAGE MEMBERS</NavLink>
-        <NavLink to='/admin_view_product_usage'>VIEW PRODUCT USAGE</NavLink>
-        <NavLink to='/admin_view_app_usage'>VIEW APP USAGE</NavLink>
-        <NavLink to='/admin_view_audits'>VIEW AUDITS</NavLink>
-      </div>
-    </div>
+    <li className='header__primaryItem'>
+      <NavLink to='/admin' title='ADMIN'>
+        ADMIN
+      </NavLink>
+      <ul className='header__secondaryNav'>
+        <li className='header__secondaryItem'>
+          <NavLink to='/admin_Manage_license_keys'>MANAGE LICENSE KEYS</NavLink>
+        </li>
+        <li className='header__secondaryItem'>
+          <NavLink to='/admin_Manage_members'>MANAGE MEMBERS</NavLink>
+        </li>
+        <li className='header__secondaryItem'>
+          <NavLink to='/admin_view_product_usage'>VIEW PRODUCT USAGE</NavLink>
+        </li>
+        <li className='header__secondaryItem'>
+          <NavLink to='/admin_view_app_usage'>VIEW APP USAGE</NavLink>
+        </li>
+        <li className='header__secondaryItem'>
+          <NavLink to='/admin_view_audits'>VIEW AUDITS</NavLink>
+        </li>
+      </ul>
+    </li>
   );
 
   const memberLinks = (
-    <div className='header__menu-dropdown'>
-      <li>
-        <NavLink to='/members' title='MEMBERS'>
-          MEMBERS
-        </NavLink>
-      </li>
-      <div className='header__menu-dropdown-content'>
-        <NavLink to='/member_view_product_usage'>VIEW PRODUCT USAGE</NavLink>
-        <NavLink to='/member_view_app_usage'>VIEW APP USAGE</NavLink>
-        <NavLink to='/member_view_audits'>VIEW AUDITS</NavLink>
-      </div>
-    </div>
+    <li className='header__primaryItem'>
+      <NavLink to='/members' title='MEMBERS'>
+        MEMBERS
+      </NavLink>
+      <ul className='header__secondaryNav'>
+        <li className='header__secondaryItem'>
+          <NavLink to='/member_view_product_usage'>VIEW PRODUCT USAGE</NavLink>
+        </li>
+        <li className='header__secondaryItem'>
+          <NavLink to='/member_view_app_usage'>VIEW APP USAGE</NavLink>
+        </li>
+        <li className='header__secondaryItem'>
+          <NavLink to='/member_view_audits'>VIEW AUDITS</NavLink>
+        </li>
+      </ul>
+    </li>
   );
+
+  const myFunction = () => {
+    var x = document.getElementById('header__primaryNav');
+    if (x.className === 'header__primaryNav') {
+      x.className += ' responsive';
+    } else {
+      x.className = 'header__primaryNav';
+    }
+  };
 
   return (
     <header className='header'>
@@ -115,13 +150,13 @@ const Header = ({
         <div className='row'>
           <div className='col'>
             <div className='header__menu'>
-              <ul>
-                <li>
+              <ul className='header__primaryNav' id='header__primaryNav'>
+                <li className='header__primaryItem'>
                   <NavLink exact to='/' title='Home'>
                     HOME
                   </NavLink>
                 </li>
-                <li>
+                <li className='header__primaryItem'>
                   <NavLink to='/products' title='Products'>
                     PRODUCTS
                   </NavLink>
@@ -144,17 +179,42 @@ const Header = ({
                       memberLinks}
                   </>
                 )}
-                <li>
+                <li className='header__primaryItem'>
                   <NavLink to='/licensing_test' title='LICENSING TEST'>
                     TESTING
                   </NavLink>
                 </li>
-                <li>
+                <li className='header__primaryItem'>
                   <NavLink to='/contact' title='Contact us'>
                     CONTACT
                   </NavLink>
                 </li>
+                <li className='header__icon' onClick={myFunction}>
+                  <i className='fa fa-bars'></i>
+                </li>
               </ul>
+              {/* <ul className='topnav' id='myTopnav'>
+                <li href='#home' class='active'>
+                  Home
+                </li>
+                <li className='primarynav' href='#news'>
+                  News
+                </li>
+                <li className='primarynav' href='#contact'>
+                  Contact
+                  <ul className='subnav'>
+                    <li href='#news'>News</li>
+                    <li href='#contact'>Contact</li>
+                    <li href='#about'>About</li>
+                  </ul>
+                </li>
+                <li className='primarynav' href='#about'>
+                  About
+                </li>
+                <li className='icon' onClick={myFunction}>
+                  <i className='fa fa-bars'></i>
+                </li>
+              </ul> */}
             </div>
           </div>
         </div>
