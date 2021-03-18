@@ -11,3 +11,9 @@
     text-transform: capitalize;
   }
 }
+
+@media (max-width: $desktop-breakpoint) {
+  .legend {
+    display: none;
+  }
+}

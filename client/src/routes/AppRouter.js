@@ -33,6 +33,7 @@ import My_account from '../pages/members/My_account';
 import Testing from '../pages/Testing';
 import Contact from '../pages/Contact';
 import Authentication from '../pages/Authentication';
+import NotFoundPage from '../pages/NotFoundPage';
 import history from './history';
 
 import PrivateRoute from './PrivateRoute';
@@ -41,8 +42,8 @@ export const AppRouter = () => (
   <Router history={history}>
     <Header />
     <Main>
-      <Route exact path='/' component={Home} />
       <Switch>
+        <Route exact path='/' component={Home} />
         <Route exact path='/products' component={Products} />
 
         <PrivateRoute
@@ -165,6 +166,7 @@ export const AppRouter = () => (
         <Route exact path='/contact' component={Contact} />
         <Route exact path='/login' component={Authentication} />
         <Route exact path='/my_account' component={My_account} />
+        <Route component={NotFoundPage} />
       </Switch>
     </Main>
     <Footer />

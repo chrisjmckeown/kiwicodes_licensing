@@ -1,115 +1,115 @@
 .footer {
-    background-image: linear-gradient(rgb(80, 155, 191), rgb(76, 122, 152));
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
-    flex: 0 0 auto;
-    margin-bottom: 15px;
-    margin-left: 7px;
-    margin-right: 7px;
+  background-image: linear-gradient(rgb(80, 155, 191), rgb(76, 122, 152));
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+  flex: 0 1 auto;
+  margin-bottom: 15px;
+  margin-left: 7px;
+  margin-right: 7px;
+}
+.footer__autodesk {
+  float: right;
+  margin: 15px 18px 15px 0;
+  width: 100%;
+  a {
+    float: right;
+    width: 100%;
+    img {
+      float: right;
+    }
+  }
+}
+.footer__block {
+  float: left;
+  padding-top: 12px;
+  padding-left: 20px;
+  span.footer__divider {
+    color: #ffffff;
+    font: 14px 'Arial';
+    margin-left: 33px;
+    margin-right: 33px;
+  }
+  span.footer__divider-2 {
+    color: #ffffff;
+    font: 14px 'Arial';
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  li {
+    display: inline;
+    list-style-type: none;
+    text-decoration: none;
+    a {
+      color: #ffffff;
+      font: 13px 'Arial';
+      text-transform: none;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+  li.footer__first-item {
+    border: none;
+    padding-left: 0;
+  }
+  li.footer__last-item {
+    color: #b6babd;
+    font: 13px 'Arial';
+    text-decoration: none;
+    a {
+      color: #ffffff;
+      font: 13px 'Arial';
+      text-transform: none;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    span.footer__website {
+      color: #b6babd;
+      text-transform: none;
+      text-decoration: underline;
+    }
+    span.footer__website-design-by {
+      text-decoration: none;
+    }
+    span.footer__company {
+      color: #ffffff;
+      text-transform: none;
+      text-decoration: none;
+    }
+  }
+}
+
+@media (min-width: $desktop-breakpoint) {
+  .footer__company:after {
+    content: ' Solutions Ltd © 2021';
+  }
+  .footer__website-design-by:after {
+    content: ' / Web Design by';
+  }
+  .footer__terms:after {
+    content: 'erms & Conditions';
+  }
+}
+
+@media (max-width: $desktop-breakpoint) {
+  .footer__block {
+    span.footer__divider {
+      margin-left: 5px;
+      margin-right: 5px;
+    }
+  }
+  .footer__company:after {
+    content: ' © 2021';
+  }
+  .footer__website-design-by:after {
+    content: ' by';
+  }
+  .footer__terms:after {
+    content: ' & C';
   }
   .footer__autodesk {
-    float: right;
-    margin: 15px 18px 15px 0;
-    width: 100%;
-    a {
-        float: right;
-        width: 100%;
-        img {
-            float: right;
-        }
-    }
+    margin: 15px 10px 15px 0;
   }
-  .footer__block {
-    float: left;
-    padding-top: 12px;
-    padding-left: 20px;
-    span.footer__divider {
-        color: #ffffff;
-        font: 14px 'Arial';
-        margin-left: 33px;
-        margin-right: 33px;
-    }
-    span.footer__divider-2 {
-        color: #ffffff;
-        font: 14px 'Arial';
-        margin-left: 5px;
-        margin-right: 5px;
-    }
-    li {
-        display: inline;
-        list-style-type: none;
-        text-decoration: none;
-        a {
-            color: #ffffff;
-            font: 13px 'Arial';
-            text-transform: none;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-    }
-    li.footer__first-item {
-        border: none;
-        padding-left: 0;
-    }
-    li.footer__last-item {
-        color: #b6babd;
-        font: 13px 'Arial';
-        text-decoration: none;
-        a {
-            color: #ffffff;
-            font: 13px 'Arial';
-            text-transform: none;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        span.footer__website {
-            color: #b6babd;
-            text-transform: none;
-            text-decoration: underline;
-        }
-        span.footer__website-design-by {
-            text-decoration: none;
-        }
-        span.footer__company {
-            color: #ffffff;
-            text-transform: none;
-            text-decoration: none;
-        }
-    }
-  }
-
-  @media (min-width: $desktop-breakpoint) {
-    .footer__company:after{
-        content: ' Solutions Ltd © 2021';
-    }
-    .footer__website-design-by:after{
-        content: ' / Web Design by';
-    }
-    .footer__terms:after{
-        content: 'erms & Conditions';
-    }
-  }
-
-  @media (max-width: $desktop-breakpoint) {
-    .footer__block {
-        span.footer__divider {
-            margin-left: 5px;
-            margin-right: 5px;
-        }
-    }
-    .footer__company:after{
-        content: ' © 2021';
-    }
-    .footer__website-design-by:after{
-        content: ' by';
-    }
-    .footer__terms:after{
-        content: ' & C';
-    }
-    .footer__autodesk {
-        margin: 15px 10px 15px 0;
-    }
-  }
+}

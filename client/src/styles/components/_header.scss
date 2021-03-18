@@ -1,141 +1,139 @@
- .header {
-    background-color: #ffffff;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px $m-size 0 rgba(0, 0, 0, 0.1);
-    flex: 0 1 auto;
-    margin: 15px 7px 0px 7px;
-  }
-  .header__logo {
-    margin: $m-size 0px $m-size $m-size;
-  }
-  
-  .header__account {
-    border: 0px solid;
-    color: $light-grey;
-    font-family: Verdana;
-    font-size: $font-s-size;
-    margin: $m-size;
-    text-align: right;
-    width: 100%;
-    ul {
-        align-items: stretch;
-        display: flex;
-        justify-content: flex-end;
-        margin: 0;
-        padding: 0;
-        width: 100%;
-    }
-    li {
-        display: block;
-        flex: 0 1 auto;
-        list-style-type: none;
-        padding-left: $m-size;
-        a {
-            color: #1d2527;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        a.header__login {
-            color: $light-grey;
-            font: 400 13px/20px 'Open Sans';
-            text-decoration: none;
-            text-transform: none;
-        }
-        a:hover.header__login {
-            text-decoration: underline;
-        }
-        a.header__my-account {
-            color: $light-grey;
-            font: 400 13px/20px 'Open Sans';
-            text-decoration: none;
-            text-transform: none;
-        }
-        a:hover.header__my-account {
-            cursor: pointer;
-            text-decoration: underline;
-        }
-    }
-  }
-  
-  .header__menu {
-    border: 0px solid;
-    width: 100%;
-  }
-  .header__primaryNav {
+.header {
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px $m-size 0 rgba(0, 0, 0, 0.1);
+  flex: 0 1 auto;
+  margin: 15px 7px 0px 7px;
+}
+.header__logo {
+  margin: $m-size 0px $m-size $m-size;
+}
+
+.header__account {
+  border: 0px solid;
+  color: $light-grey;
+  font-family: Verdana;
+  font-size: $font-s-size;
+  margin: $m-size;
+  text-align: right;
+  width: 100%;
+  ul {
     align-items: stretch;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: flex-end;
     margin: 0;
     padding: 0;
     width: 100%;
   }
-  .header__primaryItem {
-    border: 1px rgb(100, 155, 191);
-    border-style: solid groove none solid;
+  li {
     display: block;
-    flex: 1;
-    height: 49px;
+    flex: 0 1 auto;
     list-style-type: none;
-    padding: 0;
+    padding-left: $m-size;
     a {
-      align-items: center;
-      background-image: linear-gradient(rgb(100, 155, 191), rgb(76, 122, 152));
-      color: white;
-      display: flex;
-      font-size: $m-size;
-      font-weight: 525;
-      height: 100%;
-      justify-content: center;
-      text-decoration: none;
-    }
-    a:hover:not(.active) {
-      background-image: linear-gradient(rgb(224, 228, 232), rgb(167, 170, 174));
-    }
-   .active {
-      background-image: linear-gradient(rgb(224, 228, 232), rgb(167, 170, 174));
-      color: rgb(76, 122, 152);
-    }
-    &:hover .header__secondaryNav {
-      display: block;
-    }
-  }
-
-  .header__secondaryNav {
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    display: none;
-    min-width: 160px;
-    position: absolute;
-    z-index: 1;
-  }
-  .header__secondaryItem {
-    list-style-type: none;
-    padding: 0;
-    a {
-      background-image: linear-gradient(rgb(152, 174, 189), rgb(116, 137, 151));
-      color: black;
-      display: block;
-      font-size: $s-size;
-      padding: 12px 16px;
+      color: #1d2527;
       text-decoration: none;
     }
     a:hover {
-      background-color: #ddd;
+      text-decoration: underline;
+    }
+    a.header__login {
+      color: $light-grey;
+      font: 400 13px/20px 'Open Sans';
+      text-decoration: none;
+      text-transform: none;
+    }
+    a:hover.header__login {
+      text-decoration: underline;
+    }
+    a.header__my-account {
+      color: $light-grey;
+      font: 400 13px/20px 'Open Sans';
+      text-decoration: none;
+      text-transform: none;
+    }
+    a:hover.header__my-account {
+      cursor: pointer;
+      text-decoration: underline;
     }
   }
+}
 
-  @media (max-width: $desktop-breakpoint) {
-    .header__logo img {
-      width: 200px;
-    }
-    
+.header__menu {
+  border: 0px solid;
+  width: 100%;
+}
+.header__primaryNav {
+  align-items: stretch;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+.header__primaryItem {
+  border: 1px rgb(100, 155, 191);
+  border-style: solid groove none solid;
+  display: block;
+  flex: 1;
+  height: 49px;
+  list-style-type: none;
+  padding: 0;
+  a {
+    align-items: center;
+    background-image: linear-gradient(rgb(100, 155, 191), rgb(76, 122, 152));
+    color: white;
+    display: flex;
+    font-size: $m-size;
+    font-weight: 525;
+    height: 100%;
+    justify-content: center;
+    text-decoration: none;
+  }
+  a:hover:not(.active) {
+    background-image: linear-gradient(rgb(224, 228, 232), rgb(167, 170, 174));
+  }
+  .active {
+    background-image: linear-gradient(rgb(224, 228, 232), rgb(167, 170, 174));
+    color: rgb(76, 122, 152);
+  }
+  &:hover .header__secondaryNav {
+    display: block;
+  }
+}
+
+.header__secondaryNav {
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  display: none;
+  min-width: 160px;
+  position: absolute;
+  z-index: 1;
+}
+.header__secondaryItem {
+  list-style-type: none;
+  padding: 0;
+  a {
+    background-image: linear-gradient(rgb(152, 174, 189), rgb(116, 137, 151));
+    color: black;
+    display: block;
+    font-size: $s-size;
+    padding: 12px 16px;
+    text-decoration: none;
+  }
+  a:hover {
+    background-color: #ddd;
+  }
+}
+
+@media (max-width: $desktop-breakpoint) {
+  .header__logo img {
+    width: 200px;
+  }
+
   .header__menu li a,
   .header__menu .header__menu-dropdown li a {
     font-size: $s-size;
   }
-  }
-
-
+}
 
 .topnav {
   overflow: hidden;
@@ -153,7 +151,7 @@
 }
 
 .topnav li.active {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
 }
 
@@ -175,9 +173,9 @@
 .subnav {
   display: none;
 }
-  .primarynav:hover .subnav{
-    display: block;
-  }
+.primarynav:hover .subnav {
+  display: block;
+}
 
 @media (max-width: $desktop-breakpoint) {
   .header__primaryNav li:not(:first-child) {
@@ -204,7 +202,7 @@
     float: none;
     display: block;
     text-align: left;
-  } 
+  }
   .header__secondaryItem {
     width: 250px;
   }

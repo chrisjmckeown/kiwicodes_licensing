@@ -4,10 +4,12 @@
   margin: 0;
 }
 
-html {
-  font-size: 62.5%;
-}
+html,
 body {
+  font-size: 62.5%;
+  height: 100%;
+}
+.root {
   background: #ebebeb;
   background: url('../img/wrapper1_bg.png') repeat center top transparent;
   color: #5d717e;
