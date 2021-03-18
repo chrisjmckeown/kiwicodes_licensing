@@ -1,12 +1,47 @@
-  form.std {
-    background-image: linear-gradient(#ebebeb, #d4d3d3);
-    border: 1px solid #d0d1d5;
-    h3 {
-      color: #555;
-      font-size: 1.4em;
-      font-weight: normal;
-      border-bottom: 1px solid #d0d1d5;
-      padding: 0.5em;
-      margin: 0 0 0.5em 0;
-    }
+form.std {
+  background-image: linear-gradient(#ebebeb, #d4d3d3);
+  border: 1px solid #d0d1d5;
+  h3 {
+    color: #555;
+    font-size: 1.4em;
+    font-weight: normal;
+    border-bottom: 1px solid #d0d1d5;
+    padding: 0.5em;
+    margin: 0 0 0.5em 0;
   }
+}
+
+.form {
+  width: 100%;
+}
+.form__fieldset {
+  border: 1px solid #d0d1d5;
+}
+.form__h4 {
+  padding: 0.3rem $m-size 0 $m-size;
+}
+.form__text {
+  padding: 5px 0 5px 0;
+}
+.form__margin {
+  margin-left: $m-size;
+}
+.form__submit {
+  margin-right: 0;
+  text-align: left;
+}
+.form__input {
+  width: 100%;
+  padding: 3px 0 3px 0;
+}
+.form__textarea {
+  width: 100%;
+  height: 100px;
+}
+.form__label {
+  float: none;
+  clear: both;
+  display: block;
+  text-align: left;
+  width: 100%;
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router-dom';
 
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -33,11 +33,12 @@ import My_account from '../pages/members/My_account';
 import Testing from '../pages/Testing';
 import Contact from '../pages/Contact';
 import Authentication from '../pages/Authentication';
+import history from './history';
 
 import PrivateRoute from './PrivateRoute';
 
 export const AppRouter = () => (
-  <BrowserRouter>
+  <Router history={history}>
     <Header />
     <Main>
       <Route exact path='/' component={Home} />
@@ -167,6 +168,6 @@ export const AppRouter = () => (
       </Switch>
     </Main>
     <Footer />
-  </BrowserRouter>
+  </Router>
 );
 export default AppRouter;

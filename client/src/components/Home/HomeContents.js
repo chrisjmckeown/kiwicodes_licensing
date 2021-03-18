@@ -11,9 +11,43 @@ export const HomeContents = () => {
       </div>
       <PageHeader pageName={'Featured Products'} />
       <div className='body__feature'>
-        <HomeFeaturedProducts />
-        <HomeFeaturedProducts />
-        <HomeFeaturedProducts />
+        <div className='container'>
+          <div className='row lg'>
+            <div className='col3 lg'>
+              <HomeFeaturedProducts
+                productName={'Family Browser R3'}
+                productLink={
+                  'http://www.kiwicodes.com/product.php?id_product=49'
+                }
+                productImage={
+                  'http://www.kiwicodes.com/49-232-home/family-browser.jpg'
+                }
+              />
+            </div>
+            <div className='col3 lg'>
+              <HomeFeaturedProducts
+                productName={'Bonus Tools'}
+                productLink={
+                  'http://www.kiwicodes.com/product.php?id_product=30'
+                }
+                productImage={
+                  'http://www.kiwicodes.com/30-132-home/bonus-tools.jpg'
+                }
+              />
+            </div>
+            <div className='col3 lg'>
+              <HomeFeaturedProducts
+                productName={'Easy Keynoter'}
+                productLink={
+                  'http://www.kiwicodes.com/product.php?id_product=42'
+                }
+                productImage={
+                  'http://www.kiwicodes.com/42-214-home/easy-keynoter.jpg'
+                }
+              />
+            </div>
+          </div>
+        </div>
       </div>
       <div className='body__text'>
         <p>
