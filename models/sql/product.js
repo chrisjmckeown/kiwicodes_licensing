@@ -32,6 +32,13 @@ module.exports = function (sequelize, DataTypes) {
           len: [1, 255],
         },
       },
+      imageLink: {
+        type: DataTypes.STRING(255),
+        allowNull: true,
+        validate: {
+          len: [1, 255],
+        },
+      },
     },
     {
       freezeTableName: true,
