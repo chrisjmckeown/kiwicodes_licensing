@@ -6,6 +6,8 @@ import Footer from '../components/Footer';
 import Main from '../components/Main';
 import Home from '../pages/Home';
 import Products from '../pages/Products';
+import ProductAdd from '../components/Products/ProductAdd';
+import ProductEdit from '../components/Products/ProductEdit';
 
 import KC_admin from '../pages/kc-admin/KC_admin';
 import Manage_clients from '../pages/kc-admin/Manage_clients';
@@ -45,9 +47,10 @@ export const AppRouter = () => (
       <Switch>
         <Route exact path='/' component={Home} />
         <Route exact path='/products' component={Products} />
+        <PrivateRoute path='/product_edit/:id' component={ProductEdit} />
+        <PrivateRoute path='/product_create' component={ProductAdd} />
 
         <PrivateRoute
-          exact
           path='/kc_admin'
           component={KC_admin}
           routePremissionLevel={'kiwicodes'}
@@ -58,25 +61,21 @@ export const AppRouter = () => (
           routePremissionLevel={'kiwicodes'}
         />
         <PrivateRoute
-          exact
           path='/manage_members'
           component={Manage_members}
           routePremissionLevel={'kiwicodes'}
         />
         <PrivateRoute
-          exact
           path='/manage_products'
           component={Manage_products}
           routePremissionLevel={'kiwicodes'}
         />
         <PrivateRoute
-          exact
           path='/manage_apps'
           component={Manage_apps}
           routePremissionLevel={'kiwicodes'}
         />
         <PrivateRoute
-          exact
           path='/manage_errors'
           component={Manage_errors}
           routePremissionLevel={'kiwicodes'}
@@ -107,65 +106,56 @@ export const AppRouter = () => (
           routePremissionLevel={'admin'}
         />
         <PrivateRoute
-          exact
           path='/admin_Manage_license_keys'
           component={Admin_Manage_license_keys}
           routePremissionLevel={'admin'}
         />
         <PrivateRoute
-          exact
           path='/admin_Manage_members'
           component={Admin_Manage_members}
           routePremissionLevel={'admin'}
         />
         <PrivateRoute
-          exact
           path='/admin_view_product_usage'
           component={Admin_View_product_usage}
           routePremissionLevel={'admin'}
         />
         <PrivateRoute
-          exact
           path='/admin_view_app_usage'
           component={Admin_View_app_usage}
           routePremissionLevel={'admin'}
         />
         <PrivateRoute
-          exact
           path='/admin_view_audits'
           component={Admin_View_audits}
           routePremissionLevel={'admin'}
         />
 
         <PrivateRoute
-          exact
           path='/members'
           component={Members}
           routePremissionLevel={'user'}
         />
         <PrivateRoute
-          exact
           path='/member_view_product_usage'
           component={Member_View_product_usage}
           routePremissionLevel={'user'}
         />
         <PrivateRoute
-          exact
           path='/member_view_app_usage'
           component={Member_View_app_usage}
           routePremissionLevel={'user'}
         />
         <PrivateRoute
-          exact
           path='/member_view_audits'
           component={Member_View_audits}
           routePremissionLevel={'user'}
         />
 
-        <Route exact path='/licensing_test' component={Testing} />
-        <Route exact path='/contact' component={Contact} />
-        <Route exact path='/login' component={Authentication} />
-        <Route exact path='/my_account' component={My_account} />
+        <Route path='/licensing_test' component={Testing} />
+        <Route path='/contact' component={Contact} />
+        <Route path='/login' component={Authentication} />
+        <Route path='/my_account' component={My_account} />
         <Route component={NotFoundPage} />
       </Switch>
     </Main>

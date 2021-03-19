@@ -39,13 +39,14 @@ module.exports = {
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { name, description, purchaseLink, helpLink } = req.body;
+    const { name, description, purchaseLink, helpLink, imageLink } = req.body;
 
     const productFeilds = {
       name,
       description,
       purchaseLink,
       helpLink,
+      imageLink,
     };
 
     try {
@@ -69,13 +70,14 @@ module.exports = {
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { name, description, purchaseLink, helpLink } = req.body;
+    const { name, description, purchaseLink, helpLink, imageLink } = req.body;
 
     const productFeilds = {
       name,
       description,
       purchaseLink,
       helpLink,
+      imageLink,
     };
 
     try {

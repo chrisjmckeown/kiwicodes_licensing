@@ -1,54 +1,52 @@
-.button_large,
-.button_large_disabled,
-a.button_large,
-span.button_large {
+.button__large,
+a.button__large,
+span.button__large {
   border: 0px solid;
   cursor: pointer;
   background-color: #0e0a0a;
   width: 100%;
   height: 23px;
-  color: #ffffff !important;
+  color: #ffffff;
   font: bold 12px/23px 'Arial';
   text-decoration: none;
   text-transform: none;
   margin-bottom: 10px;
 }
-.button_large:hover,
-.button_large_disabled:hover,
-a.button_large:hover,
-span.button_large:hover {
+.button__large:hover,
+a.button__large:hover,
+span.button__large:hover {
   background-color: #4e4444;
 }
-
-.btn-dark,
-.bg-dark,
-.badge-dark,
-.alert-dark {
-  background: $dark-color;
-  color: #fff;
-}
-
-.btn-danger,
-.bg-danger,
-.badge-danger,
-.alert-danger {
+.alert__danger {
   background: $danger-color;
   color: #fff;
 }
-
-.btn-success,
-.bg-success,
-.badge-success,
-.alert-success {
+.alert__success {
   background: $success-color;
   color: #fff;
 }
-
-.btn-white,
-.bg-white,
-.badge-white,
-.alert-white {
-  background: #fff;
-  color: #333;
-  border: #ccc solid 1px;
+.button__std {
+  background-image: linear-gradient(rgb(100, 155, 191), rgb(76, 122, 152));
+  color: white;
+  font: 'Molengo';
+  height: 35px;
+  line-height: 35px;
+  margin-bottom: 5px;
+  text-align: center;
+  text-decoration: none;
+  width: 120px;
+}
+.button__std:hover {
+  cursor: pointer;
+  background-image: linear-gradient(rgb(224, 228, 232), rgb(167, 170, 174));
+}
+.button__std a.product__view-button {
+  color: white;
+}
+.button__std a.product__view-button:hover {
+  color: rgb(76, 122, 152);
+}
+.button__std--secondary {
+  margin-top: 20px;
+  background: $danger-color;
 }

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { setAlert } from '../../actions/alert';
 import PropTypes from 'prop-types';
+
+import { setAlert } from '../../actions/alert';
 import history from '../../routes/history';
 import OptionModal from '../../components/Modal/OptionModal';
 
@@ -45,7 +46,7 @@ export const ContactForm = ({ setAlert }) => {
     <>
       <form className='std form' onSubmit={onSubmit}>
         <fieldset className='form__fieldset'>
-          <div className='form__margin'>
+          <div className='form__marginLeft'>
             <h3>Send a message</h3>
             <p className='select'>
               <label className='form__text form__label'>Subject Heading</label>
@@ -60,16 +61,15 @@ export const ContactForm = ({ setAlert }) => {
               </select>
             </p>
             <p className='form__text'>For all Sales and quotes support</p>
-            <p className='text'>
+            <>
               <label className='form__text form__label'>Name</label>
               <input
                 className='form__input'
-                type='text'
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               ></input>
-            </p>
-            <p className='text'>
+            </>
+            <>
               <label className='form__text form__label'>E-mail address</label>
               <input
                 className='form__input'
@@ -77,18 +77,17 @@ export const ContactForm = ({ setAlert }) => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               ></input>
-            </p>
-
-            <p>
+            </>
+            <>
               <label className='form__text form__label'>Message</label>
               <textarea
                 className='form__textarea'
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
               ></textarea>
-            </p>
+            </>
             <p className='form__submit'>
-              <input type='submit' className='button_large'></input>
+              <input type='submit' className='button__large'></input>
             </p>
           </div>
         </fieldset>

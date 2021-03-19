@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import { getProducts } from '../../actions/product';
-import Product from './Product';
+import ProductItem from './ProductItem';
 import Spinner from '../Spinner';
 
 export const Products = ({ getProducts, product: { products, loading } }) => {
@@ -19,7 +19,7 @@ export const Products = ({ getProducts, product: { products, loading } }) => {
         <>
           {products.length > 0 ? (
             products.map((product) => (
-              <Product key={product._id} product={product} />
+              <ProductItem key={product.id} product={product} />
             ))
           ) : (
             <h4>No products found...</h4>

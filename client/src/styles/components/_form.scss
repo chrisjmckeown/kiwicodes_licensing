@@ -23,8 +23,14 @@ form.std {
 .form__text {
   padding: 5px 0 5px 0;
 }
-.form__margin {
+.form__marginLeft {
   margin-left: $m-size;
+}
+.form__marginBottom {
+  margin-bottom: $m-size;
+}
+.form__marginTop {
+  margin-top: $m-size;
 }
 .form__submit {
   margin-right: 0;
@@ -37,6 +43,7 @@ form.std {
 .form__textarea {
   width: 100%;
   height: 100px;
+  resize: vertical;
 }
 .form__label {
   float: none;

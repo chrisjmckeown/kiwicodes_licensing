@@ -86,7 +86,7 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
             type='submit'
             id='SubmitCreate'
             name='SubmitCreate'
-            className='button_large'
+            className='button__large'
             value='Create your account'
           ></input>
         </p>

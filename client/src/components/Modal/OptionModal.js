@@ -17,7 +17,7 @@ const OptionModal = ({
   >
     <h3 className='modal__title'>{title}</h3>
     <p className='modal__body'>{message}</p>
-    <button className='button_large' onClick={handleClearSelectedOption}>
+    <button className='button__large' onClick={handleClearSelectedOption}>
       Okay
     </button>
   </Modal>

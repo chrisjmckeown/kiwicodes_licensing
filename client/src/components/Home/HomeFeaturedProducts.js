@@ -20,11 +20,9 @@ export const HomeFeaturedProducts = ({
     </div>
     <div className='row'>
       <div className='col justify_content_center'>
-        <div className='product__button'>
-          <a href={productLink} className='product__view-button' title='View'>
-            View
-          </a>
-        </div>
+        <a href={productLink} className='button__std' title='View'>
+          View
+        </a>
       </div>
     </div>
   </div>

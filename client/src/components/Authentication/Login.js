@@ -56,7 +56,7 @@ const Login = ({ login, isAuthenticated }) => {
             type='submit'
             id='SubmitLogin'
             name='SubmitLogin'
-            className='button_large'
+            className='button__large'
             value='Log in'
           ></input>
         </p>

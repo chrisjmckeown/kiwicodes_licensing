@@ -41,9 +41,9 @@ ul.product__list li h3 a {
 }
 
 ul.product__list li a {
-  text-decoration: none;
-  font: 400 15px/18px 'Molengo';
-  color: #a1a4a7;
+  // text-decoration: none;
+  // font: 400 15px/18px 'Molengo';
+  // color: #a1a4a7;
 }
 
 ul.product__list a.product__img-link img {
@@ -62,26 +62,4 @@ ul.product__list li h3 {
 ul.product__list li p.product__desc {
   margin-bottom: 0;
   margin-left: 20px;
-}
-.product__button {
-  font: 'Molengo';
-  width: 120px;
-  height: 35px;
-  margin-bottom: 5px;
-  text-align: center;
-  line-height: 35px;
-  background-image: linear-gradient(rgb(100, 155, 191), rgb(76, 122, 152));
-  a {
-    text-decoration: none;
-  }
-}
-.product__button:hover {
-  cursor: pointer;
-  background-image: linear-gradient(rgb(224, 228, 232), rgb(167, 170, 174));
-}
-.product__button a.product__view-button {
-  color: white;
-}
-.product__button a.product__view-button:hover {
-  color: rgb(76, 122, 152);
 }
