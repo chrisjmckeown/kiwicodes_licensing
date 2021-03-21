@@ -9,7 +9,7 @@ const Admin = () => {
     <>
       <Breadcrumb breadCrumbs={[]} endPage={'Admin'} />
       <PageHeader pageName={'Admin'} />
-      <AdminSubMenu nav={'header__primaryNav'} item={'header__primaryItem'} />
+      <AdminSubMenu nav={'header__gridNav'} item={'header__gridItem'} />
       <Alert />
     </>
   );

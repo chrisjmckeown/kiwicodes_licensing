@@ -10,7 +10,7 @@ const KC_admin = () => {
       <Breadcrumb breadCrumbs={[]} endPage={'KC Admin'} />
       <PageHeader pageName={'KC Admin'} />
 
-      <KCAdminSubMenu nav={'header__primaryNav'} item={'header__primaryItem'} />
+      <KCAdminSubMenu nav={'header__gridNav'} item={'header__gridItem'} />
       <Alert />
     </>
   );

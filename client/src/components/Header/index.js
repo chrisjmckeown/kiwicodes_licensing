@@ -154,28 +154,6 @@ const Header = ({
                   <i className='fa fa-bars'></i>
                 </li>
               </ul>
-              {/* <ul className='topnav' id='myTopnav'>
-                <li href='#home' class='active'>
-                  Home
-                </li>
-                <li className='primarynav' href='#news'>
-                  News
-                </li>
-                <li className='primarynav' href='#contact'>
-                  Contact
-                  <ul className='subnav'>
-                    <li href='#news'>News</li>
-                    <li href='#contact'>Contact</li>
-                    <li href='#about'>About</li>
-                  </ul>
-                </li>
-                <li className='primarynav' href='#about'>
-                  About
-                </li>
-                <li className='icon' onClick={myFunction}>
-                  <i className='fa fa-bars'></i>
-                </li>
-              </ul> */}
             </div>
           </div>
         </div>

@@ -9,7 +9,7 @@ const Members = () => {
     <>
       <Breadcrumb breadCrumbs={[]} endPage={'Members'} />
       <PageHeader pageName={'Members'} />
-      <MemberSubMenu nav={'header__primaryNav'} item={'header__primaryItem'} />
+      <MemberSubMenu nav={'header__gridNav'} item={'header__gridItem'} />
       <Alert />
     </>
   );
