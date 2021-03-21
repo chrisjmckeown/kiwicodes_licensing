@@ -1,14 +1,16 @@
 .container {
   display: flex;
-  width: 100%;
   flex-flow: row wrap;
+  align-items: flex-start;
+  height: 100%;
+  width: 100%;
 }
 .row {
-  width: 100%;
   display: flex;
   flex-wrap: nowrap;
   flex-flow: row wrap;
   justify-content: space-between;
+  width: 100%;
 }
 .align_items_end {
   align-items: flex-end;
@@ -25,6 +27,7 @@
 .col {
   display: flex;
   flex: 1;
+  height: 100%;
 }
 .col1 {
   display: flex;
@@ -75,11 +78,14 @@
   width: 100%;
 }
 .body_margin {
-  margin-left: 20px;
-  margin-right: 20px;
+  width: 98%;
+  margin-left: 1%;
 }
 .mar-2 {
   margin-bottom: 20px;
+}
+.overflow {
+  width: 100%;
 }
 
 @media (max-width: $desktop-breakpoint) {
@@ -92,4 +98,11 @@
     flex-direction: column;
     flex-wrap: wrap;
   }
+}
+
+.reacttable__wrapper {
+  width: 100%;
+}
+.ReactTable {
+  background: rgb(210, 223, 231);
 }

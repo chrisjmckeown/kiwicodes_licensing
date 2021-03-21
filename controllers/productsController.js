@@ -1,5 +1,6 @@
 const db = require('../models/sql');
 const { validationResult } = require('express-validator');
+const sequelize = require('sequelize');
 
 // Defining methods for the productsController
 module.exports = {
@@ -8,7 +9,18 @@ module.exports = {
   // @access  Public
   findAll: async (req, res) => {
     try {
-      const products = await db.product.findAll();
+      const products = await db.product.findAll({
+        attributes: {
+          include: [
+            [
+              sequelize.literal(
+                '(SELECT COUNT(*) FROM "app" WHERE "app"."productId" = "product"."id")'
+              ),
+              'appCount',
+            ],
+          ],
+        },
+      });
       res.json(products);
     } catch (err) {
       console.error(err.message);

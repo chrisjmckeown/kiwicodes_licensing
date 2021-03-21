@@ -11,11 +11,14 @@ import { addProduct } from '../../actions/product';
 export const ProductAdd = ({ addProduct }) => {
   const onSubmit = (product) => {
     addProduct(product);
-    history.push('/Products');
+    history.push('/manage_products');
   };
   return (
     <>
-      <Breadcrumb breadCrumbs={['Products']} endPage={'Create'} />
+      <Breadcrumb
+        breadCrumbs={['KC_ADMIN', 'manage_products']}
+        endPage={'Create'}
+      />
       <PageHeader pageName={'Create a Product'} />
       <ProductForm onSubmit={onSubmit} />
       <Alert />

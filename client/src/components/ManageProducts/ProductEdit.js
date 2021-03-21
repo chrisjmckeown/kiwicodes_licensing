@@ -1,23 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { setAlert } from '../../actions/alert';
 
 import ProductForm from './ProductForm';
 import Alert from '../Alert';
 import Breadcrumb from '../Breadcrumb';
 import PageHeader from '../PageHeader';
 import history from '../../routes/history';
+import { editProduct, deleteProduct } from '../../actions/product';
 
 export const ProductEdit = (props) => {
   const onSubmit = (product) => {
-    props.startEditExpense(props.product.id, product);
-    history.push('/');
+    props.editProduct(props.product.id, product);
+    history.push('/manage_products');
   };
 
   const onClick = () => {
-    props.startRemoveExpense({ id: this.props.expense.id });
-    history.push('/Products');
+    props.deleteProduct(props.product.id);
+    history.push('/manage_products');
   };
   return (
     <>
@@ -33,13 +32,14 @@ export const ProductEdit = (props) => {
   );
 };
 
-ProductEdit.propTypes = {
-  setAlert: PropTypes.func.isRequired,
-};
+const mapDispatchToProps = (dispatch) => ({
+  editProduct: (id, product) => dispatch(editProduct(id, product)),
+  deleteProduct: (id) => dispatch(deleteProduct(id)),
+});
 
 const mapStateToProps = (state, props) => ({
   product: state.product.products.find(
     (product) => product.id.toString() === props.match.params.id
   ),
 });
-export default connect(mapStateToProps, { setAlert })(ProductEdit);
+export default connect(mapStateToProps, mapDispatchToProps)(ProductEdit);

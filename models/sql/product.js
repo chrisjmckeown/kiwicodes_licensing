@@ -35,5 +35,12 @@ module.exports = function (sequelize, DataTypes) {
       freezeTableName: true,
     }
   );
+  Product.associate = function (models) {
+    Product.hasMany(models.app, {
+      foreignKey: {
+        allowNull: true,
+      },
+    });
+  };
   return Product;
 };

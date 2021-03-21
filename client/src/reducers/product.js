@@ -33,7 +33,7 @@ export const product = (state = initialState, action) => {
       return {
         ...state,
         posts: state.products.map(
-          (product) => product._id === payload.id && { ...product, ...payload }
+          (product) => product.id === payload.id && { ...payload }
         ),
         loading: false,
       };

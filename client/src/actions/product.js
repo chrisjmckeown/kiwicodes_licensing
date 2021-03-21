@@ -28,7 +28,7 @@ export const getProducts = () => async (dispatch) => {
   }
 };
 
-export const getProduct = (id) => async (dispatch) => {
+export const getProduct = ({ id }) => async (dispatch) => {
   try {
     const res = await api.get(`/products/${id}`);
     dispatch({
@@ -49,17 +49,7 @@ export const getProduct = (id) => async (dispatch) => {
 
 export const addProduct = (formData) => async (dispatch) => {
   try {
-    const body = JSON.stringify({ ...formData });
-    // const token = localStorage.getItem('token');
-    // const config = {
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //     Authorization: `Basic ${token}`,
-    //   },
-    // };
-
-    // console.log('here ', body);
-    const res = await api.post('/products', body);
+    const res = await api.post('/products', formData);
 
     dispatch({
       type: ADD_PRODUCT,
@@ -75,9 +65,9 @@ export const addProduct = (formData) => async (dispatch) => {
   }
 };
 
-export const editProduct = (formData) => async (dispatch) => {
+export const editProduct = (id, formData) => async (dispatch) => {
   try {
-    const res = await api.put('/products', formData);
+    const res = await api.put(`/products/${id}`, formData);
 
     dispatch({
       type: EDIT_PRODUCT,

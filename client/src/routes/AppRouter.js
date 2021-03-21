@@ -6,8 +6,8 @@ import Footer from '../components/Footer';
 import Main from '../components/Main';
 import Home from '../pages/Home';
 import Products from '../pages/Products';
-import ProductAdd from '../components/Products/ProductAdd';
-import ProductEdit from '../components/Products/ProductEdit';
+import ProductAdd from '../components/ManageProducts/ProductAdd';
+import ProductEdit from '../components/ManageProducts/ProductEdit';
 
 import KC_admin from '../pages/kc-admin/KC_admin';
 import Manage_clients from '../pages/kc-admin/Manage_clients';
