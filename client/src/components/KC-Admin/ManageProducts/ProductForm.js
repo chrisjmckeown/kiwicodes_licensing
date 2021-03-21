@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { setAlert } from '../../actions/alert';
+import { setAlert } from '../../../actions/alert';
 
 export const ProductForm = ({ product, setAlert, onSubmit }) => {
   const [id] = useState(product ? product.id : '');

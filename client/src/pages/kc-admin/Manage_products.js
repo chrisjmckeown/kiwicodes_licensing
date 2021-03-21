@@ -2,8 +2,8 @@ import React from 'react';
 import Alert from '../../components/Alert';
 import Breadcrumb from '../../components/Breadcrumb';
 import PageHeader from '../../components/PageHeader';
-import ProductList from '../../components/ManageProducts/Products';
-import ProductManage from '../../components/ManageProducts/ProductManage';
+import ProductList from '../../components/KC-Admin/ManageProducts/Products';
+import ProductManage from '../../components/KC-Admin/ManageProducts/ProductManage';
 
 const Manage_products = () => {
   return (

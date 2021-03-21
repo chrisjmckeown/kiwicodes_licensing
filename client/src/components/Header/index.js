@@ -3,6 +3,9 @@ import { Link, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { logout } from '../../actions/auth';
+import KCAdminSubMenu from './KCAdminSubMenu';
+import AdminSubMenu from './AdminSubMenu';
+import MemberSubMenu from './MemberSubMenu';
 
 import logo_header from '../../assets/img/logo_header.png';
 
@@ -48,32 +51,10 @@ const Header = ({
       <NavLink to='/kc_admin' title='KC'>
         KC
       </NavLink>
-      <ul className='header__secondaryNav'>
-        <li className='header__secondaryItem'>
-          <NavLink to='/manage_clients'>MANAGE CLIENTS</NavLink>
-        </li>
-        <li className='header__secondaryItem'>
-          <NavLink to='/manage_members'>MANAGE MEMBERS</NavLink>
-        </li>
-        <li className='header__secondaryItem'>
-          <NavLink to='/manage_products'>MANAGE PRODUCTS</NavLink>
-        </li>
-        <li className='header__secondaryItem'>
-          <NavLink to='/manage_apps'>MANAGE APPS</NavLink>
-        </li>
-        <li className='header__secondaryItem'>
-          <NavLink to='/manage_errors'>MANAGE ERRORS</NavLink>
-        </li>
-        <li className='header__secondaryItem'>
-          <NavLink to='/view_product_usage'>VIEW PRODUCT USAGE</NavLink>
-        </li>
-        <li className='header__secondaryItem'>
-          <NavLink to='/view_app_usage'>VIEW APP USAGE</NavLink>
-        </li>
-        <li className='header__secondaryItem'>
-          <NavLink to='/view_audits'>VIEW AUDITS</NavLink>
-        </li>
-      </ul>
+      <KCAdminSubMenu
+        nav={'header__secondaryNav'}
+        item={'header__secondaryItem'}
+      />
     </li>
   );
 
@@ -82,23 +63,10 @@ const Header = ({
       <NavLink to='/admin' title='ADMIN'>
         ADMIN
       </NavLink>
-      <ul className='header__secondaryNav'>
-        <li className='header__secondaryItem'>
-          <NavLink to='/admin_Manage_license_keys'>MANAGE LICENSE KEYS</NavLink>
-        </li>
-        <li className='header__secondaryItem'>
-          <NavLink to='/admin_Manage_members'>MANAGE MEMBERS</NavLink>
-        </li>
-        <li className='header__secondaryItem'>
-          <NavLink to='/admin_view_product_usage'>VIEW PRODUCT USAGE</NavLink>
-        </li>
-        <li className='header__secondaryItem'>
-          <NavLink to='/admin_view_app_usage'>VIEW APP USAGE</NavLink>
-        </li>
-        <li className='header__secondaryItem'>
-          <NavLink to='/admin_view_audits'>VIEW AUDITS</NavLink>
-        </li>
-      </ul>
+      <AdminSubMenu
+        nav={'header__secondaryNav'}
+        item={'header__secondaryItem'}
+      />
     </li>
   );
 
@@ -107,17 +75,10 @@ const Header = ({
       <NavLink to='/members' title='MEMBERS'>
         MEMBERS
       </NavLink>
-      <ul className='header__secondaryNav'>
-        <li className='header__secondaryItem'>
-          <NavLink to='/member_view_product_usage'>VIEW PRODUCT USAGE</NavLink>
-        </li>
-        <li className='header__secondaryItem'>
-          <NavLink to='/member_view_app_usage'>VIEW APP USAGE</NavLink>
-        </li>
-        <li className='header__secondaryItem'>
-          <NavLink to='/member_view_audits'>VIEW AUDITS</NavLink>
-        </li>
-      </ul>
+      <MemberSubMenu
+        nav={'header__secondaryNav'}
+        item={'header__secondaryItem'}
+      />
     </li>
   );
 

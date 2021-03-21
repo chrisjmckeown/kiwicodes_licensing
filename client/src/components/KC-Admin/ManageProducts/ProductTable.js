@@ -1,16 +1,21 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
 import ReactTable from 'react-table-6';
 import 'react-table-6/react-table.css';
+import history from '../../../routes/history';
+import { editProduct, deleteProduct } from '../../../actions/product';
 
 const ProductTable = (props) => {
-  const handleViewApps = (id) => {
-    console.log('handleViewApps', id);
+  const handleViewApps = (productID) => {
+    console.log('handleViewApps', productID);
   };
-  const handleEdit = (id) => {
-    console.log('handleEdit', id);
+  const handleEdit = (productID) => {
+    history.push(`/product_edit/${productID}`);
   };
-  const handleDelete = (id) => {
-    console.log('handleDelete', id);
+  const handleDelete = (productID) => {
+    props.deleteProduct(productID);
+    history.push('/manage_products');
   };
   return (
     <div className='reacttable__wrapper'>
@@ -138,4 +143,9 @@ const ProductTable = (props) => {
   );
 };
 
-export default ProductTable;
+const mapDispatchToProps = (dispatch) => ({
+  editProduct: (id, product) => dispatch(editProduct(id, product)),
+  deleteProduct: (id) => dispatch(deleteProduct(id)),
+});
+
+export default connect(null, mapDispatchToProps)(ProductTable);

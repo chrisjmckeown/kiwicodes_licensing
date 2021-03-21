@@ -2,11 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import ProductForm from './ProductForm';
-import Alert from '../Alert';
-import Breadcrumb from '../Breadcrumb';
-import PageHeader from '../PageHeader';
-import history from '../../routes/history';
-import { editProduct, deleteProduct } from '../../actions/product';
+import Alert from '../../Alert';
+import Breadcrumb from '../../Breadcrumb';
+import PageHeader from '../../PageHeader';
+import history from '../../../routes/history';
+import { editProduct, deleteProduct } from '../../../actions/product';
 
 export const ProductEdit = (props) => {
   const onSubmit = (product) => {
