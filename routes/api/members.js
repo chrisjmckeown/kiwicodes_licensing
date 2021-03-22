@@ -8,8 +8,6 @@ router.get('/', auth, membersController.findAll);
 router.post(
   '/',
   [
-    // check('firstName', 'First Name is required').not().isEmpty(),
-    // check('lastName', 'Last Name is required').not().isEmpty(),
     check('email', 'Please include a valid email').isEmail(),
     check(
       'password',
@@ -19,5 +17,5 @@ router.post(
   ],
   membersController.create
 );
-
+router.get('/byClientId/:id', auth, membersController.findAllByClientId);
 module.exports = router;

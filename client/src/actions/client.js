@@ -60,7 +60,6 @@ export const addClient = (formData) => async (dispatch) => {
 
 export const editClient = (id, formData) => async (dispatch) => {
   try {
-    console.log(formData);
     const res = await api.put(`/clients/${id}`, formData);
 
     dispatch({

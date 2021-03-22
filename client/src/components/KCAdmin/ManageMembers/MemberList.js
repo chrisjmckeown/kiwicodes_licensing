@@ -6,19 +6,23 @@ import { getMembers } from '../../../actions/member';
 import Spinner from '../../Spinner';
 
 import MemberTable from './MemberTable';
+import { filter } from '../../../selectors/members';
 
-export const MemberList = ({ getMembers, member: { members, loading } }) => {
+export const MemberList = ({
+  getMembers,
+  member: { loading },
+  filteredMembers,
+}) => {
   useEffect(() => {
     getMembers();
   }, [getMembers]);
-
   return (
     <>
       {loading ? (
         <Spinner />
       ) : (
         <>
-          <MemberTable data={members} />
+          <MemberTable data={filteredMembers} />
         </>
       )}
     </>
@@ -32,6 +36,7 @@ MemberList.propTypes = {
 
 const mapStateToProps = (state, props) => ({
   member: state.member,
+  filteredMembers: filter(state.member.members, props.cleintID),
 });
 
 export default connect(mapStateToProps, { getMembers })(MemberList);

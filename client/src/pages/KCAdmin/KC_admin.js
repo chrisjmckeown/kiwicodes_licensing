@@ -9,8 +9,10 @@ const KC_admin = () => {
     <>
       <Breadcrumb breadCrumbs={[]} endPage={'KC Admin'} />
       <PageHeader pageName={'KC Admin'} />
-
-      <KCAdminSubMenu nav={'header__gridNav'} item={'header__gridItem'} />
+      <div className='row'>Manage the Kiwi Codes app and client database.</div>
+      <div className='row justify_content_center'>
+        <KCAdminSubMenu nav={'header__gridNav'} item={'header__gridItem'} />
+      </div>
       <Alert />
     </>
   );

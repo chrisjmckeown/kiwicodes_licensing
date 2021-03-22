@@ -6,7 +6,6 @@ module.exports = {
   // @desc    Get all License Keys Assignment (kiwicodes admin only)
   // @access  Private
   findAll: async (req, res) => {
-    console.log('1');
     if (req.member.role !== 'kiwicodes') {
       return res.status(400).send('Invalid permission');
     }

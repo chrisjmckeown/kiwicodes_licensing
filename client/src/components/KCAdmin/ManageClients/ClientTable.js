@@ -4,11 +4,11 @@ import { connect } from 'react-redux';
 import ReactTable from 'react-table-6';
 import 'react-table-6/react-table.css';
 import history from '../../../routes/history';
-import { editClient, deleteClient } from '../../../actions/client';
+import { deleteClient } from '../../../actions/client';
 
 const ClientTable = (props) => {
   const handleViewMembers = (clientID) => {
-    console.log('handleViewMembers', clientID);
+    history.push({ pathname: '/manage_members', state: { clientID } });
   };
   const handleEdit = (clientID) => {
     history.push(`/client_edit/${clientID}`);
@@ -59,7 +59,7 @@ const ClientTable = (props) => {
             ],
           },
           {
-            Header: 'Manage Clients',
+            Header: 'Manage Members',
             fixed: 'left',
             columns: [
               {
@@ -129,7 +129,6 @@ const ClientTable = (props) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  editClient: (id, client) => dispatch(editClient(id, client)),
   deleteClient: (id) => dispatch(deleteClient(id)),
 });
 

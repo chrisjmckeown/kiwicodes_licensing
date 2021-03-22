@@ -26,6 +26,22 @@ module.exports = {
       return res.status(500).send('Server error');
     }
   },
+  findAllByClientId: async (req, res) => {
+    try {
+      if (req.member.role !== 'kiwicodes') {
+        return res.status(400).send('Invalid permission');
+      }
+      const members = await db.member.findAll({
+        where: {
+          clientId: req.params.id,
+        },
+      });
+      res.json(members);
+    } catch (err) {
+      console.error(err.message);
+      return res.status(500).send('Server error');
+    }
+  },
   // @route   POST api/members
   // @desc    Register member
   // @access  Public

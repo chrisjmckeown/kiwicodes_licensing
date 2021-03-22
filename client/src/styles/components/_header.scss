@@ -126,8 +126,8 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-evenly;
-  width: 100%;
+  justify-content: flex-start;
+  width: 640px;
 }
 .header__gridItem {
   border: 1px rgb(100, 155, 191);
@@ -154,6 +154,18 @@
   .active {
     background-image: linear-gradient(rgb(224, 228, 232), rgb(167, 170, 174));
     color: rgb(76, 122, 152);
+  }
+}
+
+@media (max-width: 680px) {
+  .header__gridNav {
+    width: 480px;
+  }
+}
+
+@media (max-width: 520px) {
+  .header__gridNav {
+    width: 320px;
   }
 }
 

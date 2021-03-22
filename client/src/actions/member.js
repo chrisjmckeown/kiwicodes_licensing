@@ -22,7 +22,6 @@ export const getMembers = () => async (dispatch) => {
     }
   }
 };
-
 export const getMember = ({ id }) => async (dispatch) => {
   try {
     const res = await api.get(`/members/${id}`);

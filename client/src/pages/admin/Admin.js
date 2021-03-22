@@ -9,7 +9,12 @@ const Admin = () => {
     <>
       <Breadcrumb breadCrumbs={[]} endPage={'Admin'} />
       <PageHeader pageName={'Admin'} />
-      <AdminSubMenu nav={'header__gridNav'} item={'header__gridItem'} />
+      <div className='row'>
+        Clients, manage your members(staff) and view app stats.
+      </div>
+      <div className='row justify_content_center'>
+        <AdminSubMenu nav={'header__gridNav'} item={'header__gridItem'} />
+      </div>
       <Alert />
     </>
   );
