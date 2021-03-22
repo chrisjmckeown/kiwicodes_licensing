@@ -9,14 +9,18 @@ import history from '../../../routes/history';
 import { editProduct, deleteProduct } from '../../../actions/product';
 
 export const ProductEdit = (props) => {
-  const onSubmit = (product) => {
-    props.editProduct(props.product.id, product);
-    history.push('/manage_products');
+  const onSubmit = async (product) => {
+    const result = await props.editProduct(props.product.id, product);
+    if (result) {
+      history.push('/manage_products');
+    }
   };
 
-  const onClick = () => {
-    props.deleteProduct(props.product.id);
-    history.push('/manage_products');
+  const onClick = async () => {
+    const result = await props.deleteProduct(props.product.id);
+    if (result) {
+      history.push('/manage_products');
+    }
   };
   return (
     <>

@@ -1,5 +1,6 @@
 const db = require('../models/sql');
 const { validationResult } = require('express-validator');
+const sequelize = require('sequelize');
 
 // Defining methods for the clientsController
 module.exports = {
@@ -11,7 +12,18 @@ module.exports = {
       if (req.member.role !== 'kiwicodes') {
         return res.status(400).send('Invalid permission');
       }
-      const clients = await db.client.findAll();
+      const clients = await db.client.findAll({
+        attributes: {
+          include: [
+            [
+              sequelize.literal(
+                '(SELECT COUNT(*) FROM "member" WHERE "member"."clientId" = "client"."id")'
+              ),
+              'memberCount',
+            ],
+          ],
+        },
+      });
       res.json(clients);
     } catch (err) {
       console.error(err.message);

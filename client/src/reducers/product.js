@@ -4,14 +4,12 @@ import {
   EDIT_PRODUCT,
   GET_PRODUCT,
   GET_PRODUCTS,
-  PRODUCT_ERROR,
 } from '../actions/types';
 
 const initialState = {
   product: null,
   products: [],
   loading: true,
-  error: {},
 };
 
 export const product = (state = initialState, action) => {
@@ -32,8 +30,8 @@ export const product = (state = initialState, action) => {
     case EDIT_PRODUCT:
       return {
         ...state,
-        posts: state.products.map(
-          (product) => product.id === payload.id && { ...payload }
+        products: state.products.map((product) =>
+          product.id === payload.id ? { ...payload } : product
         ),
         loading: false,
       };
@@ -48,13 +46,6 @@ export const product = (state = initialState, action) => {
         ...state,
         products: payload,
         loading: false,
-      };
-    case PRODUCT_ERROR:
-      return {
-        ...state,
-        error: payload,
-        loading: false,
-        profile: null,
       };
     default:
       return state;

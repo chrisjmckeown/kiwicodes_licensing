@@ -1,18 +1,18 @@
 import api from '../utils/api';
 import {
-  ADD_PRODUCT,
-  DELETE_PRODUCT,
-  EDIT_PRODUCT,
-  GET_PRODUCT,
-  GET_PRODUCTS,
+  ADD_CLIENT,
+  DELETE_CLIENT,
+  EDIT_CLIENT,
+  GET_CLIENT,
+  GET_CLIENTS,
 } from '../actions/types';
 import { setAlert } from './alert';
 
-export const getProducts = () => async (dispatch) => {
+export const getClients = () => async (dispatch) => {
   try {
-    const res = await api.get('/products');
+    const res = await api.get('/clients');
     dispatch({
-      type: GET_PRODUCTS,
+      type: GET_CLIENTS,
       payload: res.data,
     });
   } catch (err) {
@@ -23,11 +23,11 @@ export const getProducts = () => async (dispatch) => {
   }
 };
 
-export const getProduct = ({ id }) => async (dispatch) => {
+export const getClient = ({ id }) => async (dispatch) => {
   try {
-    const res = await api.get(`/products/${id}`);
+    const res = await api.get(`/clients/${id}`);
     dispatch({
-      type: GET_PRODUCT,
+      type: GET_CLIENT,
       payload: res.data,
     });
   } catch (err) {
@@ -38,16 +38,16 @@ export const getProduct = ({ id }) => async (dispatch) => {
   }
 };
 
-export const addProduct = (formData) => async (dispatch) => {
+export const addClient = (formData) => async (dispatch) => {
   try {
-    const res = await api.post('/products', formData);
+    const res = await api.post('/clients', formData);
 
     dispatch({
-      type: ADD_PRODUCT,
+      type: ADD_CLIENT,
       payload: res.data,
     });
 
-    dispatch(setAlert('Product Created', 'success'));
+    dispatch(setAlert('Client Created', 'success'));
     return true;
   } catch (err) {
     const errors = err.response.data.errors;
@@ -58,16 +58,17 @@ export const addProduct = (formData) => async (dispatch) => {
   }
 };
 
-export const editProduct = (id, formData) => async (dispatch) => {
+export const editClient = (id, formData) => async (dispatch) => {
   try {
-    const res = await api.put(`/products/${id}`, formData);
+    console.log(formData);
+    const res = await api.put(`/clients/${id}`, formData);
 
     dispatch({
-      type: EDIT_PRODUCT,
+      type: EDIT_CLIENT,
       payload: res.data,
     });
 
-    dispatch(setAlert('Product Updated', 'success'));
+    dispatch(setAlert('Client Updated', 'success'));
     return true;
   } catch (err) {
     const errors = err.response.data.errors;
@@ -78,16 +79,16 @@ export const editProduct = (id, formData) => async (dispatch) => {
   }
 };
 
-export const deleteProduct = (id) => async (dispatch) => {
+export const deleteClient = (id) => async (dispatch) => {
   try {
-    await api.delete(`/products/${id}`);
+    await api.delete(`/clients/${id}`);
 
     dispatch({
-      type: DELETE_PRODUCT,
+      type: DELETE_CLIENT,
       payload: id,
     });
 
-    dispatch(setAlert('Product Removed', 'success'));
+    dispatch(setAlert('Client Removed', 'success'));
     return true;
   } catch (err) {
     const errors = err.response.data.errors;

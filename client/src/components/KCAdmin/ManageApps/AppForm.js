@@ -3,27 +3,21 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { setAlert } from '../../../actions/alert';
 
-export const ProductForm = ({ product, setAlert, onSubmit }) => {
-  const [id] = useState(product ? product.id : '');
-  const [name, setName] = useState(product ? product.name : '');
-  const [description, setDescription] = useState(
-    product ? product.description : ''
-  );
-  const [purchaseLink, setPurchaseLink] = useState(
-    product ? product.purchaseLink : ''
-  );
-  const [helpLink, setHelpLink] = useState(product ? product.helpLink : '');
-  const [imageLink, setImageLink] = useState(product ? product.imageLink : '');
+export const AppForm = ({ app, setAlert, onSubmit }) => {
+  const [id] = useState(app ? app.id : '');
+  const [name, setName] = useState(app ? app.name : '');
+  const [number, setNumber] = useState(app ? app.number : '');
+  const [description, setDescription] = useState(app ? app.description : '');
+  const [helpLink, setHelpLink] = useState(app ? app.helpLink : '');
 
   const onSubmitForm = async (e) => {
     e.preventDefault();
 
     onSubmit({
       name,
+      number,
       description,
-      purchaseLink,
       helpLink,
-      imageLink,
     });
   };
 
@@ -32,7 +26,7 @@ export const ProductForm = ({ product, setAlert, onSubmit }) => {
       <form className='std form' onSubmit={onSubmitForm}>
         <fieldset className='form__fieldset'>
           <div className='form__marginLeft'>
-            <h3>Product {id}</h3>
+            <h3>App {id}</h3>
             <>
               <label className='form__text form__label'>Name</label>
               <input
@@ -42,7 +36,15 @@ export const ProductForm = ({ product, setAlert, onSubmit }) => {
               ></input>
             </>
             <>
-              <label className='form__text form__label'>Description</label>
+              <label className='form__text form__label'>Number</label>
+              <input
+                className='form__input'
+                value={number}
+                onChange={(e) => setNumber(e.target.value)}
+              ></input>
+            </>
+            <>
+              <label className='form__text form__label'>description</label>
               <textarea
                 className='form__textarea'
                 value={description}
@@ -50,27 +52,11 @@ export const ProductForm = ({ product, setAlert, onSubmit }) => {
               ></textarea>
             </>
             <>
-              <label className='form__text form__label'>Purchase Link</label>
-              <input
-                className='form__input'
-                value={purchaseLink}
-                onChange={(e) => setPurchaseLink(e.target.value)}
-              ></input>
-            </>
-            <>
               <label className='form__text form__label'>Help Link</label>
               <input
                 className='form__input'
                 value={helpLink}
                 onChange={(e) => setHelpLink(e.target.value)}
-              ></input>
-            </>
-            <>
-              <label className='form__text form__label'>Image Link</label>
-              <input
-                className='form__input'
-                value={imageLink}
-                onChange={(e) => setImageLink(e.target.value)}
               ></input>
             </>
             <p className='form__submit form__marginTop'>
@@ -83,8 +69,8 @@ export const ProductForm = ({ product, setAlert, onSubmit }) => {
   );
 };
 
-ProductForm.propTypes = {
+AppForm.propTypes = {
   setAlert: PropTypes.func.isRequired,
 };
 
-export default connect(undefined, { setAlert })(ProductForm);
+export default connect(undefined, { setAlert })(AppForm);

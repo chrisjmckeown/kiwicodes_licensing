@@ -7,7 +7,10 @@ import Spinner from '../../Spinner';
 
 import ProductTable from './ProductTable';
 
-export const Products = ({ getProducts, product: { products, loading } }) => {
+export const ProductList = ({
+  getProducts,
+  product: { products, loading },
+}) => {
   useEffect(() => {
     getProducts();
   }, [getProducts]);
@@ -25,7 +28,7 @@ export const Products = ({ getProducts, product: { products, loading } }) => {
   );
 };
 
-Products.propTypes = {
+ProductList.propTypes = {
   getProducts: PropTypes.func.isRequired,
   product: PropTypes.object.isRequired,
 };
@@ -34,4 +37,4 @@ const mapStateToProps = (state, props) => ({
   product: state.product,
 });
 
-export default connect(mapStateToProps, { getProducts })(Products);
+export default connect(mapStateToProps, { getProducts })(ProductList);

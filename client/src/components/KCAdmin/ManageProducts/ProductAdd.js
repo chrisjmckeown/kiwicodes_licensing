@@ -9,9 +9,11 @@ import history from '../../../routes/history';
 import { addProduct } from '../../../actions/product';
 
 export const ProductAdd = ({ addProduct }) => {
-  const onSubmit = (product) => {
-    addProduct(product);
-    history.push('/manage_products');
+  const onSubmit = async (product) => {
+    const result = await addProduct(product);
+    if (result) {
+      history.push('/manage_products');
+    }
   };
   return (
     <>
