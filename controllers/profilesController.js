@@ -41,23 +41,22 @@ module.exports = {
     }
 
     const { company, website, location, status, skills, bio } = req.body;
-
     const profileFeilds = {};
     profileFeilds.memberId = req.member.id;
-    if (company) profileFeilds.company = company;
-    if (website) profileFeilds.website = website;
-    if (location) profileFeilds.location = location;
-    if (status) profileFeilds.status = status;
-    if (skills) profileFeilds.skills = skills;
-    if (bio) profileFeilds.bio = bio;
+    if (company !== undefined) profileFeilds.company = company;
+    if (website !== undefined) profileFeilds.website = website;
+    if (location !== undefined) profileFeilds.location = location;
+    if (status !== undefined) profileFeilds.status = status;
+    if (skills !== undefined) profileFeilds.skills = skills;
+    if (bio !== undefined) profileFeilds.bio = bio;
 
+    console.log(profileFeilds);
     try {
       let profile = await db.profile.findOne({
         where: {
           memberId: req.member.id,
         },
       });
-      //.findByPk(req.params.id);
 
       if (profile) {
         profile = await profile.update(profileFeilds);

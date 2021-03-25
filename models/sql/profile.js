@@ -11,28 +11,28 @@ module.exports = function (sequelize, DataTypes) {
         type: DataTypes.STRING(255),
         allowNull: true,
         validate: {
-          len: [1, 255],
+          len: [0, 255],
         },
       },
       website: {
         type: DataTypes.STRING(255),
         allowNull: true,
         validate: {
-          len: [1, 255],
+          len: [0, 255],
         },
       },
       location: {
         type: DataTypes.STRING(255),
         allowNull: true,
         validate: {
-          len: [1, 255],
+          len: [0, 255],
         },
       },
       status: {
         type: DataTypes.STRING(255),
         allowNull: true,
         validate: {
-          len: [1, 255],
+          len: [0, 255],
         },
       },
       skills: {

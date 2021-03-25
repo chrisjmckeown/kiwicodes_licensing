@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { getMyProfile, addProfile } from '../../actions/profile';
+import { addProfile, getMyProfile } from '../../actions/profile';
 import Spinner from '../Spinner';
 
 export const MyProfileForm = ({
+  addProfile,
   getMyProfile,
   profile: { profile, loading },
-  addProfile,
 }) => {
   useEffect(() => {
     getMyProfile();
@@ -134,14 +134,14 @@ export const MyProfileForm = ({
 };
 
 MyProfileForm.propTypes = {
-  getMyProfile: PropTypes.func.isRequired,
   addProfile: PropTypes.func.isRequired,
+  getMyProfile: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state, props) => ({
   profile: state.profile,
 });
 
-export default connect(mapStateToProps, { getMyProfile, addProfile })(
+export default connect(mapStateToProps, { addProfile, getMyProfile })(
   MyProfileForm
 );
