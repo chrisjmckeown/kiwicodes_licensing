@@ -27,14 +27,14 @@ import View_product_usage from '../pages/KCAdmin/View_product_usage';
 import View_app_usage from '../pages/KCAdmin/View_app_usage';
 import View_audits from '../pages/KCAdmin/View_audits';
 
-import Admin from '../pages/Admin/Admin';
+import Admin from '../pages/Admin/Admin_Page';
 import Admin_Manage_license_keys from '../pages/Admin/Manage_license_keys';
 import Admin_Manage_members from '../pages/Admin/Manage_members';
 import Admin_View_product_usage from '../pages/Admin/View_product_usage';
 import Admin_View_app_usage from '../pages/Admin/View_app_usage';
 import Admin_View_audits from '../pages/Admin/View_audits';
 
-import Members from '../pages/Members/Members';
+import Members from '../pages/Members/Members_Page';
 import Member_View_product_usage from '../pages/Members/View_product_usage';
 import Member_View_app_usage from '../pages/Members/View_app_usage';
 import Member_View_audits from '../pages/Members/View_audits';
