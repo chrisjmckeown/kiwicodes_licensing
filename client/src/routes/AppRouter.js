@@ -27,18 +27,18 @@ import View_product_usage from '../pages/KCAdmin/View_product_usage';
 import View_app_usage from '../pages/KCAdmin/View_app_usage';
 import View_audits from '../pages/KCAdmin/View_audits';
 
-import Admin_Page from '../pages/Admin/Admin_Page';
-import Admin_Manage_license_keys from '../pages/Admin/Manage_license_keys';
-import Admin_Manage_members from '../pages/Admin/Manage_members';
-import Admin_View_product_usage from '../pages/Admin/View_product_usage';
-import Admin_View_app_usage from '../pages/Admin/View_app_usage';
-import Admin_View_audits from '../pages/Admin/View_audits';
+// import Admin_Page from '../pages/Admin/Admin_Page';
+// import Admin_Manage_license_keys from '../pages/Admin/Manage_license_keys';
+// import Admin_Manage_members from '../pages/Admin/Manage_members';
+// import Admin_View_product_usage from '../pages/Admin/View_product_usage';
+// import Admin_View_app_usage from '../pages/Admin/View_app_usage';
+// import Admin_View_audits from '../pages/Admin/View_audits';
 
-import Members_Page from '../pages/Members/Members_Page';
-import Member_View_product_usage from '../pages/Members/View_product_usage';
-import Member_View_app_usage from '../pages/Members/View_app_usage';
-import Member_View_audits from '../pages/Members/View_audits';
-import My_account from '../pages/Members/My_account';
+// import Members_Page from '../pages/Members/Members_Page';
+// import Member_View_product_usage from '../pages/Members/View_product_usage';
+// import Member_View_app_usage from '../pages/Members/View_app_usage';
+// import Member_View_audits from '../pages/Members/View_audits';
+// import My_account from '../pages/Members/My_account';
 
 import Testing from '../pages/Testing';
 import Contact from '../pages/Contact';
@@ -115,7 +115,7 @@ export const AppRouter = () => (
           routePremissionLevel={'kiwicodes'}
         />
 
-        <PrivateRoute
+        {/* <PrivateRoute
           exact
           path='/admin'
           component={Admin_Page}
@@ -167,15 +167,15 @@ export const AppRouter = () => (
           component={Member_View_audits}
           routePremissionLevel={'user'}
         />
-
-        <Route path='/licensing_test' component={Testing} />
-        <Route path='/contact' component={Contact} />
-        <Route path='/login' component={Authentication} />
         <PrivateRoute
           path='/my_account'
           component={My_account}
           routePremissionLevel={'user'}
-        />
+        /> */}
+
+        <Route path='/licensing_test' component={Testing} />
+        <Route path='/contact' component={Contact} />
+        <Route path='/login' component={Authentication} />
         <Route component={NotFoundPage} />
       </Switch>
     </Main>
