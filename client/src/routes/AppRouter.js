@@ -27,7 +27,7 @@ import View_product_usage from '../pages/KCAdmin/View_product_usage';
 import View_app_usage from '../pages/KCAdmin/View_app_usage';
 import View_audits from '../pages/KCAdmin/View_audits';
 
-import Admin_Page from '../pages/Admin/Admin_Page';
+import Admin_Page from '../pages/Admin/Manage_license_keys';
 import Admin_Manage_license_keys from '../pages/Admin/Manage_license_keys';
 import Admin_Manage_members from '../pages/Admin/Manage_members';
 import Admin_View_product_usage from '../pages/Admin/View_product_usage';
