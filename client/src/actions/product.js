@@ -5,6 +5,7 @@ import {
   EDIT_PRODUCT,
   GET_PRODUCT,
   GET_PRODUCTS,
+  CLEAR_PRODUCTS,
 } from '../actions/types';
 import { setAlert } from './alert';
 
@@ -96,4 +97,9 @@ export const deleteProduct = (id) => async (dispatch) => {
     }
     return false;
   }
+};
+export const clearProduct = () => async (dispatch) => {
+  dispatch({
+    type: CLEAR_PRODUCTS,
+  });
 };

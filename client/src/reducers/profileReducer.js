@@ -4,6 +4,7 @@ import {
   EDIT_PROFILE,
   GET_PROFILE,
   GET_PROFILES,
+  CLEAR_PROFILES,
 } from '../actions/types';
 
 const initialState = {
@@ -46,6 +47,13 @@ export const profile = (state = initialState, action) => {
       return {
         ...state,
         profiles: payload,
+        loading: false,
+      };
+    case CLEAR_PROFILES:
+      return {
+        ...state,
+        profile: null,
+        profiles: [],
         loading: false,
       };
     default:

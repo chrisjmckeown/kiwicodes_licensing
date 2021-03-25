@@ -4,6 +4,7 @@ import {
   EDIT_CLIENT,
   GET_CLIENT,
   GET_CLIENTS,
+  CLEAR_CLIENTS,
 } from '../actions/types';
 
 const initialState = {
@@ -44,6 +45,13 @@ export const client = (state = initialState, { type, payload }) => {
       return {
         ...state,
         clients: payload,
+        loading: false,
+      };
+    case CLEAR_CLIENTS:
+      return {
+        ...state,
+        client: null,
+        clients: [],
         loading: false,
       };
     default:

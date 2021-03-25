@@ -5,6 +5,7 @@ import {
   EDIT_CLIENT,
   GET_CLIENT,
   GET_CLIENTS,
+  CLEAR_CLIENTS,
 } from '../actions/types';
 import { setAlert } from './alert';
 
@@ -96,4 +97,9 @@ export const deleteClient = (id) => async (dispatch) => {
     }
     return false;
   }
+};
+export const clearClient = () => async (dispatch) => {
+  dispatch({
+    type: CLEAR_CLIENTS,
+  });
 };

@@ -7,6 +7,7 @@ import {
   GET_MEMBERS,
   AUTH_MEMBER_UPDATE,
   LOGOUT,
+  CLEAR_MEMBER,
 } from '../actions/types';
 import { setAlert } from './alert';
 
@@ -144,4 +145,9 @@ export const resetPassword = (email) => async (dispatch) => {
     }
     return false;
   }
+};
+export const clearMember = () => async (dispatch) => {
+  dispatch({
+    type: CLEAR_MEMBER,
+  });
 };

@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
-import alert from './alert';
-import auth from './auth';
-import product from './product';
-import client from './client';
-import member from './member';
-import app from './app';
-import error from './error';
-import profile from './profile';
+import alert from './alertReducer';
+import auth from './authReducer';
+import product from './productReducer';
+import client from './clientReducer';
+import member from './memberReducer';
+import app from './appReducer';
+import error from './errorReducer';
+import profile from './profileReducer';
 
 export default combineReducers({
   alert,

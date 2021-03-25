@@ -9,6 +9,12 @@ import {
   LOGOUT,
 } from './types';
 import { setAlert } from './alert';
+import { clearApp } from './app';
+import { clearClient } from './client';
+import { clearMember } from './member';
+import { clearError } from './error';
+import { clearProfile } from './profile';
+import { clearProduct } from './product';
 
 export const loadUser = () => async (dispatch) => {
   try {
@@ -20,6 +26,7 @@ export const loadUser = () => async (dispatch) => {
     });
   } catch (err) {
     dispatch({ type: AUTH_ERROR });
+    clearState(dispatch);
   }
 };
 
@@ -42,9 +49,8 @@ export const register = ({ email, password, clientId }) => async (dispatch) => {
     if (errors) {
       errors.forEach((error) => dispatch(setAlert(error.msg, 'danger')));
     }
-    dispatch({
-      type: REGISTER_FAIL,
-    });
+    dispatch({ type: REGISTER_FAIL });
+    clearState(dispatch);
   }
 };
 
@@ -66,9 +72,8 @@ export const login = (email, password) => async (dispatch) => {
     if (errors) {
       errors.forEach((error) => dispatch(setAlert(error.msg, 'danger')));
     }
-    dispatch({
-      type: LOGIN_FAIL,
-    });
+    dispatch({ type: LOGIN_FAIL });
+    clearState(dispatch);
   }
 };
 
@@ -95,4 +100,16 @@ export const updatePassword = ({ id, password, currentPassword }) => async (
   }
 };
 
-export const logout = () => (dispatch) => dispatch({ type: LOGOUT });
+export const logout = () => (dispatch) => {
+  dispatch({ type: LOGOUT });
+  clearState(dispatch);
+};
+
+const clearState = (dispatch) => {
+  dispatch(clearApp());
+  dispatch(clearClient());
+  dispatch(clearMember());
+  dispatch(clearError());
+  dispatch(clearProfile());
+  dispatch(clearProduct());
+};

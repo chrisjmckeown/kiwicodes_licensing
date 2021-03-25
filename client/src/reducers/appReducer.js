@@ -4,6 +4,7 @@ import {
   EDIT_APP,
   GET_APP,
   GET_APPS,
+  CLEAR_APPS,
 } from '../actions/types';
 
 const initialState = {
@@ -45,6 +46,13 @@ export const app = (state = initialState, action) => {
       return {
         ...state,
         apps: payload,
+        loading: false,
+      };
+    case CLEAR_APPS:
+      return {
+        ...state,
+        app: null,
+        apps: [],
         loading: false,
       };
     default:

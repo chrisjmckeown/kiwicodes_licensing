@@ -4,6 +4,7 @@ import {
   EDIT_MEMBER,
   GET_MEMBER,
   GET_MEMBERS,
+  CLEAR_MEMBER,
 } from '../actions/types';
 
 const initialState = {
@@ -46,6 +47,13 @@ export const member = (state = initialState, action) => {
         ...state,
         members: payload,
         loading: false,
+      };
+    case CLEAR_MEMBER:
+      return {
+        ...state,
+        member: null,
+        members: [],
+        loading: true,
       };
     default:
       return state;

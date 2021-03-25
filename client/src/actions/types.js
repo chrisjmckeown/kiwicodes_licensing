@@ -18,33 +18,39 @@ export const DELETE_PRODUCT = 'DELETE_PRODUCT';
 export const EDIT_PRODUCT = 'EDIT_PRODUCT';
 export const GET_PRODUCT = 'GET_PRODUCT';
 export const GET_PRODUCTS = 'GET_PRODUCTS';
+export const CLEAR_PRODUCTS = 'CLEAR_PRODUCTS';
 
 export const ADD_APP = 'ADD_APP';
 export const DELETE_APP = 'DELETE_APP';
 export const EDIT_APP = 'EDIT_APP';
 export const GET_APP = 'GET_APP';
 export const GET_APPS = 'GET_APPS';
+export const CLEAR_APPS = 'CLEAR_APPS';
 
 export const ADD_CLIENT = 'ADD_CLIENT';
 export const DELETE_CLIENT = 'DELETE_CLIENT';
 export const EDIT_CLIENT = 'EDIT_CLIENT';
 export const GET_CLIENT = 'GET_CLIENT';
 export const GET_CLIENTS = 'GET_CLIENTS';
+export const CLEAR_CLIENTS = 'CLEAR_CLIENTS';
 
 export const ADD_MEMBER = 'ADD_MEMBER';
 export const DELETE_MEMBER = 'DELETE_MEMBER';
 export const EDIT_MEMBER = 'EDIT_MEMBER';
 export const GET_MEMBER = 'GET_MEMBER';
 export const GET_MEMBERS = 'GET_MEMBERS';
+export const CLEAR_MEMBER = 'CLEAR_MEMBER';
 
 export const ADD_ERROR = 'ADD_ERROR';
 export const DELETE_ERROR = 'DELETE_ERROR';
 export const EDIT_ERROR = 'EDIT_ERROR';
 export const GET_ERROR = 'GET_ERROR';
 export const GET_ERRORS = 'GET_ERRORS';
+export const CLEAR_ERROR = 'CLEAR_ERROR';
 
 export const ADD_PROFILE = 'ADD_PROFILE';
 export const DELETE_PROFILE = 'DELETE_PROFILE';
 export const EDIT_PROFILE = 'EDIT_PROFILE';
 export const GET_PROFILE = 'GET_PROFILE';
 export const GET_PROFILES = 'GET_PROFILES';
+export const CLEAR_PROFILES = 'CLEAR_PROFILES';

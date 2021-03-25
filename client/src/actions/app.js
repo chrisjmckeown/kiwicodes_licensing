@@ -5,6 +5,7 @@ import {
   EDIT_APP,
   GET_APP,
   GET_APPS,
+  CLEAR_APPS,
 } from '../actions/types';
 import { setAlert } from './alert';
 
@@ -96,4 +97,9 @@ export const deleteApp = (id) => async (dispatch) => {
     }
     return false;
   }
+};
+export const clearApp = () => async (dispatch) => {
+  dispatch({
+    type: CLEAR_APPS,
+  });
 };

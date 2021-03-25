@@ -13,16 +13,8 @@ export const MyProfileForm = ({
     getMyProfile();
   }, [getMyProfile]);
 
-  const [profileDetails, setProfileDetails] = useState({ ...profile });
-  const {
-    id,
-    company,
-    website,
-    location,
-    status,
-    skills,
-    bio,
-  } = profileDetails;
+  const [profileDetails, setProfileDetails] = useState({});
+  const { id, company, website, location, status, skills, bio } = profile || {};
 
   const handleChange = (e) => {
     setProfileDetails((state) => ({
@@ -62,7 +54,7 @@ export const MyProfileForm = ({
                   <input
                     className='form__input'
                     name='company'
-                    value={company}
+                    value={profileDetails.company || company}
                     onChange={(e) => handleChange(e)}
                   ></input>
                 </li>
@@ -73,7 +65,7 @@ export const MyProfileForm = ({
                   <input
                     className='form__input'
                     name='website'
-                    value={website}
+                    value={profileDetails.website || website}
                     onChange={(e) => handleChange(e)}
                   ></input>
                 </li>
@@ -84,7 +76,7 @@ export const MyProfileForm = ({
                   <input
                     className='form__input'
                     name='location'
-                    value={location}
+                    value={profileDetails.location || location}
                     onChange={(e) => handleChange(e)}
                   ></input>
                 </li>
@@ -95,7 +87,7 @@ export const MyProfileForm = ({
                   <input
                     className='form__input'
                     name='status'
-                    value={status}
+                    value={profileDetails.status || status}
                     onChange={(e) => handleChange(e)}
                   ></input>
                 </li>
@@ -106,7 +98,7 @@ export const MyProfileForm = ({
                   <textarea
                     className='form__textarea'
                     name='skills'
-                    value={skills}
+                    value={profileDetails.skills || skills}
                     onChange={(e) => handleChange(e)}
                   ></textarea>
                 </li>
@@ -117,7 +109,7 @@ export const MyProfileForm = ({
                   <textarea
                     className='form__textarea'
                     name='bio'
-                    value={bio}
+                    value={profileDetails.bio || bio}
                     onChange={(e) => handleChange(e)}
                   ></textarea>
                 </li>

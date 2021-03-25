@@ -5,6 +5,7 @@ import {
   EDIT_ERROR,
   GET_ERROR,
   GET_ERRORS,
+  CLEAR_ERROR,
 } from '../actions/types';
 import { setAlert } from './alert';
 
@@ -96,4 +97,9 @@ export const deleteError = (id) => async (dispatch) => {
     }
     return false;
   }
+};
+export const clearError = () => async (dispatch) => {
+  dispatch({
+    type: CLEAR_ERROR,
+  });
 };

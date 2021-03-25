@@ -4,6 +4,7 @@ import {
   EDIT_ERROR,
   GET_ERROR,
   GET_ERRORS,
+  CLEAR_ERROR,
 } from '../actions/types';
 
 const initialState = {
@@ -45,6 +46,13 @@ export const error = (state = initialState, action) => {
       return {
         ...state,
         errors: payload,
+        loading: false,
+      };
+    case CLEAR_ERROR:
+      return {
+        ...state,
+        error: null,
+        errors: [],
         loading: false,
       };
     default:

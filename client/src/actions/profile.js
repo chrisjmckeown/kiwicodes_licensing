@@ -5,6 +5,7 @@ import {
   EDIT_PROFILE,
   GET_PROFILE,
   GET_PROFILES,
+  CLEAR_PROFILES,
 } from '../actions/types';
 import { setAlert } from './alert';
 
@@ -111,4 +112,9 @@ export const deleteProfile = (id) => async (dispatch) => {
     }
     return false;
   }
+};
+export const clearProfile = () => async (dispatch) => {
+  dispatch({
+    type: CLEAR_PROFILES,
+  });
 };

@@ -4,6 +4,7 @@ import {
   EDIT_PRODUCT,
   GET_PRODUCT,
   GET_PRODUCTS,
+  CLEAR_PRODUCTS,
 } from '../actions/types';
 
 const initialState = {
@@ -45,6 +46,13 @@ export const product = (state = initialState, action) => {
       return {
         ...state,
         products: payload,
+        loading: false,
+      };
+    case CLEAR_PRODUCTS:
+      return {
+        ...state,
+        product: null,
+        products: [],
         loading: false,
       };
     default:
