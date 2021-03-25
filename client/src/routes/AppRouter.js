@@ -27,7 +27,7 @@ import View_product_usage from '../pages/KCAdmin/View_product_usage';
 import View_app_usage from '../pages/KCAdmin/View_app_usage';
 import View_audits from '../pages/KCAdmin/View_audits';
 
-import AdminPage from '../pages/Admin/AdminPage';
+import Admin_Page from '../pages/admin/Admin_Page';
 // import Admin_Manage_license_keys from '../pages/Admin/Manage_license_keys';
 // import Admin_Manage_members from '../pages/Admin/Manage_members';
 // import Admin_View_product_usage from '../pages/Admin/View_product_usage';
@@ -65,6 +65,7 @@ export const AppRouter = () => (
         <PrivateRoute path='/app_create' component={AppAdd} />
         <PrivateRoute path='/error_edit/:id' component={ErrorEdit} />
         <PrivateRoute path='/error_create' component={ErrorAdd} />
+
         <PrivateRoute
           path='/kc_admin'
           component={KC_admin}
@@ -113,14 +114,14 @@ export const AppRouter = () => (
           component={View_audits}
           routePremissionLevel={'kiwicodes'}
         />
+
         <PrivateRoute
           exact
           path='/admin'
-          component={AdminPage}
+          component={Admin_Page}
           routePremissionLevel={'admin'}
-        />{' '}
-        {/* 
-        <PrivateRoute
+        />
+        {/*   <PrivateRoute
           path='/admin_Manage_license_keys'
           component={Admin_Manage_license_keys}
           routePremissionLevel={'admin'}
@@ -171,6 +172,7 @@ export const AppRouter = () => (
           component={My_account}
           routePremissionLevel={'user'}
         /> */}
+
         <Route path='/licensing_test' component={Testing} />
         <Route path='/contact' component={Contact} />
         <Route path='/login' component={Authentication} />
