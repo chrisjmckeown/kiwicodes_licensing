@@ -50,7 +50,6 @@ module.exports = {
     if (skills !== undefined) profileFeilds.skills = skills;
     if (bio !== undefined) profileFeilds.bio = bio;
 
-    console.log(profileFeilds);
     try {
       let profile = await db.profile.findOne({
         where: {

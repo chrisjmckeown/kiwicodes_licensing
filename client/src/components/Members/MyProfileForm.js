@@ -14,7 +14,7 @@ export const MyProfileForm = ({
   }, [getMyProfile]);
 
   const [profileDetails, setProfileDetails] = useState({});
-  const { id, company, website, location, status, skills, bio } = profile || {};
+  const { company, website, location, status, skills, bio } = profile || {};
 
   const handleChange = (e) => {
     setProfileDetails((state) => ({
@@ -26,13 +26,13 @@ export const MyProfileForm = ({
   const onSubmitForm = async (e) => {
     e.preventDefault();
     const updates = {
-      id,
-      company,
-      website,
-      location,
-      status,
-      skills,
-      bio,
+      id: profileDetails.id,
+      company: profileDetails.company,
+      website: profileDetails.website,
+      location: profileDetails.location,
+      status: profileDetails.status,
+      skills: profileDetails.skills,
+      bio: profileDetails.bio,
     };
     addProfile(updates);
   };
