@@ -171,7 +171,11 @@ export const AppRouter = () => (
         <Route path='/licensing_test' component={Testing} />
         <Route path='/contact' component={Contact} />
         <Route path='/login' component={Authentication} />
-        <Route path='/my_account' component={My_account} />
+        <PrivateRoute
+          path='/my_account'
+          component={My_account}
+          routePremissionLevel={'user'}
+        />
         <Route component={NotFoundPage} />
       </Switch>
     </Main>

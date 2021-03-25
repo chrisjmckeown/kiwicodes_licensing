@@ -6,6 +6,7 @@ import client from './client';
 import member from './member';
 import app from './app';
 import error from './error';
+import profile from './profile';
 
 export default combineReducers({
   alert,
@@ -15,4 +16,5 @@ export default combineReducers({
   member,
   app,
   error,
+  profile,
 });

@@ -30,24 +30,18 @@ module.exports = function (sequelize, DataTypes) {
       },
       status: {
         type: DataTypes.STRING(255),
-        allowNull: false,
+        allowNull: true,
         validate: {
           len: [1, 255],
         },
       },
       skills: {
         type: DataTypes.TEXT,
-        allowNull: false,
-        validate: {
-          len: [1, 255],
-        },
+        allowNull: true,
       },
       bio: {
         type: DataTypes.TEXT,
         allowNull: true,
-        validate: {
-          len: [1, 255],
-        },
       },
     },
     {

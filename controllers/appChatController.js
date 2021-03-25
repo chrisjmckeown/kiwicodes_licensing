@@ -9,7 +9,7 @@ module.exports = {
   findAll: async (req, res) => {
     try {
       const appChats = await db.appChat.findAll();
-      res.json(appChats);
+      return res.json(appChats);
     } catch (err) {
       console.error(err.message);
       return res.status(500).send('Server error');
@@ -21,7 +21,7 @@ module.exports = {
   findById: async (req, res) => {
     try {
       const appChat = await db.appChat.findByPk(req.params.id);
-      res.json(appChat);
+      return res.json(appChat);
     } catch (err) {
       console.error(err.message);
       return res.status(500).send('Server error');
@@ -36,12 +36,14 @@ module.exports = {
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const member = await db.member.findByPk(req.member.id, {
-      attributes: {
-        exclude: ['password'],
-      },
-    });
-    const { firstName, lastName, avatar } = member;
+    const { firstName, lastName, avatar } = await db.member.findByPk(
+      req.member.id,
+      {
+        attributes: {
+          exclude: ['password'],
+        },
+      }
+    );
 
     const { comment, like, appId, appChatId } = req.body;
 

@@ -6,6 +6,7 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT,
+  AUTH_MEMBER_UPDATE,
 } from '../actions/types';
 
 const initialState = {
@@ -24,6 +25,11 @@ export const auth = (state = initialState, action) => {
         isAuthenticated: true,
         permissionLevel: payload.role,
         loading: false,
+        member: payload,
+      };
+    case AUTH_MEMBER_UPDATE:
+      return {
+        ...state,
         member: payload,
       };
     case REGISTER_SUCCESS:

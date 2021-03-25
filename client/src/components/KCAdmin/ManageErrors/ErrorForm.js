@@ -30,62 +30,60 @@ export const ErrorForm = ({ error, setAlert, onSubmit }) => {
   return (
     <>
       <form className='std form' onSubmit={onSubmitForm}>
-        <fieldset className='form__fieldset'>
-          <div className='form__marginLeft'>
-            <h3>Error {id}</h3>
-            <>
-              <label className='form__text form__label'>Date</label>
-              <input
-                className='form__input'
-                value={date}
-                onChange={(e) => setDate(e.target.value)}
-              ></input>
-            </>
-            <>
-              <label className='form__text form__label'>Message</label>
-              <input
-                className='form__input'
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-              ></input>
-            </>
-            <>
-              <label className='form__text form__label'>Class Name</label>
-              <input
-                className='form__input'
-                value={className}
-                onChange={(e) => setClassName(e.target.value)}
-              ></input>
-            </>
-            <>
-              <label className='form__text form__label'>Method Name</label>
-              <input
-                className='form__input'
-                value={methodName}
-                onChange={(e) => setMethodName(e.target.value)}
-              ></input>
-            </>
-            <>
-              <label className='form__text form__label'>Build Number</label>
-              <input
-                className='form__input'
-                value={buildNumber}
-                onChange={(e) => setBuildNumber(e.target.value)}
-              ></input>
-            </>
-            <>
-              <label className='form__text form__label'>Revit Build</label>
-              <input
-                className='form__input'
-                value={revitBuild}
-                onChange={(e) => setRevitBuild(e.target.value)}
-              ></input>
-            </>
-            <p className='form__submit form__marginTop'>
-              <input type='submit' className='button__large'></input>
-            </p>
-          </div>
-        </fieldset>
+        <div className='form__marginLeft'>
+          <h3>Error {id}</h3>
+          <>
+            <label className='form__text form__label'>Date</label>
+            <input
+              className='form__input'
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+            ></input>
+          </>
+          <>
+            <label className='form__text form__label'>Message</label>
+            <input
+              className='form__input'
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+            ></input>
+          </>
+          <>
+            <label className='form__text form__label'>Class Name</label>
+            <input
+              className='form__input'
+              value={className}
+              onChange={(e) => setClassName(e.target.value)}
+            ></input>
+          </>
+          <>
+            <label className='form__text form__label'>Method Name</label>
+            <input
+              className='form__input'
+              value={methodName}
+              onChange={(e) => setMethodName(e.target.value)}
+            ></input>
+          </>
+          <>
+            <label className='form__text form__label'>Build Number</label>
+            <input
+              className='form__input'
+              value={buildNumber}
+              onChange={(e) => setBuildNumber(e.target.value)}
+            ></input>
+          </>
+          <>
+            <label className='form__text form__label'>Revit Build</label>
+            <input
+              className='form__input'
+              value={revitBuild}
+              onChange={(e) => setRevitBuild(e.target.value)}
+            ></input>
+          </>
+          <p className='form__submit form__marginTop'>
+            <input type='submit' className='button__large'></input>
+          </p>
+        </div>
       </form>
     </>
   );

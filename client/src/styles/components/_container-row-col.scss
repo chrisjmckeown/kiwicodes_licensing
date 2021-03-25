@@ -9,7 +9,6 @@
   display: flex;
   flex-wrap: nowrap;
   flex-flow: row wrap;
-  justify-content: space-between;
   width: 100%;
 }
 .align_items_end {
@@ -24,57 +23,48 @@
 .justify_content_center {
   justify-content: center;
 }
+.justify_content_space-between {
+  justify-content: space-between;
+}
 .col {
   display: flex;
   flex: 1;
   height: 100%;
 }
 .col1 {
-  display: flex;
   width: 8.33333%;
 }
 .col2 {
-  display: flex;
   width: 16.66666667%;
 }
 .col3 {
-  display: flex;
   width: 25%;
 }
 .col4 {
-  display: flex;
   width: 33.33333333%;
 }
 .col5 {
-  display: flex;
   width: 41.66666667%;
 }
 .col6 {
-  display: flex;
   width: 50%;
 }
 .col7 {
-  display: flex;
   width: 58.33333333%;
 }
 .col8 {
-  display: flex;
   width: 66.66666667%;
 }
 .col9 {
-  display: flex;
   width: 75%;
 }
 .col10 {
-  display: flex;
   width: 83.33333333%;
 }
 .col11 {
-  display: flex;
   width: 91.66666667%;
 }
 .col12 {
-  display: flex;
   width: 100%;
 }
 .body_margin {
@@ -82,8 +72,14 @@
   margin-left: 1%;
   flex-flow: column wrap;
 }
-.mar-2 {
-  margin-bottom: 20px;
+.marginLeft {
+  margin-left: $m-size;
+}
+.marginBottom {
+  margin-bottom: $m-size;
+}
+.marginTop {
+  margin-top: $m-size;
 }
 .overflow {
   width: 100%;
@@ -92,12 +88,14 @@
 @media (max-width: $desktop-breakpoint) {
   .lg {
     width: 100%;
-    margin-bottom: 20px;
   }
 
   .row.lg {
     flex-direction: column;
     flex-wrap: wrap;
+  }
+  .margin_Top {
+    margin-top: $m-size;
   }
 }
 

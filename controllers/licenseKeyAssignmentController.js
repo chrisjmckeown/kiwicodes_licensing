@@ -11,7 +11,7 @@ module.exports = {
     }
     try {
       const licenseKeyAssignments = await db.licenseKeyAssignment.findAll();
-      res.json(licenseKeyAssignments);
+      return res.json(licenseKeyAssignments);
     } catch (err) {
       console.error(err.message);
       return res.status(500).send('Server error');
@@ -30,7 +30,7 @@ module.exports = {
           clientId: req.member.clientId,
         },
       });
-      res.json(licenseKeyAssignments);
+      return res.json(licenseKeyAssignments);
     } catch (err) {
       console.error(err.message);
       return res.status(500).send('Server error');
@@ -47,7 +47,7 @@ module.exports = {
       const licenseKeyAssignment = await db.licenseKeyAssignment.findByPk(
         req.params.id
       );
-      res.json(licenseKeyAssignment);
+      return res.json(licenseKeyAssignment);
     } catch (err) {
       console.error(err.message);
       return res.status(500).send('Server error');

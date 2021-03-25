@@ -12,7 +12,7 @@ module.exports = {
     }
     try {
       const errors = await db.error.findAll();
-      res.json(errors);
+      return res.json(errors);
     } catch (err) {
       console.error(err.message);
       return res.status(500).send('Server error');
@@ -27,7 +27,7 @@ module.exports = {
     }
     try {
       const error = await db.error.findByPk(req.params.id);
-      res.json(error);
+      return res.json(error);
     } catch (err) {
       console.error(err.message);
       return res.status(500).send('Server error');

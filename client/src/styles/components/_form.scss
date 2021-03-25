@@ -9,13 +9,13 @@ form.std {
     padding: 0.5em;
     margin: 0 0 0.5em 0;
   }
+  p {
+    word-break: break-all;
+  }
 }
 
 .form {
   width: 100%;
-}
-.form__fieldset {
-  border: 1px solid #d0d1d5;
 }
 .form__h4 {
   padding: 0.3rem $m-size 0 $m-size;
@@ -51,10 +51,34 @@ form.std {
   display: block;
   text-align: left;
   width: 100%;
+  font-weight: bold;
 }
 
 .form__labelHeader {
   font: 400 23px/25px 'Molengo';
   color: #497693;
   text-decoration: none;
+}
+
+.form_ul {
+  display: flex;
+  flex-direction: column;
+  margin: 0 5px 0 5px;
+  padding: 0;
+}
+.form_li {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  padding: 5px 0 5px 0;
+  width: 100%;
+  .form_left {
+    padding: 3px 0 3px 0;
+    width: 25%;
+    font-weight: bold;
+  }
+  .form_right {
+    width: 75%;
+    padding: 3px 0 3px 0;
+  }
 }

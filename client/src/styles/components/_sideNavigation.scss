@@ -1,0 +1,39 @@
+.nav__Container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 5px 0 5px;
+  padding: 0;
+}
+.nav__Item {
+  display: block;
+  flex: 1;
+  height: 49px;
+  list-style-type: none;
+  padding: 0;
+  a {
+    align-items: center;
+    color: black;
+    display: flex;
+    font-size: $m-size;
+    font-weight: 525;
+    height: 100%;
+    justify-content: left;
+    text-decoration: none;
+    border-radius: $s-size;
+  }
+  a:hover:not(.active) {
+    background-image: linear-gradient(rgb(224, 228, 232), rgb(200, 201, 202));
+  }
+  .active {
+    background-image: linear-gradient(rgb(224, 228, 232), rgb(167, 170, 174));
+  }
+  &:hover .header__secondaryNav {
+    display: block;
+  }
+  .nav__image {
+    padding: 0 5px 0 5px;
+  }
+  .nav__text {
+    padding: 0 5px 0 5px;
+  }
+}

@@ -15,7 +15,7 @@
 .login_form a {
   color: #374853;
 }
-.create_account_form {
+.login_form {
   margin-right: 11px;
 }
 .create_account_form p.text label {
@@ -29,10 +29,6 @@
 }
 .login_form p.lost_password {
   padding-left: $m-size;
-}
-.create_account_form fieldset,
-.login_form fieldset {
-  border: 1px solid #d0d1d5;
 }
 .create_account_form label,
 .login_form label {
@@ -50,7 +46,7 @@
 }
 
 @media (max-width: $desktop-breakpoint) {
-  .create_account_form {
+  .login_form {
     margin-right: 0;
   }
 }

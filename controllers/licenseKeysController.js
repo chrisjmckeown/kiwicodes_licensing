@@ -11,7 +11,7 @@ module.exports = {
     }
     try {
       const licenseKeys = await db.licenseKey.findAll();
-      res.json(licenseKeys);
+      return res.json(licenseKeys);
     } catch (err) {
       console.error(err.message);
       return res.status(500).send('Server error');
@@ -26,7 +26,7 @@ module.exports = {
     }
     try {
       const licenseKey = await db.licenseKey.findByPk(req.params.id);
-      res.json(licenseKey);
+      return res.json(licenseKey);
     } catch (err) {
       console.error(err.message);
       return res.status(500).send('Server error');

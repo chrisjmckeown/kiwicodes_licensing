@@ -12,8 +12,7 @@ const initialState = {
   loading: true,
 };
 
-export const client = (state = initialState, action) => {
-  const { type, payload } = action;
+export const client = (state = initialState, { type, payload }) => {
   switch (type) {
     case ADD_CLIENT:
       return {

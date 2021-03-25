@@ -52,7 +52,12 @@ module.exports = {
     if (bio) profileFeilds.bio = bio;
 
     try {
-      let profile = await db.profile.findByPk(req.params.id);
+      let profile = await db.profile.findOne({
+        where: {
+          memberId: req.member.id,
+        },
+      });
+      //.findByPk(req.params.id);
 
       if (profile) {
         profile = await profile.update(profileFeilds);
@@ -80,7 +85,7 @@ module.exports = {
           },
         ],
       });
-      res.json(profiles);
+      return res.json(profiles);
     } catch (err) {
       console.error(err.message);
       return res.status(500).send('Server error');
@@ -105,7 +110,7 @@ module.exports = {
 
       if (!profile) return res.status(400).json({ msg: 'Profile not found' });
 
-      res.json(profile);
+      return res.json(profile);
     } catch (err) {
       console.error(err.message);
 

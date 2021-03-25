@@ -13,7 +13,7 @@ const Manage_members = () => {
       <Breadcrumb breadCrumbs={['KC_Admin']} endPage={'Manage Members'} />
       <PageHeader pageName={'Manage Members'} />
       <CreateButton linkText={'Create Member'} link={'/member_create/'} />
-      <MemberList cleintID={state ? state.clientID : 0} />
+      <MemberList clientID={state ? state.clientID : 0} />
       <Alert />
     </>
   );

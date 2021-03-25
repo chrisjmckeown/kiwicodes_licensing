@@ -6,6 +6,7 @@ export const REGISTER_FAIL = 'REGISTER_FAIL';
 
 export const USER_LOADED = 'USER_LOADED';
 export const AUTH_ERROR = 'AUTH_ERROR';
+export const AUTH_MEMBER_UPDATE = 'AUTH_MEMBER_UPDATE';
 
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAIL = 'LOGIN_FAIL';
@@ -41,3 +42,9 @@ export const DELETE_ERROR = 'DELETE_ERROR';
 export const EDIT_ERROR = 'EDIT_ERROR';
 export const GET_ERROR = 'GET_ERROR';
 export const GET_ERRORS = 'GET_ERRORS';
+
+export const ADD_PROFILE = 'ADD_PROFILE';
+export const DELETE_PROFILE = 'DELETE_PROFILE';
+export const EDIT_PROFILE = 'EDIT_PROFILE';
+export const GET_PROFILE = 'GET_PROFILE';
+export const GET_PROFILES = 'GET_PROFILES';

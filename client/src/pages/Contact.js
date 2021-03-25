@@ -11,7 +11,7 @@ const Contact = () => {
       <Breadcrumb breadCrumbs={[]} endPage={'Contact'} />
       <PageHeader pageName={'Contact'} />
       <ContactDetails />
-      <div className='row lg'>
+      <div className='row lg justify_content_center'>
         <div className='col6 lg'>
           <ContactForm />
         </div>

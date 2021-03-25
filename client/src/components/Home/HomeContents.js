@@ -22,7 +22,7 @@ export const HomeContents = () => {
       <PageHeader pageName={'Featured Products'} />
       <div className='body__feature'>
         <div className='container'>
-          <div className='row lg'>
+          <div className='row lg justify_content_space-between'>
             <div className='col3 lg'>
               <HomeFeaturedProducts
                 productName={'Family Browser R3'}

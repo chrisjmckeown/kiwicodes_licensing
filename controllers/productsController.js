@@ -21,7 +21,7 @@ module.exports = {
           ],
         },
       });
-      res.json(products);
+      return res.json(products);
     } catch (err) {
       console.error(err.message);
       return res.status(500).send('Server error');
@@ -33,7 +33,7 @@ module.exports = {
   findById: async (req, res) => {
     try {
       const product = await db.product.findByPk(req.params.id);
-      res.json(product);
+      return res.json(product);
     } catch (err) {
       console.error(err.message);
       return res.status(500).send('Server error');

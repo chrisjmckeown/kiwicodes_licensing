@@ -40,6 +40,7 @@ const MemberTable = (props) => {
               {
                 Header: 'Role',
                 accessor: 'role',
+                width: 80,
               },
               {
                 Header: 'Email',
@@ -48,16 +49,16 @@ const MemberTable = (props) => {
                 style: { whiteSpace: 'unset' },
               },
               {
-                Header: 'Password',
-                accessor: 'password',
-              },
-              {
                 Header: 'Avatar',
                 accessor: 'avatar',
+                wrap: true,
+                style: { whiteSpace: 'unset' },
               },
               {
+                id: 'active',
                 Header: 'Active',
-                accessor: 'active',
+                accessor: (d) => d.active.toString(),
+                width: 45,
               },
             ],
           },

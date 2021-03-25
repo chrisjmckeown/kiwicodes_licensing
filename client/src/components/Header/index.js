@@ -17,7 +17,7 @@ const Header = ({
     <ul>
       <li>
         <Link
-          to='/my_account'
+          to='/my_account/my_details'
           title='My Account'
           className='header__my-account'
         >

@@ -7,8 +7,11 @@ import history from '../../../routes/history';
 import { deleteClient } from '../../../actions/client';
 
 const ClientTable = (props) => {
-  const handleViewMembers = (clientID) => {
+  const handleEditMembers = (clientID) => {
     history.push({ pathname: '/manage_members', state: { clientID } });
+  };
+  const handleAddRemoveMembers = (clientID) => {
+    console.log('handleAddRemoveMembers', clientID);
   };
   const handleEdit = (clientID) => {
     history.push(`/client_edit/${clientID}`);
@@ -69,19 +72,34 @@ const ClientTable = (props) => {
                 style: { whiteSpace: 'unset' },
               },
               {
-                Header: ' View Members',
+                Header: 'Edit Members',
                 Cell: (row) => (
                   <div>
                     <button
                       className='button__table'
-                      onClick={() => handleViewMembers(row.original.id)}
+                      onClick={() => handleEditMembers(row.original.id)}
                     >
                       <i className='far fa-eye fa-lg'></i>
                     </button>
                   </div>
                 ),
                 width: 45,
-                accessor: 'viewmembers',
+                accessor: 'editmembers',
+              },
+              {
+                Header: 'Add/Remove',
+                Cell: (row) => (
+                  <div>
+                    <button
+                      className='button__table'
+                      onClick={() => handleAddRemoveMembers(row.original.id)}
+                    >
+                      <i className='fas fa-wrench'></i>
+                    </button>
+                  </div>
+                ),
+                width: 45,
+                accessor: 'addremove',
               },
             ],
           },

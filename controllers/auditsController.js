@@ -14,7 +14,7 @@ module.exports = {
       });
       if (!audit) return res.status(400).json({ msg: 'No Audit found' });
 
-      res.json(audit);
+      return res.json(audit);
     } catch (err) {
       console.error(err.message);
       return res.status(500).send('Server error');
@@ -32,7 +32,7 @@ module.exports = {
       if (audits.length === 0)
         return res.status(400).json({ msg: 'No Audits found' });
 
-      res.json(audits);
+      return res.json(audits);
     } catch (err) {
       console.error(err.message);
       return res.status(500).send('Server error');
@@ -51,7 +51,7 @@ module.exports = {
       if (audits.length === 0)
         return res.status(400).json({ msg: 'No Audits found' });
 
-      res.json(audits);
+      return res.json(audits);
     } catch (err) {
       console.error(err.message);
       return res.status(500).send('Server error');

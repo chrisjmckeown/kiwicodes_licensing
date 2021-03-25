@@ -9,7 +9,7 @@ module.exports = {
   findAll: async (req, res) => {
     try {
       const apps = await db.app.findAll();
-      res.json(apps);
+      return res.json(apps);
     } catch (err) {
       console.error(err.message);
       return res.status(500).send('Server error');
@@ -21,7 +21,7 @@ module.exports = {
   findById: async (req, res) => {
     try {
       const app = await db.app.findByPk(req.params.id);
-      res.json(app);
+      return res.json(app);
     } catch (err) {
       console.error(err.message);
       return res.status(500).send('Server error');

@@ -42,55 +42,53 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
       className='std create_account_form'
       onSubmit={(e) => onSubmitRegister(e)}
     >
-      <fieldset>
-        <h3>Create your account</h3>
-        <h4>Enter your e-mail address to create an account.</h4>
-        <p className='text'>
-          <label>E-mail address</label>
-          <span>
-            <input
-              type='text'
-              name='email'
-              value={email}
-              onChange={(e) => onChangeRegister(e)}
-              className='account_input'
-            ></input>
-          </span>
-        </p>
-        <p className='text'>
-          <label>Password</label>
-          <span>
-            <input
-              type='password'
-              name='password'
-              value={password}
-              onChange={(e) => onChangeRegister(e)}
-              className='account_input'
-            ></input>
-          </span>
-        </p>
-        <p className='text'>
-          <label>Confirm password</label>
-          <span>
-            <input
-              type='password'
-              name='password2'
-              value={password2}
-              onChange={(e) => onChangeRegister(e)}
-              className='account_input'
-            ></input>
-          </span>
-        </p>
-        <p className='submit'>
+      <h3>Create your account</h3>
+      <h4>Enter your e-mail address to create an account.</h4>
+      <p className='text'>
+        <label>E-mail address</label>
+        <span>
           <input
-            type='submit'
-            id='SubmitCreate'
-            name='SubmitCreate'
-            className='button__large'
-            value='Create your account'
+            type='text'
+            name='email'
+            value={email}
+            onChange={(e) => onChangeRegister(e)}
+            className='account_input'
           ></input>
-        </p>
-      </fieldset>
+        </span>
+      </p>
+      <p className='text'>
+        <label>Password</label>
+        <span>
+          <input
+            type='password'
+            name='password'
+            value={password}
+            onChange={(e) => onChangeRegister(e)}
+            className='account_input'
+          ></input>
+        </span>
+      </p>
+      <p className='text'>
+        <label>Confirm password</label>
+        <span>
+          <input
+            type='password'
+            name='password2'
+            value={password2}
+            onChange={(e) => onChangeRegister(e)}
+            className='account_input'
+          ></input>
+        </span>
+      </p>
+      <p className='submit'>
+        <input
+          type='submit'
+          id='SubmitCreate'
+          name='SubmitCreate'
+          className='button__large'
+          value='Create your account'
+        ></input>
+      </p>
     </form>
   );
 };

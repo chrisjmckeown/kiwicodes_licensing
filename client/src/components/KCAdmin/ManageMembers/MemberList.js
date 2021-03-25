@@ -36,7 +36,7 @@ MemberList.propTypes = {
 
 const mapStateToProps = (state, props) => ({
   member: state.member,
-  filteredMembers: filter(state.member.members, props.cleintID),
+  filteredMembers: filter(state.member.members, props.clientID),
 });
 
 export default connect(mapStateToProps, { getMembers })(MemberList);

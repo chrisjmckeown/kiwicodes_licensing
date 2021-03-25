@@ -2,7 +2,7 @@ import React from 'react';
 
 export const ContactDetail = () => (
   <>
-    <div className='row mar-2'>
+    <div className='row marginBottom'>
       <div className='col6'>
         <div className='contact'>
           <p>Kiwi Codes Solutions Ltd</p>

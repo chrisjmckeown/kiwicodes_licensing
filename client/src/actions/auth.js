@@ -72,4 +72,27 @@ export const login = (email, password) => async (dispatch) => {
   }
 };
 
+export const updatePassword = ({ id, password, currentPassword }) => async (
+  dispatch
+) => {
+  const updates = {
+    id,
+    password,
+    currentPassword,
+  };
+  const body = JSON.stringify(updates);
+  try {
+    const res = await api.post('/members/updatepassword', body);
+    if (res.data.result) {
+      dispatch(setAlert('Password successfully reset', 'success'));
+      dispatch(loadUser());
+    }
+  } catch (err) {
+    const errors = err.response.data.errors;
+    if (errors) {
+      errors.forEach((error) => dispatch(setAlert(error.msg, 'danger')));
+    }
+  }
+};
+
 export const logout = () => (dispatch) => dispatch({ type: LOGOUT });

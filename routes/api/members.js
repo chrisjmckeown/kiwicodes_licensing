@@ -4,6 +4,9 @@ const auth = require('../../middleware/auth');
 const { check } = require('express-validator');
 
 // Matches with "/api/members"
+
+router.post('/resetpassword', membersController.resetPassword);
+router.post('/updatepassword', auth, membersController.updatePassword);
 router.get('/', auth, membersController.findAll);
 router.post(
   '/',
@@ -17,5 +20,12 @@ router.post(
   ],
   membersController.create
 );
+
+// Matches with "/api/members/:id"
+router.get('/:id', auth, membersController.findById);
+router.get('/email/:email', membersController.findByEmail);
+router.put('/:id', auth, membersController.update);
+router.delete('/:id', auth, membersController.remove);
+
 router.get('/byClientId/:id', auth, membersController.findAllByClientId);
 module.exports = router;

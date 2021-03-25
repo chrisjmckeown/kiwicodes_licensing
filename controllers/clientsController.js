@@ -24,7 +24,7 @@ module.exports = {
           ],
         },
       });
-      res.json(clients);
+      return res.json(clients);
     } catch (err) {
       console.error(err.message);
       return res.status(500).send('Server error');
@@ -36,7 +36,7 @@ module.exports = {
   findById: async (req, res) => {
     try {
       const client = await db.client.findByPk(req.params.id);
-      res.json(client);
+      return res.json(client);
     } catch (err) {
       console.error(err.message);
       return res.status(500).send('Server error');

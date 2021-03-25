@@ -15,6 +15,12 @@ module.exports = {
         attributes: {
           exclude: ['password'],
         },
+        include: [
+          {
+            model: db.client,
+            attributes: ['name'],
+          },
+        ],
       });
       return res.json(member);
     } catch (err) {

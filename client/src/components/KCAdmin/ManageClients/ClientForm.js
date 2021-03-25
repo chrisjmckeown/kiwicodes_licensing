@@ -25,46 +25,44 @@ export const ClientForm = ({ client, setAlert, onSubmit }) => {
   return (
     <>
       <form className='std form' onSubmit={onSubmitForm}>
-        <fieldset className='form__fieldset'>
-          <div className='form__marginLeft'>
-            <h3>Client {id}</h3>
-            <>
-              <label className='form__text form__label'>Name</label>
-              <input
-                className='form__input'
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              ></input>
-            </>
-            <>
-              <label className='form__text form__label'>Phone</label>
-              <input
-                className='form__input'
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-              ></input>
-            </>
-            <>
-              <label className='form__text form__label'>Address</label>
-              <input
-                className='form__input'
-                value={address}
-                onChange={(e) => setAddress(e.target.value)}
-              ></input>
-            </>
-            <>
-              <label className='form__text form__label'>Primary Email</label>
-              <input
-                className='form__input'
-                value={primaryEmail}
-                onChange={(e) => setPrimaryEmail(e.target.value)}
-              ></input>
-            </>
-            <p className='form__submit form__marginTop'>
-              <input type='submit' className='button__large'></input>
-            </p>
-          </div>
-        </fieldset>
+        <div className='form__marginLeft'>
+          <h3>Client {id}</h3>
+          <>
+            <label className='form__text form__label'>Name</label>
+            <input
+              className='form__input'
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            ></input>
+          </>
+          <>
+            <label className='form__text form__label'>Phone</label>
+            <input
+              className='form__input'
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+            ></input>
+          </>
+          <>
+            <label className='form__text form__label'>Address</label>
+            <input
+              className='form__input'
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+            ></input>
+          </>
+          <>
+            <label className='form__text form__label'>Primary Email</label>
+            <input
+              className='form__input'
+              value={primaryEmail}
+              onChange={(e) => setPrimaryEmail(e.target.value)}
+            ></input>
+          </>
+          <p className='form__submit form__marginTop'>
+            <input type='submit' className='button__large'></input>
+          </p>
+        </div>
       </form>
     </>
   );
