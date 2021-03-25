@@ -4,7 +4,7 @@ import Breadcrumb from '../../components/Breadcrumb';
 import PageHeader from '../../components/PageHeader';
 import AdminSubMenu from '../../components/Header/AdminSubMenu';
 
-const Admin = () => {
+const Admin_Page = () => {
   return (
     <>
       <Breadcrumb breadCrumbs={[]} endPage={'Admin'} />
@@ -19,4 +19,4 @@ const Admin = () => {
     </>
   );
 };
-export default Admin;
+export default Admin_Page;

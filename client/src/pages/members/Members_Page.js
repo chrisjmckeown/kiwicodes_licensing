@@ -4,7 +4,7 @@ import Breadcrumb from '../../components/Breadcrumb';
 import PageHeader from '../../components/PageHeader';
 import MemberSubMenu from '../../components/Header/MemberSubMenu';
 
-const Members = () => {
+const Members_Page = () => {
   return (
     <>
       <Breadcrumb breadCrumbs={[]} endPage={'Members'} />
@@ -17,4 +17,4 @@ const Members = () => {
     </>
   );
 };
-export default Members;
+export default Members_Page;
