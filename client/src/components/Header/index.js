@@ -140,11 +140,11 @@ const Header = ({
                       memberLinks}
                   </>
                 )}
-                <li className='header__primaryItem'>
+                {/* <li className='header__primaryItem'>
                   <NavLink to='/licensing_test' title='LICENSING TEST'>
                     TESTING
                   </NavLink>
-                </li>
+                </li> */}
                 <li className='header__primaryItem'>
                   <NavLink to='/contact' title='Contact us'>
                     CONTACT

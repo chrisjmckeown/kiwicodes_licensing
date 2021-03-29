@@ -40,7 +40,7 @@ import Member_View_app_usage from '../pages/members/View_app_usage';
 import Member_View_audits from '../pages/members/View_audits';
 import My_account from '../pages/members/My_account';
 
-import Testing from '../pages/Testing';
+// import Testing from '../pages/Testing';
 import Contact from '../pages/Contact';
 import Authentication from '../pages/Authentication';
 import NotFoundPage from '../pages/NotFoundPage';
@@ -173,7 +173,7 @@ export const AppRouter = () => (
           routePremissionLevel={'user'}
         />
 
-        <Route path='/licensing_test' component={Testing} />
+        {/* <Route path='/licensing_test' component={Testing} /> */}
         <Route path='/contact' component={Contact} />
         <Route path='/login' component={Authentication} />
         <Route component={NotFoundPage} />

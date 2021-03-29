@@ -40,6 +40,11 @@ module.exports = function (sequelize, DataTypes) {
         allowNull: true,
       },
     });
+    LicenseKey.belongsTo(models.product, {
+      foreignKey: {
+        allowNull: true,
+      },
+    });
   };
   return LicenseKey;
 };
