@@ -34,9 +34,9 @@ A portal for clients to manage licenses including license assignment. Also a por
 
 ![GitHub language count](https://img.shields.io/github/languages/count/chrisjmckeown/Google_Books_React_Search?style=flat-square)![GitHub top language](https://img.shields.io/github/languages/top/chrisjmckeown/Google_Books_React_Search?style=flat-square)
 
-<img src="https://3ulsmb4eg8vz37c0vz2si64j-wpengine.netdna-ssl.com/wp-content/uploads/2019/05/react-native-UX-design.gif" alt="logo" width="100px" />
-<img src="./client/public/mongodb.png" alt="logo" width="100px" />
-<img src="./client/public/MicrosoftAzureLogo.jpg" alt="logo" width="100px" />
+<img src="https://3ulsmb4eg8vz37c0vz2si64j-wpengine.netdna-ssl.com/wp-content/uploads/2019/05/react-native-UX-design.gif" alt="logo" height="28px" />
+<img src="./client/public/mongodb.jpeg" alt="logo" height="28px" />
+<img src="./client/public/MicrosoftAzureLogo.jpg" alt="logo" height="28px" />
 <img src="https://img.shields.io/badge/html5%20-%23E34F26.svg?&style=for-the-badge&logo=html5&logoColor=white"/> <img src="https://img.shields.io/badge/css3%20-%231572B6.svg?&style=for-the-badge&logo=css3&logoColor=white"/> <img src="https://img.shields.io/badge/node.js%20-%2343853D.svg?&style=for-the-badge&logo=node.js&logoColor=white"/> <img src="https://img.shields.io/badge/javascript%20-%23323330.svg?&style=for-the-badge&logo=javascript&logoColor=%23F7DF1E"/>
 
 ## Usage
