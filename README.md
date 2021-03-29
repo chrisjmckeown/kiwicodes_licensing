@@ -104,7 +104,7 @@ My Account page:
 <img src="./client/public/home.png" alt="My Account">
 
 Database Diagram:
-<img src="./client/public/Database-Diagram.png" alt="Database Diagram">
+<img src="./client/public/DatabaseDiagram.png" alt="Database Diagram">
 
 ### Deployment
 
