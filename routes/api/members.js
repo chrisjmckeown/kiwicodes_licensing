@@ -16,7 +16,6 @@ router.post(
       'password',
       'Please include a password with 6 ort more characters'
     ).isLength({ min: 6 }),
-    check('clientId', 'Please include a client Id').not().isEmpty(),
   ],
   membersController.create
 );

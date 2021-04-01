@@ -31,7 +31,7 @@ const PrivateRoute = ({
         !isAuthenticated && !loading ? (
           <Redirect to='/login' />
         ) : checkPermissionLevels(props) ? (
-          <Component {...props} />
+          <Component {...rest} {...props} />
         ) : (
           <Redirect to='/' />
         )

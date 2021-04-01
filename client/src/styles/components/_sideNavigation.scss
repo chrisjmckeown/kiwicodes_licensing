@@ -6,7 +6,6 @@
 }
 .nav__Item {
   display: block;
-  flex: 1;
   height: 49px;
   list-style-type: none;
   padding: 0;
@@ -31,7 +30,7 @@
     display: block;
   }
   .nav__image {
-    padding: 0 5px 0 5px;
+    padding: 0 5px 0 15px;
   }
   .nav__text {
     padding: 0 5px 0 5px;

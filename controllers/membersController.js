@@ -21,6 +21,12 @@ module.exports = {
         attributes: {
           exclude: ['password'],
         },
+        include: [
+          {
+            model: db.client,
+            attributes: ['name'],
+          },
+        ],
       });
       return res.json(members);
     } catch (err) {
@@ -78,7 +84,14 @@ module.exports = {
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { firstName, lastName, email, password, clientId } = req.body;
+    const {
+      firstName,
+      lastName,
+      email,
+      password,
+      role = 'user',
+      clientId = 1,
+    } = req.body;
     try {
       let member = await db.member.findOne({
         where: {
@@ -104,7 +117,7 @@ module.exports = {
         email,
         avatar,
         password,
-        role: 'user',
+        role,
         clientId,
       });
 
@@ -128,10 +141,7 @@ module.exports = {
           return res.json({ token });
         }
       );
-
-      const profilesController = require('../../controllers/profilesController');
     } catch (err) {
-      console.error(err.message);
       return res.status(500).send('Server error');
     }
   },
@@ -242,7 +252,15 @@ module.exports = {
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { firstName, lastName, email, role, active, clientId } = req.body;
+    const {
+      firstName,
+      lastName,
+      email,
+      role,
+      active,
+      clientId,
+      password,
+    } = req.body;
 
     const avatar = gravatar.url(email, {
       s: '200',
@@ -258,6 +276,10 @@ module.exports = {
     if (avatar) memberFeilds.avatar = avatar;
     if (active) memberFeilds.active = active;
     if (clientId) memberFeilds.clientId = clientId;
+    if (password) {
+      const salt = await bcrypt.genSalt(10);
+      memberFeilds.password = await bcrypt.hash(password, salt);
+    }
 
     try {
       let member = await db.member.findByPk(req.params.id);

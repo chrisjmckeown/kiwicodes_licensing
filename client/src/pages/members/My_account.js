@@ -3,10 +3,11 @@ import { Switch } from 'react-router-dom';
 import Alert from '../../components/Alert';
 import Breadcrumb from '../../components/Breadcrumb';
 import PageHeader from '../../components/PageHeader';
-import YourAccount from '../../components/Members/YourAccount';
-import MyDetailsForm from '../../components/Members/MyDetailsForm';
-import MyProfileForm from '../../components/Members/MyProfileForm';
-import PasswordForm from '../../components/Members/PasswordForm';
+
+import YourAccount from '../../components/Members/YourAccount/YourAccount';
+import MyDetailsForm from '../../components/Members/YourAccount/MyDetailsForm';
+import MyProfileForm from '../../components/Members/YourAccount/MyProfileForm';
+import PasswordForm from '../../components/Members/YourAccount/PasswordForm';
 import PrivateRoute from '../../routes/PrivateRoute';
 
 const My_account = () => {
@@ -15,7 +16,7 @@ const My_account = () => {
       <Breadcrumb breadCrumbs={['Members']} endPage={'My Account'} />
       <PageHeader pageName={'My Account'} />
       <div className='row lg'>
-        <div className='col2 lg'>
+        <div className='col3 lg'>
           <YourAccount />
         </div>
         <div className='col lg margin_Top'>

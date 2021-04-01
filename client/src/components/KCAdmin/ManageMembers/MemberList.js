@@ -12,10 +12,12 @@ export const MemberList = ({
   getMembers,
   member: { loading },
   filteredMembers,
+  ...props
 }) => {
   useEffect(() => {
     getMembers();
   }, [getMembers]);
+
   return (
     <>
       {loading ? (

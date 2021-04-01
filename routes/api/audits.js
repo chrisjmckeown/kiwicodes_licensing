@@ -8,13 +8,13 @@ router.get('/', auth, auditsController.findBClientId);
 router.get('/client/:modelId', auth, auditsController.findByClientAndModelId);
 router.post(
   '/',
-  [
-    auth,
-    [
-      check('audit', 'Audit is required').not().isEmpty(),
-      check('modelId', 'Model Id is required').not().isEmpty(),
-    ],
-  ],
+  // [
+  //   auth,
+  //   [
+  check('audit', 'Audit is required').not().isEmpty(),
+  check('modelId', 'Model Id is required').not().isEmpty(),
+  //   ],
+  // ],
   auditsController.create
 );
 router.delete('/:id', auth, auditsController.remove);

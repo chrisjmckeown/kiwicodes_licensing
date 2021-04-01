@@ -8,11 +8,11 @@ import { editError, deleteError } from '../../../actions/error';
 
 const ErrorTable = (props) => {
   const handleEdit = (errorID) => {
-    history.push(`/error_edit/${errorID}`);
+    history.push(`/manage_errors/error_edit/${errorID}`);
   };
   const handleDelete = (errorID) => {
     props.deleteError(errorID);
-    history.push('/manage_errors');
+    history.push('/manage_errors/list');
   };
   return (
     <div className='reacttable__wrapper'>

@@ -5,19 +5,19 @@ const KCAdminSubMenu = ({ nav, item }) => {
   return (
     <ul className={nav}>
       <li className={item}>
-        <NavLink to='/manage_clients'>MANAGE CLIENTS</NavLink>
+        <NavLink to='/manage_clients/list'>MANAGE CLIENTS</NavLink>
       </li>
       <li className={item}>
-        <NavLink to='/manage_members'>MANAGE MEMBERS</NavLink>
+        <NavLink to='/manage_members/list'>MANAGE MEMBERS</NavLink>
       </li>
       <li className={item}>
-        <NavLink to='/manage_products'>MANAGE PRODUCTS</NavLink>
+        <NavLink to='/manage_products/list'>MANAGE PRODUCTS</NavLink>
       </li>
       <li className={item}>
-        <NavLink to='/manage_apps'>MANAGE APPS</NavLink>
+        <NavLink to='/manage_apps/list'>MANAGE APPS</NavLink>
       </li>
       <li className={item}>
-        <NavLink to='/manage_errors'>MANAGE ERRORS</NavLink>
+        <NavLink to='/manage_errors/list'>MANAGE ERRORS</NavLink>
       </li>
       <li className={item}>
         <NavLink to='/view_product_usage'>VIEW PRODUCT USAGE</NavLink>

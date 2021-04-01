@@ -2,43 +2,29 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import MemberForm from './MemberForm';
-import Alert from '../../Alert';
-import Breadcrumb from '../../Breadcrumb';
-import PageHeader from '../../PageHeader';
 import history from '../../../routes/history';
-import { editMember, deleteMember } from '../../../actions/member';
+import { editMember } from '../../../actions/member';
 
 export const MemberEdit = (props) => {
   const onSubmit = async (member) => {
     const result = await props.editMember(props.member.id, member);
     if (result) {
-      history.push('/manage_members');
-    }
-  };
-
-  const onClick = async () => {
-    const result = await props.deleteMember(props.member.id);
-    if (result) {
-      history.push('/manage_members');
+      history.push('/manage_members/list');
     }
   };
   return (
     <>
-      <Breadcrumb breadCrumbs={['Members']} endPage={'Create'} />
-      <PageHeader pageName={'Edit a Member'} />
-      <MemberForm member={props.member} onSubmit={onSubmit} />
-
-      <button className='button__std button__std--secondary' onClick={onClick}>
-        Remove Member
-      </button>
-      <Alert />
+      <MemberForm
+        member={props.member}
+        onSubmit={onSubmit}
+        createMember={false}
+      />
     </>
   );
 };
 
 const mapDispatchToProps = (dispatch) => ({
   editMember: (id, member) => dispatch(editMember(id, member)),
-  deleteMember: (id) => dispatch(deleteMember(id)),
 });
 
 const mapStateToProps = (state, props) => ({

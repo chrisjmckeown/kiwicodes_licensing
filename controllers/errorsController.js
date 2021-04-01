@@ -93,16 +93,14 @@ module.exports = {
       memberId,
       appId,
     } = req.body;
-
-    const errorFeilds = {
-      message,
-      className,
-      methodName,
-      buildNumber,
-      revitBuild,
-      memberId,
-      appId,
-    };
+    const errorFeilds = {};
+    if (message) errorFeilds.message = message;
+    if (className) errorFeilds.className = className;
+    if (methodName) errorFeilds.methodName = methodName;
+    if (buildNumber) errorFeilds.buildNumber = buildNumber;
+    if (revitBuild) errorFeilds.revitBuild = revitBuild;
+    if (memberId) errorFeilds.memberId = memberId;
+    if (appId) errorFeilds.appId = appId;
 
     try {
       let error = await db.error.findByPk(req.params.id);

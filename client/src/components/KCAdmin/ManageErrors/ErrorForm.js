@@ -1,18 +1,24 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
-import { setAlert } from '../../../actions/alert';
 
-export const ErrorForm = ({ error, setAlert, onSubmit }) => {
-  const [id] = useState(error ? error.id : '');
-  const [date, setDate] = useState(error ? error.date : '');
-  const [message, setMessage] = useState(error ? error.message : '');
-  const [className, setClassName] = useState(error ? error.className : '');
-  const [methodName, setMethodName] = useState(error ? error.methodName : '');
-  const [buildNumber, setBuildNumber] = useState(
-    error ? error.buildNumber : ''
-  );
-  const [revitBuild, setRevitBuild] = useState(error ? error.revitBuild : '');
+export const ErrorForm = ({ error, onSubmit }) => {
+  const [errorDetails, setErrorDetails] = useState({ ...error });
+  const {
+    id,
+    date,
+    message,
+    className,
+    methodName,
+    buildNumber,
+    revitBuild,
+  } = errorDetails;
+  console.log(errorDetails);
+
+  const handleChangeDetails = (e) => {
+    setErrorDetails((state) => ({
+      ...state,
+      [e.target.name]: e.target.value,
+    }));
+  };
 
   const onSubmitForm = async (e) => {
     e.preventDefault();
@@ -32,54 +38,74 @@ export const ErrorForm = ({ error, setAlert, onSubmit }) => {
       <form className='std form' onSubmit={onSubmitForm}>
         <div className='form__marginLeft'>
           <h3>Error {id}</h3>
-          <>
-            <label className='form__text form__label'>Date</label>
-            <input
-              className='form__input'
-              value={date}
-              onChange={(e) => setDate(e.target.value)}
-            ></input>
-          </>
-          <>
-            <label className='form__text form__label'>Message</label>
-            <input
-              className='form__input'
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-            ></input>
-          </>
-          <>
-            <label className='form__text form__label'>Class Name</label>
-            <input
-              className='form__input'
-              value={className}
-              onChange={(e) => setClassName(e.target.value)}
-            ></input>
-          </>
-          <>
-            <label className='form__text form__label'>Method Name</label>
-            <input
-              className='form__input'
-              value={methodName}
-              onChange={(e) => setMethodName(e.target.value)}
-            ></input>
-          </>
-          <>
-            <label className='form__text form__label'>Build Number</label>
-            <input
-              className='form__input'
-              value={buildNumber}
-              onChange={(e) => setBuildNumber(e.target.value)}
-            ></input>
-          </>
-          <>
-            <label className='form__text form__label'>Revit Build</label>
-            <input
-              className='form__input'
-              value={revitBuild}
-              onChange={(e) => setRevitBuild(e.target.value)}
-            ></input>
-          </>
+          <ul className='form_ul'>
+            <li className='form_li'>
+              <div className='form_left'>
+                <label>Date</label>
+              </div>
+              <input
+                className='form_right'
+                name={date}
+                value={date}
+                onChange={(e) => handleChangeDetails(e)}
+              ></input>
+            </li>
+            <li className='form_li'>
+              <div className='form_left'>
+                <label>Message</label>
+              </div>
+              <input
+                className='form_right'
+                name={message}
+                value={message}
+                onChange={(e) => handleChangeDetails(e)}
+              ></input>
+            </li>
+            <li className='form_li'>
+              <div className='form_left'>
+                <label>Class Name</label>
+              </div>
+              <input
+                className='form_right'
+                name={className}
+                value={className}
+                onChange={(e) => handleChangeDetails(e)}
+              ></input>
+            </li>
+            <li className='form_li'>
+              <div className='form_left'>
+                <label>Method Name</label>
+              </div>
+              <input
+                className='form_right'
+                name={methodName}
+                value={methodName}
+                onChange={(e) => handleChangeDetails(e)}
+              ></input>
+            </li>
+            <li className='form_li'>
+              <div className='form_left'>
+                <label>Build Number</label>
+              </div>
+              <input
+                className='form_right'
+                name={buildNumber}
+                value={buildNumber}
+                onChange={(e) => handleChangeDetails(e)}
+              ></input>
+            </li>
+            <li className='form_li'>
+              <div className='form_left'>
+                <label>Revit Build</label>
+              </div>
+              <input
+                className='form_right'
+                name={revitBuild}
+                value={revitBuild}
+                onChange={(e) => handleChangeDetails(e)}
+              ></input>
+            </li>
+          </ul>
           <p className='form__submit form__marginTop'>
             <input type='submit' className='button__large'></input>
           </p>
@@ -89,8 +115,4 @@ export const ErrorForm = ({ error, setAlert, onSubmit }) => {
   );
 };
 
-ErrorForm.propTypes = {
-  setAlert: PropTypes.func.isRequired,
-};
-
-export default connect(undefined, { setAlert })(ErrorForm);
+export default ErrorForm;

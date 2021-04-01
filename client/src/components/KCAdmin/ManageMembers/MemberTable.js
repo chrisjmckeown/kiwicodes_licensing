@@ -8,11 +8,11 @@ import { editMember, deleteMember } from '../../../actions/member';
 
 const MemberTable = (props) => {
   const handleEdit = (memberID) => {
-    history.push(`/member_edit/${memberID}`);
+    history.push(`/manage_members/member_edit/${memberID}`);
   };
   const handleDelete = (memberID) => {
     props.deleteMember(memberID);
-    history.push('/manage_members');
+    history.push('/manage_members/list');
   };
   return (
     <div className='reacttable__wrapper'>
@@ -57,7 +57,7 @@ const MemberTable = (props) => {
               {
                 id: 'active',
                 Header: 'Active',
-                accessor: (d) => d.active.toString(),
+                accessor: (d) => d.active && d.active.toString(),
                 width: 45,
               },
             ],

@@ -66,13 +66,13 @@ module.exports = {
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { audit, modelId } = req.body;
+    const { audit, modelId, memberId, clientId } = req.body;
 
     const auditFeilds = {
       audit,
-      memberId: req.member.id,
+      memberId,
       modelId,
-      clientId: req.member.clientId,
+      clientId,
     };
 
     try {
