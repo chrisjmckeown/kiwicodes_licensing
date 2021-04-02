@@ -8,6 +8,7 @@ import PrivateRoute from '../../routes/PrivateRoute';
 import AppList from '../../components/KCAdmin/ManageApps/AppList';
 import AppAdd from '../../components/KCAdmin/ManageApps/AppAdd';
 import AppEdit from '../../components/KCAdmin/ManageApps/AppEdit';
+import AppBulkAdd from '../../components/KCAdmin/ManageApps/AppBulkAdd';
 import AppMenu from '../../components/KCAdmin/ManageApps/AppMenu';
 
 const Manage_apps = () => {
@@ -34,6 +35,11 @@ const Manage_apps = () => {
             <PrivateRoute
               path='/manage_apps/app_edit/:id'
               component={AppEdit}
+              routePremissionLevel={'kiwicodes'}
+            />
+            <PrivateRoute
+              path='/manage_apps/bulkAdd'
+              component={AppBulkAdd}
               routePremissionLevel={'kiwicodes'}
             />
           </Switch>

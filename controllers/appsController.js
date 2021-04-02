@@ -48,6 +48,7 @@ module.exports = {
       helpLink,
       productId,
     };
+    if (productId === '0') appFeilds.productId = null;
 
     try {
       const app = new db.app(appFeilds);
@@ -76,8 +77,9 @@ module.exports = {
     if (name) appFeilds.name = name;
     if (number) appFeilds.number = number;
     if (description) appFeilds.description = description;
-    if (helpLink) appFeilds.name = helpLink;
-    if (productId) appFeilds.name = productId;
+    if (helpLink) appFeilds.helpLink = helpLink;
+    if (productId) appFeilds.productId = productId;
+    if (productId === '0') appFeilds.productId = null;
 
     try {
       let app = await db.app.findByPk(req.params.id);

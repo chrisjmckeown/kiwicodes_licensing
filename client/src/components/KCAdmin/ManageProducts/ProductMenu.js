@@ -20,6 +20,14 @@ export const ErrorMenu = () => {
           <div className='nav__text'>Create</div>
         </NavLink>
       </li>
+      <li className='nav__Item'>
+        <NavLink to='/manage_products/bulkAdd' title='Bulk Add'>
+          <div className='nav__image'>
+            <i className='far fa-plus-square'></i>
+          </div>
+          <div className='nav__text'>Bulk Add</div>
+        </NavLink>
+      </li>
     </ul>
   );
 };

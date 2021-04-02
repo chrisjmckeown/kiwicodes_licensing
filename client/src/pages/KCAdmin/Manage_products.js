@@ -9,6 +9,7 @@ import ProductList from '../../components/KCAdmin/ManageProducts/ProductList';
 import ProductAdd from '../../components/KCAdmin/ManageProducts/ProductAdd';
 import ProductEdit from '../../components/KCAdmin/ManageProducts/ProductEdit';
 import ProductMenu from '../../components/KCAdmin/ManageProducts/ProductMenu';
+import ProductBulkAdd from '../../components/KCAdmin/ManageProducts/ProductBulkAdd';
 
 const Manage_products = () => {
   return (
@@ -34,6 +35,11 @@ const Manage_products = () => {
             <PrivateRoute
               path='/manage_products/product_edit/:id'
               component={ProductEdit}
+              routePremissionLevel={'kiwicodes'}
+            />
+            <PrivateRoute
+              path='/manage_products/bulkAdd'
+              component={ProductBulkAdd}
               routePremissionLevel={'kiwicodes'}
             />
           </Switch>
