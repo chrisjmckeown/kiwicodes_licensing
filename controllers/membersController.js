@@ -71,7 +71,6 @@ module.exports = {
       });
       return res.json(members);
     } catch (err) {
-      console.error(err.message);
       return res.status(500).send('Server error');
     }
   },
@@ -84,14 +83,7 @@ module.exports = {
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const {
-      firstName,
-      lastName,
-      email,
-      password,
-      role = 'user',
-      clientId = 1,
-    } = req.body;
+    const { firstName, lastName, email, password, role, clientId } = req.body;
     try {
       let member = await db.member.findOne({
         where: {
@@ -120,27 +112,30 @@ module.exports = {
         role,
         clientId,
       });
+      if (clientId === '0') member.clientId = null;
 
       const salt = await bcrypt.genSalt(10);
       member.password = await bcrypt.hash(password, salt);
 
       await member.save();
 
-      const payload = {
-        member: {
-          id: member.id,
-        },
-      };
+      member.password = '';
+      return res.json({ member });
+      // const payload = {
+      //   member: {
+      //     id: member.id,
+      //   },
+      // };
 
-      jwt.sign(
-        payload,
-        process.env.JWT_Secret,
-        { expiresIn: 3600 },
-        (err, token) => {
-          if (err) throw err;
-          return res.json({ token });
-        }
-      );
+      // jwt.sign(
+      //   payload,
+      //   process.env.JWT_Secret,
+      //   { expiresIn: 3600 },
+      //   (err, token) => {
+      //     if (err) throw err;
+      //     return res.json({ token });
+      //   }
+      // );
     } catch (err) {
       return res.status(500).send('Server error');
     }

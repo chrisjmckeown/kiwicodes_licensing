@@ -6,8 +6,9 @@ import { getApps } from '../../../actions/app';
 import Spinner from '../../Spinner';
 
 import AppTable from './AppTable';
+import { filter } from '../../../selectors/appSelectors';
 
-export const AppList = ({ getApps, app: { apps, loading } }) => {
+export const AppList = ({ getApps, app: { apps, loading }, filteredApps }) => {
   useEffect(() => {
     getApps();
   }, [getApps]);
@@ -18,7 +19,7 @@ export const AppList = ({ getApps, app: { apps, loading } }) => {
         <Spinner />
       ) : (
         <>
-          <AppTable data={apps} />
+          <AppTable data={filteredApps} />
         </>
       )}
     </>
@@ -32,6 +33,7 @@ AppList.propTypes = {
 
 const mapStateToProps = (state, props) => ({
   app: state.app,
+  filteredApps: filter(state.app.apps, props.productID),
 });
 
 export default connect(mapStateToProps, { getApps })(AppList);

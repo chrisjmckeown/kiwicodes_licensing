@@ -19,6 +19,7 @@ export const MemberForm = ({
 
   const [memberDetails, setMemberDetails] = useState({
     clientId: 0,
+    role: 'user',
     password: '',
     password2: '',
     ...member,
@@ -42,6 +43,7 @@ export const MemberForm = ({
       [e.target.name]: e.target.value,
     }));
   };
+  console.log(role);
 
   const onSubmitForm = async (e) => {
     e.preventDefault();
@@ -100,7 +102,7 @@ export const MemberForm = ({
                     <input
                       className='form_right'
                       name='email'
-                      value={email}
+                      value={email || ''}
                       onChange={(e) => handleChangeDetails(e)}
                     ></input>
                   )}
@@ -112,7 +114,7 @@ export const MemberForm = ({
                   <select
                     className='form_right'
                     name='role'
-                    value={role}
+                    value={role || ''}
                     onChange={(e) => handleChangeDetails(e)}
                   >
                     <option value='kiwicodes'>Kiwicodes</option>
@@ -154,6 +156,9 @@ export const MemberForm = ({
                     value={clientId}
                     onChange={(e) => handleChangeDetails(e)}
                   >
+                    <option key={0} value={0}>
+                      {'Please select'}
+                    </option>
                     {clients.length > 0 &&
                       clients.map((client) => (
                         <option key={client.id} value={client.id}>
@@ -169,7 +174,7 @@ export const MemberForm = ({
                   <input
                     type='password'
                     name='password'
-                    value={password}
+                    value={password || ''}
                     onChange={(e) => handleChangeDetails(e)}
                     className='form_right'
                   ></input>
@@ -181,7 +186,7 @@ export const MemberForm = ({
                   <input
                     type='password'
                     name='password2'
-                    value={password2}
+                    value={password2 || ''}
                     onChange={(e) => handleChangeDetails(e)}
                     className='form_right'
                   ></input>

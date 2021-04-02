@@ -9,6 +9,7 @@ import ClientList from '../../components/KCAdmin/ManageClients/ClientList';
 import ClientAdd from '../../components/KCAdmin/ManageClients/ClientAdd';
 import ClientEdit from '../../components/KCAdmin/ManageClients/ClientEdit';
 import ClientMenu from '../../components/KCAdmin/ManageClients/ClientMenu';
+import ClientBulkAdd from '../../components/KCAdmin/ManageClients/ClientBulkAdd';
 
 const Manage_clients = () => {
   return (
@@ -34,6 +35,11 @@ const Manage_clients = () => {
             <PrivateRoute
               path='/manage_clients/client_edit/:id'
               component={ClientEdit}
+              routePremissionLevel={'kiwicodes'}
+            />
+            <PrivateRoute
+              path='/manage_clients/bulkAdd'
+              component={ClientBulkAdd}
               routePremissionLevel={'kiwicodes'}
             />
           </Switch>

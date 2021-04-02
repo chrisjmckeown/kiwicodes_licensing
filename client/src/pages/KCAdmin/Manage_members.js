@@ -10,6 +10,7 @@ import MemberMenu from '../../components/KCAdmin/ManageMembers/MemberMenu';
 import MemberList from '../../components/KCAdmin/ManageMembers/MemberList';
 import MemberAdd from '../../components/KCAdmin/ManageMembers/MemberAdd';
 import MemberEdit from '../../components/KCAdmin/ManageMembers/MemberEdit';
+import MemberBulkAdd from '../../components/KCAdmin/ManageMembers/MemberBulkAdd';
 
 const Manage_members = () => {
   const { state } = useLocation();
@@ -38,6 +39,11 @@ const Manage_members = () => {
             <PrivateRoute
               path='/manage_members/member_edit/:id'
               component={MemberEdit}
+              routePremissionLevel={'kiwicodes'}
+            />
+            <PrivateRoute
+              path='/manage_members/bulkAdd'
+              component={MemberBulkAdd}
               routePremissionLevel={'kiwicodes'}
             />
           </Switch>

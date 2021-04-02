@@ -8,7 +8,7 @@ import { editProduct, deleteProduct } from '../../../actions/product';
 
 const ProductTable = (props) => {
   const handleViewApps = (productID) => {
-    console.log('handleViewApps', productID);
+    history.push({ pathname: '/manage_apps/list', state: { productID } });
   };
   const handleEdit = (productID) => {
     history.push(`/manage_products/product_edit/${productID}`);

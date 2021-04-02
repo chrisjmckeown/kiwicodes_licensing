@@ -1,5 +1,6 @@
 import React from 'react';
 import { Switch } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import Alert from '../../components/Alert';
 import Breadcrumb from '../../components/Breadcrumb';
 import PageHeader from '../../components/PageHeader';
@@ -12,6 +13,7 @@ import AppBulkAdd from '../../components/KCAdmin/ManageApps/AppBulkAdd';
 import AppMenu from '../../components/KCAdmin/ManageApps/AppMenu';
 
 const Manage_apps = () => {
+  const { state } = useLocation();
   return (
     <>
       <Breadcrumb breadCrumbs={['KC_Admin']} endPage={'Manage Apps'} />
@@ -25,6 +27,7 @@ const Manage_apps = () => {
             <PrivateRoute
               path='/manage_apps/list'
               component={AppList}
+              productID={state ? state.productID : 0}
               routePremissionLevel={'kiwicodes'}
             />
             <PrivateRoute

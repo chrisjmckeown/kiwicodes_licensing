@@ -6,7 +6,7 @@ import { getMembers } from '../../../actions/member';
 import Spinner from '../../Spinner';
 
 import MemberTable from './MemberTable';
-import { filter } from '../../../selectors/members';
+import { filter } from '../../../selectors/memberSelectors';
 
 export const MemberList = ({
   getMembers,

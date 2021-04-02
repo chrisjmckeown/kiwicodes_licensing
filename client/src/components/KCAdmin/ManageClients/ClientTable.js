@@ -10,9 +10,9 @@ const ClientTable = (props) => {
   const handleEditMembers = (clientID) => {
     history.push({ pathname: '/manage_members/list', state: { clientID } });
   };
-  const handleAddRemoveMembers = (clientID) => {
-    console.log('handleAddRemoveMembers', clientID);
-  };
+  // const handleAddRemoveMembers = (clientID) => {
+  //   console.log('handleAddRemoveMembers', clientID);
+  // };
   const handleEdit = (clientID) => {
     history.push(`/manage_clients/client_edit/${clientID}`);
   };
@@ -86,21 +86,21 @@ const ClientTable = (props) => {
                 width: 45,
                 accessor: 'editmembers',
               },
-              {
-                Header: 'Add/Remove',
-                Cell: (row) => (
-                  <div>
-                    <button
-                      className='button__table'
-                      onClick={() => handleAddRemoveMembers(row.original.id)}
-                    >
-                      <i className='fas fa-wrench'></i>
-                    </button>
-                  </div>
-                ),
-                width: 45,
-                accessor: 'addremove',
-              },
+              // {
+              //   Header: 'Add/Remove',
+              //   Cell: (row) => (
+              //     <div>
+              //       <button
+              //         className='button__table'
+              //         onClick={() => handleAddRemoveMembers(row.original.id)}
+              //       >
+              //         <i className='fas fa-wrench'></i>
+              //       </button>
+              //     </div>
+              //   ),
+              //   width: 45,
+              //   accessor: 'addremove',
+              // },
             ],
           },
           {

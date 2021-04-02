@@ -53,10 +53,9 @@ export const getMemberByEmail = (email) => async (dispatch) => {
 export const addMember = (formData) => async (dispatch) => {
   try {
     const res = await api.post('/members', formData);
-
     dispatch({
       type: ADD_MEMBER,
-      payload: res.data,
+      payload: res.data.member,
     });
 
     dispatch(setAlert('Member Created', 'success'));
