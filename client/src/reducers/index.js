@@ -7,6 +7,7 @@ import member from './memberReducer';
 import app from './appReducer';
 import error from './errorReducer';
 import profile from './profileReducer';
+import licenseKey from './licenseKeyReducer';
 
 export default combineReducers({
   alert,
@@ -17,4 +18,5 @@ export default combineReducers({
   app,
   error,
   profile,
+  licenseKey,
 });

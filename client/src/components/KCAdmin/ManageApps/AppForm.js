@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { setAlert } from '../../../actions/alert';
 import { getProducts } from '../../../actions/product';
 import Spinner from '../../Spinner';
 
 export const AppForm = ({
   app,
-  setAlert,
   onSubmit,
   getProducts,
   product: { products, loading },
@@ -126,7 +124,6 @@ export const AppForm = ({
 };
 
 AppForm.propTypes = {
-  setAlert: PropTypes.func.isRequired,
   getProducts: PropTypes.func.isRequired,
 };
 
@@ -134,4 +131,4 @@ const mapStateToProps = (state, props) => ({
   product: state.product,
 });
 
-export default connect(mapStateToProps, { setAlert, getProducts })(AppForm);
+export default connect(mapStateToProps, { getProducts })(AppForm);

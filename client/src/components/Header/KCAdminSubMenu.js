@@ -8,6 +8,9 @@ const KCAdminSubMenu = ({ nav, item }) => {
         <NavLink to='/manage_clients/list'>MANAGE CLIENTS</NavLink>
       </li>
       <li className={item}>
+        <NavLink to='/manage_licensekeys/list'>MANAGE LICENSES</NavLink>
+      </li>
+      <li className={item}>
         <NavLink to='/manage_members/list'>MANAGE MEMBERS</NavLink>
       </li>
       <li className={item}>

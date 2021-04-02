@@ -53,6 +53,12 @@ const AppTable = (props) => {
                 wrap: true,
                 style: { whiteSpace: 'unset' },
               },
+              {
+                Header: 'Product',
+                accessor: 'product.name',
+                wrap: true,
+                style: { whiteSpace: 'unset' },
+              },
             ],
           },
           {

@@ -60,6 +60,12 @@ const MemberTable = (props) => {
                 accessor: (d) => d.active && d.active.toString(),
                 width: 45,
               },
+              {
+                Header: 'Company',
+                accessor: 'client.name',
+                wrap: true,
+                style: { whiteSpace: 'unset' },
+              },
             ],
           },
           {

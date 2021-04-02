@@ -43,7 +43,6 @@ export const MemberForm = ({
       [e.target.name]: e.target.value,
     }));
   };
-  console.log(role);
 
   const onSubmitForm = async (e) => {
     e.preventDefault();

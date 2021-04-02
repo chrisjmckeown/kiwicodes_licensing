@@ -10,9 +10,9 @@ const ClientTable = (props) => {
   const handleEditMembers = (clientID) => {
     history.push({ pathname: '/manage_members/list', state: { clientID } });
   };
-  // const handleAddRemoveMembers = (clientID) => {
-  //   console.log('handleAddRemoveMembers', clientID);
-  // };
+  const handleEditLicenseKeys = (clientID) => {
+    history.push({ pathname: '/manage_licensekeys/list', state: { clientID } });
+  };
   const handleEdit = (clientID) => {
     history.push(`/manage_clients/client_edit/${clientID}`);
   };
@@ -86,21 +86,33 @@ const ClientTable = (props) => {
                 width: 45,
                 accessor: 'editmembers',
               },
-              // {
-              //   Header: 'Add/Remove',
-              //   Cell: (row) => (
-              //     <div>
-              //       <button
-              //         className='button__table'
-              //         onClick={() => handleAddRemoveMembers(row.original.id)}
-              //       >
-              //         <i className='fas fa-wrench'></i>
-              //       </button>
-              //     </div>
-              //   ),
-              //   width: 45,
-              //   accessor: 'addremove',
-              // },
+            ],
+          },
+          {
+            Header: 'Manage License Keys',
+            fixed: 'left',
+            columns: [
+              {
+                Header: 'License Key Count',
+                accessor: 'licenseKeyCount',
+                width: 45,
+                style: { whiteSpace: 'unset' },
+              },
+              {
+                Header: 'Edit License Keys',
+                Cell: (row) => (
+                  <div>
+                    <button
+                      className='button__table'
+                      onClick={() => handleEditLicenseKeys(row.original.id)}
+                    >
+                      <i className='far fa-eye fa-lg'></i>
+                    </button>
+                  </div>
+                ),
+                width: 45,
+                accessor: 'editlicensekeys',
+              },
             ],
           },
           {

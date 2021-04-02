@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
+import { SingleDatePicker } from 'react-dates';
+import 'react-dates/initialize';
+import Moment from 'moment';
 
 export const ErrorForm = ({ error, onSubmit }) => {
-  const [errorDetails, setErrorDetails] = useState({ ...error });
+  const [errorDetails, setErrorDetails] = useState({
+    calendarFocused: false,
+    ...error,
+  });
   const {
     id,
     date,
@@ -10,8 +16,8 @@ export const ErrorForm = ({ error, onSubmit }) => {
     methodName,
     buildNumber,
     revitBuild,
+    calendarFocused,
   } = errorDetails;
-  console.log(errorDetails);
 
   const handleChangeDetails = (e) => {
     setErrorDetails((state) => ({
@@ -22,15 +28,30 @@ export const ErrorForm = ({ error, onSubmit }) => {
 
   const onSubmitForm = async (e) => {
     e.preventDefault();
-
-    onSubmit({
-      date,
+    const updates = {
+      date: Moment(date).format('yyyy-MM-DDT00:00:00.000'),
       message,
       className,
       methodName,
       buildNumber,
       revitBuild,
-    });
+    };
+    onSubmit(updates);
+  };
+
+  const onFocusChange = ({ focused }) => {
+    setErrorDetails((state) => ({
+      ...state,
+      calendarFocused: focused,
+    }));
+  };
+  const onDateChange = (date) => {
+    if (date) {
+      setErrorDetails((state) => ({
+        ...state,
+        date,
+      }));
+    }
   };
 
   return (
@@ -43,12 +64,22 @@ export const ErrorForm = ({ error, onSubmit }) => {
               <div className='form_left'>
                 <label>Date</label>
               </div>
-              <input
+              {/* <input
                 className='form_right'
-                name={date}
+                name={'date'}
                 value={date}
                 onChange={(e) => handleChangeDetails(e)}
-              ></input>
+              ></input> */}
+
+              <SingleDatePicker
+                date={Moment(date)}
+                onDateChange={onDateChange}
+                focused={calendarFocused}
+                onFocusChange={onFocusChange}
+                id={'date'}
+                numberOfMonths={1}
+                isOutsideRange={() => false}
+              />
             </li>
             <li className='form_li'>
               <div className='form_left'>
@@ -56,7 +87,7 @@ export const ErrorForm = ({ error, onSubmit }) => {
               </div>
               <input
                 className='form_right'
-                name={message}
+                name={'message'}
                 value={message}
                 onChange={(e) => handleChangeDetails(e)}
               ></input>
@@ -67,7 +98,7 @@ export const ErrorForm = ({ error, onSubmit }) => {
               </div>
               <input
                 className='form_right'
-                name={className}
+                name={'className'}
                 value={className}
                 onChange={(e) => handleChangeDetails(e)}
               ></input>
@@ -78,7 +109,7 @@ export const ErrorForm = ({ error, onSubmit }) => {
               </div>
               <input
                 className='form_right'
-                name={methodName}
+                name={'methodName'}
                 value={methodName}
                 onChange={(e) => handleChangeDetails(e)}
               ></input>
@@ -89,7 +120,7 @@ export const ErrorForm = ({ error, onSubmit }) => {
               </div>
               <input
                 className='form_right'
-                name={buildNumber}
+                name={'buildNumber'}
                 value={buildNumber}
                 onChange={(e) => handleChangeDetails(e)}
               ></input>
@@ -100,7 +131,7 @@ export const ErrorForm = ({ error, onSubmit }) => {
               </div>
               <input
                 className='form_right'
-                name={revitBuild}
+                name={'revitBuild'}
                 value={revitBuild}
                 onChange={(e) => handleChangeDetails(e)}
               ></input>

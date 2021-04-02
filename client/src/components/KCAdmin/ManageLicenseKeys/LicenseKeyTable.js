@@ -5,15 +5,15 @@ import Moment from 'moment';
 import ReactTable from 'react-table-6';
 import 'react-table-6/react-table.css';
 import history from '../../../routes/history';
-import { editError, deleteError } from '../../../actions/error';
+import { deleteLicenseKey } from '../../../actions/licenseKey';
 
-const ErrorTable = (props) => {
-  const handleEdit = (errorID) => {
-    history.push(`/manage_errors/error_edit/${errorID}`);
+const LicenseKeyTable = (props) => {
+  const handleEdit = (licenseKeyID) => {
+    history.push(`/manage_licensekeys/licensekey_edit/${licenseKeyID}`);
   };
-  const handleDelete = (errorID) => {
-    props.deleteError(errorID);
-    history.push('/manage_errors/list');
+  const handleDelete = (licenseKeyID) => {
+    props.deleteLicenseKey(licenseKeyID);
+    history.push('/manage_licensekeys/list');
   };
   return (
     <div className='reacttable__wrapper'>
@@ -22,7 +22,7 @@ const ErrorTable = (props) => {
         pageSizeOptions={[10, 20, 30, 50, 100, 200, 500]}
         columns={[
           {
-            Header: 'Error Details',
+            Header: 'License Key Details',
             fixed: 'left',
             columns: [
               {
@@ -31,34 +31,34 @@ const ErrorTable = (props) => {
                 width: 25,
               },
               {
-                Header: 'Date',
-                id: 'date',
-                accessor: (d) => Moment(d.date).format('DD/MM/yyyy'),
+                Header: 'GUID',
+                accessor: 'guid',
               },
               {
-                Header: 'Message',
-                accessor: 'message',
+                Header: 'Order Id',
+                accessor: 'orderID',
               },
               {
-                Header: 'Class Name',
-                accessor: 'className',
+                Header: 'License Count',
+                accessor: 'licenseCount',
               },
               {
-                Header: 'Method Name',
-                accessor: 'methodName',
+                Header: 'Expiry Date',
+                id: 'expiryDate',
+                accessor: (d) => Moment(d.expiryDate).format('DD/MM/yyyy'),
               },
               {
-                Header: 'Build Number',
-                accessor: 'buildNumber',
+                Header: 'Client',
+                accessor: 'client.name',
               },
               {
-                Header: 'Revit Build',
-                accessor: 'revitBuild',
+                Header: 'Product',
+                accessor: 'product.name',
               },
             ],
           },
           {
-            Header: 'Manage Error',
+            Header: 'Manage License Key',
             fixed: 'left',
             columns: [
               {
@@ -101,8 +101,7 @@ const ErrorTable = (props) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  editError: (id, error) => dispatch(editError(id, error)),
-  deleteError: (id) => dispatch(deleteError(id)),
+  deleteLicenseKey: (id) => dispatch(deleteLicenseKey(id)),
 });
 
-export default connect(null, mapDispatchToProps)(ErrorTable);
+export default connect(null, mapDispatchToProps)(LicenseKeyTable);
