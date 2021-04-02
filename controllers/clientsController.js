@@ -80,12 +80,11 @@ module.exports = {
 
     const { name, phone, address, primaryEmail } = req.body;
 
-    const clientFeilds = {
-      name,
-      phone,
-      address,
-      primaryEmail,
-    };
+    const clientFeilds = {};
+    if (name) appFeilds.name = name;
+    if (phone) appFeilds.phone = phone;
+    if (address) appFeilds.address = address;
+    if (primaryEmail) appFeilds.primaryEmail = primaryEmail;
 
     try {
       let client = await db.client.findByPk(req.params.id);

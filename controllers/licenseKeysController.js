@@ -67,13 +67,12 @@ module.exports = {
     }
     const { guid, orderID, expiryDate, licenseCount, clientId } = req.body;
 
-    const licenseKeyFeilds = {
-      guid,
-      orderID,
-      expiryDate,
-      licenseCount,
-      clientId,
-    };
+    const licenseKeyFeilds = {};
+    if (guid) appFeilds.guid = guid;
+    if (orderID) appFeilds.orderID = orderID;
+    if (expiryDate) appFeilds.expiryDate = expiryDate;
+    if (licenseCount) appFeilds.licenseCount = licenseCount;
+    if (clientId) appFeilds.clientId = clientId;
 
     try {
       let licenseKey = await db.licenseKey.findByPk(req.params.id);

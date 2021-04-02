@@ -1,11 +1,11 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-export const ClientMenu = () => {
+export const AppMenu = () => {
   return (
     <ul className='nav__Container'>
       <li className='nav__Item'>
-        <NavLink to='/manage_clients/list' title='Manage'>
+        <NavLink to='/manage_apps/list' title='Manage Apps'>
           <div className='nav__image'>
             <i className='far fa-plus-square'></i>
           </div>
@@ -13,7 +13,7 @@ export const ClientMenu = () => {
         </NavLink>
       </li>
       <li className='nav__Item'>
-        <NavLink to='/manage_clients/create' title='Create'>
+        <NavLink to='/manage_apps/create' title='Create'>
           <div className='nav__image'>
             <i className='far fa-plus-square'></i>
           </div>
@@ -23,4 +23,4 @@ export const ClientMenu = () => {
     </ul>
   );
 };
-export default ClientMenu;
+export default AppMenu;

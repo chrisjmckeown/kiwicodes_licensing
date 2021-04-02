@@ -8,11 +8,11 @@ import { editApp, deleteApp } from '../../../actions/app';
 
 const AppTable = (props) => {
   const handleEdit = (appID) => {
-    history.push(`/app_edit/${appID}`);
+    history.push(`/manage_apps/app_edit/${appID}`);
   };
   const handleDelete = (appID) => {
     props.deleteApp(appID);
-    history.push('/manage_apps');
+    history.push('/manage_apps/list');
   };
   return (
     <div className='reacttable__wrapper'>

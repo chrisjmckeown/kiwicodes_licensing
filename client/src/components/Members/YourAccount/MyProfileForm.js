@@ -52,7 +52,7 @@ export const MyProfileForm = ({
                     <label>Company</label>
                   </div>
                   <input
-                    className='form__input'
+                    className='form_right'
                     name='company'
                     value={profileDetails.company || company}
                     onChange={(e) => handleChange(e)}
@@ -63,7 +63,7 @@ export const MyProfileForm = ({
                     <label>Website</label>
                   </div>
                   <input
-                    className='form__input'
+                    className='form_right'
                     name='website'
                     value={profileDetails.website || website}
                     onChange={(e) => handleChange(e)}
@@ -74,7 +74,7 @@ export const MyProfileForm = ({
                     <label>Location</label>
                   </div>
                   <input
-                    className='form__input'
+                    className='form_right'
                     name='location'
                     value={profileDetails.location || location}
                     onChange={(e) => handleChange(e)}
@@ -85,7 +85,7 @@ export const MyProfileForm = ({
                     <label>Status</label>
                   </div>
                   <input
-                    className='form__input'
+                    className='form_right'
                     name='status'
                     value={profileDetails.status || status}
                     onChange={(e) => handleChange(e)}

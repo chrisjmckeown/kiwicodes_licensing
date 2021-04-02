@@ -26,38 +26,48 @@ export const AppForm = ({ app, setAlert, onSubmit }) => {
       <form className='std form' onSubmit={onSubmitForm}>
         <div className='form__marginLeft'>
           <h3>App {id}</h3>
-          <>
-            <label className='form__text form__label'>Name</label>
-            <input
-              className='form__input'
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            ></input>
-          </>
-          <>
-            <label className='form__text form__label'>Number</label>
-            <input
-              className='form__input'
-              value={number}
-              onChange={(e) => setNumber(e.target.value)}
-            ></input>
-          </>
-          <>
-            <label className='form__text form__label'>description</label>
-            <textarea
-              className='form__textarea'
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-            ></textarea>
-          </>
-          <>
-            <label className='form__text form__label'>Help Link</label>
-            <input
-              className='form__input'
-              value={helpLink}
-              onChange={(e) => setHelpLink(e.target.value)}
-            ></input>
-          </>
+          <ul className='form_ul'>
+            <li className='form_li'>
+              <div className='form_left'>
+                <label>Name</label>
+              </div>
+              <input
+                className='form_right'
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              ></input>
+            </li>
+            <li className='form_li'>
+              <div className='form_left'>
+                <label>Number</label>
+              </div>
+              <input
+                className='form_right'
+                value={number}
+                onChange={(e) => setNumber(e.target.value)}
+              ></input>
+            </li>
+            <li className='form_li'>
+              <div className='form_left'>
+                <label>Description</label>
+              </div>
+              <textarea
+                className='form__textarea'
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+              ></textarea>
+            </li>
+            <li className='form_li'>
+              <div className='form_left'>
+                <label>Help Link</label>
+              </div>
+              <input
+                className='form_right'
+                value={helpLink}
+                onChange={(e) => setHelpLink(e.target.value)}
+              ></input>
+            </li>
+          </ul>
           <p className='form__submit form__marginTop'>
             <input type='submit' className='button__large'></input>
           </p>

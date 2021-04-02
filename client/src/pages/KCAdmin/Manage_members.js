@@ -19,10 +19,10 @@ const Manage_members = () => {
       <PageHeader pageName={'Manage Members'} />
 
       <div className='row lg'>
-        <div className='col3 lg'>
+        <div className='col2 lg'>
           <MemberMenu />
         </div>
-        <div className='col lg margin_Top'>
+        <div className='col10 lg margin_Top'>
           <Switch>
             <PrivateRoute
               path='/manage_members/list'

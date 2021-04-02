@@ -16,10 +16,10 @@ const Manage_errors = () => {
       <Breadcrumb breadCrumbs={['KC_Admin']} endPage={'Manage Errors'} />
       <PageHeader pageName={'Manage Errors'} />
       <div className='row lg'>
-        <div className='col3 lg'>
+        <div className='col2 lg'>
           <ErrorMenu />
         </div>
-        <div className='col9 lg margin_Top'>
+        <div className='col10 lg margin_Top'>
           <Switch>
             <PrivateRoute
               path='/manage_errors/list'

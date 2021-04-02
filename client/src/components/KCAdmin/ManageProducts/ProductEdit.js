@@ -2,43 +2,25 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import ProductForm from './ProductForm';
-import Alert from '../../Alert';
-import Breadcrumb from '../../Breadcrumb';
-import PageHeader from '../../PageHeader';
 import history from '../../../routes/history';
-import { editProduct, deleteProduct } from '../../../actions/product';
+import { editProduct } from '../../../actions/product';
 
 export const ProductEdit = (props) => {
   const onSubmit = async (product) => {
     const result = await props.editProduct(props.product.id, product);
     if (result) {
-      history.push('/manage_products');
-    }
-  };
-
-  const onClick = async () => {
-    const result = await props.deleteProduct(props.product.id);
-    if (result) {
-      history.push('/manage_products');
+      history.push('/manage_products/list');
     }
   };
   return (
     <>
-      <Breadcrumb breadCrumbs={['Products']} endPage={'Create'} />
-      <PageHeader pageName={'Edit a Product'} />
       <ProductForm product={props.product} onSubmit={onSubmit} />
-
-      <button className='button__std button__std--secondary' onClick={onClick}>
-        Remove Product
-      </button>
-      <Alert />
     </>
   );
 };
 
 const mapDispatchToProps = (dispatch) => ({
   editProduct: (id, product) => dispatch(editProduct(id, product)),
-  deleteProduct: (id) => dispatch(deleteProduct(id)),
 });
 
 const mapStateToProps = (state, props) => ({

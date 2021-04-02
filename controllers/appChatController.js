@@ -86,15 +86,14 @@ module.exports = {
 
     const { comment, like, appId, appChatId } = req.body;
 
-    const appChatFeilds = {
-      comment,
-      firstName,
-      lastName,
-      avatar,
-      like,
-      appId,
-      memberId: req.member.id,
-    };
+    const appChatFeilds = {};
+    if (comment) appFeilds.comment = comment;
+    if (firstName) appFeilds.firstName = firstName;
+    if (lastName) appFeilds.lastName = lastName;
+    if (avatar) appFeilds.avatar = avatar;
+    if (like) appFeilds.like = like;
+    if (appId) appFeilds.appId = appId;
+    if (req.member.id) appFeilds.memberId = req.member.id;
 
     if (appChatId) appChatFeilds.appChatId = appChatId;
 

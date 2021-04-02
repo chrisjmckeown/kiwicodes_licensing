@@ -81,9 +81,8 @@ module.exports = {
   // @access  Private
   update: async (req, res) => {
     const { releaseDate } = req.body;
-    const licenseKeyAssignmentFeilds = {
-      releaseDate,
-    };
+    const licenseKeyAssignmentFeilds = {};
+    if (releaseDate) appFeilds.releaseDate = releaseDate;
 
     try {
       let licenseKeyAssignment = await db.licenseKeyAssignment.findByPk(

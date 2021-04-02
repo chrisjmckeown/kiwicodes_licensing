@@ -57,9 +57,8 @@ module.exports = {
   // @access  Private
   update: async (req, res) => {
     const { dateReleased } = req.body;
-    const productActivationFeilds = {
-      dateReleased,
-    };
+    const productActivationFeilds = {};
+    if (dateReleased) appFeilds.dateReleased = dateReleased;
 
     try {
       let productActivation = await db.productActivation.findByPk(

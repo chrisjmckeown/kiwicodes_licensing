@@ -8,17 +8,17 @@ import { deleteClient } from '../../../actions/client';
 
 const ClientTable = (props) => {
   const handleEditMembers = (clientID) => {
-    history.push({ pathname: '/manage_members', state: { clientID } });
+    history.push({ pathname: '/manage_members/list', state: { clientID } });
   };
   const handleAddRemoveMembers = (clientID) => {
     console.log('handleAddRemoveMembers', clientID);
   };
   const handleEdit = (clientID) => {
-    history.push(`/client_edit/${clientID}`);
+    history.push(`/manage_clients/client_edit/${clientID}`);
   };
   const handleDelete = (clientID) => {
     props.deleteClient(clientID);
-    history.push('/manage_clients');
+    history.push('/manage_clients/list');
   };
   return (
     <div className='reacttable__wrapper'>

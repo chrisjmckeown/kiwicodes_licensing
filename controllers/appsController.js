@@ -72,13 +72,12 @@ module.exports = {
 
     const { name, number, description, helpLink, productId } = req.body;
 
-    const appFeilds = {
-      name,
-      number,
-      description,
-      helpLink,
-      productId,
-    };
+    const appFeilds = {};
+    if (name) appFeilds.name = name;
+    if (number) appFeilds.number = number;
+    if (description) appFeilds.description = description;
+    if (helpLink) appFeilds.name = helpLink;
+    if (productId) appFeilds.name = productId;
 
     try {
       let app = await db.app.findByPk(req.params.id);

@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 
 import AppForm from './AppForm';
 import Alert from '../../Alert';
-import Breadcrumb from '../../Breadcrumb';
-import PageHeader from '../../PageHeader';
 import history from '../../../routes/history';
 import { addApp } from '../../../actions/app';
 
@@ -12,16 +10,11 @@ export const AppAdd = ({ addApp }) => {
   const onSubmit = async (app) => {
     const result = await addApp(app);
     if (result) {
-      history.push('/manage_apps');
+      history.push('/manage_apps/list');
     }
   };
   return (
     <>
-      <Breadcrumb
-        breadCrumbs={['KC_ADMIN', 'manage_apps']}
-        endPage={'Create'}
-      />
-      <PageHeader pageName={'Create a App'} />
       <AppForm onSubmit={onSubmit} />
       <Alert />
     </>

@@ -40,11 +40,6 @@ form.std {
   width: 100%;
   padding: 5px 0 5px 0;
 }
-.form__textarea {
-  width: 100%;
-  height: 100px;
-  resize: vertical;
-}
 .form__label {
   float: none;
   clear: both;
@@ -80,5 +75,10 @@ form.std {
   .form_right {
     width: 75%;
     padding: 5px 0 5px 0;
+  }
+  .form__textarea {
+    width: 75%;
+    height: 100px;
+    resize: vertical;
   }
 }

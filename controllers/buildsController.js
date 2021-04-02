@@ -72,13 +72,11 @@ module.exports = {
     }
 
     const { buildNumber, comments, updates, productId } = req.body;
-
-    const buildFeilds = {
-      buildNumber,
-      comments,
-      updates,
-      productId,
-    };
+    const buildFeilds = {};
+    if (buildNumber) appFeilds.buildNumber = buildNumber;
+    if (comments) appFeilds.comments = comments;
+    if (updates) appFeilds.updates = updates;
+    if (productId) appFeilds.productId = productId;
 
     try {
       let build = await db.build.findByPk(req.params.id);

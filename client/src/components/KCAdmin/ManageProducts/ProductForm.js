@@ -32,46 +32,58 @@ export const ProductForm = ({ product, setAlert, onSubmit }) => {
       <form className='std form' onSubmit={onSubmitForm}>
         <div className='form__marginLeft'>
           <h3>Product {id}</h3>
-          <>
-            <label className='form__text form__label'>Name</label>
-            <input
-              className='form__input'
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            ></input>
-          </>
-          <>
-            <label className='form__text form__label'>Description</label>
-            <textarea
-              className='form__textarea'
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-            ></textarea>
-          </>
-          <>
-            <label className='form__text form__label'>Purchase Link</label>
-            <input
-              className='form__input'
-              value={purchaseLink}
-              onChange={(e) => setPurchaseLink(e.target.value)}
-            ></input>
-          </>
-          <>
-            <label className='form__text form__label'>Help Link</label>
-            <input
-              className='form__input'
-              value={helpLink}
-              onChange={(e) => setHelpLink(e.target.value)}
-            ></input>
-          </>
-          <>
-            <label className='form__text form__label'>Image Link</label>
-            <input
-              className='form__input'
-              value={imageLink}
-              onChange={(e) => setImageLink(e.target.value)}
-            ></input>
-          </>
+          <ul className='form_ul'>
+            <li className='form_li'>
+              <div className='form_left'>
+                <label>Name</label>
+              </div>
+              <input
+                className='form_right'
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              ></input>
+            </li>
+            <li className='form_li'>
+              <div className='form_left'>
+                <label>Description</label>
+              </div>
+              <textarea
+                className='form__textarea'
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+              ></textarea>
+            </li>
+            <li className='form_li'>
+              <div className='form_left'>
+                <label>Purchase Link</label>
+              </div>
+              <input
+                className='form_right'
+                value={purchaseLink}
+                onChange={(e) => setPurchaseLink(e.target.value)}
+              ></input>
+            </li>
+            <li className='form_li'>
+              <div className='form_left'>
+                <label>Help Link</label>
+              </div>
+              <input
+                className='form_right'
+                value={helpLink}
+                onChange={(e) => setHelpLink(e.target.value)}
+              ></input>
+            </li>
+            <li className='form_li'>
+              <div className='form_left'>
+                <label>Image Link</label>
+              </div>
+              <input
+                className='form_right'
+                value={imageLink}
+                onChange={(e) => setImageLink(e.target.value)}
+              ></input>
+            </li>
+          </ul>
           <p className='form__submit form__marginTop'>
             <input type='submit' className='button__large'></input>
           </p>

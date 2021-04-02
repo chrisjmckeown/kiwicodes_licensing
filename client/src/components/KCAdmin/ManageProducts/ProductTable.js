@@ -11,11 +11,11 @@ const ProductTable = (props) => {
     console.log('handleViewApps', productID);
   };
   const handleEdit = (productID) => {
-    history.push(`/product_edit/${productID}`);
+    history.push(`/manage_products/product_edit/${productID}`);
   };
   const handleDelete = (productID) => {
     props.deleteProduct(productID);
-    history.push('/manage_products');
+    history.push('/manage_products/list');
   };
   return (
     <div className='reacttable__wrapper'>
