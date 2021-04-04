@@ -85,11 +85,11 @@ module.exports = {
     const { name, description, purchaseLink, helpLink, imageLink } = req.body;
 
     const productFeilds = {};
-    if (name) appFeilds.name = name;
-    if (description) appFeilds.description = description;
-    if (purchaseLink) appFeilds.purchaseLink = purchaseLink;
-    if (helpLink) appFeilds.helpLink = helpLink;
-    if (imageLink) appFeilds.imageLink = imageLink;
+    if (name !== undefined) productFeilds.name = name;
+    if (description !== undefined) productFeilds.description = description;
+    if (purchaseLink !== undefined) productFeilds.purchaseLink = purchaseLink;
+    if (helpLink !== undefined) productFeilds.helpLink = helpLink;
+    if (imageLink !== undefined) productFeilds.imageLink = imageLink;
 
     try {
       let product = await db.product.findByPk(req.params.id);

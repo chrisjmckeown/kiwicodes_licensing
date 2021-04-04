@@ -82,7 +82,8 @@ module.exports = {
   update: async (req, res) => {
     const { releaseDate } = req.body;
     const licenseKeyAssignmentFeilds = {};
-    if (releaseDate) appFeilds.releaseDate = releaseDate;
+    if (releaseDate !== undefined)
+      licenseKeyAssignmentFeilds.releaseDate = releaseDate;
 
     try {
       let licenseKeyAssignment = await db.licenseKeyAssignment.findByPk(

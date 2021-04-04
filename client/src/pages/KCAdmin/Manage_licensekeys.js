@@ -15,8 +15,8 @@ const Manage_licensekeys = () => {
   const { state } = useLocation();
   return (
     <>
-      <Breadcrumb breadCrumbs={['KC_Admin']} endPage={'Manage LicenseKeys'} />
-      <PageHeader pageName={'Manage LicenseKeys'} />
+      <Breadcrumb breadCrumbs={['KC_Admin']} endPage={'Manage License Keys'} />
+      <PageHeader pageName={'Manage License Keys'} />
       <div className='row lg'>
         <div className='col2 lg'>
           <LicenseKeyMenu />

@@ -7,15 +7,24 @@ const PrivateRoute = ({
   routePremissionLevel,
   component: Component,
   auth: { loading, isAuthenticated, permissionLevel },
+  props,
   ...rest
 }) => {
   const checkPermissionLevels = (props) => {
-    if (permissionLevel === 'kiwicodes') {
+    if (routePremissionLevel === 'all') {
+      return true;
+    } else if (
+      permissionLevel === 'kiwicodes' &&
+      routePremissionLevel === 'kiwicodes'
+    ) {
+      // if (permissionLevel === 'kiwicodes') {
       return true;
     } else if (
       permissionLevel === 'admin' &&
-      (routePremissionLevel === 'admin' || routePremissionLevel === 'user')
+      routePremissionLevel === 'admin'
     ) {
+      // permissionLevel === 'admin' &&
+      // (routePremissionLevel === 'admin' || routePremissionLevel === 'user')
       return true;
     } else if (permissionLevel === 'user' && routePremissionLevel === 'user') {
       return true;
@@ -31,7 +40,12 @@ const PrivateRoute = ({
         !isAuthenticated && !loading ? (
           <Redirect to='/login' />
         ) : checkPermissionLevels(props) ? (
-          <Component {...rest} {...props} />
+          <Component
+            {...props}
+            routePremissionLevel={routePremissionLevel}
+            permissionLevel={permissionLevel}
+            {...rest}
+          />
         ) : (
           <Redirect to='/' />
         )

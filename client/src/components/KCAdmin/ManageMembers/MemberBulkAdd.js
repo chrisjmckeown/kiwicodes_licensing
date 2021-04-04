@@ -4,14 +4,14 @@ import PropTypes from 'prop-types';
 
 import history from '../../../routes/history';
 import { setAlert } from '../../../actions/alert';
-import { addMember } from '../../../actions/member';
+import { addMember } from '../../../actions/memberActions';
 import CSVReader from 'react-csv-reader';
 
-export const MemberBulkAdd = ({ setAlert, addMember }) => {
+export const MemberBulkAdd = ({ setAlert, addMember, admin }) => {
   const onFileLoaded = (data, fileInfo) => {
     data.slice(1).forEach(async (d) => {
       if (d.length === 6) {
-        const member = {
+        let member = {
           firstName: d[0],
           lastName: d[1],
           email: d[2],
@@ -19,6 +19,7 @@ export const MemberBulkAdd = ({ setAlert, addMember }) => {
           password: d[4],
           clientId: d[5],
         };
+        admin.role === 'admin' && (member.clientId = admin.clientId);
         const result = await addMember(member);
         !result && setAlert(`${member.firstName} failed.`, 'danger');
       }
@@ -39,4 +40,8 @@ MemberBulkAdd.propTypes = {
   addMember: PropTypes.func.isRequired,
 };
 
-export default connect(undefined, { addMember, setAlert })(MemberBulkAdd);
+const mapStateToProps = (state, props) => ({
+  auth: state.auth,
+});
+
+export default connect(mapStateToProps, { addMember, setAlert })(MemberBulkAdd);

@@ -10,7 +10,7 @@ import Products from '../pages/Products';
 import KC_admin from '../pages/KCAdmin/KC_admin';
 import Manage_clients from '../pages/KCAdmin/Manage_clients';
 import Manage_licensekeys from '../pages/KCAdmin/Manage_licensekeys';
-import Manage_members from '../pages/KCAdmin/Manage_members';
+import Manage_members from '../pages/admin/Manage_members';
 import Manage_products from '../pages/KCAdmin/Manage_products';
 import Manage_apps from '../pages/KCAdmin/Manage_apps';
 import Manage_errors from '../pages/KCAdmin/Manage_errors';
@@ -108,12 +108,12 @@ export const AppRouter = () => (
           routePremissionLevel={'admin'}
         />
         <PrivateRoute
-          path='/admin_Manage_license_keys'
+          path='/admin_manage_license_keys'
           component={Admin_Manage_license_keys}
           routePremissionLevel={'admin'}
         />
         <PrivateRoute
-          path='/admin_Manage_members'
+          path='/admin_manage_members'
           component={Admin_Manage_members}
           routePremissionLevel={'admin'}
         />
@@ -156,7 +156,7 @@ export const AppRouter = () => (
         <PrivateRoute
           path='/my_account'
           component={My_account}
-          routePremissionLevel={'user'}
+          routePremissionLevel={'all'}
         />
 
         {/* <Route path='/licensing_test' component={Testing} /> */}

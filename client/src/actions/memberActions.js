@@ -8,12 +8,17 @@ import {
   AUTH_MEMBER_UPDATE,
   LOGOUT,
   CLEAR_MEMBER,
-} from '../actions/types';
+} from './types';
 import { setAlert } from './alert';
 
-export const getMembers = () => async (dispatch) => {
+export const getMembers = (member) => async (dispatch) => {
   try {
-    const res = await api.get('/members');
+    let res = null;
+    if (member.role === 'kiwicodes') {
+      res = await api.get('/members');
+    } else {
+      res = await api.get(`/members/byClientId/${member.clientId}`);
+    }
     dispatch({
       type: GET_MEMBERS,
       payload: res.data,

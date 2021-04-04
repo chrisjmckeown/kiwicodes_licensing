@@ -61,13 +61,22 @@ module.exports = {
   // @access  Private
   findAllByClientId: async (req, res) => {
     try {
-      if (req.member.role !== 'kiwicodes') {
+      if (req.member.role !== 'admin') {
         return res.status(400).send('Invalid permission');
       }
       const members = await db.member.findAll({
         where: {
           clientId: req.params.id,
         },
+        attributes: {
+          exclude: ['password'],
+        },
+        include: [
+          {
+            model: db.client,
+            attributes: ['name'],
+          },
+        ],
       });
       return res.json(members);
     } catch (err) {
@@ -83,7 +92,17 @@ module.exports = {
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { firstName, lastName, email, password, role, clientId } = req.body;
+    const {
+      firstName,
+      lastName,
+      email,
+      password,
+      role,
+      clientId,
+      fromEmail,
+      fromCompany,
+      fromName,
+    } = req.body;
     try {
       let member = await db.member.findOne({
         where: {
@@ -120,6 +139,15 @@ module.exports = {
       await member.save();
 
       member.password = '';
+      // send invite email
+      newMemberCreated(
+        email,
+        firstName + ' ' + lastName,
+        password,
+        fromEmail,
+        fromCompany,
+        fromName
+      );
       return res.json({ member });
       // const payload = {
       //   member: {
@@ -200,7 +228,7 @@ module.exports = {
 
       await member.update(memberFeilds);
       const name = member.firstName + ' ' + member.lastName;
-      await main(email, name, password);
+      await passwordReset(email, name, password);
       return res.json({ result: true });
     } catch (err) {
       console.error(err.message);
@@ -264,14 +292,14 @@ module.exports = {
     });
 
     const memberFeilds = {};
-    if (firstName) memberFeilds.firstName = firstName;
-    if (lastName) memberFeilds.lastName = lastName;
-    if (email) memberFeilds.email = email;
-    if (role) memberFeilds.role = role;
-    if (avatar) memberFeilds.avatar = avatar;
-    if (active) memberFeilds.active = active;
-    if (clientId) memberFeilds.clientId = clientId;
-    if (password) {
+    if (firstName !== undefined) memberFeilds.firstName = firstName;
+    if (lastName !== undefined) memberFeilds.lastName = lastName;
+    if (email !== undefined) memberFeilds.email = email;
+    if (role !== undefined) memberFeilds.role = role;
+    if (avatar !== undefined) memberFeilds.avatar = avatar;
+    if (active !== undefined) memberFeilds.active = active;
+    if (clientId !== undefined) memberFeilds.clientId = clientId;
+    if (password !== undefined) {
       const salt = await bcrypt.genSalt(10);
       memberFeilds.password = await bcrypt.hash(password, salt);
     }
@@ -307,7 +335,7 @@ module.exports = {
   },
 };
 
-async function main(email, name, password) {
+async function passwordReset(email, name, password) {
   const transporter = nodemailer.createTransport({
     host: process.env.nodemailerhost,
     port: 465,
@@ -334,7 +362,7 @@ async function main(email, name, password) {
     ${process.env.nodemaileremail}
     www.kiwicodes.com`, // plain text body
     html: `
-    <www.kiwicodes.com>Hello ${name},</www.kiwicodes.com>
+    <p>Hello ${name},</p>
     <p>Please find below your new password. Please login and reset from "Your Account".</p>
     <p>${password}</p>
     <p>Please find the latest build here: <a href="https://apps.autodesk.com/RVT/en/Detail/Index?id=2077603980990329161&appLang=en&os=Win64">Autodesk Exchange Apps</a> or <a href="http://www.kiwicodes.com/attachment.php?id_attachment=92">KiwiCodes portal</a>.</p>
@@ -344,6 +372,48 @@ async function main(email, name, password) {
     <p>Director/Programmer</p>
     <p>${process.env.nodemaileremail}</p>
     <p>www.kiwicodes.com</p>`, // html body
+  });
+  return nodemailer.getTestMessageUrl(info);
+}
+
+async function newMemberCreated(
+  email,
+  name,
+  password,
+  fromEmail,
+  fromCompany,
+  fromName
+) {
+  const transporter = nodemailer.createTransport({
+    host: process.env.nodemailerhost,
+    port: 465,
+    secure: true,
+    auth: {
+      user: process.env.nodemaileremail,
+      pass: process.env.nodemailerpass,
+    },
+  });
+
+  const info = await transporter.sendMail({
+    from: `"Admin" <${fromEmail}>`,
+    to: email,
+    subject: 'Kiwi Codes Licensing - Invite',
+    text: `
+    Hello ${name}, 
+    You have been given access to company ${fromCompany}
+    Please find below your new password. Please login and reset from "Your Account".
+    ${password}
+    Regards
+    ${fromName}
+    ${fromEmail}`,
+    html: `
+    <p>Hello ${name},</p>
+    <p>You have been given access to company ${fromCompany}</p>
+    <p>Please find below your new password. Please login and reset from "Your Account".</p>
+    <p>${password}</p>
+    <p>Regards</p>
+    <p>${fromName}</p>
+    <p>${fromEmail}</p>`, // html body
   });
   return nodemailer.getTestMessageUrl(info);
 }

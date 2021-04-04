@@ -25,6 +25,6 @@ router.get('/:id', auth, membersController.findById);
 router.get('/email/:email', membersController.findByEmail);
 router.put('/:id', auth, membersController.update);
 router.delete('/:id', auth, membersController.remove);
-
 router.get('/byClientId/:id', auth, membersController.findAllByClientId);
+
 module.exports = router;

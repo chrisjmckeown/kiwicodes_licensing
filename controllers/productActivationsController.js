@@ -58,7 +58,8 @@ module.exports = {
   update: async (req, res) => {
     const { dateReleased } = req.body;
     const productActivationFeilds = {};
-    if (dateReleased) appFeilds.dateReleased = dateReleased;
+    if (dateReleased !== undefined)
+      productActivationFeilds.dateReleased = dateReleased;
 
     try {
       let productActivation = await db.productActivation.findByPk(

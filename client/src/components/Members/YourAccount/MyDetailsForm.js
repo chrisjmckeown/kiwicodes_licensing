@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { editYourAccount } from '../../../actions/member';
+import { editYourAccount } from '../../../actions/memberActions';
 
 export const MyDetailsForm = ({ member, editYourAccount }) => {
   const [memberDetails, setMemberDetails] = useState({ ...member });

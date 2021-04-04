@@ -8,7 +8,14 @@ module.exports = {
   // @access  Public
   findAll: async (req, res) => {
     try {
-      const apps = await db.app.findAll();
+      const apps = await db.app.findAll({
+        include: [
+          {
+            model: db.product,
+            attributes: ['name'],
+          },
+        ],
+      });
       return res.json(apps);
     } catch (err) {
       console.error(err.message);
@@ -74,11 +81,11 @@ module.exports = {
     const { name, number, description, helpLink, productId } = req.body;
 
     const appFeilds = {};
-    if (name) appFeilds.name = name;
-    if (number) appFeilds.number = number;
-    if (description) appFeilds.description = description;
-    if (helpLink) appFeilds.helpLink = helpLink;
-    if (productId) appFeilds.productId = productId;
+    if (name !== undefined) appFeilds.name = name;
+    if (number !== undefined) appFeilds.number = number;
+    if (description !== undefined) appFeilds.description = description;
+    if (helpLink !== undefined) appFeilds.helpLink = helpLink;
+    if (productId !== undefined) appFeilds.productId = productId;
     if (productId === '0') appFeilds.productId = null;
 
     try {

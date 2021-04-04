@@ -3,13 +3,15 @@ import { connect } from 'react-redux';
 
 import MemberForm from './MemberForm';
 import history from '../../../routes/history';
-import { addMember } from '../../../actions/member';
+import { addMember } from '../../../actions/memberActions';
 
-export const MemberAdd = ({ addMember }) => {
+export const MemberAdd = ({ addMember, auth }) => {
   const onSubmit = async (member) => {
     const result = await addMember(member);
     if (result) {
-      history.push('/manage_members/list');
+      auth.permissionLevel === 'kiwicodes'
+        ? history.push('/manage_members/list')
+        : history.push('/admin_manage_members/list');
     }
   };
   return (
@@ -23,4 +25,8 @@ const mapDispatchToProps = (dispatch) => ({
   addMember: (member) => dispatch(addMember(member)),
 });
 
-export default connect(undefined, mapDispatchToProps)(MemberAdd);
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(MemberAdd);

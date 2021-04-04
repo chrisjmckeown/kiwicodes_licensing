@@ -1,18 +1,23 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 import ReactTable from 'react-table-6';
 import 'react-table-6/react-table.css';
 import history from '../../../routes/history';
-import { editMember, deleteMember } from '../../../actions/member';
+import { editMember, deleteMember } from '../../../actions/memberActions';
 
 const MemberTable = (props) => {
   const handleEdit = (memberID) => {
-    history.push(`/manage_members/member_edit/${memberID}`);
+    props.auth.permissionLevel === 'kiwicodes'
+      ? history.push(`/manage_members/member_edit/${memberID}`)
+      : history.push(`/admin_manage_members/member_edit/${memberID}`);
   };
   const handleDelete = (memberID) => {
     props.deleteMember(memberID);
-    history.push('/manage_members/list');
+    props.auth.permissionLevel === 'kiwicodes'
+      ? history.push('/manage_members/list')
+      : history.push('/admin_manage_members/list');
   };
   return (
     <div className='reacttable__wrapper'>
@@ -111,9 +116,17 @@ const MemberTable = (props) => {
   );
 };
 
+MemberTable.propTypes = {
+  auth: PropTypes.shape({}).isRequired,
+};
+
 const mapDispatchToProps = (dispatch) => ({
   editMember: (id, member) => dispatch(editMember(id, member)),
   deleteMember: (id) => dispatch(deleteMember(id)),
 });
 
-export default connect(null, mapDispatchToProps)(MemberTable);
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(MemberTable);

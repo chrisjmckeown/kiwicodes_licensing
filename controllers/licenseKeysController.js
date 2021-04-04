@@ -10,7 +10,18 @@ module.exports = {
       return res.status(400).send('Invalid permission');
     }
     try {
-      const licenseKeys = await db.licenseKey.findAll();
+      const licenseKeys = await db.licenseKey.findAll({
+        include: [
+          {
+            model: db.client,
+            attributes: ['name'],
+          },
+          {
+            model: db.product,
+            attributes: ['name'],
+          },
+        ],
+      });
       return res.json(licenseKeys);
     } catch (err) {
       console.error(err.message);
@@ -39,7 +50,14 @@ module.exports = {
     if (req.member.role !== 'kiwicodes') {
       return res.status(400).send('Invalid permission');
     }
-    const { guid, orderID, expiryDate, licenseCount, clientId } = req.body;
+    const {
+      guid,
+      orderID,
+      expiryDate,
+      licenseCount,
+      clientId,
+      productId,
+    } = req.body;
 
     const licenseKeyFeilds = {
       guid,
@@ -47,6 +65,7 @@ module.exports = {
       expiryDate,
       licenseCount,
       clientId,
+      productId,
     };
 
     try {
@@ -65,14 +84,23 @@ module.exports = {
     if (req.member.role !== 'kiwicodes') {
       return res.status(400).send('Invalid permission');
     }
-    const { guid, orderID, expiryDate, licenseCount, clientId } = req.body;
+    const {
+      guid,
+      orderID,
+      expiryDate,
+      licenseCount,
+      clientId,
+      productId,
+    } = req.body;
 
     const licenseKeyFeilds = {};
-    if (guid) appFeilds.guid = guid;
-    if (orderID) appFeilds.orderID = orderID;
-    if (expiryDate) appFeilds.expiryDate = expiryDate;
-    if (licenseCount) appFeilds.licenseCount = licenseCount;
-    if (clientId) appFeilds.clientId = clientId;
+    if (guid !== undefined) licenseKeyFeilds.guid = guid;
+    if (orderID !== undefined) licenseKeyFeilds.orderID = orderID;
+    if (expiryDate !== undefined) licenseKeyFeilds.expiryDate = expiryDate;
+    if (licenseCount !== undefined)
+      licenseKeyFeilds.licenseCount = licenseCount;
+    if (clientId !== undefined) licenseKeyFeilds.clientId = clientId;
+    if (productId !== undefined) licenseKeyFeilds.productId = productId;
 
     try {
       let licenseKey = await db.licenseKey.findByPk(req.params.id);

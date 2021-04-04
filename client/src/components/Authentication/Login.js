@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { login } from '../../actions/auth';
-import { resetPassword } from '../../actions/member';
+import { resetPassword } from '../../actions/memberActions';
 import { setAlert } from '../../actions/alert';
 
 const Login = ({ setAlert, login, isAuthenticated, resetPassword }) => {

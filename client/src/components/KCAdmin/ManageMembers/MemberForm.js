@@ -12,10 +12,11 @@ export const MemberForm = ({
   createMember,
   getClients,
   client: { clients, loading },
+  auth: { member: admin },
 }) => {
   useEffect(() => {
-    getClients();
-  }, [getClients]);
+    admin.role === 'kiwicodes' && getClients();
+  }, [getClients, admin]);
 
   const [memberDetails, setMemberDetails] = useState({
     clientId: 0,
@@ -46,7 +47,18 @@ export const MemberForm = ({
 
   const onSubmitForm = async (e) => {
     e.preventDefault();
-    let updates = { firstName, lastName, role, active, email, clientId };
+    let updates = {
+      firstName,
+      lastName,
+      role,
+      active,
+      email,
+      clientId,
+      fromEmail: admin.email,
+      fromCompany: admin.client.name,
+      fromName: admin.firstName + ' ' + admin.lastName,
+    };
+    admin.role === 'admin' && (updates.clientId = admin.clientId);
     if (createMember || (password && password2)) {
       if (password !== password2) {
         setAlert('Passwords do not match', 'danger');
@@ -116,7 +128,9 @@ export const MemberForm = ({
                     value={role || ''}
                     onChange={(e) => handleChangeDetails(e)}
                   >
-                    <option value='kiwicodes'>Kiwicodes</option>
+                    {admin.role === 'kiwicodes' && (
+                      <option value='kiwicodes'>Kiwicodes</option>
+                    )}
                     <option value='admin'>Admin</option>
                     <option value='user'>User</option>
                   </select>
@@ -145,27 +159,36 @@ export const MemberForm = ({
                     </li>
                   </>
                 )}
-                <li className='form_li'>
-                  <div className='form_left'>
-                    <label>Company assigned to</label>
-                  </div>
-                  <select
-                    className='form_right'
-                    name='clientId'
-                    value={clientId}
-                    onChange={(e) => handleChangeDetails(e)}
-                  >
-                    <option key={0} value={0}>
-                      {'Please select'}
-                    </option>
-                    {clients.length > 0 &&
-                      clients.map((client) => (
-                        <option key={client.id} value={client.id}>
-                          {client.name}
-                        </option>
-                      ))}
-                  </select>
-                </li>
+                {admin.role === 'kiwicodes' ? (
+                  <li className='form_li'>
+                    <div className='form_left'>
+                      <label>Company assigned to</label>
+                    </div>
+                    <select
+                      className='form_right'
+                      name='clientId'
+                      value={clientId}
+                      onChange={(e) => handleChangeDetails(e)}
+                    >
+                      <option key={0} value={0}>
+                        {'Please select'}
+                      </option>
+                      {clients.length > 0 &&
+                        clients.map((client) => (
+                          <option key={client.id} value={client.id}>
+                            {client.name}
+                          </option>
+                        ))}
+                    </select>
+                  </li>
+                ) : (
+                  <li className='form_li'>
+                    <div className='form_left'>
+                      <label>Company assigned to</label>
+                    </div>
+                    <label className='form_right'>{admin.client.name}</label>
+                  </li>
+                )}
                 <li className='form_li'>
                   <div className='form_left'>
                     <label>Password</label>
@@ -210,6 +233,7 @@ MemberForm.propTypes = {
 
 const mapStateToProps = (state, props) => ({
   client: state.client,
+  auth: state.auth,
 });
 
 export default connect(mapStateToProps, { setAlert, getClients })(MemberForm);

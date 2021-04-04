@@ -85,6 +85,7 @@ module.exports = {
     }
 
     const {
+      date,
       message,
       className,
       methodName,
@@ -94,13 +95,14 @@ module.exports = {
       appId,
     } = req.body;
     const errorFeilds = {};
-    if (message) errorFeilds.message = message;
-    if (className) errorFeilds.className = className;
-    if (methodName) errorFeilds.methodName = methodName;
-    if (buildNumber) errorFeilds.buildNumber = buildNumber;
-    if (revitBuild) errorFeilds.revitBuild = revitBuild;
-    if (memberId) errorFeilds.memberId = memberId;
-    if (appId) errorFeilds.appId = appId;
+    if (date !== undefined) errorFeilds.date = date;
+    if (message !== undefined) errorFeilds.message = message;
+    if (className !== undefined) errorFeilds.className = className;
+    if (methodName !== undefined) errorFeilds.methodName = methodName;
+    if (buildNumber !== undefined) errorFeilds.buildNumber = buildNumber;
+    if (revitBuild !== undefined) errorFeilds.revitBuild = revitBuild;
+    if (memberId !== undefined) errorFeilds.memberId = memberId;
+    if (appId !== undefined) errorFeilds.appId = appId;
 
     try {
       let error = await db.error.findByPk(req.params.id);

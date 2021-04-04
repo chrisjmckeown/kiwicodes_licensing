@@ -21,6 +21,12 @@ module.exports = {
               ),
               'memberCount',
             ],
+            [
+              sequelize.literal(
+                '(SELECT COUNT(*) FROM "licensekey" WHERE "licensekey"."clientId" = "client"."id")'
+              ),
+              'licenseKeyCount',
+            ],
           ],
         },
       });
@@ -81,10 +87,10 @@ module.exports = {
     const { name, phone, address, primaryEmail } = req.body;
 
     const clientFeilds = {};
-    if (name) appFeilds.name = name;
-    if (phone) appFeilds.phone = phone;
-    if (address) appFeilds.address = address;
-    if (primaryEmail) appFeilds.primaryEmail = primaryEmail;
+    if (name !== undefined) clientFeilds.name = name;
+    if (phone !== undefined) clientFeilds.phone = phone;
+    if (address !== undefined) clientFeilds.address = address;
+    if (primaryEmail !== undefined) clientFeilds.primaryEmail = primaryEmail;
 
     try {
       let client = await db.client.findByPk(req.params.id);

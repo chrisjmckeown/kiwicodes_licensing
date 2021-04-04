@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { updatePassword } from '../../../actions/auth';
-import { resetPassword } from '../../../actions/member';
+import { resetPassword } from '../../../actions/memberActions';
 import { setAlert } from '../../../actions/alert';
 
 export const PasswordForm = ({

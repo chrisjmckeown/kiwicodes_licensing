@@ -11,10 +11,11 @@ import {
 import { setAlert } from './alert';
 import { clearApp } from './app';
 import { clearClient } from './client';
-import { clearMember } from './member';
+import { clearMember } from './memberActions';
 import { clearError } from './error';
 import { clearProfile } from './profile';
 import { clearProduct } from './product';
+import { clearLicenseKey } from './licenseKey';
 
 export const loadUser = () => async (dispatch) => {
   try {
@@ -112,4 +113,5 @@ const clearState = (dispatch) => {
   dispatch(clearError());
   dispatch(clearProfile());
   dispatch(clearProduct());
+  dispatch(clearLicenseKey());
 };
