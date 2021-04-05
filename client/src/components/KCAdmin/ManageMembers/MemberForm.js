@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { setAlert } from '../../../actions/alert';
 import { getClients } from '../../../actions/client';
 import Spinner from '../../Spinner';
+import { Label, Input, P, Select } from '../../Form/formControls';
 
 export const MemberForm = ({
   member,
@@ -72,7 +73,7 @@ export const MemberForm = ({
 
   return (
     <>
-      {loading ? (
+      {loading & (admin.role === 'kiwicodes') ? (
         <Spinner />
       ) : (
         <>
@@ -81,49 +82,36 @@ export const MemberForm = ({
               <h3>Member {id}</h3>
               <ul className='form_ul'>
                 <li className='form_li'>
-                  <div className='form_left'>
-                    <label>First Name</label>
-                  </div>
-                  <input
-                    className='form_right'
+                  <Label text={'First Name'} />
+                  <Input
                     name='firstName'
                     value={firstName || ''}
                     onChange={(e) => handleChangeDetails(e)}
-                  ></input>
+                  />
                 </li>
                 <li className='form_li'>
-                  <div className='form_left'>
-                    <label>Last Name</label>
-                  </div>
-                  <input
-                    className='form_right'
+                  <Label text={'Last Name'} />
+                  <Input
                     name='lastName'
                     value={lastName || ''}
                     onChange={(e) => handleChangeDetails(e)}
-                  ></input>
+                  ></Input>
                 </li>
                 <li className='form_li'>
-                  <div className='form_left'>
-                    <label>Email</label>
-                  </div>
-
+                  <Label text={'Email'} />
                   {!createMember ? (
-                    <p className='form_right'>{email}</p>
+                    <P text={email} />
                   ) : (
-                    <input
-                      className='form_right'
+                    <Input
                       name='email'
                       value={email || ''}
                       onChange={(e) => handleChangeDetails(e)}
-                    ></input>
+                    ></Input>
                   )}
                 </li>
                 <li className='form_li'>
-                  <div className='form_left'>
-                    <label>Role</label>
-                  </div>
-                  <select
-                    className='form_right'
+                  <Label text={'Role'} />
+                  <Select
                     name='role'
                     value={role || ''}
                     onChange={(e) => handleChangeDetails(e)}
@@ -133,23 +121,19 @@ export const MemberForm = ({
                     )}
                     <option value='admin'>Admin</option>
                     <option value='user'>User</option>
-                  </select>
+                  </Select>
                 </li>
                 {!createMember && (
                   <>
                     <li className='form_li'>
-                      <div className='form_left'>
-                        <label>Avatar</label>
-                      </div>
+                      <Label text={'Avatar'} />
                       <div className='form_right'>
                         <img src={avatar} alt='Avatar' />
-                        <p className='form__p'>{avatar}</p>
+                        <P text={avatar} />
                       </div>
                     </li>
                     <li className='form_li'>
-                      <div className='form_left'>
-                        <label>Active</label>
-                      </div>
+                      <Label text={'Active'} />
                       <input
                         name='active'
                         type='checkbox'
@@ -161,11 +145,8 @@ export const MemberForm = ({
                 )}
                 {admin.role === 'kiwicodes' ? (
                   <li className='form_li'>
-                    <div className='form_left'>
-                      <label>Company assigned to</label>
-                    </div>
-                    <select
-                      className='form_right'
+                    <Label text={'Company assigned to'} />
+                    <Select
                       name='clientId'
                       value={clientId}
                       onChange={(e) => handleChangeDetails(e)}
@@ -179,39 +160,31 @@ export const MemberForm = ({
                             {client.name}
                           </option>
                         ))}
-                    </select>
+                    </Select>
                   </li>
                 ) : (
                   <li className='form_li'>
-                    <div className='form_left'>
-                      <label>Company assigned to</label>
-                    </div>
+                    <Label text={'Company assigned to'} />
                     <label className='form_right'>{admin.client.name}</label>
                   </li>
                 )}
                 <li className='form_li'>
-                  <div className='form_left'>
-                    <label>Password</label>
-                  </div>
-                  <input
+                  <Label text={'Password'} />
+                  <Input
                     type='password'
                     name='password'
                     value={password || ''}
                     onChange={(e) => handleChangeDetails(e)}
-                    className='form_right'
-                  ></input>
+                  ></Input>
                 </li>
                 <li className='form_li'>
-                  <div className='form_left'>
-                    <label>Confirm password</label>
-                  </div>
-                  <input
+                  <Label text={'Confirm password'} />
+                  <Input
                     type='password'
                     name='password2'
                     value={password2 || ''}
                     onChange={(e) => handleChangeDetails(e)}
-                    className='form_right'
-                  ></input>
+                  ></Input>
                 </li>
               </ul>
               <p className='form__submit form__marginTop'>

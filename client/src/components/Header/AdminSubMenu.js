@@ -5,7 +5,7 @@ const AdminSubMenu = ({ nav, item }) => {
   return (
     <ul className={nav}>
       <li className={item}>
-        <NavLink to='/admin_manage_license_keys/list'>
+        <NavLink to='/admin_manage_licensekeys/list'>
           MANAGE LICENSE KEYS
         </NavLink>
       </li>

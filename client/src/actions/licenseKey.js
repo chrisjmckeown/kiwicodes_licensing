@@ -9,9 +9,14 @@ import {
 } from '../actions/types';
 import { setAlert } from './alert';
 
-export const getLicenseKeys = () => async (dispatch) => {
+export const getLicenseKeys = (member) => async (dispatch) => {
   try {
-    const res = await api.get('/licensekeys');
+    let res = null;
+    if (member.role === 'kiwicodes') {
+      res = await api.get('/licensekeys');
+    } else {
+      res = await api.get(`/licensekeys/byClientId/${member.clientId}`);
+    }
     dispatch({
       type: GET_LICENSEKEYS,
       payload: res.data,

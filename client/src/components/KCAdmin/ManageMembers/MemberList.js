@@ -13,7 +13,6 @@ export const MemberList = ({
   member: { loading },
   filteredMembers,
   auth,
-  ...props
 }) => {
   useEffect(() => {
     getMembers(auth.member);

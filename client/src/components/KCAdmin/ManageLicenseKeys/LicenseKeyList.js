@@ -12,10 +12,11 @@ export const LicenseKeyList = ({
   getLicenseKeys,
   licenseKey: { loading },
   filteredLiceneKeys,
+  auth,
 }) => {
   useEffect(() => {
-    getLicenseKeys();
-  }, [getLicenseKeys]);
+    getLicenseKeys(auth.member);
+  }, [getLicenseKeys, auth]);
 
   return (
     <>
@@ -38,6 +39,7 @@ LicenseKeyList.propTypes = {
 const mapStateToProps = (state, props) => ({
   licenseKey: state.licenseKey,
   filteredLiceneKeys: filter(state.licenseKey.licenseKeys, props.clientID),
+  auth: state.auth,
 });
 
 export default connect(mapStateToProps, { getLicenseKeys })(LicenseKeyList);

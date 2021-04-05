@@ -57,7 +57,7 @@ const LicenseKeyTable = (props) => {
               },
             ],
           },
-          {
+          props.auth.permissionLevel === 'kiwicodes' && {
             Header: 'Manage License Key',
             fixed: 'left',
             columns: [
@@ -104,4 +104,8 @@ const mapDispatchToProps = (dispatch) => ({
   deleteLicenseKey: (id) => dispatch(deleteLicenseKey(id)),
 });
 
-export default connect(null, mapDispatchToProps)(LicenseKeyTable);
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(LicenseKeyTable);

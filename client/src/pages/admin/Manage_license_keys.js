@@ -1,18 +1,15 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Switch } from 'react-router-dom';
-import { useLocation } from 'react-router-dom';
 import Alert from '../../components/Alert';
 import Breadcrumb from '../../components/Breadcrumb';
 import PageHeader from '../../components/PageHeader';
 import PrivateRoute from '../../routes/PrivateRoute';
 
 import LicenseKeyList from '../../components/KCAdmin/ManageLicenseKeys/LicenseKeyList';
-import LicenseKeyAdd from '../../components/KCAdmin/ManageLicenseKeys/LicenseKeyAdd';
-import LicenseKeyEdit from '../../components/KCAdmin/ManageLicenseKeys/LicenseKeyEdit';
-import LicenseKeyMenu from '../../components/KCAdmin/ManageLicenseKeys/LicenseKeyMenu';
+import LicenseKeyMenu from '../../components/Admin/ManageLicenseKeys/LicenseKeyMenu';
 
-const Manage_license_keys = () => {
-  const { state } = useLocation();
+const Manage_license_keys = ({ auth }) => {
   return (
     <>
       <Breadcrumb breadCrumbs={['Admin']} endPage={'Manage License Keys'} />
@@ -24,20 +21,10 @@ const Manage_license_keys = () => {
         <div className='col10 lg margin_Top'>
           <Switch>
             <PrivateRoute
-              path='/manage_licensekeys/list'
+              path='/admin_manage_licensekeys/list'
               component={LicenseKeyList}
-              clientID={state ? state.clientID : 0}
-              routePremissionLevel={'kiwicodes'}
-            />
-            <PrivateRoute
-              path='/manage_licensekeys/create'
-              component={LicenseKeyAdd}
-              routePremissionLevel={'kiwicodes'}
-            />
-            <PrivateRoute
-              path='/manage_licensekeys/licensekey_edit/:id'
-              component={LicenseKeyEdit}
-              routePremissionLevel={'kiwicodes'}
+              clientID={auth.member.clientId}
+              routePremissionLevel={'admin'}
             />
           </Switch>
         </div>
@@ -46,4 +33,8 @@ const Manage_license_keys = () => {
     </>
   );
 };
-export default Manage_license_keys;
+
+const mapStateToProps = (state, props) => ({
+  auth: state.auth,
+});
+export default connect(mapStateToProps)(Manage_license_keys);

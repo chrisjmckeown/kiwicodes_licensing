@@ -43,6 +43,34 @@ module.exports = {
       return res.status(500).send('Server error');
     }
   },
+  // @route   GET api/licenseKeys/byClientId/:id
+  // @desc    Get all licenseKeys by client id
+  // @access  Private
+  findAllByClientId: async (req, res) => {
+    try {
+      if (req.member.role !== 'admin') {
+        return res.status(400).send('Invalid permission');
+      }
+      const licenseKeys = await db.licenseKey.findAll({
+        where: {
+          clientId: req.params.id,
+        },
+        include: [
+          {
+            model: db.client,
+            attributes: ['name'],
+          },
+          {
+            model: db.product,
+            attributes: ['name'],
+          },
+        ],
+      });
+      return res.json(licenseKeys);
+    } catch (err) {
+      return res.status(500).send('Server error');
+    }
+  },
   // @route   POST api/licenseKeys
   // @desc    Create a License Key (kiwicodes admin only)
   // @access  Private

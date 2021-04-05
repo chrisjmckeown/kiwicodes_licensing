@@ -10,5 +10,6 @@ router.post('/', auth, licenseKeysController.create);
 router.get('/:id', auth, licenseKeysController.findById);
 router.put('/:id', auth, licenseKeysController.update);
 router.delete('/:id', auth, licenseKeysController.remove);
+router.get('/byClientId/:id', auth, licenseKeysController.findAllByClientId);
 
 module.exports = router;
