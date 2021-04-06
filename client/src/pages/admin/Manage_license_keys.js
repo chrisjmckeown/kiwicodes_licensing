@@ -7,6 +7,7 @@ import PageHeader from '../../components/PageHeader';
 import PrivateRoute from '../../routes/PrivateRoute';
 
 import LicenseKeyList from '../../components/KCAdmin/ManageLicenseKeys/LicenseKeyList';
+import LicenseKeyAssignList from '../../components/Admin/ManageLicenseKeys/LicenseKeyAssignList';
 import LicenseKeyMenu from '../../components/Admin/ManageLicenseKeys/LicenseKeyMenu';
 
 const Manage_license_keys = ({ auth }) => {
@@ -27,6 +28,11 @@ const Manage_license_keys = ({ auth }) => {
               routePremissionLevel={'admin'}
             />
           </Switch>
+          <PrivateRoute
+            path='/admin_manage_licensekeys/licensekey_assign/:id'
+            component={LicenseKeyAssignList}
+            routePremissionLevel={'admin'}
+          />
         </div>
       </div>
       <Alert />

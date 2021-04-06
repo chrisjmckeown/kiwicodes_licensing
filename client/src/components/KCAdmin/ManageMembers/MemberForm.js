@@ -99,15 +99,12 @@ export const MemberForm = ({
                 </li>
                 <li className='form_li'>
                   <Label text={'Email'} />
-                  {!createMember ? (
-                    <P text={email} />
-                  ) : (
-                    <Input
-                      name='email'
-                      value={email || ''}
-                      onChange={(e) => handleChangeDetails(e)}
-                    ></Input>
-                  )}
+                  <Input
+                    name='email'
+                    value={email || ''}
+                    onChange={(e) => handleChangeDetails(e)}
+                    disabled={!createMember && 'disabled'}
+                  ></Input>
                 </li>
                 <li className='form_li'>
                   <Label text={'Role'} />
@@ -115,6 +112,7 @@ export const MemberForm = ({
                     name='role'
                     value={role || ''}
                     onChange={(e) => handleChangeDetails(e)}
+                    disabled={admin.id === id && 'disabled'}
                   >
                     {admin.role === 'kiwicodes' && (
                       <option value='kiwicodes'>Kiwicodes</option>

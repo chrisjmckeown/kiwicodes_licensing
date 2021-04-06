@@ -1,23 +1,28 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { setAlert } from '../../../actions/alert';
 
 import ReactTable from 'react-table-6';
 import 'react-table-6/react-table.css';
 import history from '../../../routes/history';
-import { editMember, deleteMember } from '../../../actions/memberActions';
+import { deleteMember } from '../../../actions/memberActions';
 
-const MemberTable = (props) => {
+const MemberTable = ({ setAlert, auth, deleteMember, ...props }) => {
   const handleEdit = (memberID) => {
-    props.auth.permissionLevel === 'kiwicodes'
+    auth.permissionLevel === 'kiwicodes'
       ? history.push(`/manage_members/member_edit/${memberID}`)
       : history.push(`/admin_manage_members/member_edit/${memberID}`);
   };
   const handleDelete = (memberID) => {
-    props.deleteMember(memberID);
-    props.auth.permissionLevel === 'kiwicodes'
-      ? history.push('/manage_members/list')
-      : history.push('/admin_manage_members/list');
+    if (memberID === auth.member.id) {
+      setAlert('Cannot delete self', 'danger');
+    } else {
+      deleteMember(memberID);
+      auth.permissionLevel === 'kiwicodes'
+        ? history.push('/manage_members/list')
+        : history.push('/admin_manage_members/list');
+    }
   };
   return (
     <div className='reacttable__wrapper'>
@@ -118,11 +123,14 @@ const MemberTable = (props) => {
 
 MemberTable.propTypes = {
   auth: PropTypes.shape({}).isRequired,
+  setAlert: PropTypes.func.isRequired,
+  deleteMember: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  editMember: (id, member) => dispatch(editMember(id, member)),
   deleteMember: (id) => dispatch(deleteMember(id)),
+  setAlert: (msg, alertType, timeout) =>
+    dispatch(setAlert(msg, alertType, timeout)),
 });
 
 const mapStateToProps = (state) => ({

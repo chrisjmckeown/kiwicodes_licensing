@@ -11,6 +11,9 @@ const LicenseKeyTable = (props) => {
   const handleEdit = (licenseKeyID) => {
     history.push(`/manage_licensekeys/licensekey_edit/${licenseKeyID}`);
   };
+  const handleAssign = (licenseKeyID) => {
+    history.push(`/admin_manage_licensekeys/licensekey_assign/${licenseKeyID}`);
+  };
   const handleDelete = (licenseKeyID) => {
     props.deleteLicenseKey(licenseKeyID);
     history.push('/manage_licensekeys/list');
@@ -57,42 +60,64 @@ const LicenseKeyTable = (props) => {
               },
             ],
           },
-          props.auth.permissionLevel === 'kiwicodes' && {
-            Header: 'Manage License Key',
-            fixed: 'left',
-            columns: [
-              {
-                Header: 'Edit',
-                Cell: (row) => (
-                  <div>
-                    <button
-                      className='button__table'
-                      onClick={() => handleEdit(row.original.id)}
-                    >
-                      <i className='far fa-edit fa-lg'></i>
-                    </button>
-                  </div>
-                ),
-                width: 45,
-                accessor: 'edit',
+          props.auth.permissionLevel === 'kiwicodes'
+            ? {
+                Header: 'Manage License Key',
+                fixed: 'left',
+                columns: [
+                  {
+                    Header: 'Edit',
+                    Cell: (row) => (
+                      <div>
+                        <button
+                          className='button__table'
+                          onClick={() => handleEdit(row.original.id)}
+                        >
+                          <i className='far fa-edit fa-lg'></i>
+                        </button>
+                      </div>
+                    ),
+                    width: 45,
+                    accessor: 'edit',
+                  },
+                  {
+                    Header: 'Delete',
+                    Cell: (row) => (
+                      <div>
+                        <button
+                          className='button__table'
+                          onClick={() => handleDelete(row.original.id)}
+                        >
+                          <i className='far fa-trash-alt fa-lg'></i>
+                        </button>
+                      </div>
+                    ),
+                    width: 45,
+                    accessor: 'delete',
+                  },
+                ],
+              }
+            : {
+                Header: 'Assign License Key',
+                fixed: 'left',
+                columns: [
+                  {
+                    Header: 'Assign',
+                    Cell: (row) => (
+                      <div>
+                        <button
+                          className='button__table'
+                          onClick={() => handleAssign(row.original.id)}
+                        >
+                          <i className='far fa-edit fa-lg'></i>
+                        </button>
+                      </div>
+                    ),
+                    width: 45,
+                    accessor: 'assign',
+                  },
+                ],
               },
-              {
-                Header: 'Delete',
-                Cell: (row) => (
-                  <div>
-                    <button
-                      className='button__table'
-                      onClick={() => handleDelete(row.original.id)}
-                    >
-                      <i className='far fa-trash-alt fa-lg'></i>
-                    </button>
-                  </div>
-                ),
-                width: 45,
-                accessor: 'delete',
-              },
-            ],
-          },
         ]}
         defaultPageSize={10}
       />

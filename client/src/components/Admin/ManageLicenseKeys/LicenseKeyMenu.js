@@ -12,14 +12,14 @@ export const LicenseKeyMenu = () => {
           <div className='nav__text'>Manage</div>
         </NavLink>
       </li>
-      {/* <li className='nav__Item'>
+      <li className='nav__Item'>
         <Link to='/admin_manage_licensekeys/list' title='Clear Filters'>
           <div className='nav__image'>
             <i className='far fa-plus-square'></i>
           </div>
           <div className='nav__text'>Clear Filters</div>
         </Link>
-      </li> */}
+      </li>
     </ul>
   );
 };
