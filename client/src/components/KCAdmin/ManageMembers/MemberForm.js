@@ -5,6 +5,7 @@ import { setAlert } from '../../../actions/alert';
 import { getClients } from '../../../actions/client';
 import Spinner from '../../Spinner';
 import { Label, Input, P, Select } from '../../Form/formControls';
+import Switch from 'react-switch';
 
 export const MemberForm = ({
   member,
@@ -43,6 +44,12 @@ export const MemberForm = ({
     setMemberDetails((state) => ({
       ...state,
       [e.target.name]: e.target.value,
+    }));
+  };
+  const handleChange = (active) => {
+    setMemberDetails((state) => ({
+      ...state,
+      active,
     }));
   };
 
@@ -132,12 +139,7 @@ export const MemberForm = ({
                     </li>
                     <li className='form_li'>
                       <Label text={'Active'} />
-                      <input
-                        name='active'
-                        type='checkbox'
-                        defaultChecked={active}
-                        onChange={(e) => handleChangeDetails(e)}
-                      ></input>
+                      <Switch onChange={handleChange} checked={active} />
                     </li>
                   </>
                 )}

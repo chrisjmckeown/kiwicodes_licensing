@@ -1,18 +1,31 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Switch from 'react-switch';
 import PropTypes from 'prop-types';
 import { setAlert } from '../../../actions/alert';
 
 import ReactTable from 'react-table-6';
 import 'react-table-6/react-table.css';
 import history from '../../../routes/history';
-import { deleteMember } from '../../../actions/memberActions';
+import { editMember, deleteMember } from '../../../actions/memberActions';
 
-const MemberTable = ({ setAlert, auth, deleteMember, ...props }) => {
+const MemberTable = ({
+  setAlert,
+  auth,
+  deleteMember,
+  editMember,
+  ...props
+}) => {
   const handleEdit = (memberID) => {
     auth.permissionLevel === 'kiwicodes'
       ? history.push(`/manage_members/member_edit/${memberID}`)
       : history.push(`/admin_manage_members/member_edit/${memberID}`);
+  };
+  const onChangeActive = async (id, active) => {
+    let updates = {
+      active,
+    };
+    await editMember(id, updates);
   };
   const handleDelete = (memberID) => {
     if (memberID === auth.member.id) {
@@ -67,8 +80,27 @@ const MemberTable = ({ setAlert, auth, deleteMember, ...props }) => {
               {
                 id: 'active',
                 Header: 'Active',
-                accessor: (d) => d.active && d.active.toString(),
-                width: 45,
+                Cell: (row) => {
+                  return (
+                    <label class='switch'>
+                      <input
+                        type='checkbox'
+                        defaultChecked={
+                          row.original.active === true ? true : false
+                        }
+                        onChange={(e) =>
+                          onChangeActive(
+                            row.original.id,
+                            e.target.checked ? true : false
+                          )
+                        }
+                      />
+                      <span class='slider'></span>
+                    </label>
+                  );
+                },
+                accessor: (d) => d.active.toString(),
+                width: 65,
               },
               {
                 Header: 'Company',
@@ -125,10 +157,12 @@ MemberTable.propTypes = {
   auth: PropTypes.shape({}).isRequired,
   setAlert: PropTypes.func.isRequired,
   deleteMember: PropTypes.func.isRequired,
+  editMember: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => ({
   deleteMember: (id) => dispatch(deleteMember(id)),
+  editMember: (id, member) => dispatch(editMember(id, member)),
   setAlert: (msg, alertType, timeout) =>
     dispatch(setAlert(msg, alertType, timeout)),
 });
