@@ -107,7 +107,13 @@ const LicenseKeyTable = (props) => {
                       <div>
                         <button
                           className='button__table'
-                          onClick={() => handleAssign(row.original.id)}
+                          onClick={() =>
+                            handleAssign(
+                              row.original.id,
+                              row.original.clientId,
+                              row.original.productId
+                            )
+                          }
                         >
                           <i className='far fa-edit fa-lg'></i>
                         </button>

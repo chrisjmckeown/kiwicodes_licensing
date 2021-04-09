@@ -29,7 +29,7 @@ const Manage_license_keys = ({ auth }) => {
             />
           </Switch>
           <PrivateRoute
-            path='/admin_manage_licensekeys/licensekey_assign/:id'
+            path='/admin_manage_licensekeys/licensekey_assign/:licenseKeyId'
             component={LicenseKeyAssignList}
             routePremissionLevel={'admin'}
           />

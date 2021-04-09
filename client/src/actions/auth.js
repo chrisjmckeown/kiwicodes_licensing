@@ -16,6 +16,7 @@ import { clearError } from './error';
 import { clearProfile } from './profile';
 import { clearProduct } from './product';
 import { clearLicenseKey } from './licenseKey';
+import { clearLicenseKeyAssignment } from './licenseKeyAssignmentActions';
 
 export const loadUser = () => async (dispatch) => {
   try {
@@ -114,4 +115,5 @@ const clearState = (dispatch) => {
   dispatch(clearProfile());
   dispatch(clearProduct());
   dispatch(clearLicenseKey());
+  dispatch(clearLicenseKeyAssignment());
 };

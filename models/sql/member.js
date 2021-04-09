@@ -66,6 +66,7 @@ module.exports = function (sequelize, DataTypes) {
         allowNull: true,
       },
     });
+    Member.hasMany(models.licenseKeyAssignment);
   };
   return Member;
 };

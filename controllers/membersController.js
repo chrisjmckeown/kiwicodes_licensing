@@ -309,6 +309,18 @@ module.exports = {
 
       if (member) {
         member = await member.update(memberFeilds);
+
+        member = await db.member.findByPk(member.id, {
+          attributes: {
+            exclude: ['password'],
+          },
+          include: [
+            {
+              model: db.client,
+              attributes: ['name'],
+            },
+          ],
+        });
         return res.json(member);
       }
     } catch (err) {

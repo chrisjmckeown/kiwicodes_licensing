@@ -40,5 +40,9 @@ module.exports = function (sequelize, DataTypes) {
       freezeTableName: true,
     }
   );
+
+  Client.associate = function (models) {
+    Client.hasMany(models.member);
+  };
   return Client;
 };

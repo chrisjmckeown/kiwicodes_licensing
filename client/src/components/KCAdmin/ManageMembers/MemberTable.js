@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Switch from 'react-switch';
 import PropTypes from 'prop-types';
 import { setAlert } from '../../../actions/alert';
 
@@ -82,7 +81,7 @@ const MemberTable = ({
                 Header: 'Active',
                 Cell: (row) => {
                   return (
-                    <label class='switch'>
+                    <label className='switch'>
                       <input
                         type='checkbox'
                         defaultChecked={
@@ -95,7 +94,7 @@ const MemberTable = ({
                           )
                         }
                       />
-                      <span class='slider'></span>
+                      <span className='slider'></span>
                     </label>
                   );
                 },
@@ -110,42 +109,64 @@ const MemberTable = ({
               },
             ],
           },
-          {
-            Header: 'Manage Member',
-            fixed: 'left',
-            columns: [
-              {
-                Header: 'Edit',
-                Cell: (row) => (
-                  <div>
-                    <button
-                      className='button__table'
-                      onClick={() => handleEdit(row.original.id)}
-                    >
-                      <i className='far fa-edit fa-lg'></i>
-                    </button>
-                  </div>
-                ),
-                width: 45,
-                accessor: 'edit',
+          auth.permissionLevel === 'kiwicodes'
+            ? {
+                Header: 'Manage Member',
+                fixed: 'left',
+                columns: [
+                  {
+                    Header: 'Edit',
+                    Cell: (row) => (
+                      <div>
+                        <button
+                          className='button__table'
+                          onClick={() => handleEdit(row.original.id)}
+                        >
+                          <i className='far fa-edit fa-lg'></i>
+                        </button>
+                      </div>
+                    ),
+                    width: 45,
+                    accessor: 'edit',
+                  },
+                  {
+                    Header: 'Delete',
+                    Cell: (row) => (
+                      <div>
+                        <button
+                          className='button__table'
+                          onClick={() => handleDelete(row.original.id)}
+                        >
+                          <i className='far fa-trash-alt fa-lg'></i>
+                        </button>
+                      </div>
+                    ),
+                    width: 45,
+                    accessor: 'delete',
+                  },
+                ],
+              }
+            : {
+                Header: 'Manage Member',
+                fixed: 'left',
+                columns: [
+                  {
+                    Header: 'Edit',
+                    Cell: (row) => (
+                      <div>
+                        <button
+                          className='button__table'
+                          onClick={() => handleEdit(row.original.id)}
+                        >
+                          <i className='far fa-edit fa-lg'></i>
+                        </button>
+                      </div>
+                    ),
+                    width: 45,
+                    accessor: 'edit',
+                  },
+                ],
               },
-              {
-                Header: 'Delete',
-                Cell: (row) => (
-                  <div>
-                    <button
-                      className='button__table'
-                      onClick={() => handleDelete(row.original.id)}
-                    >
-                      <i className='far fa-trash-alt fa-lg'></i>
-                    </button>
-                  </div>
-                ),
-                width: 45,
-                accessor: 'delete',
-              },
-            ],
-          },
         ]}
         defaultPageSize={10}
       />

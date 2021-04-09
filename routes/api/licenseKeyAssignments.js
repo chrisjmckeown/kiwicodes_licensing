@@ -6,11 +6,29 @@ const auth = require('../../middleware/auth');
 router.get('/', auth, licenseKeyAssignmentController.findAll);
 router.post('/', auth, licenseKeyAssignmentController.create);
 
-// Matches with "/api/licenseKeyAssignments/client"
-router.get('/client', auth, licenseKeyAssignmentController.findAllbyClient);
-
 // Matches with "/api/licenseKeyAssignments/:id"
 router.get('/:id', auth, licenseKeyAssignmentController.findById);
 router.put('/:id', auth, licenseKeyAssignmentController.update);
 router.delete('/:id', auth, licenseKeyAssignmentController.remove);
+
+// Matches with "/api/licenseKeyAssignments/byLicenseKeyId/:licenseKeyId"
+router.get(
+  '/byLicenseKeyId/:licenseKeyId',
+  auth,
+  licenseKeyAssignmentController.findAllbyLicenseKeyId
+);
+
+// Matches with "/api/licenseKeyAssignments/byClientIdLicenseKeyId/:clientId/:licenseKeyId"
+router.get(
+  '/byClientIdLicenseKeyId/:clientId/:licenseKeyId',
+  auth,
+  licenseKeyAssignmentController.findAllbyClientIdLicenseKeyId
+);
+
+// Matches with "/api/licenseKeyAssignments/:licenseKeyId/:memberId"
+router.get(
+  '/:licenseKeyId/:memberId',
+  auth,
+  licenseKeyAssignmentController.findAllbyLicenseKeyIdMemberId
+);
 module.exports = router;

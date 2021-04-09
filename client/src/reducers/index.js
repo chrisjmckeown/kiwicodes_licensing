@@ -8,6 +8,7 @@ import app from './appReducer';
 import error from './errorReducer';
 import profile from './profileReducer';
 import licenseKey from './licenseKeyReducer';
+import licenseKeyAssignment from './licenseKeyAssignmentReducer';
 
 export default combineReducers({
   alert,
@@ -19,4 +20,5 @@ export default combineReducers({
   error,
   profile,
   licenseKey,
+  licenseKeyAssignment,
 });

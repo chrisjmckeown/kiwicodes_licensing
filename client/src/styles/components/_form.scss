@@ -133,11 +133,11 @@ form.std {
 }
 
 input:checked + .slider {
-  background-color: #2196f3;
+  background-color: $dark-blue;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196f3;
+  box-shadow: 0 0 1px $dark-blue;
 }
 
 input:checked + .slider:before {
@@ -153,4 +153,8 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+.react-switch-bg {
+  background-color: $dark-blue !important;
 }
