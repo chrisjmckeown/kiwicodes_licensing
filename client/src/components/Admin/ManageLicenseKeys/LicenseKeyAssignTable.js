@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { setAlert } from '../../../actions/alert';
 
 import ReactTable from 'react-table-6';
 import 'react-table-6/react-table.css';
@@ -90,8 +89,8 @@ const LicenseKeyAssignTable = ({
                     </label>
                   );
                 },
-                accessor: (d) =>
-                  d.licenseKeyAssignments.length === 0 ? false : true,
+                // accessor: (d) =>
+                //   d.licenseKeyAssignments.length === 0 ? false : true,
                 width: 65,
               },
               {
@@ -112,7 +111,6 @@ const LicenseKeyAssignTable = ({
 
 LicenseKeyAssignTable.propTypes = {
   auth: PropTypes.shape({}).isRequired,
-  setAlert: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -123,8 +121,6 @@ const mapDispatchToProps = (dispatch) => ({
   addLicenseKeyAssignment: (licenseKeyAssignment) =>
     dispatch(addLicenseKeyAssignment(licenseKeyAssignment)),
   deleteLicenseKeyAssignment: (id) => dispatch(deleteLicenseKeyAssignment(id)),
-  setAlert: (msg, alertType, timeout) =>
-    dispatch(setAlert(msg, alertType, timeout)),
 });
 
 export default connect(
