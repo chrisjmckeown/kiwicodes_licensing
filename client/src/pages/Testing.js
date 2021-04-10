@@ -7,15 +7,88 @@ import PageHeader from '../components/PageHeader';
 import { getProducts } from '../actions/product';
 import Spinner from '../components/Spinner';
 import ProductItem from '../components/Testing/ProductItem';
+import { addAudit } from '../actions/auditActions';
 
 const Testing = ({
   getProducts,
+  addAudit,
   product: { products, loading: productLoading },
   auth: { member, loading: authLoading },
 }) => {
   useEffect(() => {
     !authLoading && getProducts(member.id);
   }, [getProducts, member, authLoading]);
+
+  const onClick = async () => {
+    const audit = {
+      audit: {
+        'Angle to True North': '5.63741348394167',
+        'Project Point': 'N/S: -7531.35491 E/W: -29057.72697 ELE: 0',
+        'Survey Point': 'N/S: -28586.77055 EW: -27014.91091 ELE: 0',
+        'Keynote File': 'RevitKeynotes_Metric.txt',
+        'Shared Parameter File': 'Shared Parameter File not found.',
+        'File Size': '18',
+        Warnings: '4',
+        'Fill Patterns': '97',
+        'Line Patterns': '33',
+        'Line Styles': '19',
+        'Duplicate CADs': '0',
+        'Imported CADs': '0',
+        'Linked DGN': '0',
+        'Linked DWG': '0',
+        'Linked Images': '0',
+        'Linked PDF Instances': '0',
+        'Linked PDFs': '0',
+        'Linked Revit': '0',
+        'Not Enclosed Areas': '0',
+        'Not Enclosed Rooms': '0',
+        'Not Place Areas': '0',
+        'Not Place Rooms': '0',
+        'Placed Areas': '0',
+        'Placed Rooms': '14',
+        'Door Mark Duplicated': '0',
+        'Room Number Duplicated': '0',
+        'Window Mark Duplicated': '0',
+        'Dimensions Overriden': '0',
+        Filters: '2',
+        'In Place Families': '4',
+        Materials: '173',
+        'Model Groups': '4',
+        'Modelled Elements': '403',
+        'Purgable Items': '17',
+        'Reference Planes': '56',
+        Worksets: '1',
+        'Detail Groups': '0',
+        'Detail Lines': '2',
+        'Filled Regions': '0',
+        'Masking Regions': '0',
+        'Detail Group Array Types': '0',
+        'Detail Group Types': '0',
+        'Detail Groups Not Named': '0',
+        'Detail Groups Not Placed': '0',
+        'Model Group Array Types': '4',
+        'Model Group Types': '0',
+        'Model Groups Not Named': '4',
+        'Schedules Total': '8',
+        'Sheets Total': '6',
+        'Views Copy': '0',
+        'View Templates Unused': '9',
+        'Views Total': '27',
+        'Views Unused': '7',
+        'Design Option Sets Not Named': '0',
+        'Design Option Sets': '0',
+        'Design Options Not Named': '0',
+        'Design Options': '0',
+        'Project Parameters': '1',
+        'Shared Parameters': '1',
+      },
+      memberId: member.id,
+      modelId: 'extractedFromRevit',
+      clientId: member.clientId,
+    };
+
+    await addAudit(audit);
+  };
   return (
     <>
       <Breadcrumb breadCrumbs={[]} endPage={'Testing'} />
@@ -40,9 +113,11 @@ const Testing = ({
           )}
         </>
         <br></br>
-        <h3>Sublist of Apps to activate.</h3>
         <br></br>
         <h2>Model Audit</h2>
+        <button className='btn' onClick={onClick}>
+          Create Audit
+        </button>
       </>
       <Alert />
     </>
@@ -51,6 +126,7 @@ const Testing = ({
 
 Testing.propTypes = {
   getProducts: PropTypes.func.isRequired,
+  addAudit: PropTypes.func.isRequired,
   product: PropTypes.object.isRequired,
   auth: PropTypes.object.isRequired,
 };
@@ -58,4 +134,4 @@ const mapStateToProps = (state, props) => ({
   product: state.product,
   auth: state.auth,
 });
-export default connect(mapStateToProps, { getProducts })(Testing);
+export default connect(mapStateToProps, { getProducts, addAudit })(Testing);
