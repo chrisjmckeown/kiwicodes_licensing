@@ -39,6 +39,37 @@ module.exports = {
       return res.status(500).send('Server error');
     }
   },
+  // @route   GET api/products/byMemberId/:id
+  // @desc    Get product by member id
+  // @access  Private
+  findByMemberId: async (req, res) => {
+    try {
+      const product = await db.product.findAll({
+        attributes: ['id', 'name'],
+        include: [
+          {
+            model: db.licenseKey,
+            attributes: ['id'],
+            required: true,
+            include: [
+              {
+                attributes: ['id'],
+                model: db.licenseKeyAssignment,
+                required: true,
+                where: {
+                  memberId: req.params.id,
+                },
+              },
+            ],
+          },
+        ],
+      });
+      return res.json(product);
+    } catch (err) {
+      console.error(err.message);
+      return res.status(500).send('Server error');
+    }
+  },
   // @route   POST api/products
   // @desc    Create a product (kiwicodes admin only)
   // @access  Private

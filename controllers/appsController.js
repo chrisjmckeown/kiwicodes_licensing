@@ -22,6 +22,22 @@ module.exports = {
       return res.status(500).send('Server error');
     }
   },
+  // @route   GET api/apps/ProductId/:id
+  // @desc    Get add by product id
+  // @access  Private
+  findByProductId: async (req, res) => {
+    try {
+      const app = await db.app.findAll({
+        where: {
+          productId: req.params.id,
+        },
+      });
+      return res.json(app);
+    } catch (err) {
+      console.error(err.message);
+      return res.status(500).send('Server error');
+    }
+  },
   // @route   GET api/apps/:id
   // @desc    Get app by id
   // @access  Public

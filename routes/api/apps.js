@@ -36,4 +36,6 @@ router.put(
 );
 router.delete('/:id', auth, appsController.remove);
 
+// Matches with "/api/apps/byProductId/:id"
+router.get('/byProductId/:id', auth, appsController.findByProductId);
 module.exports = router;

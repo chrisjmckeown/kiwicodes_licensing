@@ -45,6 +45,7 @@ module.exports = function (sequelize, DataTypes) {
         allowNull: true,
       },
     });
+    LicenseKey.hasMany(models.licenseKeyAssignment);
   };
   return LicenseKey;
 };

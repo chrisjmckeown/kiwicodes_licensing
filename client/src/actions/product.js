@@ -9,9 +9,14 @@ import {
 } from '../actions/types';
 import { setAlert } from './alert';
 
-export const getProducts = () => async (dispatch) => {
+export const getProducts = (memberId = 0) => async (dispatch) => {
   try {
-    const res = await api.get('/products');
+    let res;
+    if (memberId === 0) {
+      res = await api.get('/products');
+    } else {
+      res = await api.get(`/products/byMemberId/${memberId}`);
+    }
     dispatch({
       type: GET_PRODUCTS,
       payload: res.data,

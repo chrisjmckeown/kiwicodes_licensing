@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import AppForm from './AppForm';
-import Alert from '../../Alert';
 import history from '../../../routes/history';
 import { addApp } from '../../../actions/app';
 
@@ -16,7 +15,6 @@ export const AppAdd = ({ addApp }) => {
   return (
     <>
       <AppForm onSubmit={onSubmit} />
-      <Alert />
     </>
   );
 };
