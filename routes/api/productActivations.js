@@ -2,12 +2,16 @@ const router = require('express').Router();
 const productActivationsController = require('../../controllers/productActivationsController');
 const auth = require('../../middleware/auth');
 
+// Matches with "/api/productActivations/check"
+router.put('/check', auth, productActivationsController.checkForActivation);
+
 // Matches with "/api/productActivations"
 router.get('/', auth, productActivationsController.findAll);
 router.post('/', auth, productActivationsController.create);
+router.put('/', auth, productActivationsController.update);
 
 // Matches with "/api/productActivations/:id"
 router.get('/:id', auth, productActivationsController.findById);
-router.put('/:id', auth, productActivationsController.update);
+router.put('/', auth, productActivationsController.update);
 
 module.exports = router;

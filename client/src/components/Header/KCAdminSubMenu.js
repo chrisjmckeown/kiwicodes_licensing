@@ -20,6 +20,9 @@ const KCAdminSubMenu = ({ nav, item }) => {
         <NavLink to='/manage_apps/list'>MANAGE APPS</NavLink>
       </li>
       <li className={item}>
+        <NavLink to='/manage_builds/list'>MANAGE BUILDS</NavLink>
+      </li>
+      <li className={item}>
         <NavLink to='/manage_errors/list'>MANAGE ERRORS</NavLink>
       </li>
       <li className={item}>

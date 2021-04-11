@@ -56,21 +56,54 @@ module.exports = {
   // @desc    Update a product activation release datetime
   // @access  Private
   update: async (req, res) => {
-    const { dateReleased } = req.body;
+    const { dateReleased, pcID, productId, memberId } = req.body;
     const productActivationFeilds = {};
     if (dateReleased !== undefined)
       productActivationFeilds.dateReleased = dateReleased;
 
     try {
-      let productActivation = await db.productActivation.findByPk(
-        req.params.id
-      );
+      let productActivation = await db.productActivation.findOne({
+        where: {
+          pcID,
+          productId,
+          memberId,
+          dateReleased: null,
+        },
+      });
 
       if (productActivation) {
         productActivation = await productActivation.update(
           productActivationFeilds
         );
         return res.json(productActivation);
+      } else {
+        return res
+          .status(400)
+          .json({ errors: [{ msg: 'No Product Activations to release.' }] });
+      }
+    } catch (err) {
+      console.error(err.message);
+      return res.status(500).send('Server error');
+    }
+  },
+  // @route   GET api/productActivations/check
+  // @desc    Check if a Product is currently activated
+  // @access  Private
+  checkForActivation: async (req, res) => {
+    const { productId, memberId } = req.body;
+    try {
+      let productActivation = await db.productActivation.findOne({
+        where: {
+          productId,
+          memberId,
+          dateReleased: null,
+        },
+      });
+
+      if (productActivation) {
+        return res.json({ msg: 'Product is already Activated.', result: true });
+      } else {
+        return res.json({ msg: 'No Product Activations.', result: false });
       }
     } catch (err) {
       console.error(err.message);

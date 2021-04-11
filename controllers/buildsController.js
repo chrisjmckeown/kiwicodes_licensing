@@ -8,7 +8,14 @@ module.exports = {
   // @access  Public
   findAll: async (req, res) => {
     try {
-      const builds = await db.build.findAll();
+      const builds = await db.build.findAll({
+        include: [
+          {
+            model: db.product,
+            attributes: ['name'],
+          },
+        ],
+      });
       return res.json(builds);
     } catch (err) {
       console.error(err.message);
@@ -40,7 +47,7 @@ module.exports = {
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { buildNumber, comments, updates, productId } = req.body;
+    const { buildNumber, comments, date, updates, productId } = req.body;
 
     const buildFeilds = {
       buildNumber,
@@ -48,6 +55,7 @@ module.exports = {
       updates,
       productId,
     };
+    if (date !== undefined) buildFeilds.date = date;
 
     try {
       const build = new db.build(buildFeilds);
@@ -71,10 +79,11 @@ module.exports = {
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { buildNumber, comments, updates, productId } = req.body;
+    const { buildNumber, comments, date, updates, productId } = req.body;
     const buildFeilds = {};
     if (buildNumber !== undefined) buildFeilds.buildNumber = buildNumber;
     if (comments !== undefined) buildFeilds.comments = comments;
+    if (date !== undefined) buildFeilds.date = date;
     if (updates !== undefined) buildFeilds.updates = updates;
     if (productId !== undefined) buildFeilds.productId = productId;
 

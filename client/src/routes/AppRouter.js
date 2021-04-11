@@ -9,6 +9,7 @@ import Products from '../pages/Products';
 
 import KC_admin from '../pages/KCAdmin/KC_admin';
 import Manage_clients from '../pages/KCAdmin/Manage_clients';
+import Manage_builds from '../pages/KCAdmin/Manage_builds';
 import Manage_licensekeys from '../pages/KCAdmin/Manage_licensekeys';
 import Manage_members from '../pages/KCAdmin/Manage_members';
 import Manage_products from '../pages/KCAdmin/Manage_products';
@@ -50,6 +51,11 @@ export const AppRouter = () => (
         <PrivateRoute
           path='/kc_admin'
           component={KC_admin}
+          routePremissionLevel={'kiwicodes'}
+        />
+        <PrivateRoute
+          path='/manage_builds'
+          component={Manage_builds}
           routePremissionLevel={'kiwicodes'}
         />
         <PrivateRoute
