@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import history from '../../../routes/history';
 import { setAlert } from '../../../actions/alert';
-import { addApp } from '../../../actions/app';
+import { addApp } from '../../../actions/appActions';
 import CSVReader from 'react-csv-reader';
 
 export const AppBulkAdd = ({ setAlert, addApp }) => {

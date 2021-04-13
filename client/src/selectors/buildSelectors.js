@@ -1,10 +1,9 @@
-export const filter = (builds, productId) => {
+export const filter = (appChats, productId) => {
   if (productId === 0) {
-    return builds;
+    return appChats;
   } else {
-    return builds.filter((build) => {
-      const productIdMatch =
-        build.productId.toString() === productId.toString();
+    return appChats.filter((chat) => {
+      const productIdMatch = chat.productId.toString() === productId.toString();
       return productIdMatch;
     });
   }

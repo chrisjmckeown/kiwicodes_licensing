@@ -64,11 +64,11 @@ export const ProductItem = ({
                     </a>
                   )}
                   <NavLink
-                    to={`/products/chat/${id}`}
-                    title='Product Chat'
+                    to={`/products/app/${id}`}
+                    title='Veiw Apps'
                     className='button__std'
                   >
-                    <div className='button__std'>Product Chat</div>
+                    <div className='button__std'>View Apps</div>
                   </NavLink>
                   <NavLink
                     to={`/products/build/${id}`}

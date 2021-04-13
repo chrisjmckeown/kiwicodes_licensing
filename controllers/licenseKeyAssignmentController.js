@@ -171,7 +171,6 @@ module.exports = {
   // @desc    Delete a License Key Assignment (kiwicodes admin only)
   // @access  Private
   remove: async (req, res) => {
-    console.log('here');
     try {
       if (req.member.role === 'user') {
         return res.status(400).send('Invalid permission');

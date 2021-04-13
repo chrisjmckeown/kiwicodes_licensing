@@ -3,7 +3,7 @@ export const filter = (apps, productId) => {
     return apps;
   } else {
     return apps.filter((app) => {
-      const productIdMatch = app.productId === productId;
+      const productIdMatch = app.productId.toString() === productId.toString();
       return productIdMatch;
     });
   }

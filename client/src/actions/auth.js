@@ -9,14 +9,19 @@ import {
   LOGOUT,
 } from './types';
 import { setAlert } from './alert';
-import { clearApp } from './app';
+import { clearApp } from './appActions';
+import { clearAppActivation } from './appActivationActions';
+import { clearAppChat } from './appChatActions';
+import { clearAudit } from './auditActions';
+import { clearBuild } from './buildActions';
 import { clearClient } from './client';
-import { clearMember } from './memberActions';
 import { clearError } from './error';
-import { clearProfile } from './profile';
-import { clearProduct } from './product';
 import { clearLicenseKey } from './licenseKey';
 import { clearLicenseKeyAssignment } from './licenseKeyAssignmentActions';
+import { clearMember } from './memberActions';
+import { clearProduct } from './product';
+import { clearProductActivation } from './productActivationActions';
+import { clearProfile } from './profile';
 
 export const loadUser = () => async (dispatch) => {
   try {
@@ -109,11 +114,16 @@ export const logout = () => (dispatch) => {
 
 const clearState = (dispatch) => {
   dispatch(clearApp());
+  dispatch(clearAppActivation());
+  dispatch(clearAppChat());
+  dispatch(clearAudit());
+  dispatch(clearBuild());
   dispatch(clearClient());
-  dispatch(clearMember());
   dispatch(clearError());
-  dispatch(clearProfile());
-  dispatch(clearProduct());
   dispatch(clearLicenseKey());
   dispatch(clearLicenseKeyAssignment());
+  dispatch(clearMember());
+  dispatch(clearProduct());
+  dispatch(clearProductActivation());
+  dispatch(clearProfile());
 };

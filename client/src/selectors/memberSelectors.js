@@ -3,7 +3,7 @@ export const filter = (members, clientId) => {
     return members;
   } else {
     return members.filter((member) => {
-      const clientIdMatch = member.clientId === clientId;
+      const clientIdMatch = member.clientId.toString() === clientId.toString();
       return clientIdMatch;
     });
   }

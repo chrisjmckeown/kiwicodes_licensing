@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import AppForm from './AppForm';
 import history from '../../../routes/history';
-import { editApp } from '../../../actions/app';
+import { editApp } from '../../../actions/appActions';
 
 export const AppEdit = (props) => {
   const onSubmit = async (app) => {

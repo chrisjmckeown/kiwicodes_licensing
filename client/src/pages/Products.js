@@ -2,7 +2,7 @@ import React from 'react';
 import Alert from '../components/Alert';
 import Breadcrumb from '../components/Breadcrumb';
 import PageHeader from '../components/PageHeader';
-import ProductList from '../components/ProductBuild/Products';
+import ProductList from '../components/Products/Products';
 
 const Products = () => {
   return (

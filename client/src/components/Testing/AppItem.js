@@ -25,7 +25,6 @@ const AppItem = ({
       memberId: member.id,
     };
     const result = await checkProductActivation(productActivation);
-    console.log(result);
     if (result) await addAppActivation(appActivation);
   };
   return (

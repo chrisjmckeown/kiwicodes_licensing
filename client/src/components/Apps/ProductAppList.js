@@ -4,26 +4,26 @@ import PropTypes from 'prop-types';
 import Alert from '../Alert';
 import Breadcrumb from '../Breadcrumb';
 import PageHeader from '../PageHeader';
-import { getBuilds } from '../../actions/buildActions';
-import { filter } from '../../selectors/buildSelectors';
-import ProductBuildItem from './ProductBuildItem';
+import { getApps } from '../../actions/appActions';
+import { filter } from '../../selectors/appSelectors';
+import ProductAppItem from './ProductAppItem';
 import Spinner from '../Spinner';
 
-export const ProductBuildList = ({
-  getBuilds,
-  build: { loading },
-  filteredBuilds,
+export const ProductAppList = ({
+  getApps,
+  app: { loading },
+  filteredApps,
   filteredProduct,
   product,
   ...props
 }) => {
   useEffect(() => {
-    getBuilds();
-  }, [getBuilds]);
+    getApps();
+  }, [getApps]);
   return (
     <>
-      <Breadcrumb breadCrumbs={['Products']} endPage={'Product Build'} />
-      <PageHeader pageName={'Product Build'} />
+      <Breadcrumb breadCrumbs={['Products']} endPage={'Product Apps'} />
+      <PageHeader pageName={'Product Apps'} />
       {loading ? (
         <Spinner />
       ) : (
@@ -32,18 +32,17 @@ export const ProductBuildList = ({
             <div className='col12 lg'>
               <div className='list-header'>
                 <div>
-                  Product build history for{' '}
-                  {filteredProduct && filteredProduct[0].name}
+                  Product apps for {filteredProduct && filteredProduct[0].name}
                 </div>
               </div>
               <div className='list-body'>
-                {filteredBuilds.length > 0 ? (
-                  filteredBuilds.map((build) => (
-                    <ProductBuildItem key={build.id} build={build} />
+                {filteredApps.length > 0 ? (
+                  filteredApps.map((app) => (
+                    <ProductAppItem key={app.id} app={app} />
                   ))
                 ) : (
                   <div className='list-item list-item--message'>
-                    No build history found...
+                    No apps found...
                   </div>
                 )}
               </div>
@@ -56,17 +55,17 @@ export const ProductBuildList = ({
   );
 };
 
-ProductBuildList.propTypes = {
-  build: PropTypes.object.isRequired,
-  getBuilds: PropTypes.func.isRequired,
+ProductAppList.propTypes = {
+  app: PropTypes.object.isRequired,
+  getApps: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state, props) => ({
-  build: state.build,
+  app: state.app,
   product: state.product.products,
-  filteredBuilds: filter(state.build.builds, props.match.params.id),
+  filteredApps: filter(state.app.apps, props.match.params.id),
   filteredProduct: state.product.products.filter(
     (product) => product.id.toString() === props.match.params.id
   ),
 });
-export default connect(mapStateToProps, { getBuilds })(ProductBuildList);
+export default connect(mapStateToProps, { getApps })(ProductAppList);

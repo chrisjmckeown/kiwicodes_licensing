@@ -6,7 +6,8 @@ import Footer from '../components/Footer';
 import Main from '../components/Main';
 import Home from '../pages/Home';
 import Products from '../pages/Products';
-import ProductChat from '../components/ProductChat/ProductChatList';
+import Apps from '../components/Apps/ProductAppList';
+import AppChat from '../components/AppChat/AppChatList';
 import ProductBuild from '../components/ProductBuild/ProductBuildList';
 
 import KC_admin from '../pages/KCAdmin/KC_admin';
@@ -49,8 +50,9 @@ export const AppRouter = () => (
       <Switch>
         <Route exact path='/' component={Home} />
         <Route exact path='/products' component={Products} />
-        <Route exact path='/products/chat/:id' component={ProductChat} />
+        <Route exact path='/products/app/:id' component={Apps} />
         <Route exact path='/products/build/:id' component={ProductBuild} />
+        <Route exact path='/apps/chat/:id' component={AppChat} />
 
         <PrivateRoute
           path='/kc_admin'

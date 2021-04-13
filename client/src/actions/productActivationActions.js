@@ -62,13 +62,9 @@ export const addProductActivation = (formData) => async (dispatch) => {
 export const checkProductActivation = (formData) => async (dispatch) => {
   try {
     const res = await api.put(`/productActivations/check`, formData);
-
-    // console.log('results', res.data.result);
-    // res.data.result &&
     dispatch(setAlert(res.data.msg, 'general'));
     return res.data.result;
   } catch (err) {
-    console.log('err', err);
     const errors = err.response.data.errors;
     if (errors) {
       errors.forEach((error) => dispatch(setAlert(error.msg, 'danger')));

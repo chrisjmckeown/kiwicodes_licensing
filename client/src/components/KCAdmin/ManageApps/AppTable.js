@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import ReactTable from 'react-table-6';
 import 'react-table-6/react-table.css';
 import history from '../../../routes/history';
-import { editApp, deleteApp } from '../../../actions/app';
+import { editApp, deleteApp } from '../../../actions/appActions';
 
 const AppTable = (props) => {
   const handleEdit = (appID) => {
