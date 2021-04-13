@@ -99,21 +99,30 @@ const Testing = ({
           Product, activating an App, and running a generic Model audit.
         </h2>
         <br></br>
-        <h3>List of Products assigned too.</h3>
         <>
-          {productLoading ? (
-            <Spinner />
-          ) : (
-            <>
-              {products &&
-                products.map((product) => (
-                  <ProductItem key={product.id} product={product} />
-                ))}
-            </>
-          )}
+          <div className='row lg'>
+            <div className='col12 lg'>
+              <div className='list-header'>
+                <div>Product assigned to - click to activate</div>
+              </div>
+              {productLoading ? (
+                <Spinner />
+              ) : (
+                <div className='list-body'>
+                  {products.length > 0 ? (
+                    products.map((product) => (
+                      <ProductItem key={product.id} product={product} />
+                    ))
+                  ) : (
+                    <div className='list-item list-item--message'>
+                      No products found...
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+          </div>
         </>
-        <br></br>
-        <br></br>
         <h2>Model Audit</h2>
         <button className='btn' onClick={onClick}>
           Create Audit

@@ -5,8 +5,13 @@ import PropTypes from 'prop-types';
 import { getBuilds } from '../../../actions/buildActions';
 import BuildTable from './BuildTable';
 import Spinner from '../../Spinner';
+import { filter } from '../../../selectors/buildSelectors';
 
-export const BuildList = ({ getBuilds, build: { builds, loading } }) => {
+export const BuildList = ({
+  getBuilds,
+  build: { builds, loading },
+  filteredBuilds,
+}) => {
   useEffect(() => {
     getBuilds();
   }, [getBuilds]);
@@ -17,7 +22,7 @@ export const BuildList = ({ getBuilds, build: { builds, loading } }) => {
         <Spinner />
       ) : (
         <>
-          <BuildTable data={builds} />
+          <BuildTable data={filteredBuilds} />
         </>
       )}
     </>
@@ -31,6 +36,7 @@ BuildList.propTypes = {
 
 const mapStateToProps = (state, props) => ({
   build: state.build,
+  filteredBuilds: filter(state.build.builds, props.productID),
 });
 
 export default connect(mapStateToProps, { getBuilds })(BuildList);

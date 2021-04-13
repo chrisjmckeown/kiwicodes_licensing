@@ -18,6 +18,12 @@ module.exports = {
               ),
               'appCount',
             ],
+            [
+              sequelize.literal(
+                '(SELECT COUNT(*) FROM "build" WHERE "build"."productId" = "product"."id")'
+              ),
+              'buildCount',
+            ],
           ],
         },
       });

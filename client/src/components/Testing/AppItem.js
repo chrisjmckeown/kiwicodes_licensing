@@ -30,11 +30,10 @@ const AppItem = ({
   };
   return (
     <>
-      <div key={app.id}>
-        <div>{app.name}</div>
-        <button className='btn' onClick={activateApp}>
-          Activate App
-        </button>
+      <div className='list-item' key={app.id} onClick={activateApp}>
+        <p className='list-item__sub-title'>{app.id} </p>
+        <p className='list-item__title'>{app.name}</p>
+        <p className='list-item__data'>{''}</p>
       </div>
     </>
   );

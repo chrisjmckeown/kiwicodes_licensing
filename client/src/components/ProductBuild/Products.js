@@ -6,7 +6,11 @@ import { getProducts } from '../../actions/product';
 import ProductItem from './ProductItem';
 import Spinner from '../Spinner';
 
-export const Products = ({ getProducts, product: { products, loading } }) => {
+export const Products = ({
+  getProducts,
+  getBuilds,
+  product: { products, loading },
+}) => {
   useEffect(() => {
     getProducts();
   }, [getProducts]);

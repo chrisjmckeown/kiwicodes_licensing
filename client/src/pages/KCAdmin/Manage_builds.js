@@ -1,5 +1,6 @@
 import React from 'react';
 import { Switch } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import Alert from '../../components/Alert';
 import Breadcrumb from '../../components/Breadcrumb';
 import PageHeader from '../../components/PageHeader';
@@ -12,6 +13,7 @@ import BuildMenu from '../../components/KCAdmin/ManageBuilds/BuildMenu';
 import BuildBulkAdd from '../../components/KCAdmin/ManageBuilds/BuildBulkAdd';
 
 const Manage_builds = () => {
+  const { state } = useLocation();
   return (
     <>
       <Breadcrumb breadCrumbs={['KC_Admin']} endPage={'Manage Builds'} />
@@ -25,6 +27,7 @@ const Manage_builds = () => {
             <PrivateRoute
               path='/manage_builds/list'
               component={BuildList}
+              productID={state ? state.productID : 0}
               routePremissionLevel={'kiwicodes'}
             />
             <PrivateRoute

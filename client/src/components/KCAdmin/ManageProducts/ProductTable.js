@@ -7,6 +7,9 @@ import history from '../../../routes/history';
 import { editProduct, deleteProduct } from '../../../actions/product';
 
 const ProductTable = (props) => {
+  const handleViewBuilds = (productID) => {
+    history.push({ pathname: '/manage_builds/list', state: { productID } });
+  };
   const handleViewApps = (productID) => {
     history.push({ pathname: '/manage_apps/list', state: { productID } });
   };
@@ -70,6 +73,33 @@ const ProductTable = (props) => {
                 },
                 id: 'image',
                 width: 50,
+              },
+            ],
+          },
+          {
+            Header: 'Manage Builds',
+            fixed: 'left',
+            columns: [
+              {
+                Header: 'Build Count',
+                accessor: 'buildCount',
+                width: 45,
+                style: { whiteSpace: 'unset' },
+              },
+              {
+                Header: ' View Builds',
+                Cell: (row) => (
+                  <div>
+                    <button
+                      className='button__table'
+                      onClick={() => handleViewBuilds(row.original.id)}
+                    >
+                      <i className='far fa-eye fa-lg'></i>
+                    </button>
+                  </div>
+                ),
+                width: 45,
+                accessor: 'viewBuilds',
               },
             ],
           },

@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 export const ProductItem = ({
   product: { id, name, description, purchaseLink, helpLink, imageLink },
@@ -62,14 +63,20 @@ export const ProductItem = ({
                       <div className='button__std'>View Help</div>
                     </a>
                   )}
-                  <a
-                    href={helpLink}
+                  <NavLink
+                    to={`/products/chat/${id}`}
+                    title='Product Chat'
                     className='button__std'
-                    target='_blank'
-                    rel='noreferrer'
                   >
                     <div className='button__std'>Product Chat</div>
-                  </a>
+                  </NavLink>
+                  <NavLink
+                    to={`/products/build/${id}`}
+                    title='Product Builds'
+                    className='button__std'
+                  >
+                    <div className='button__std'>Product Builds</div>
+                  </NavLink>
                 </div>
               </div>
             </div>

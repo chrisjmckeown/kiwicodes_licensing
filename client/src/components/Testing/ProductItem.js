@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getApps } from '../../actions/app';
@@ -20,11 +20,24 @@ const ProductItem = ({
   app: { apps, loading: appLoading },
   auth: { member },
 }) => {
+  const [active, setActive] = useState(false);
   useEffect(() => {
     getApps();
   }, [getApps]);
+  useEffect(() => {
+    const getActive = async () => {
+      const productActivation = {
+        pcID: await publicIp.v4(),
+        productId: product.id,
+        memberId: member.id,
+      };
+      const result = await checkProductActivation(productActivation);
+      result ? setActive(true) : setActive(false);
+    };
+    getActive();
+  }, [checkProductActivation, member, product]);
 
-  const activateProduct = async () => {
+  const onClick = async () => {
     const productActivation = {
       dateActivated: Moment().format('yyyy-MM-DDT00:00:00.000'),
       pcID: await publicIp.v4(),
@@ -32,17 +45,16 @@ const ProductItem = ({
       memberId: member.id,
     };
     const result = await checkProductActivation(productActivation);
-    if (!result) await addProductActivation(productActivation);
-  };
-
-  const releaseProduct = async () => {
-    const productActivation = {
-      dateReleased: Moment().format('yyyy-MM-DDT00:00:00.000'),
-      pcID: await publicIp.v4(),
-      productId: product.id,
-      memberId: member.id,
-    };
-    await editProductActivation(productActivation);
+    if (!result) {
+      await addProductActivation(productActivation);
+      setActive(true);
+    } else {
+      productActivation.dateReleased = Moment().format(
+        'yyyy-MM-DDT00:00:00.000'
+      );
+      await editProductActivation(productActivation);
+      setActive(false);
+    }
   };
   return (
     <>
@@ -50,23 +62,29 @@ const ProductItem = ({
         <Spinner />
       ) : (
         <>
-          <div key={product.id}>
-            <div>
-              {product.id} {product.name}
-            </div>
-            <button className='btn' onClick={activateProduct}>
-              Activate Product
-            </button>
-            <button className='btn' onClick={releaseProduct}>
-              Release Product
-            </button>
-            {apps &&
+          <div className='list-item' key={product.id} onClick={onClick}>
+            <p className='list-item__sub-title'>{product.id} </p>
+            <p className='list-item__title'>{product.name}</p>
+            <p className='list-item__data'>
+              Active: {active ? 'true' : 'false'}
+            </p>
+          </div>
+          <div className='list-header'>
+            <div>App list - click to use</div>
+          </div>
+          <div className='list-body'>
+            {apps.length > 0 ? (
               apps.map(
                 (app) =>
                   app.productId === product.id && (
                     <AppItem key={app.id} app={app} />
                   )
-              )}
+              )
+            ) : (
+              <div className='list-item list-item--message'>
+                No apps found...
+              </div>
+            )}
           </div>
         </>
       )}
