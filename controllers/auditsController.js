@@ -6,6 +6,20 @@ module.exports = {
   // @route   GET api/audits/:auditId
   // @desc    Get an audit by id
   // @access  Private
+  findAll: async (req, res) => {
+    try {
+      const audit = await db.Audit.find();
+      if (!audit) return res.status(400).json({ msg: 'No Audit found' });
+
+      return res.json(audit);
+    } catch (err) {
+      console.error(err.message);
+      return res.status(500).send('Server error');
+    }
+  },
+  // @route   GET api/audits/:auditId
+  // @desc    Get an audit by id
+  // @access  Private
   findById: async (req, res) => {
     try {
       const audit = await db.Audit.findOne({
@@ -20,13 +34,31 @@ module.exports = {
       return res.status(500).send('Server error');
     }
   },
-  // @route   GET api/audits/client
+  // @route   GET api/audits/byClientId/:id
   // @desc    Get all audits for a client
   // @access  Private
-  findBClientId: async (req, res) => {
+  findByClientId: async (req, res) => {
     try {
       const audits = await db.Audit.find({
         clientId: req.member.clientId,
+      });
+
+      if (audits.length === 0)
+        return res.status(400).json({ msg: 'No Audits found' });
+
+      return res.json(audits);
+    } catch (err) {
+      console.error(err.message);
+      return res.status(500).send('Server error');
+    }
+  },
+  // @route   GET api/audits//byMemberId/:id
+  // @desc    Get all audits for a member
+  // @access  Private
+  findByMemberId: async (req, res) => {
+    try {
+      const audits = await db.Audit.find({
+        memberId: req.member.id,
       });
 
       if (audits.length === 0)

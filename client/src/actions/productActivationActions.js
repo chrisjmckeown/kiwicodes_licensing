@@ -9,9 +9,19 @@ import {
 } from '../actions/types';
 import { setAlert } from './alert';
 
-export const getProductActivations = () => async (dispatch) => {
+export const getProductActivations = (premissionLevel) => async (dispatch) => {
   try {
-    let res = await api.get('/productActivations');
+    let res;
+    if (premissionLevel === 'kiwicodes') {
+      // get all
+      res = await api.get('/productActivations');
+    } else if (premissionLevel === 'admin') {
+      // get by client id
+      res = await api.get('/productActivations/byClientId');
+    } else {
+      // get by member id
+      res = await api.get('/productActivations/byMemberId');
+    }
     dispatch({
       type: GET_PRODUCTACTIVATIONS,
       payload: res.data,

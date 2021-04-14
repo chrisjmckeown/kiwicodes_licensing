@@ -24,7 +24,15 @@ const View_product_usage = ({ productActivations }) => {
                   <p className='list-item__sub-title'>
                     PC ID: {productActivation.pcID} Product name:{' '}
                     {productActivation.product &&
-                      productActivation.product.name}
+                      productActivation.product.name}{' '}
+                    Member name:{' '}
+                    {productActivation.member &&
+                      productActivation.member.firstName +
+                        ' ' +
+                        productActivation.member.lastName}{' '}
+                    Company name:{' '}
+                    {productActivation.member.client &&
+                      productActivation.member.client.name}
                   </p>
                 </div>
               ))

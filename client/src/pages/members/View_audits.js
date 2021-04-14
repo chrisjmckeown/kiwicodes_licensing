@@ -1,35 +1,39 @@
-import React from 'react';
-import { Switch } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import Alert from '../../components/Alert';
 import Breadcrumb from '../../components/Breadcrumb';
 import PageHeader from '../../components/PageHeader';
-import ViewAuditMenu from '../../components/Members/ViewAudits/ViewAuditMenu';
+import Spinner from '../../components/Spinner';
 
-import MyAudits from '../../components/Members/ViewAudits/MyAudits';
-import PrivateRoute from '../../routes/PrivateRoute';
+import { getAudits } from '../../actions/auditActions';
+import ViewAuditUsage from '../../components/Reports/View_audit_usage';
 
-const View_audits = () => {
+const View_audits = ({ getAudits, audit: { audits, loading } }) => {
+  useEffect(() => {
+    getAudits('user');
+  }, [getAudits]);
   return (
     <>
       <Breadcrumb breadCrumbs={['Members']} endPage={'View Audits'} />
       <PageHeader pageName={'View Audits'} />
-
-      <div className='row lg'>
-        <div className='col3 lg'>
-          <ViewAuditMenu />
-        </div>
-        <div className='col lg margin_Top'>
-          <Switch>
-            <PrivateRoute
-              path='/member_view_audits'
-              component={MyAudits}
-              routePremissionLevel={'user'}
-            />
-          </Switch>
-        </div>
-      </div>
+      {loading ? (
+        <Spinner />
+      ) : (
+        <>
+          <ViewAuditUsage audits={audits} />
+        </>
+      )}
       <Alert />
     </>
   );
 };
-export default View_audits;
+View_audits.propTypes = {
+  audit: PropTypes.object.isRequired,
+  getAudits: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = (state, props) => ({
+  audit: state.audit,
+});
+export default connect(mapStateToProps, { getAudits })(View_audits);

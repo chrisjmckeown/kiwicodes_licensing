@@ -20,6 +20,12 @@ const View_audit_usage = ({ audits }) => {
                     <p className='list-item__sub-title'>
                       Model Id: {audit.modelId}
                     </p>
+                    <p className='list-item__sub-title'>
+                      Member Id: {audit.memberId}
+                    </p>
+                    <p className='list-item__sub-title'>
+                      Client Id: {audit.clientId}
+                    </p>
                   </div>
 
                   <div className='list-header'>

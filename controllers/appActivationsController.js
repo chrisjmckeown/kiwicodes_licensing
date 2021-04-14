@@ -11,6 +11,17 @@ module.exports = {
         include: [
           {
             model: db.app,
+            attributes: ['name'],
+          },
+          {
+            model: db.member,
+            attributes: ['firstName', 'lastName'],
+            include: [
+              {
+                model: db.client,
+                attributes: ['id', 'name'],
+              },
+            ],
           },
         ],
       });
@@ -27,6 +38,70 @@ module.exports = {
     try {
       const appActivation = await db.appActivation.findByPk(req.params.id);
       return res.json(appActivation);
+    } catch (err) {
+      console.error(err.message);
+      return res.status(500).send('Server error');
+    }
+  },
+  // @route   GET api/appActivations/byClientId/:id
+  // @desc    Get all app activations by Client Id
+  // @access  Private
+  findByClientId: async (req, res) => {
+    try {
+      const appActivations = await db.appActivation.findAll({
+        include: [
+          {
+            model: db.app,
+            attributes: ['name'],
+          },
+          {
+            model: db.member,
+            attributes: ['firstName', 'lastName'],
+            include: [
+              {
+                model: db.client,
+                attributes: ['id', 'name'],
+                where: {
+                  id: parseInt(req.member.clientId),
+                },
+              },
+            ],
+          },
+        ],
+      });
+      return res.json(appActivations);
+    } catch (err) {
+      console.error(err.message);
+      return res.status(500).send('Server error');
+    }
+  },
+  // @route   GET api/appActivations/byMemberId/:id
+  // @desc    Get all app activations by Member Id
+  // @access  Private
+  findByMemberId: async (req, res) => {
+    try {
+      const appActivations = await db.appActivation.findAll({
+        include: [
+          {
+            model: db.app,
+            attributes: ['name'],
+          },
+          {
+            model: db.member,
+            attributes: ['firstName', 'lastName'],
+            where: {
+              id: parseInt(req.member.id),
+            },
+            include: [
+              {
+                model: db.client,
+                attributes: ['id', 'name'],
+              },
+            ],
+          },
+        ],
+      });
+      return res.json(appActivations);
     } catch (err) {
       console.error(err.message);
       return res.status(500).send('Server error');

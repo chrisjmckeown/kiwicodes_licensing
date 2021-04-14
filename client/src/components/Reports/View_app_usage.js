@@ -16,7 +16,14 @@ const View_app_usage = ({ appActivations }) => {
                   </p>
                   <p className='list-item__sub-title'>
                     Revit build: {appActivation.revitBuild} App name:{' '}
-                    {appActivation.app && appActivation.app.name}
+                    {appActivation.app && appActivation.app.name} Member name:{' '}
+                    {appActivation.member &&
+                      appActivation.member.firstName +
+                        ' ' +
+                        appActivation.member.lastName}{' '}
+                    Company name:{' '}
+                    {appActivation.member.client &&
+                      appActivation.member.client.name}
                   </p>
                 </div>
               ))

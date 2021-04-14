@@ -11,6 +11,81 @@ module.exports = {
         include: [
           {
             model: db.product,
+            attributes: ['name'],
+          },
+          {
+            model: db.member,
+            attributes: ['firstName', 'lastName'],
+            include: [
+              {
+                model: db.client,
+                attributes: ['id', 'name'],
+              },
+            ],
+          },
+        ],
+      });
+      return res.json(productActivations);
+    } catch (err) {
+      console.error(err.message);
+      return res.status(500).send('Server error');
+    }
+  },
+  // @route   GET api/productActivations/byClientId/:id
+  // @desc    Get all product activations by Client Id
+  // @access  Private
+  findByClientId: async (req, res) => {
+    try {
+      const productActivations = await db.productActivation.findAll({
+        include: [
+          {
+            model: db.product,
+            attributes: ['name'],
+          },
+          {
+            model: db.member,
+            attributes: ['firstName', 'lastName'],
+            include: [
+              {
+                model: db.client,
+                attributes: ['id', 'name'],
+                where: {
+                  id: parseInt(req.member.clientId),
+                },
+              },
+            ],
+          },
+        ],
+      });
+      return res.json(productActivations);
+    } catch (err) {
+      console.error(err.message);
+      return res.status(500).send('Server error');
+    }
+  },
+  // @route   GET api/productActivations/findByMemberId/:id
+  // @desc    Get all product activations by Member Id
+  // @access  Private
+  findByMemberId: async (req, res) => {
+    try {
+      const productActivations = await db.productActivation.findAll({
+        include: [
+          {
+            model: db.product,
+            attributes: ['name'],
+          },
+          {
+            model: db.member,
+            attributes: ['firstName', 'lastName'],
+            where: {
+              id: parseInt(req.member.id),
+            },
+            include: [
+              {
+                model: db.client,
+                attributes: ['id', 'name'],
+              },
+            ],
           },
         ],
       });

@@ -14,7 +14,7 @@ const View_app_usage = ({
   appActivation: { appActivations, loading },
 }) => {
   useEffect(() => {
-    getAppActivations();
+    getAppActivations('admin');
   }, [getAppActivations]);
   return (
     <>
@@ -33,7 +33,6 @@ const View_app_usage = ({
 };
 
 View_app_usage.propTypes = {
-  app: PropTypes.object.isRequired,
   getAppActivations: PropTypes.func.isRequired,
 };
 

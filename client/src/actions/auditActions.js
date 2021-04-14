@@ -9,13 +9,18 @@ import {
 } from '../actions/types';
 import { setAlert } from './alert';
 
-export const getAudits = (productId = 0) => async (dispatch) => {
+export const getAudits = (premissionLevel) => async (dispatch) => {
   try {
     let res;
-    if (productId === 0) {
+    if (premissionLevel === 'kiwicodes') {
+      // get all
       res = await api.get('/audits');
+    } else if (premissionLevel === 'admin') {
+      // get by client id
+      res = await api.get('/audits/byClientId');
     } else {
-      res = await api.get(`/audits/byProductId/${productId}`);
+      // get by member id
+      res = await api.get('/audits/byMemberId');
     }
     dispatch({
       type: GET_AUDITS,

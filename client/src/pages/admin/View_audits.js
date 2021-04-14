@@ -11,7 +11,7 @@ import ViewAuditUsage from '../../components/Reports/View_audit_usage';
 
 const View_audits = ({ getAudits, audit: { audits, loading } }) => {
   useEffect(() => {
-    getAudits();
+    getAudits('admin');
   }, [getAudits]);
   return (
     <>

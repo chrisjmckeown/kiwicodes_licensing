@@ -14,7 +14,7 @@ const View_product_usage = ({
   productActivation: { productActivations, loading },
 }) => {
   useEffect(() => {
-    getProductActivations();
+    getProductActivations('admin');
   }, [getProductActivations]);
   return (
     <>
@@ -33,7 +33,6 @@ const View_product_usage = ({
 };
 
 View_product_usage.propTypes = {
-  product: PropTypes.object.isRequired,
   getProductActivations: PropTypes.func.isRequired,
 };
 
