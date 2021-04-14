@@ -13,13 +13,12 @@ const AppItem = ({
 }) => {
   const activateApp = async () => {
     const appActivation = {
-      dateActivated: Moment().format('yyyy-MM-DDT00:00:00.000'),
+      dateActivated: Moment().format('yyyy-MM-DDThh:mm:ss.SSS'),
       buildNumber: 'extractedFromRevit',
       revitBuild: 'extractedFromRevit',
       appId: app.id,
       memberId: member.id,
     };
-
     const productActivation = {
       productId: app.productId,
       memberId: member.id,
@@ -31,8 +30,7 @@ const AppItem = ({
     <>
       <div className='list-item' key={app.id} onClick={activateApp}>
         <p className='list-item__sub-title'>{app.id} </p>
-        <p className='list-item__title'>{app.name}</p>
-        <p className='list-item__data'>{''}</p>
+        <p className='list-item__data'>{app.name}</p>
       </div>
     </>
   );

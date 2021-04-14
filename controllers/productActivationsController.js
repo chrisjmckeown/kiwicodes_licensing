@@ -7,7 +7,13 @@ module.exports = {
   // @access  Private
   findAll: async (req, res) => {
     try {
-      const productActivations = await db.productActivation.findAll();
+      const productActivations = await db.productActivation.findAll({
+        include: [
+          {
+            model: db.product,
+          },
+        ],
+      });
       return res.json(productActivations);
     } catch (err) {
       console.error(err.message);

@@ -39,7 +39,7 @@ const ProductItem = ({
 
   const onClick = async () => {
     const productActivation = {
-      dateActivated: Moment().format('yyyy-MM-DDT00:00:00.000'),
+      dateActivated: Moment().format('yyyy-MM-DDThh:mm:ss.SSS'),
       pcID: await publicIp.v4(),
       productId: product.id,
       memberId: member.id,
@@ -50,7 +50,7 @@ const ProductItem = ({
       setActive(true);
     } else {
       productActivation.dateReleased = Moment().format(
-        'yyyy-MM-DDT00:00:00.000'
+        'yyyy-MM-DDThh:mm:ss.SSS'
       );
       await editProductActivation(productActivation);
       setActive(false);
@@ -64,7 +64,7 @@ const ProductItem = ({
         <>
           <div className='list-item' key={product.id} onClick={onClick}>
             <p className='list-item__sub-title'>{product.id} </p>
-            <p className='list-item__title'>{product.name}</p>
+            {/* <p className='list-item__title'>{product.name}</p> */}
             <p className='list-item__data'>
               Active: {active ? 'true' : 'false'}
             </p>

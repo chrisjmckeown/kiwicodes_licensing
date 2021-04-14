@@ -8,6 +8,7 @@ import { getProducts } from '../actions/product';
 import Spinner from '../components/Spinner';
 import ProductItem from '../components/Testing/ProductItem';
 import { addAudit } from '../actions/auditActions';
+import Moment from 'moment';
 
 const Testing = ({
   getProducts,
@@ -82,6 +83,7 @@ const Testing = ({
         'Project Parameters': '1',
         'Shared Parameters': '1',
       },
+      date: Moment().format('yyyy-MM-DDThh:mm:ss.SSS'),
       memberId: member.id,
       modelId: 'extractedFromRevit',
       clientId: member.clientId,
@@ -110,8 +112,13 @@ const Testing = ({
               ) : (
                 <div className='list-body'>
                   {products.length > 0 ? (
-                    products.map((product) => (
-                      <ProductItem key={product.id} product={product} />
+                    products.map((product, index) => (
+                      <div key={index}>
+                        <div className='list-header'>
+                          <div>{product.name}</div>
+                        </div>
+                        <ProductItem key={product.id} product={product} />
+                      </div>
                     ))
                   ) : (
                     <div className='list-item list-item--message'>
@@ -124,6 +131,7 @@ const Testing = ({
           </div>
         </>
         <h2>Model Audit</h2>
+        <br />
         <button className='btn' onClick={onClick}>
           Create Audit
         </button>
