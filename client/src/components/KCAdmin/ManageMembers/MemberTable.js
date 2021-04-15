@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { setAlert } from '../../../actions/alert';
+import { setAlert } from '../../../actions/alertActions';
 
 import ReactTable from 'react-table-6';
 import 'react-table-6/react-table.css';

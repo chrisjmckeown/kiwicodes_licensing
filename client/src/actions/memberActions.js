@@ -9,7 +9,7 @@ import {
   LOGOUT,
   CLEAR_MEMBER,
 } from './types';
-import { setAlert } from './alert';
+import { setAlert } from './alertActions';
 
 export const getMembers = (member) => async (dispatch) => {
   try {

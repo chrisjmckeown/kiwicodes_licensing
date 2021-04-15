@@ -7,7 +7,7 @@ import {
   GET_LICENSEKEYS,
   CLEAR_LICENSEKEYS,
 } from '../actions/types';
-import { setAlert } from './alert';
+import { setAlert } from './alertActions';
 
 export const getLicenseKeys = (member) => async (dispatch) => {
   try {

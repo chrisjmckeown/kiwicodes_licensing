@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import ReactTable from 'react-table-6';
 import 'react-table-6/react-table.css';
 import history from '../../../routes/history';
-import { editProduct, deleteProduct } from '../../../actions/product';
+import { editProduct, deleteProduct } from '../../../actions/productActions';
 
 const ProductTable = (props) => {
   const handleViewBuilds = (productID) => {

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { getProducts } from '../../../actions/product';
+import { getProducts } from '../../../actions/productActions';
 import Spinner from '../../Spinner';
 
 export const AppForm = ({

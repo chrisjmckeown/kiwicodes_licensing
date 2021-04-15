@@ -7,7 +7,7 @@ import {
   GET_BUILDS,
   CLEAR_BUILDS,
 } from '../actions/types';
-import { setAlert } from './alert';
+import { setAlert } from './alertActions';
 
 export const getBuilds = () => async (dispatch) => {
   try {

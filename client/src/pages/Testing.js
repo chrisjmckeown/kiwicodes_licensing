@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Alert from '../components/Alert';
 import Breadcrumb from '../components/Breadcrumb';
 import PageHeader from '../components/PageHeader';
-import { getProducts } from '../actions/product';
+import { getProducts } from '../actions/productActions';
 import Spinner from '../components/Spinner';
 import ProductItem from '../components/Testing/ProductItem';
 import { addAudit } from '../actions/auditActions';

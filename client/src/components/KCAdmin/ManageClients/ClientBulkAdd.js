@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import history from '../../../routes/history';
-import { setAlert } from '../../../actions/alert';
-import { addClient } from '../../../actions/client';
+import { setAlert } from '../../../actions/alertActions';
+import { addClient } from '../../../actions/clientActions';
 import CSVReader from 'react-csv-reader';
 
 export const ClientBulkAdd = ({ setAlert, addClient }) => {

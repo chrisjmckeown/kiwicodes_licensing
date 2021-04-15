@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { setAlert } from '../../actions/alert';
+import { setAlert } from '../../actions/alertActions';
 import history from '../../routes/history';
 import OptionModal from '../../components/Modal/OptionModal';
 

@@ -7,7 +7,7 @@ import {
   GET_PRODUCTS,
   CLEAR_PRODUCTS,
 } from '../actions/types';
-import { setAlert } from './alert';
+import { setAlert } from './alertActions';
 
 export const getProducts = (memberId = 0) => async (dispatch) => {
   try {

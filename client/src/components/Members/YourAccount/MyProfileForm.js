@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { addProfile, getMyProfile } from '../../../actions/profile';
+import { addProfile, getMyProfile } from '../../../actions/profileActions';
 import Spinner from '../../Spinner';
 
 export const MyProfileForm = ({

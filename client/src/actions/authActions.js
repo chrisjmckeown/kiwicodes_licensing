@@ -8,20 +8,20 @@ import {
   LOGIN_FAIL,
   LOGOUT,
 } from './types';
-import { setAlert } from './alert';
+import { setAlert } from './alertActions';
 import { clearApp } from './appActions';
 import { clearAppActivation } from './appActivationActions';
 import { clearAppChat } from './appChatActions';
 import { clearAudit } from './auditActions';
 import { clearBuild } from './buildActions';
-import { clearClient } from './client';
-import { clearError } from './error';
-import { clearLicenseKey } from './licenseKey';
+import { clearClient } from './clientActions';
+import { clearError } from './errorActions';
+import { clearLicenseKey } from './licenseKeyActions';
 import { clearLicenseKeyAssignment } from './licenseKeyAssignmentActions';
 import { clearMember } from './memberActions';
-import { clearProduct } from './product';
+import { clearProduct } from './productActions';
 import { clearProductActivation } from './productActivationActions';
-import { clearProfile } from './profile';
+import { clearProfile } from './profileActions';
 
 export const loadUser = () => async (dispatch) => {
   try {

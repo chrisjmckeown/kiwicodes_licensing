@@ -5,7 +5,7 @@ import Moment from 'moment';
 import ReactTable from 'react-table-6';
 import 'react-table-6/react-table.css';
 import history from '../../../routes/history';
-import { deleteLicenseKey } from '../../../actions/licenseKey';
+import { deleteLicenseKey } from '../../../actions/licenseKeyActions';
 
 const LicenseKeyTable = (props) => {
   const handleEdit = (licenseKeyID) => {

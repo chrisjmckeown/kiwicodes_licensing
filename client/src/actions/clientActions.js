@@ -1,19 +1,19 @@
 import api from '../utils/api';
 import {
-  ADD_ERROR,
-  DELETE_ERROR,
-  EDIT_ERROR,
-  GET_ERROR,
-  GET_ERRORS,
-  CLEAR_ERROR,
+  ADD_CLIENT,
+  DELETE_CLIENT,
+  EDIT_CLIENT,
+  GET_CLIENT,
+  GET_CLIENTS,
+  CLEAR_CLIENTS,
 } from '../actions/types';
-import { setAlert } from './alert';
+import { setAlert } from './alertActions';
 
-export const getErrors = () => async (dispatch) => {
+export const getClients = () => async (dispatch) => {
   try {
-    const res = await api.get('/errors');
+    const res = await api.get('/clients');
     dispatch({
-      type: GET_ERRORS,
+      type: GET_CLIENTS,
       payload: res.data,
     });
   } catch (err) {
@@ -24,11 +24,11 @@ export const getErrors = () => async (dispatch) => {
   }
 };
 
-export const getError = ({ id }) => async (dispatch) => {
+export const getClient = ({ id }) => async (dispatch) => {
   try {
-    const res = await api.get(`/errors/${id}`);
+    const res = await api.get(`/clients/${id}`);
     dispatch({
-      type: GET_ERROR,
+      type: GET_CLIENT,
       payload: res.data,
     });
   } catch (err) {
@@ -39,16 +39,16 @@ export const getError = ({ id }) => async (dispatch) => {
   }
 };
 
-export const addError = (formData) => async (dispatch) => {
+export const addClient = (formData) => async (dispatch) => {
   try {
-    const res = await api.post('/errors', formData);
+    const res = await api.post('/clients', formData);
 
     dispatch({
-      type: ADD_ERROR,
+      type: ADD_CLIENT,
       payload: res.data,
     });
 
-    dispatch(setAlert('Error Created', 'success'));
+    dispatch(setAlert('Client Created', 'success'));
     return true;
   } catch (err) {
     const errors = err.response.data.errors;
@@ -59,16 +59,16 @@ export const addError = (formData) => async (dispatch) => {
   }
 };
 
-export const editError = (id, formData) => async (dispatch) => {
+export const editClient = (id, formData) => async (dispatch) => {
   try {
-    const res = await api.put(`/errors/${id}`, formData);
+    const res = await api.put(`/clients/${id}`, formData);
 
     dispatch({
-      type: EDIT_ERROR,
+      type: EDIT_CLIENT,
       payload: res.data,
     });
 
-    dispatch(setAlert('Error Updated', 'success'));
+    dispatch(setAlert('Client Updated', 'success'));
     return true;
   } catch (err) {
     const errors = err.response.data.errors;
@@ -79,16 +79,16 @@ export const editError = (id, formData) => async (dispatch) => {
   }
 };
 
-export const deleteError = (id) => async (dispatch) => {
+export const deleteClient = (id) => async (dispatch) => {
   try {
-    await api.delete(`/errors/${id}`);
+    await api.delete(`/clients/${id}`);
 
     dispatch({
-      type: DELETE_ERROR,
+      type: DELETE_CLIENT,
       payload: id,
     });
 
-    dispatch(setAlert('Error Removed', 'success'));
+    dispatch(setAlert('Client Removed', 'success'));
     return true;
   } catch (err) {
     const errors = err.response.data.errors;
@@ -98,8 +98,8 @@ export const deleteError = (id) => async (dispatch) => {
     return false;
   }
 };
-export const clearError = () => async (dispatch) => {
+export const clearClient = () => async (dispatch) => {
   dispatch({
-    type: CLEAR_ERROR,
+    type: CLEAR_CLIENTS,
   });
 };

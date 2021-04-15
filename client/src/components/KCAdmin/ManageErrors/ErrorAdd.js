@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import ErrorForm from './ErrorForm';
 import history from '../../../routes/history';
-import { addError } from '../../../actions/error';
+import { addError } from '../../../actions/errorActions';
 
 export const ErrorAdd = ({ addError }) => {
   const onSubmit = async (error) => {

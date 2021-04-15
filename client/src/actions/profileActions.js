@@ -7,7 +7,7 @@ import {
   GET_PROFILES,
   CLEAR_PROFILES,
 } from '../actions/types';
-import { setAlert } from './alert';
+import { setAlert } from './alertActions';
 
 export const getProfiles = () => async (dispatch) => {
   try {

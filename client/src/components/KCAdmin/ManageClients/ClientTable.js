@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import ReactTable from 'react-table-6';
 import 'react-table-6/react-table.css';
 import history from '../../../routes/history';
-import { deleteClient } from '../../../actions/client';
+import { deleteClient } from '../../../actions/clientActions';
 
 const ClientTable = (props) => {
   const handleEditMembers = (clientID) => {

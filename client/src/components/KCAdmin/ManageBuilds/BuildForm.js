@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { SingleDatePicker } from 'react-dates';
 import 'react-dates/initialize';
 import PropTypes from 'prop-types';
-import { getProducts } from '../../../actions/product';
+import { getProducts } from '../../../actions/productActions';
 import Moment from 'moment';
 import Spinner from '../../Spinner';
 

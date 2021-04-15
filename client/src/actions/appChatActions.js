@@ -7,7 +7,7 @@ import {
   GET_APPCHATS,
   CLEAR_APPCHATS,
 } from '../actions/types';
-import { setAlert } from './alert';
+import { setAlert } from './alertActions';
 
 export const getAppChats = () => async (dispatch) => {
   try {

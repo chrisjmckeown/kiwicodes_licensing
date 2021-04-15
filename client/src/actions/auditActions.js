@@ -7,7 +7,7 @@ import {
   GET_AUDITS,
   CLEAR_AUDITS,
 } from '../actions/types';
-import { setAlert } from './alert';
+import { setAlert } from './alertActions';
 
 export const getAudits = (premissionLevel) => async (dispatch) => {
   try {

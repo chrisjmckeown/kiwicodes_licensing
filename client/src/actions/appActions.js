@@ -7,7 +7,7 @@ import {
   GET_APPS,
   CLEAR_APPS,
 } from '../actions/types';
-import { setAlert } from './alert';
+import { setAlert } from './alertActions';
 
 export const getApps = (productId = 0) => async (dispatch) => {
   try {

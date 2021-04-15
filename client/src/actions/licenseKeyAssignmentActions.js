@@ -7,7 +7,7 @@ import {
   GET_LICENSEKEYASSIGNMENTS,
   CLEAR_LICENSEKEYASSIGNMENTS,
 } from '../actions/types';
-import { setAlert } from './alert';
+import { setAlert } from './alertActions';
 
 export const getLicenseKeyAssignments = (member, licenseKeyId) => async (
   dispatch

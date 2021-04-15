@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import ProductForm from './ProductForm';
 import history from '../../../routes/history';
-import { editProduct } from '../../../actions/product';
+import { editProduct } from '../../../actions/productActions';
 
 export const ProductEdit = (props) => {
   const onSubmit = async (product) => {

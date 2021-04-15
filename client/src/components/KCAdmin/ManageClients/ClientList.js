@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { getClients } from '../../../actions/client';
+import { getClients } from '../../../actions/clientActions';
 import Spinner from '../../Spinner';
 
 import ClientTable from './ClientTable';

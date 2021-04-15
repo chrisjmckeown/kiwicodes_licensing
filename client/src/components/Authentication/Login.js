@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { login } from '../../actions/auth';
+import { login } from '../../actions/authActions';
 import { resetPassword } from '../../actions/memberActions';
-import { setAlert } from '../../actions/alert';
+import { setAlert } from '../../actions/alertActions';
 
 const Login = ({ setAlert, login, isAuthenticated, resetPassword }) => {
   const [loginFormData, setLoginFormData] = useState({

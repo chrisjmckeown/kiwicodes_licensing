@@ -5,7 +5,7 @@ import Moment from 'moment';
 import ReactTable from 'react-table-6';
 import 'react-table-6/react-table.css';
 import history from '../../../routes/history';
-import { editError, deleteError } from '../../../actions/error';
+import { editError, deleteError } from '../../../actions/errorActions';
 
 const ErrorTable = (props) => {
   const handleEdit = (errorID) => {

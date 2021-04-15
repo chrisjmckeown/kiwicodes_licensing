@@ -7,7 +7,7 @@ import {
   GET_PRODUCTACTIVATIONS,
   CLEAR_PRODUCTACTIVATIONS,
 } from '../actions/types';
-import { setAlert } from './alert';
+import { setAlert } from './alertActions';
 
 export const getProductActivations = (premissionLevel) => async (dispatch) => {
   try {

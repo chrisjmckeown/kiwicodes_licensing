@@ -7,7 +7,7 @@ import {
   GET_APPACTIVATIONS,
   CLEAR_APPACTIVATIONS,
 } from '../actions/types';
-import { setAlert } from './alert';
+import { setAlert } from './alertActions';
 
 export const getAppActivations = (premissionLevel) => async (dispatch) => {
   try {

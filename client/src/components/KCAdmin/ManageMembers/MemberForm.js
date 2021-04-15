@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { setAlert } from '../../../actions/alert';
-import { getClients } from '../../../actions/client';
+import { setAlert } from '../../../actions/alertActions';
+import { getClients } from '../../../actions/clientActions';
 import Spinner from '../../Spinner';
 import { Label, Input, P, Select } from '../../Form/formControls';
 import Switch from 'react-switch';

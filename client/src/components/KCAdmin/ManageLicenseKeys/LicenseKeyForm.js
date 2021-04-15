@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { getProducts } from '../../../actions/product';
-import { getClients } from '../../../actions/client';
+import { getProducts } from '../../../actions/productActions';
+import { getClients } from '../../../actions/clientActions';
 import Spinner from '../../Spinner';
 import { SingleDatePicker } from 'react-dates';
 import 'react-dates/initialize';

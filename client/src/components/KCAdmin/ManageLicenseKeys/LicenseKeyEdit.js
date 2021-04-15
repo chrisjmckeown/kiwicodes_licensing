@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import LicenseKeyForm from './LicenseKeyForm';
 import history from '../../../routes/history';
-import { editLicenseKey } from '../../../actions/licenseKey';
+import { editLicenseKey } from '../../../actions/licenseKeyActions';
 
 export const LicenseKeyEdit = (props) => {
   const onSubmit = async (licenseKey) => {

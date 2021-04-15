@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import store from './store';
 
 import setAuthToken from './utils/setAuthToken';
-import { loadUser } from './actions/auth';
+import { loadUser } from './actions/authActions';
 
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';

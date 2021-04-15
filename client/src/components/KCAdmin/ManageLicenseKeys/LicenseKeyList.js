@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { getLicenseKeys } from '../../../actions/licenseKey';
+import { getLicenseKeys } from '../../../actions/licenseKeyActions';
 import Spinner from '../../Spinner';
 
 import LicenseKeyTable from './LicenseKeyTable';

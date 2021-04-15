@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import CSVReader from 'react-csv-reader';
 import PropTypes from 'prop-types';
 
-import { setAlert } from '../../../actions/alert';
+import { setAlert } from '../../../actions/alertActions';
 import history from '../../../routes/history';
 import { addBuild } from '../../../actions/buildActions';
 

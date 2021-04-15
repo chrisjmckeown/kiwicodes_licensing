@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { getErrors } from '../../../actions/error';
+import { getErrors } from '../../../actions/errorActions';
 import Spinner from '../../Spinner';
 
 import ErrorTable from './ErrorTable';

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { getProducts } from '../../../actions/product';
+import { getProducts } from '../../../actions/productActions';
 import Spinner from '../../Spinner';
 
 import ProductTable from './ProductTable';

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import ClientForm from './ClientForm';
 import history from '../../../routes/history';
-import { addClient } from '../../../actions/client';
+import { addClient } from '../../../actions/clientActions';
 
 export const ClientAdd = ({ addClient }) => {
   const onSubmit = async (client) => {

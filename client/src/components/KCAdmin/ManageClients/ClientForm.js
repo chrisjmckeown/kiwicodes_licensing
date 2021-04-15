@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { setAlert } from '../../../actions/alert';
+import { setAlert } from '../../../actions/alertActions';
 
 export const ClientForm = ({ client, setAlert, onSubmit }) => {
   const [id] = useState(client ? client.id : '');

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { logout } from '../../actions/auth';
+import { logout } from '../../actions/authActions';
 import KCAdminSubMenu from './KCAdminSubMenu';
 import AdminSubMenu from './AdminSubMenu';
 import MemberSubMenu from './MemberSubMenu';
