@@ -11,6 +11,7 @@ import { setAlert } from './alertActions';
 
 export const getAudits = (premissionLevel) => async (dispatch) => {
   try {
+    clearAudit();
     let res;
     if (premissionLevel === 'kiwicodes') {
       // get all

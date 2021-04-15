@@ -3,10 +3,13 @@ const membersController = require('../../controllers/membersController');
 const auth = require('../../middleware/auth');
 const { check } = require('express-validator');
 
-// Matches with "/api/members"
+// Matches with "/api/members/byClientId"
+router.get('/byClientId', auth, membersController.findByClientId);
 
 router.post('/resetpassword', membersController.resetPassword);
 router.post('/updatepassword', auth, membersController.updatePassword);
+
+// Matches with "/api/members"
 router.get('/', auth, membersController.findAll);
 router.post(
   '/',
@@ -25,6 +28,5 @@ router.get('/:id', auth, membersController.findById);
 router.get('/email/:email', membersController.findByEmail);
 router.put('/:id', auth, membersController.update);
 router.delete('/:id', auth, membersController.remove);
-router.get('/byClientId/:id', auth, membersController.findAllByClientId);
 
 module.exports = router;

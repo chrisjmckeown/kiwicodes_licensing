@@ -25,22 +25,18 @@ const Manage_products = () => {
             <PrivateRoute
               path='/manage_products/list'
               component={ProductList}
-              routePremissionLevel={'kiwicodes'}
             />
             <PrivateRoute
               path='/manage_products/create'
               component={ProductAdd}
-              routePremissionLevel={'kiwicodes'}
             />
             <PrivateRoute
               path='/manage_products/product_edit/:id'
               component={ProductEdit}
-              routePremissionLevel={'kiwicodes'}
             />
             <PrivateRoute
               path='/manage_products/bulkAdd'
               component={ProductBulkAdd}
-              routePremissionLevel={'kiwicodes'}
             />
           </Switch>
         </div>

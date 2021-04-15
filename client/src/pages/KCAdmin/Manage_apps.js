@@ -28,23 +28,13 @@ const Manage_apps = () => {
               path='/manage_apps/list'
               component={AppList}
               productID={state ? state.productID : 0}
-              routePremissionLevel={'kiwicodes'}
             />
-            <PrivateRoute
-              path='/manage_apps/create'
-              component={AppAdd}
-              routePremissionLevel={'kiwicodes'}
-            />
+            <PrivateRoute path='/manage_apps/create' component={AppAdd} />
             <PrivateRoute
               path='/manage_apps/app_edit/:id'
               component={AppEdit}
-              routePremissionLevel={'kiwicodes'}
             />
-            <PrivateRoute
-              path='/manage_apps/bulkAdd'
-              component={AppBulkAdd}
-              routePremissionLevel={'kiwicodes'}
-            />
+            <PrivateRoute path='/manage_apps/bulkAdd' component={AppBulkAdd} />
           </Switch>
         </div>
       </div>

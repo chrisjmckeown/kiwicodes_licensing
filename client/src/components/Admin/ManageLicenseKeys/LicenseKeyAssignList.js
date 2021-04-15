@@ -25,8 +25,8 @@ export const LicenseKeyAssignList = ({
   }, [getMembers, auth]);
   useEffect(() => {
     clearLicenseKeyAssignment();
-    getLicenseKeyAssignments(auth.member, licenseKeyId);
-  }, [clearLicenseKeyAssignment, getLicenseKeyAssignments, auth, licenseKeyId]);
+    getLicenseKeyAssignments('admin', licenseKeyId);
+  }, [clearLicenseKeyAssignment, getLicenseKeyAssignments, licenseKeyId]);
   return (
     <>
       {loading ? (

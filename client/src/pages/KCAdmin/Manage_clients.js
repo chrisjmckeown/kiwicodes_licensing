@@ -22,25 +22,15 @@ const Manage_clients = () => {
         </div>
         <div className='col10 lg margin_Top'>
           <Switch>
-            <PrivateRoute
-              path='/manage_clients/list'
-              component={ClientList}
-              routePremissionLevel={'kiwicodes'}
-            />
-            <PrivateRoute
-              path='/manage_clients/create'
-              component={ClientAdd}
-              routePremissionLevel={'kiwicodes'}
-            />
+            <PrivateRoute path='/manage_clients/list' component={ClientList} />
+            <PrivateRoute path='/manage_clients/create' component={ClientAdd} />
             <PrivateRoute
               path='/manage_clients/client_edit/:id'
               component={ClientEdit}
-              routePremissionLevel={'kiwicodes'}
             />
             <PrivateRoute
               path='/manage_clients/bulkAdd'
               component={ClientBulkAdd}
-              routePremissionLevel={'kiwicodes'}
             />
           </Switch>
         </div>

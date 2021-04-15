@@ -48,6 +48,7 @@ module.exports = {
   // @access  Private
   findByClientId: async (req, res) => {
     try {
+      console.log('findByClientId');
       const appActivations = await db.appActivation.findAll({
         include: [
           {
@@ -57,13 +58,13 @@ module.exports = {
           {
             model: db.member,
             attributes: ['firstName', 'lastName'],
+            where: {
+              clientId: parseInt(req.member.clientId),
+            },
             include: [
               {
                 model: db.client,
                 attributes: ['id', 'name'],
-                where: {
-                  id: parseInt(req.member.clientId),
-                },
               },
             ],
           },

@@ -56,17 +56,17 @@ module.exports = {
       return res.status(500).send('Server error');
     }
   },
-  // @route   GET api/members/byClientId/:id
+  // @route   GET api/members/byClientId
   // @desc    Get all members by client id
   // @access  Private
-  findAllByClientId: async (req, res) => {
+  findByClientId: async (req, res) => {
     try {
-      if (req.member.role !== 'admin') {
+      if (req.member.role === 'user') {
         return res.status(400).send('Invalid permission');
       }
       const members = await db.member.findAll({
         where: {
-          clientId: req.params.id,
+          clientId: parseInt(req.member.clientId),
         },
         attributes: {
           exclude: ['password'],

@@ -89,8 +89,6 @@ const LicenseKeyAssignTable = ({
                     </label>
                   );
                 },
-                // accessor: (d) =>
-                //   d.licenseKeyAssignments.length === 0 ? false : true,
                 width: 65,
               },
               {

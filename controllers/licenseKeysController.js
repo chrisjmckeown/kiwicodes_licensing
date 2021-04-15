@@ -43,17 +43,17 @@ module.exports = {
       return res.status(500).send('Server error');
     }
   },
-  // @route   GET api/licenseKeys/byClientId/:id
+  // @route   GET api/licenseKeys/byClientId
   // @desc    Get all licenseKeys by client id
   // @access  Private
-  findAllByClientId: async (req, res) => {
+  findByClientId: async (req, res) => {
     try {
-      if (req.member.role !== 'admin') {
+      if (req.member.role === 'user') {
         return res.status(400).send('Invalid permission');
       }
       const licenseKeys = await db.licenseKey.findAll({
         where: {
-          clientId: req.params.id,
+          clientId: parseInt(req.member.clientId),
         },
         include: [
           {

@@ -11,6 +11,7 @@ import { setAlert } from './alertActions';
 
 export const getProductActivations = (premissionLevel) => async (dispatch) => {
   try {
+    clearProductActivation();
     let res;
     if (premissionLevel === 'kiwicodes') {
       // get all

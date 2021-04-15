@@ -45,13 +45,13 @@ module.exports = {
           {
             model: db.member,
             attributes: ['firstName', 'lastName'],
+            where: {
+              clientId: parseInt(req.member.clientId),
+            },
             include: [
               {
                 model: db.client,
                 attributes: ['id', 'name'],
-                where: {
-                  id: parseInt(req.member.clientId),
-                },
               },
             ],
           },

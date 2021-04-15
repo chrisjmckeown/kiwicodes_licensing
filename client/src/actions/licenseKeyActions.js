@@ -9,13 +9,13 @@ import {
 } from '../actions/types';
 import { setAlert } from './alertActions';
 
-export const getLicenseKeys = (member) => async (dispatch) => {
+export const getLicenseKeys = (premissionLevel) => async (dispatch) => {
   try {
     let res = null;
-    if (member.role === 'kiwicodes') {
+    if (premissionLevel === 'kiwicodes') {
       res = await api.get('/licensekeys');
     } else {
-      res = await api.get(`/licensekeys/byClientId/${member.clientId}`);
+      res = await api.get('/licensekeys/byClientId');
     }
     dispatch({
       type: GET_LICENSEKEYS,

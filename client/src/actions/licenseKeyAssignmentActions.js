@@ -9,16 +9,17 @@ import {
 } from '../actions/types';
 import { setAlert } from './alertActions';
 
-export const getLicenseKeyAssignments = (member, licenseKeyId) => async (
-  dispatch
-) => {
+export const getLicenseKeyAssignments = (
+  premissionLevel,
+  licenseKeyId
+) => async (dispatch) => {
   try {
     let res = null;
-    if (member.role === 'kiwicodes') {
+    if (premissionLevel === 'kiwicodes') {
       res = await api.get('/licensekeyassignments');
     } else {
       res = await api.get(
-        `/licensekeyassignments/byClientIdLicenseKeyId/${member.clientId}/${licenseKeyId}`
+        `/licensekeyassignments/byClientIdLicenseKeyId/${licenseKeyId}`
       );
     }
     dispatch({

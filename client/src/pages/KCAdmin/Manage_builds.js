@@ -28,22 +28,15 @@ const Manage_builds = () => {
               path='/manage_builds/list'
               component={BuildList}
               productID={state ? state.productID : 0}
-              routePremissionLevel={'kiwicodes'}
             />
-            <PrivateRoute
-              path='/manage_builds/create'
-              component={BuildAdd}
-              routePremissionLevel={'kiwicodes'}
-            />
+            <PrivateRoute path='/manage_builds/create' component={BuildAdd} />
             <PrivateRoute
               path='/manage_builds/build_edit/:id'
               component={BuildEdit}
-              routePremissionLevel={'kiwicodes'}
             />
             <PrivateRoute
               path='/manage_builds/bulkAdd'
               component={BuildBulkAdd}
-              routePremissionLevel={'kiwicodes'}
             />
           </Switch>
         </div>

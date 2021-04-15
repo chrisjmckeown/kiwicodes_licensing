@@ -127,19 +127,17 @@ const Header = ({
                 )}
                 {!loading && (
                   <>
-                    {
-                      // permissionLevel === 'kiwicodes' ||
-                      permissionLevel === 'admin' && adminLinks
-                    }
+                    {(permissionLevel === 'kiwicodes' ||
+                      permissionLevel === 'admin') &&
+                      adminLinks}
                   </>
                 )}
                 {!loading && (
                   <>
-                    {
-                      // permissionLevel === 'kiwicodes' ||
-                      //   permissionLevel === 'admin' ||
-                      permissionLevel === 'user' && memberLinks
-                    }
+                    {(permissionLevel === 'kiwicodes' ||
+                      permissionLevel === 'admin' ||
+                      permissionLevel === 'user') &&
+                      memberLinks}
                   </>
                 )}
                 <li className='header__primaryItem'>

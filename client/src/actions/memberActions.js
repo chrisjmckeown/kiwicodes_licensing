@@ -11,13 +11,13 @@ import {
 } from './types';
 import { setAlert } from './alertActions';
 
-export const getMembers = (member) => async (dispatch) => {
+export const getMembers = (premissionLevel) => async (dispatch) => {
   try {
     let res = null;
-    if (member.role === 'kiwicodes') {
+    if (premissionLevel === 'kiwicodes') {
       res = await api.get('/members');
     } else {
-      res = await api.get(`/members/byClientId/${member.clientId}`);
+      res = await api.get('/members/byClientId/');
     }
     dispatch({
       type: GET_MEMBERS,

@@ -109,7 +109,7 @@ const MemberTable = ({
               },
             ],
           },
-          auth.permissionLevel === 'kiwicodes'
+          props.clientId === 0
             ? {
                 Header: 'Manage Member',
                 fixed: 'left',

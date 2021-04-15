@@ -30,12 +30,11 @@ module.exports = {
       const licenseKeyAssignments = await db.member.findAll({
         attributes: ['id', 'firstName', 'lastName'],
         where: {
-          clientId: req.params.clientId,
+          clientId: parseInt(req.member.clientId),
         },
         include: [
           {
             model: db.licenseKeyAssignment,
-            // attributes: ['id', 'licenseKeyId'],
             where: {
               licenseKeyId: req.params.licenseKeyId,
             },

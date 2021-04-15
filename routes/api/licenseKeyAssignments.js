@@ -18,9 +18,9 @@ router.get(
   licenseKeyAssignmentController.findAllbyLicenseKeyId
 );
 
-// Matches with "/api/licenseKeyAssignments/byClientIdLicenseKeyId/:clientId/:licenseKeyId"
+// Matches with "/api/licenseKeyAssignments/byClientIdLicenseKeyId/:licenseKeyId"
 router.get(
-  '/byClientIdLicenseKeyId/:clientId/:licenseKeyId',
+  '/byClientIdLicenseKeyId/:licenseKeyId',
   auth,
   licenseKeyAssignmentController.findAllbyClientIdLicenseKeyId
 );

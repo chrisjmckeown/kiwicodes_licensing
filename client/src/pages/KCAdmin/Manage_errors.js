@@ -21,20 +21,11 @@ const Manage_errors = () => {
         </div>
         <div className='col10 lg margin_Top'>
           <Switch>
-            <PrivateRoute
-              path='/manage_errors/list'
-              component={ErrorList}
-              routePremissionLevel={'kiwicodes'}
-            />
-            <PrivateRoute
-              path='/manage_errors/create'
-              component={ErrorAdd}
-              routePremissionLevel={'kiwicodes'}
-            />
+            <PrivateRoute path='/manage_errors/list' component={ErrorList} />
+            <PrivateRoute path='/manage_errors/create' component={ErrorAdd} />
             <PrivateRoute
               path='/manage_errors/error_edit/:id'
               component={ErrorEdit}
-              routePremissionLevel={'kiwicodes'}
             />
           </Switch>
         </div>

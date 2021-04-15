@@ -24,17 +24,14 @@ const My_account = () => {
             <PrivateRoute
               path='/my_account/my_details'
               component={MyDetailsForm}
-              routePremissionLevel={'all'}
             />
             <PrivateRoute
               path='/my_account/my_password'
               component={PasswordForm}
-              routePremissionLevel={'all'}
             />
             <PrivateRoute
               path='/my_account/my_profile'
               component={MyProfileForm}
-              routePremissionLevel={'all'}
             />
           </Switch>
         </div>

@@ -60,7 +60,7 @@ const LicenseKeyTable = (props) => {
               },
             ],
           },
-          props.auth.permissionLevel === 'kiwicodes'
+          props.clientId === 0
             ? {
                 Header: 'Manage License Key',
                 fixed: 'left',

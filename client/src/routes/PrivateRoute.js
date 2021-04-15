@@ -4,29 +4,17 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 const PrivateRoute = ({
-  routePremissionLevel,
   component: Component,
   auth: { loading, isAuthenticated, permissionLevel },
   props,
   ...rest
 }) => {
-  const checkPermissionLevels = (props) => {
-    if (routePremissionLevel === 'all') {
+  const checkPermissionLevels = () => {
+    if (permissionLevel === 'kiwicodes') {
       return true;
-    } else if (
-      permissionLevel === 'kiwicodes' &&
-      routePremissionLevel === 'kiwicodes'
-    ) {
-      // if (permissionLevel === 'kiwicodes') {
+    } else if (permissionLevel === 'admin') {
       return true;
-    } else if (
-      permissionLevel === 'admin' &&
-      routePremissionLevel === 'admin'
-    ) {
-      // permissionLevel === 'admin' &&
-      // (routePremissionLevel === 'admin' || routePremissionLevel === 'user')
-      return true;
-    } else if (permissionLevel === 'user' && routePremissionLevel === 'user') {
+    } else if (permissionLevel === 'user') {
       return true;
     } else {
       return false;
@@ -39,13 +27,8 @@ const PrivateRoute = ({
       render={(props) =>
         !isAuthenticated && !loading ? (
           <Redirect to='/login' />
-        ) : checkPermissionLevels(props) ? (
-          <Component
-            {...props}
-            routePremissionLevel={routePremissionLevel}
-            permissionLevel={permissionLevel}
-            {...rest}
-          />
+        ) : checkPermissionLevels() ? (
+          <Component {...props} {...rest} />
         ) : (
           <Redirect to='/' />
         )
