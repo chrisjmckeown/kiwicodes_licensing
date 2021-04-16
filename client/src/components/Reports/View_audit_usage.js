@@ -1,14 +1,24 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import Moment from 'moment';
+import { auditSelectors } from '../../selectors/auditSelectors';
+import ViewAuditSearch from './View_audit_usage_search';
 
-const View_audit_usage = ({ audits }) => {
+const View_audit_usage = ({ filteredAudits, premissionLevel }) => {
   return (
     <>
+      <ViewAuditSearch premissionLevel={premissionLevel} />
+      <div className='row lg'>
+        <div className='search-results'>
+          Results: {filteredAudits.length.toString()}
+        </div>
+      </div>
       <div className='row lg'>
         <div className='col12 lg'>
           <div className='list-body'>
-            {audits.length > 0 ? (
-              audits.map((audit, index) => (
+            {filteredAudits.length > 0 ? (
+              filteredAudits.map((audit, index) => (
                 <div key={index}>
                   <div className='list-header'>
                     <div>Audit</div>
@@ -21,10 +31,12 @@ const View_audit_usage = ({ audits }) => {
                       Model Id: {audit.modelId}
                     </p>
                     <p className='list-item__sub-title'>
-                      Member Id: {audit.memberId}
+                      Member:{' '}
+                      {audit.member &&
+                        audit.member.firstName + ' ' + audit.member.lastName}
                     </p>
                     <p className='list-item__sub-title'>
-                      Client Id: {audit.clientId}
+                      Client: {audit.member.client && audit.member.client.name}
                     </p>
                   </div>
 
@@ -60,4 +72,12 @@ const View_audit_usage = ({ audits }) => {
   );
 };
 
-export default View_audit_usage;
+View_audit_usage.propTypes = {
+  filteredAudits: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state, props) => ({
+  filteredAudits: auditSelectors(state.audit),
+});
+
+export default connect(mapStateToProps)(View_audit_usage);

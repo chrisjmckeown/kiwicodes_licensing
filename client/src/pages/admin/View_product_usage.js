@@ -24,7 +24,10 @@ const View_product_usage = ({
         <Spinner />
       ) : (
         <>
-          <ViewProductUsage productActivations={productActivations} />
+          <ViewProductUsage
+            productActivations={productActivations}
+            premissionLevel={'admin'}
+          />
         </>
       )}
       <Alert />

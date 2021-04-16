@@ -6,6 +6,11 @@ import {
   GET_PRODUCTACTIVATION,
   GET_PRODUCTACTIVATIONS,
   CLEAR_PRODUCTACTIVATIONS,
+  SET_PRODUCTACTIVATIONS_START_DATE,
+  SET_PRODUCTACTIVATIONS_END_DATE,
+  SET_PRODUCTACTIVATIONS_NAME_FILTER,
+  SET_PRODUCTACTIVATIONS_MEMBER_FILTER,
+  SET_PRODUCTACTIVATIONS_COMPANY_FILTER,
 } from '../actions/types';
 import { setAlert } from './alertActions';
 
@@ -123,6 +128,42 @@ export const deleteProductActivation = (id) => async (dispatch) => {
     return false;
   }
 };
+
+export const setFilterStartDate = (startDate) => async (dispatch) => {
+  dispatch({
+    type: SET_PRODUCTACTIVATIONS_START_DATE,
+    payload: startDate,
+  });
+};
+
+export const setFilterEndDate = (endDate) => async (dispatch) => {
+  dispatch({
+    type: SET_PRODUCTACTIVATIONS_END_DATE,
+    payload: endDate,
+  });
+};
+
+export const setFilterName = (name) => async (dispatch) => {
+  dispatch({
+    type: SET_PRODUCTACTIVATIONS_NAME_FILTER,
+    payload: name,
+  });
+};
+
+export const setFilterMember = (member) => async (dispatch) => {
+  dispatch({
+    type: SET_PRODUCTACTIVATIONS_MEMBER_FILTER,
+    payload: member,
+  });
+};
+
+export const setFilterCompany = (company) => async (dispatch) => {
+  dispatch({
+    type: SET_PRODUCTACTIVATIONS_COMPANY_FILTER,
+    payload: company,
+  });
+};
+
 export const clearProductActivation = () => async (dispatch) => {
   dispatch({
     type: CLEAR_PRODUCTACTIVATIONS,

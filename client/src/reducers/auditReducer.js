@@ -1,3 +1,4 @@
+import moment from 'moment';
 import {
   ADD_AUDIT,
   DELETE_AUDIT,
@@ -5,12 +6,22 @@ import {
   GET_AUDIT,
   GET_AUDITS,
   CLEAR_AUDITS,
+  SET_AUDITACTIVATIONS_START_DATE,
+  SET_AUDITACTIVATIONS_END_DATE,
+  SET_AUDITACTIVATIONS_NAME_FILTER,
+  SET_AUDITACTIVATIONS_MEMBER_FILTER,
+  SET_AUDITACTIVATIONS_COMPANY_FILTER,
 } from '../actions/types';
 
 const initialState = {
   audit: null,
   audits: [],
   loading: true,
+  filterStartDate: moment().startOf('month'),
+  filterEndDate: moment().endOf('month'),
+  filterName: '',
+  filterMember: '',
+  filterCompany: '',
 };
 
 export const audit = (state = initialState, action) => {
@@ -48,12 +59,42 @@ export const audit = (state = initialState, action) => {
         audits: payload,
         loading: false,
       };
+    case SET_AUDITACTIVATIONS_START_DATE:
+      return {
+        ...state,
+        filterStartDate: payload,
+      };
+    case SET_AUDITACTIVATIONS_END_DATE:
+      return {
+        ...state,
+        filterEndDate: payload,
+      };
+    case SET_AUDITACTIVATIONS_NAME_FILTER:
+      return {
+        ...state,
+        filterName: payload,
+      };
+    case SET_AUDITACTIVATIONS_MEMBER_FILTER:
+      return {
+        ...state,
+        filterMember: payload,
+      };
+    case SET_AUDITACTIVATIONS_COMPANY_FILTER:
+      return {
+        ...state,
+        filterCompany: payload,
+      };
     case CLEAR_AUDITS:
       return {
         ...state,
         audit: null,
         audits: [],
         loading: false,
+        filterStartDate: moment().startOf('month'),
+        filterEndDate: moment().endOf('month'),
+        filterName: '',
+        filterMember: '',
+        filterCompany: '',
       };
     default:
       return state;

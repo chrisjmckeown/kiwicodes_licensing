@@ -1,3 +1,4 @@
+import moment from 'moment';
 import {
   ADD_PRODUCTACTIVATION,
   DELETE_PRODUCTACTIVATION,
@@ -5,12 +6,22 @@ import {
   GET_PRODUCTACTIVATION,
   GET_PRODUCTACTIVATIONS,
   CLEAR_PRODUCTACTIVATIONS,
+  SET_PRODUCTACTIVATIONS_START_DATE,
+  SET_PRODUCTACTIVATIONS_END_DATE,
+  SET_PRODUCTACTIVATIONS_NAME_FILTER,
+  SET_PRODUCTACTIVATIONS_MEMBER_FILTER,
+  SET_PRODUCTACTIVATIONS_COMPANY_FILTER,
 } from '../actions/types';
 
 const initialState = {
   productActivation: null,
   productActivations: [],
   loading: true,
+  filterStartDate: moment().startOf('month'),
+  filterEndDate: moment().endOf('month'),
+  filterName: '',
+  filterMember: '',
+  filterCompany: '',
 };
 
 export const productActivation = (state = initialState, action) => {
@@ -52,12 +63,42 @@ export const productActivation = (state = initialState, action) => {
         productActivations: payload,
         loading: false,
       };
+    case SET_PRODUCTACTIVATIONS_START_DATE:
+      return {
+        ...state,
+        filterStartDate: payload,
+      };
+    case SET_PRODUCTACTIVATIONS_END_DATE:
+      return {
+        ...state,
+        filterEndDate: payload,
+      };
+    case SET_PRODUCTACTIVATIONS_NAME_FILTER:
+      return {
+        ...state,
+        filterName: payload,
+      };
+    case SET_PRODUCTACTIVATIONS_MEMBER_FILTER:
+      return {
+        ...state,
+        filterMember: payload,
+      };
+    case SET_PRODUCTACTIVATIONS_COMPANY_FILTER:
+      return {
+        ...state,
+        filterCompany: payload,
+      };
     case CLEAR_PRODUCTACTIVATIONS:
       return {
         ...state,
         productActivation: null,
         productActivations: [],
         loading: false,
+        filterStartDate: moment().startOf('month'),
+        filterEndDate: moment().endOf('month'),
+        filterName: '',
+        filterMember: '',
+        filterCompany: '',
       };
     default:
       return state;

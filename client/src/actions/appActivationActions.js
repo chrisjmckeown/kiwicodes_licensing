@@ -6,6 +6,11 @@ import {
   GET_APPACTIVATION,
   GET_APPACTIVATIONS,
   CLEAR_APPACTIVATIONS,
+  SET_APPACTIVATIONS_START_DATE,
+  SET_APPACTIVATIONS_END_DATE,
+  SET_APPACTIVATIONS_NAME_FILTER,
+  SET_APPACTIVATIONS_MEMBER_FILTER,
+  SET_APPACTIVATIONS_COMPANY_FILTER,
 } from '../actions/types';
 import { setAlert } from './alertActions';
 
@@ -109,6 +114,42 @@ export const deleteAppActivation = (id) => async (dispatch) => {
     return false;
   }
 };
+
+export const setFilterStartDate = (startDate) => async (dispatch) => {
+  dispatch({
+    type: SET_APPACTIVATIONS_START_DATE,
+    payload: startDate,
+  });
+};
+
+export const setFilterEndDate = (endDate) => async (dispatch) => {
+  dispatch({
+    type: SET_APPACTIVATIONS_END_DATE,
+    payload: endDate,
+  });
+};
+
+export const setFilterName = (name) => async (dispatch) => {
+  dispatch({
+    type: SET_APPACTIVATIONS_NAME_FILTER,
+    payload: name,
+  });
+};
+
+export const setFilterMember = (member) => async (dispatch) => {
+  dispatch({
+    type: SET_APPACTIVATIONS_MEMBER_FILTER,
+    payload: member,
+  });
+};
+
+export const setFilterCompany = (company) => async (dispatch) => {
+  dispatch({
+    type: SET_APPACTIVATIONS_COMPANY_FILTER,
+    payload: company,
+  });
+};
+
 export const clearAppActivation = () => async (dispatch) => {
   dispatch({
     type: CLEAR_APPACTIVATIONS,

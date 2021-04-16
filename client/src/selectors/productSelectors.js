@@ -1,42 +1,31 @@
 import moment from 'moment';
-export const filter = (apps, productId) => {
-  if (productId === 0) {
-    return apps;
-  } else {
-    return apps.filter((app) => {
-      const productIdMatch = app.productId.toString() === productId.toString();
-      return productIdMatch;
-    });
-  }
-};
-
-export const appSelectors = ({
-  appActivations,
+export const productSelectors = ({
+  productActivations,
   filterStartDate,
   filterEndDate,
   filterName,
   filterMember,
   filterCompany,
 }) => {
-  return appActivations.filter((appActivation) => {
-    const dateActivatedMoment = moment(appActivation.dateActivated);
+  return productActivations.filter((productActivation) => {
+    const dateActivatedMoment = moment(productActivation.dateActivated);
     const startDateMatch = filterStartDate
       ? filterStartDate.isSameOrBefore(dateActivatedMoment, 'day')
       : true;
     const endDateMatch = filterEndDate
       ? filterEndDate.isSameOrAfter(dateActivatedMoment, 'day')
       : true;
-    const nameMatch = appActivation.app.name
+    const nameMatch = productActivation.product.name
       .toLowerCase()
       .includes(filterName.toLowerCase());
     const memberMatch = (
-      appActivation.member.firstName +
+      productActivation.member.firstName +
       ' ' +
-      appActivation.member.lastName
+      productActivation.member.lastName
     )
       .toLowerCase()
       .includes(filterMember.toLowerCase());
-    const companyMatch = appActivation.member.client.name
+    const companyMatch = productActivation.member.client.name
       .toLowerCase()
       .includes(filterCompany.toLowerCase());
 

@@ -64,13 +64,6 @@ export const ErrorForm = ({ error, onSubmit }) => {
               <div className='form_left'>
                 <label>Date</label>
               </div>
-              {/* <input
-                className='form_right'
-                name={'date'}
-                value={date}
-                onChange={(e) => handleChangeDetails(e)}
-              ></input> */}
-
               <SingleDatePicker
                 date={Moment(date)}
                 onDateChange={onDateChange}

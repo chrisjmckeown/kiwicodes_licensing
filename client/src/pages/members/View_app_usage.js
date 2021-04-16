@@ -24,7 +24,10 @@ const View_app_usage = ({
         <Spinner />
       ) : (
         <>
-          <ViewAppUsage appActivations={appActivations} />
+          <ViewAppUsage
+            appActivations={appActivations}
+            premissionLevel={'user'}
+          />
         </>
       )}
       <Alert />

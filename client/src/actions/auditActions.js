@@ -6,6 +6,11 @@ import {
   GET_AUDIT,
   GET_AUDITS,
   CLEAR_AUDITS,
+  SET_AUDITACTIVATIONS_START_DATE,
+  SET_AUDITACTIVATIONS_END_DATE,
+  SET_AUDITACTIVATIONS_NAME_FILTER,
+  SET_AUDITACTIVATIONS_MEMBER_FILTER,
+  SET_AUDITACTIVATIONS_COMPANY_FILTER,
 } from '../actions/types';
 import { setAlert } from './alertActions';
 
@@ -13,16 +18,28 @@ export const getAudits = (premissionLevel) => async (dispatch) => {
   try {
     clearAudit();
     let res;
+    let members;
     if (premissionLevel === 'kiwicodes') {
       // get all
       res = await api.get('/audits');
+      members = await api.get('/members');
     } else if (premissionLevel === 'admin') {
       // get by client id
       res = await api.get('/audits/byClientId');
+      members = await api.get('/members/byClientId');
     } else {
       // get by member id
       res = await api.get('/audits/byMemberId');
+      members = await api.get('/members/byClientId');
     }
+    await res.data.forEach(async (element) => {
+      const member = members.data.filter(
+        (member) => member.id === element.memberId
+      );
+      member
+        ? (element.member = { ...member[0] })
+        : (element.member = undefined);
+    });
     dispatch({
       type: GET_AUDITS,
       payload: res.data,
@@ -108,6 +125,41 @@ export const deleteAudit = (id) => async (dispatch) => {
     }
     return false;
   }
+};
+
+export const setFilterStartDate = (startDate) => async (dispatch) => {
+  dispatch({
+    type: SET_AUDITACTIVATIONS_START_DATE,
+    payload: startDate,
+  });
+};
+
+export const setFilterEndDate = (endDate) => async (dispatch) => {
+  dispatch({
+    type: SET_AUDITACTIVATIONS_END_DATE,
+    payload: endDate,
+  });
+};
+
+export const setFilterName = (name) => async (dispatch) => {
+  dispatch({
+    type: SET_AUDITACTIVATIONS_NAME_FILTER,
+    payload: name,
+  });
+};
+
+export const setFilterMember = (member) => async (dispatch) => {
+  dispatch({
+    type: SET_AUDITACTIVATIONS_MEMBER_FILTER,
+    payload: member,
+  });
+};
+
+export const setFilterCompany = (company) => async (dispatch) => {
+  dispatch({
+    type: SET_AUDITACTIVATIONS_COMPANY_FILTER,
+    payload: company,
+  });
 };
 export const clearAudit = () => async (dispatch) => {
   dispatch({

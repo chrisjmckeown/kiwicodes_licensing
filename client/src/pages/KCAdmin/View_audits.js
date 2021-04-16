@@ -21,7 +21,7 @@ const View_audits = ({ getAudits, audit: { audits, loading } }) => {
         <Spinner />
       ) : (
         <>
-          <ViewAuditUsage audits={audits} />
+          <ViewAuditUsage audits={audits} premissionLevel={'kiwicodes'} />
         </>
       )}
       <Alert />
