@@ -32,7 +32,7 @@ const KCAdminSubMenu = ({ nav, item }) => {
         <NavLink to='/view_app_usage'>VIEW APP USAGE</NavLink>
       </li>
       <li className={item}>
-        <NavLink to='/view_audits'>VIEW AUDITS</NavLink>
+        <NavLink to='/kcadmin_view_audits/raw_data'>VIEW AUDITS</NavLink>
       </li>
     </ul>
   );

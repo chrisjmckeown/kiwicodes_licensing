@@ -97,8 +97,20 @@ module.exports = {
     };
 
     try {
-      const licenseKey = new db.licenseKey(licenseKeyFeilds);
-      await licenseKey.save();
+      // const licenseKey = new db.licenseKey(licenseKeyFeilds);
+      let licenseKey = await db.licenseKey.create(licenseKeyFeilds);
+      licenseKey = await db.licenseKey.findByPk(licenseKey.id, {
+        include: [
+          {
+            model: db.client,
+            attributes: ['name'],
+          },
+          {
+            model: db.product,
+            attributes: ['name'],
+          },
+        ],
+      });
       return res.json(licenseKey);
     } catch (err) {
       console.error(err.message);
@@ -131,7 +143,18 @@ module.exports = {
     if (productId !== undefined) licenseKeyFeilds.productId = productId;
 
     try {
-      let licenseKey = await db.licenseKey.findByPk(req.params.id);
+      let licenseKey = await db.licenseKey.findByPk(req.params.id, {
+        include: [
+          {
+            model: db.client,
+            attributes: ['name'],
+          },
+          {
+            model: db.product,
+            attributes: ['name'],
+          },
+        ],
+      });
 
       if (licenseKey) {
         licenseKey = await licenseKey.update(licenseKeyFeilds);

@@ -56,18 +56,48 @@ module.exports = {
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
-
-    const { name, phone, address, primaryEmail } = req.body;
-
-    const clientFeilds = {
-      name,
-      phone,
-      address,
-      primaryEmail,
-    };
-
+    const { name, city } = req.body;
     try {
-      const client = new db.client(clientFeilds);
+      let client = await db.client.findOne({
+        where: {
+          name,
+          city,
+        },
+      });
+
+      if (client) {
+        const {
+          name,
+          phone,
+          address1,
+          address2,
+          city,
+          country,
+          region,
+          postal,
+          primaryEmail,
+        } = req.body;
+
+        const clientFeilds = {};
+        if (name !== undefined) clientFeilds.name = name;
+        if (phone !== undefined) clientFeilds.phone = phone;
+        if (address1 !== undefined) clientFeilds.address1 = address1;
+        if (address2 !== undefined) clientFeilds.address2 = address2;
+        if (city !== undefined) clientFeilds.city = city;
+        if (country !== undefined) clientFeilds.country = country;
+        if (region !== undefined) clientFeilds.region = region;
+        if (postal !== undefined) clientFeilds.postal = postal;
+        if (primaryEmail !== undefined)
+          clientFeilds.primaryEmail = primaryEmail;
+
+        client = await client.update(clientFeilds);
+        return res.json(client);
+        // return res
+        //   .status(400)
+        //   .json({ errors: [{ msg: 'Client already exists' }] });
+      }
+
+      client = new db.client(req.body);
       await client.save();
       return res.json(client);
     } catch (err) {
@@ -84,12 +114,27 @@ module.exports = {
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { name, phone, address, primaryEmail } = req.body;
+    const {
+      name,
+      phone,
+      address1,
+      address2,
+      city,
+      country,
+      region,
+      postal,
+      primaryEmail,
+    } = req.body;
 
     const clientFeilds = {};
     if (name !== undefined) clientFeilds.name = name;
     if (phone !== undefined) clientFeilds.phone = phone;
-    if (address !== undefined) clientFeilds.address = address;
+    if (address1 !== undefined) clientFeilds.address1 = address1;
+    if (address2 !== undefined) clientFeilds.address2 = address2;
+    if (city !== undefined) clientFeilds.city = city;
+    if (country !== undefined) clientFeilds.country = country;
+    if (region !== undefined) clientFeilds.region = region;
+    if (postal !== undefined) clientFeilds.postal = postal;
     if (primaryEmail !== undefined) clientFeilds.primaryEmail = primaryEmail;
 
     try {

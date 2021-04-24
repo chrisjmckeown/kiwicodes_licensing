@@ -139,6 +139,7 @@ module.exports = {
       await member.save();
 
       member.password = '';
+
       // send invite email
       newMemberCreated(
         email,
@@ -148,22 +149,8 @@ module.exports = {
         fromCompany,
         fromName
       );
-      return res.json({ member });
-      // const payload = {
-      //   member: {
-      //     id: member.id,
-      //   },
-      // };
 
-      // jwt.sign(
-      //   payload,
-      //   process.env.JWT_Secret,
-      //   { expiresIn: 3600 },
-      //   (err, token) => {
-      //     if (err) throw err;
-      //     return res.json({ token });
-      //   }
-      // );
+      return res.json({ member });
     } catch (err) {
       return res.status(500).send('Server error');
     }

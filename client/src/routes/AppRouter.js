@@ -71,7 +71,7 @@ export const AppRouter = () => (
           component={View_product_usage}
         />
         <PrivateRoute exact path='/view_app_usage' component={View_app_usage} />
-        <PrivateRoute exact path='/view_audits' component={View_audits} />
+        <PrivateRoute path='/kcadmin_view_audits' component={View_audits} />
 
         <PrivateRoute exact path='/admin' component={Admin_Page} />
         <PrivateRoute

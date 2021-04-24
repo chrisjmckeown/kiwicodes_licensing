@@ -12,7 +12,7 @@ router.post(
     [
       check('name', 'Name is required').not().isEmpty(),
       check('phone', 'Phone is required').not().isEmpty(),
-      check('address', 'Address is required').not().isEmpty(),
+      check('address1', 'Address is required').not().isEmpty(),
       check('primaryEmail', 'Please include a valid email').isEmail(),
     ],
   ],
@@ -28,7 +28,7 @@ router.put(
     [
       check('name', 'Name is required').not().isEmpty(),
       check('phone', 'Phone is required').not().isEmpty(),
-      check('address', 'Address is required').not().isEmpty(),
+      check('address1', 'Address is required').not().isEmpty(),
       check('primaryEmail', 'Please include a valid email').isEmail(),
     ],
   ],

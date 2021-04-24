@@ -19,7 +19,7 @@ const AdminSubMenu = ({ nav, item }) => {
         <NavLink to='/admin_view_app_usage'>VIEW APP USAGE</NavLink>
       </li>
       <li className={item}>
-        <NavLink to='/admin_view_audits'>VIEW AUDITS</NavLink>
+        <NavLink to='/admin_view_audits/raw_data'>VIEW AUDITS</NavLink>
       </li>
     </ul>
   );

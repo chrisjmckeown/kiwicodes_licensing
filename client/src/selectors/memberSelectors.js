@@ -3,8 +3,10 @@ export const filter = (members, clientId) => {
     return members;
   } else {
     return members.filter((member) => {
-      const clientIdMatch = member.clientId.toString() === clientId.toString();
-      return clientIdMatch;
+      const result = member.clientId
+        ? member.clientId.toString() === clientId.toString()
+        : false;
+      return result;
     });
   }
 };

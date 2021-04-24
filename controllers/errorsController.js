@@ -42,28 +42,8 @@ module.exports = {
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const {
-      message,
-      className,
-      methodName,
-      buildNumber,
-      revitBuild,
-      memberId,
-      appId,
-    } = req.body;
-
-    const errorFeilds = {
-      message,
-      className,
-      methodName,
-      buildNumber,
-      revitBuild,
-      memberId,
-      appId,
-    };
-
     try {
-      const error = new db.error(errorFeilds);
+      const error = new db.error(req.body);
       await error.save();
       return res.json(error);
     } catch (err) {

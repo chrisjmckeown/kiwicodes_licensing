@@ -18,6 +18,7 @@ const LicenseKeyTable = (props) => {
     props.deleteLicenseKey(licenseKeyID);
     history.push('/manage_licensekeys/list');
   };
+  console.log(props.clientId);
   return (
     <div className='reacttable__wrapper'>
       <ReactTable
@@ -60,7 +61,7 @@ const LicenseKeyTable = (props) => {
               },
             ],
           },
-          props.clientId === 0
+          props.clientId === 0 || props.clientId === undefined
             ? {
                 Header: 'Manage License Key',
                 fixed: 'left',

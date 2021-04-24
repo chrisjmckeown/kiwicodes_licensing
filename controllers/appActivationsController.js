@@ -48,7 +48,6 @@ module.exports = {
   // @access  Private
   findByClientId: async (req, res) => {
     try {
-      console.log('findByClientId');
       const appActivations = await db.appActivation.findAll({
         include: [
           {
@@ -112,24 +111,8 @@ module.exports = {
   // @desc    Create a app activation
   // @access  Private
   create: async (req, res) => {
-    const {
-      dateActivated,
-      buildNumber,
-      revitBuild,
-      appId,
-      memberId,
-    } = req.body;
-
-    const appActivationFeilds = {
-      dateActivated,
-      buildNumber,
-      revitBuild,
-      appId,
-      memberId,
-    };
-
     try {
-      const appActivation = new db.appActivation(appActivationFeilds);
+      const appActivation = new db.appActivation(req.body);
       await appActivation.save();
       return res.json(appActivation);
     } catch (err) {

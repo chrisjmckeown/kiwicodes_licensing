@@ -12,6 +12,7 @@ import LicenseKeyList from '../../components/KCAdmin/ManageLicenseKeys/LicenseKe
 import LicenseKeyAdd from '../../components/KCAdmin/ManageLicenseKeys/LicenseKeyAdd';
 import LicenseKeyEdit from '../../components/KCAdmin/ManageLicenseKeys/LicenseKeyEdit';
 import LicenseKeyMenu from '../../components/KCAdmin/ManageLicenseKeys/LicenseKeyMenu';
+import LicenseKeyBulkAdd from '../../components/KCAdmin/ManageLicenseKeys/LicenseKeyBulkAdd';
 import { getLicenseKeys } from '../../actions/licenseKeyActions';
 import Spinner from '../../components/Spinner';
 
@@ -45,6 +46,10 @@ const Manage_licensekeys = ({ getLicenseKeys, licenseKey: { loading } }) => {
               <PrivateRoute
                 path='/manage_licensekeys/licensekey_edit/:id'
                 component={LicenseKeyEdit}
+              />
+              <PrivateRoute
+                path='/manage_licensekeys/bulkAdd'
+                component={LicenseKeyBulkAdd}
               />
             </Switch>
           </div>

@@ -11,7 +11,7 @@ const MemberSubMenu = ({ nav, item }) => {
         <NavLink to='/member_view_app_usage'>VIEW APP USAGE</NavLink>
       </li>
       <li className={item}>
-        <NavLink to='/member_view_audits'>VIEW AUDITS</NavLink>
+        <NavLink to='/member_view_audits/raw_data'>VIEW AUDITS</NavLink>
       </li>
     </ul>
   );

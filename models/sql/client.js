@@ -15,17 +15,52 @@ module.exports = function (sequelize, DataTypes) {
         },
       },
       phone: {
-        type: DataTypes.STRING(15),
+        type: DataTypes.STRING(50),
         allowNull: false,
         validate: {
-          len: [1, 15],
+          len: [1, 50],
         },
       },
-      address: {
+      address1: {
         type: DataTypes.STRING(255),
         allowNull: false,
         validate: {
           len: [1, 255],
+        },
+      },
+      address2: {
+        type: DataTypes.STRING(255),
+        allowNull: true,
+        validate: {
+          len: [0, 255],
+        },
+      },
+      city: {
+        type: DataTypes.STRING(255),
+        allowNull: true,
+        validate: {
+          len: [0, 255],
+        },
+      },
+      country: {
+        type: DataTypes.STRING(255),
+        allowNull: true,
+        validate: {
+          len: [0, 255],
+        },
+      },
+      region: {
+        type: DataTypes.STRING(255),
+        allowNull: true,
+        validate: {
+          len: [0, 255],
+        },
+      },
+      postal: {
+        type: DataTypes.STRING(255),
+        allowNull: true,
+        validate: {
+          len: [0, 255],
         },
       },
       primaryEmail: {

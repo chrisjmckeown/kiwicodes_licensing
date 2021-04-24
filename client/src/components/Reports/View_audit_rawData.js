@@ -1,17 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 import Moment from 'moment';
 import { auditSelectors } from '../../selectors/auditSelectors';
-import ViewAuditSearch from './View_audit_usage_search';
 
-const View_audit_usage = ({ filteredAudits, premissionLevel }) => {
+const View_audit_rawData = ({ filteredAudits, premissionLevel }) => {
   return (
     <>
-      <ViewAuditSearch premissionLevel={premissionLevel} />
       <div className='row lg'>
         <div className='search-results'>
-          Results: {filteredAudits.length.toString()}
+          Search results: {filteredAudits.length.toString()}
         </div>
       </div>
       <div className='row lg'>
@@ -72,12 +69,8 @@ const View_audit_usage = ({ filteredAudits, premissionLevel }) => {
   );
 };
 
-View_audit_usage.propTypes = {
-  filteredAudits: PropTypes.object.isRequired,
-};
-
 const mapStateToProps = (state, props) => ({
   filteredAudits: auditSelectors(state.audit),
 });
 
-export default connect(mapStateToProps)(View_audit_usage);
+export default connect(mapStateToProps)(View_audit_rawData);

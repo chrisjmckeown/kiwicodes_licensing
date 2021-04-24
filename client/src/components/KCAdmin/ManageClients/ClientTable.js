@@ -48,8 +48,8 @@ const ClientTable = (props) => {
                 style: { whiteSpace: 'unset' },
               },
               {
-                Header: 'Address',
-                accessor: 'address',
+                Header: 'Address 1',
+                accessor: 'address1',
                 wrap: true,
                 style: { whiteSpace: 'unset' },
               },

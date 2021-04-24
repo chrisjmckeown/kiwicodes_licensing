@@ -1,42 +1,42 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
-export const LicenseKeyMenu = () => {
+export const AuditMenuKCAdmin = () => {
   return (
     <ul className='nav__Container'>
       <li className='nav__Item'>
-        <NavLink to='/manage_licensekeys/list' title='Manage'>
+        <NavLink to='/kcadmin_view_audits/raw_data' title='Raw data'>
           <div className='nav__image'>
             <i className='far fa-plus-square'></i>
           </div>
-          <div className='nav__text'>Manage</div>
+          <div className='nav__text'>Raw data</div>
         </NavLink>
       </li>
       <li className='nav__Item'>
-        <NavLink to='/manage_licensekeys/create' title='Create'>
+        <NavLink to='/kcadmin_view_audits/links' title='Links'>
           <div className='nav__image'>
             <i className='far fa-plus-square'></i>
           </div>
-          <div className='nav__text'>Create</div>
+          <div className='nav__text'>Links</div>
         </NavLink>
       </li>
       <li className='nav__Item'>
-        <NavLink to='/manage_licensekeys/bulkAdd' title='Bulk Add'>
+        <Link to='/kcadmin_view_audits/warnings' title='Warnings'>
           <div className='nav__image'>
             <i className='far fa-plus-square'></i>
           </div>
-          <div className='nav__text'>Bulk Add</div>
-        </NavLink>
-      </li>
-      <li className='nav__Item'>
-        <Link to='/manage_licensekeys/list' title='Clear Filters'>
-          <div className='nav__image'>
-            <i className='far fa-plus-square'></i>
-          </div>
-          <div className='nav__text'>Clear Filters</div>
+          <div className='nav__text'>Warnings</div>
         </Link>
+      </li>
+      <li className='nav__Item'>
+        <NavLink to='/kcadmin_view_audits/views' title='Views'>
+          <div className='nav__image'>
+            <i className='far fa-plus-square'></i>
+          </div>
+          <div className='nav__text'>Views</div>
+        </NavLink>
       </li>
     </ul>
   );
 };
-export default LicenseKeyMenu;
+export default AuditMenuKCAdmin;

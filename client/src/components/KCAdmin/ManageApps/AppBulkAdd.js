@@ -26,9 +26,32 @@ export const AppBulkAdd = ({ setAlert, addApp }) => {
   };
   return (
     <>
-      <CSVReader
-        onFileLoaded={(data, fileInfo) => onFileLoaded(data, fileInfo)}
-      />
+      <div className='row lg'>
+        <div className='col12 lg'>
+          App columns must include all of the below and be in order:
+        </div>
+      </div>
+      <div className='row lg'>
+        <div className='col1 lg'></div>
+        <div className='col11 lg'>
+          <br />
+          <ul>
+            <li>Name (required)</li>
+            <li>Number (required)</li>
+            <li>Description (required)</li>
+            <li>Help Link (required)</li>
+            <li>Product Id (required)</li>
+          </ul>
+          <br />
+        </div>
+      </div>
+      <div className='row lg'>
+        <div className='col12 lg'>
+          <CSVReader
+            onFileLoaded={(data, fileInfo) => onFileLoaded(data, fileInfo)}
+          />
+        </div>
+      </div>
     </>
   );
 };

@@ -135,7 +135,7 @@ export const LicenseKeyForm = ({
                 </li>
                 <li className='form_li'>
                   <div className='form_left'>
-                    <label>Client Id</label>
+                    <label>Client</label>
                   </div>
                   <select
                     className='form_right'
@@ -156,7 +156,7 @@ export const LicenseKeyForm = ({
                 </li>
                 <li className='form_li'>
                   <div className='form_left'>
-                    <label>Product Id</label>
+                    <label>Product</label>
                   </div>
                   <select
                     className='form_right'

@@ -98,18 +98,8 @@ module.exports = {
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { date, audit, modelId, memberId, clientId } = req.body;
-
-    const auditFeilds = {
-      date,
-      audit,
-      memberId,
-      modelId,
-      clientId,
-    };
-
     try {
-      const audit = new db.Audit(auditFeilds);
+      const audit = new db.Audit(req.body);
       await audit.save();
       return res.json(audit);
     } catch (err) {
